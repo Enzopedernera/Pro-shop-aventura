@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RESERVAS - RENTAL PRO SHOP</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="header">
+      <nav class="navbar">
+        <div class="container-fluid">
+          <div class="logo">
+            <a href="../index.html">
+              <img src="../img/logo.png" alt="Logo">
+            </a>
+          </div>
+          <h1 class="titulo">RENTAL PRO SHOP</h1>
+          <ul class="menu">
+            <li><a href="../index.html">INICIO</a></li>
+            <li><a href="./tiendas.html">TIENDA</a></li>
+            <li><a href="./reservas.html">RESERVAS</a></li>
+            <li><a href="./contacto.html">CONTACTO</a></li>
+          </ul>
+        <!-- CARRITO -->
+    <div class="carrito-nav">
+      <div class="carrito-icono" id="toggleCarrito">
+        🛒 <span id="contadorCarrito">0</span>
+      </div>
+
+      <div class="carrito-dropdown" id="carritoDropdown">
+        <h4>Tu carrito</h4>
+        <div id="listaCarrito"></div>
+
+        <p class="total">Total:$<span id="total">0</span> </p>
+
+        <button onclick="vaciarCarrito()">Vaciar</button>
+      </div>
+    </div>
+
+  </div>
+</nav>
+    </header>
+    <main>
+
+      <section class="productos">
+        <h2>Alquiler fácil</h2>
+ 
+
+  <div class="grid-productos">
+    
+
+    <!-- SKI -->
+    <div class="producto" data-nombre="Ski" data-precio="25"> 
+      
+      <img src="../img/snow/1.jpg" alt="Ski">
+      <h3>Ski</h3>
+      <p>$55.000</p>
+      <select class="medida">
+    <option value="">Altura (cm)</option>
+    <option>140</option>
+    <option>142</option>
+    <option>144</option>
+    <option>146</option>
+    <option>148</option>
+    <option>150</option>
+    <option>152</option>
+    <option>154</option>
+    <option>156</option>
+    <option>158</option>
+    <option>160</option>
+    <option>162</option>
+    <option>164</option>
+    <option>166</option>
+    <option>168</option>
+    <option>170</option>
+    
+  </select>
+
+      <button class="btn-agregar">Agregar</button>
+    </div>
+
+    <!-- SNOWBOARD -->
+    <div class="producto" data-nombre="Snowboard" data-precio="30">
+      <img src="../img/snow/2.jpg" alt="Snowboard">
+      <h3>Snowboard</h3>
+      <p>$58.000</p>
+      <select class="medida">
+  <option value="">Altura (cm)</option>
+  <option>140</option>
+  <option>142</option>
+  <option>144</option>
+  <option>146</option>
+  <option>148</option>
+  <option>150</option>
+  <option>152</option>
+  <option>154</option>
+  <option>156</option>
+  <option>158</option>
+  <option>160</option>
+  <option>162</option>
+</select>
+      <button class="btn-agregar">Agregar</button>
+    </div>
+
+    <!-- BOTAS -->
+    <div class="producto" data-nombre="Botas" data-precio="15">
+      <img src="../img/snow/3.jpg" alt="Botas">
+      <h3>Botas</h3>
+      <p>$40.000</p>
+      <select class="medida">
+  <option value="">Talle EU</option>
+  <option>36</option>
+  <option>37</option>
+  <option>38</option>
+  <option>39</option>
+  <option>40</option>
+  <option>41</option>
+  <option>42</option>
+  <option>43</option>
+  <option>44</option>
+
+</select>
+
+      <button class="btn-agregar">Agregar</button>
+    </div>
+
+    <!-- CASCO -->
+    <div class="producto" data-nombre="Casco" data-precio="10">
+      <img src="../img/snow/4.jpg" alt="Casco">
+      <h3>Casco</h3>
+      <p>$19.000</p>
+      <select class="medida">
+  <option value="">Talle</option>
+  <option>S</option>
+  <option>M</option>
+  <option>L</option>
+  <option>XL</option>
+</select>
+      <button class="btn-agregar">Agregar</button>
+    </div>
+
+    <!-- BASTONES -->
+    <div class="producto" data-nombre="Bastones" data-precio="8">
+      <img src="../img/snow/1.jpg" alt="Bastones">
+      <h3>Bastones</h3>
+      <p>$20.000</p>
+      <select class="medida">
+  <option value="">Altura</option>
+  <option>85</option>
+  <option>90</option>
+  <option>95</option>
+  <option>100</option>
+  <option>105</option>
+  <option>110</option>
+  <option>115</option>
+  <option>120</option>
+  <option>125</option>
+  <option>130</option>
+</select>
+      
+      <button class="btn-agregar">Agregar</button>
+    </div>
+
+    <!-- GUANTES -->
+    <div class="producto" data-nombre="Guantes" data-precio="5">
+      <img src="../img/snow/2.jpg" alt="Guantes">
+      <h3>Guantes</h3>
+      <p>$13.000</p>
+      <select class="medida">
+  <option value="">Talle</option>
+  <option>S</option>
+  <option>M</option>
+  <option>L</option>
+  <option>XL</option>
+</select>
+      <button class="btn-agregar">Agregar</button>
+    </div>
+
+  
+
+   <!-- ANTIPARRAS -->
+    <div class="producto" data-nombre="Antiparras" data-precio="5">
+      <img src="../img/snow/1.jpg" alt="Antiparras">
+      <h3>Antiparras</h3>
+      <p>$27.000</p>
+      <select class="medida">
+  <option value="">Talle</option>
+  <option>S</option>
+  <option>M</option>
+  <option>L</option>
+  <option>XL</option>
+</select>
+      <button class="btn-agregar">Agregar</button>
+    </div>
+  </div>
+</section>
+    <!-- RESERVAS -->
+     <section class="tabla-precios-equipos">
+      <h1>Tarifas Ski & Snow</h1>
+      <div class="tabla-wrapper">
+      <table class="tabla">
+
+      <thead>
+        <tr>
+          <th>Equipo</th>
+          <th>1 Día</th>
+          <th>3 Días</th>
+          <th>4 Días</th> 
+          <th>5 Días</th> 
+          <th>6 Días</th> 
+          <th>7 Días</th> 
+        </tr> 
+      </thead> 
+
+      <tbody> 
+        <tr> 
+          <td>Ski Adulto completo</td>
+          <td class="precio" data-producto="Ski Adulto" data-dias="1" data-precio="55000">$55.000 
+          </td>
+          <td class="precio" data-producto="Ski Adulto" data-dias="3" data-precio="148000">$148.000
+          </td>
+          <td class="precio" data-producto="Ski Adulto" data-dias="4" data-precio="188000">$188.000
+          </td>
+          <td class="precio" data-producto="Ski Adulto" data-dias="5" data-precio="225000">$225.000
+          </td>
+          <td class="precio" data-producto="Ski Adulto" data-dias="6" data-precio="256000">$256.000
+          </td>
+          <td class="precio" data-producto="Ski Adulto" data-dias="7" data-precio="284000">$284.000
+          </td>
+        </tr>
+
+        <tr>
+          <td>Ski Junior completo</td>
+          <td class="precio" data-producto="Ski Junior" data-dias="1" data-precio="43000">$43.000
+          </td>
+          <td class="precio" data-producto="Ski Junior" data-dias="3" data-precio="117000">$117.000
+          </td>
+          <td class="precio" data-producto="Ski Junior" data-dias="4" data-precio="149000">$149.000
+          </td>
+          <td class="precio" data-producto="Ski Junior" data-dias="5" data-precio="177000">$177.000
+          </td>
+          <td class="precio" data-producto="Ski Junior" data-dias="6" data-precio="202000">$202.000
+          </td>
+          <td class="precio" data-producto="Ski Junior" data-dias="7" data-precio="223000">$223.000
+          </td>
+        </tr>
+
+        <tr>
+          <td>Snow Adulto completo</td>
+          <td class="precio" data-producto="Snow Adulto" data-dias="1" data-precio="58000">$58.000
+          </td>
+          <td class="precio" data-producto="Snow Adulto" data-dias="3" data-precio="156000">$156.000
+          </td>
+          <td class="precio" data-producto="Snow Adulto" data-dias="4" data-precio="199000">$199.000
+          </td>
+          <td class="precio" data-producto="Snow Adulto" data-dias="5" data-precio="236000">$236.000
+          </td>
+          <td class="precio" data-producto="Snow Adulto" data-dias="6" data-precio="269000">$269.000
+          </td>
+          <td class="precio" data-producto="Snow Adulto" data-dias="7" data-precio="298000">$298.000
+          </td>
+        </tr>
+
+        <tr>
+          <td>Snow Junior completo</td>
+          <td class="precio" data-producto="Snow Junior" data-dias="1" data-precio="44000">$44.000
+          </td>
+          <td class="precio" data-producto="Snow Junior" data-dias="3" data-precio="124000">$124.000
+          </td>
+          <td class="precio" data-producto="Snow Junior" data-dias="4" data-precio="158000">$158.000
+          </td>
+          <td class="precio" data-producto="Snow Junior" data-dias="5" data-precio="188000">$188.000
+          </td>
+          <td class="precio" data-producto="Snow Junior" data-dias="6" data-precio="216000">$216.000
+          </td>
+          <td class="precio" data-producto="Snow Junior" data-dias="7" data-precio="239000">$239.000
+          </td>
+        </tr>
+        <tr class="fila-descuento">
+          <td>Tabla Ski /Tabla Snow / Botas</td>
+              <td colspan="6" class="precio-descuento"
+              data-producto="Equipo suelto"
+              data-descuento="0.7"> 70% del equipo completo</td>
+        </tr>
+
+        <tr>
+          <td>Casco</td>
+          <td class="precio" data-producto="Casco" data-dias="1" data-precio="19000"> $19.000
+          </td>
+          <td class="precio" data-producto="Casco" data-dias="3" data-precio="50000"> $50.000
+          </td>
+          <td class="precio" data-producto="Casco" data-dias="4" data-precio="65000"> $65.000
+          </td>
+          <td class="precio" data-producto="Casco" data-dias="5" data-precio="77000"> $77.000
+          </td>
+          <td class="precio" data-producto="Casco" data-dias="6" data-precio="88000"> $88.000
+          </td>
+          <td class="precio" data-producto="Casco" data-dias="7" data-precio="97000"> $97.000
+          </td>
+        </tr>
+
+        <tr>
+          <td>Antiparra</td>
+          <td class="precio" data-producto="Antiparra" data-dias="1" data-precio="19000"> $19.000
+          </td>
+          <td class="precio" data-producto="Antiparra" data-dias="3" data-precio="40000">$40.000  
+          </td>
+          <td class="precio" data-producto="Antiparra" data-dias="4" data-precio="45000">$45.000
+          </td>
+          <td class="precio" data-producto="Antiparra" data-dias="5" data-precio="59000">$59.000
+          </td>
+          <td class="precio" data-producto="Antiparra" data-dias="6" data-precio="68000">$68.000
+          </td>
+          <td class="precio" data-producto="Antiparra" data-dias="7" data-precio="75000">$75.000
+          </td>
+        </tr>
+
+        <tr>
+          <td>Guantes</td>
+          <td class="precio" data-producto="Guantes" data-dias="1" data-precio="13000"> $13.000
+          </td>
+          <td class="precio" data-producto="Guantes" data-dias="3" data-precio="35000"> $35.000
+          </td>
+          <td class="precio" data-producto="Guantes" data-dias="4" data-precio="45000"> $45.000
+          </td>
+          <td class="precio" data-producto="Guantes" data-dias="5" data-precio="53000"> $53.000
+          </td>
+          <td class="precio" data-producto="Guantes" data-dias="6" data-precio="60000"> $60.000
+          </td>
+          <td class="precio" data-producto="Guantes" data-dias="7" data-precio="67000"> $67.000
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+</section>
+
+<section class="tabla-precios-indumentaria">
+  <h1>Tarifas de Indumentaria</h1>
+
+  <div class="tabla-wrapper">
+    <table class="tabla">
+
+      <thead>
+        <tr>
+          <th>Indumentaria</th>
+          <th>1 Día</th>
+          <th>3 Días</th>
+          <th>4 Días</th>
+          <th>5 Días</th>
+          <th>6 Días</th>
+          <th>7 Días</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <!-- CAMPERA -->
+        <tr>
+          <td>Campera</td>
+          <td class="precio" data-producto="Campera" data-dias="1" data-precio="23000">$23.000</td>
+          <td class="precio" data-producto="Campera" data-dias="3" data-precio="61000">$61.000</td>
+          <td class="precio" data-producto="Campera" data-dias="4" data-precio="54000">$77.760</td>
+          <td class="precio" data-producto="Campera" data-dias="5" data-precio="59000">$92.000</td>
+          <td class="precio" data-producto="Campera" data-dias="6" data-precio="68000">$105.000</td>
+          <td class="precio" data-producto="Campera" data-dias="7" data-precio="75000">$116.000</td>
+        </tr>
+
+        <!-- PANTALÓN -->
+        <tr>
+          <td>Pantalón</td>
+          <td class="precio" data-producto="Pantalón" data-dias="1" data-precio="20000">$20.000</td>
+          <td class="precio" data-producto="Pantalón" data-dias="3" data-precio="53000">$53.000</td>
+          <td class="precio" data-producto="Pantalón" data-dias="4" data-precio="78000">$78.000</td>
+          <td class="precio" data-producto="Pantalón" data-dias="5" data-precio="92000">$92.000</td>
+          <td class="precio" data-producto="Pantalón" data-dias="6" data-precio="105000">$105.000</td>
+          <td class="precio" data-producto="Pantalón" data-dias="7" data-precio="116000">$116.000</td>
+        </tr>
+
+        <!-- COMBO -->
+        <tr>
+          <td>Campera + Pantalón</td>
+          <td class="precio" data-producto="Campera + Pantalón" data-dias="1" data-precio="39000">$39.000</td>
+          <td class="precio" data-producto="Campera + Pantalón" data-dias="3" data-precio="103000">$103.000</td>
+          <td class="precio" data-producto="Campera + Pantalón" data-dias="4" data-precio="131000">$131.000</td>
+          <td class="precio" data-producto="Campera + Pantalón" data-dias="5" data-precio="156000">$156.000</td>
+          <td class="precio" data-producto="Campera + Pantalón" data-dias="6" data-precio="177000">$177.000</td>
+          <td class="precio" data-producto="Campera + Pantalón" data-dias="7" data-precio="196000">$196.000</td>
+        </tr>
+
+        <!-- NIÑO -->
+        <tr>
+          <td>Campera Niño</td> 
+          <td class="precio" data-producto="Campera Niño" data-dias="1" data-precio="17000">$17.000</td>
+          <td class="precio" data-producto="Campera Niño" data-dias="3" data-precio="45000">$45.000</td>
+          <td class="precio" data-producto="Campera Niño" data-dias="4" data-precio="58000">$58.000</td>
+          <td class="precio" data-producto="Campera Niño" data-dias="5" data-precio="69000">$69.000</td>
+          <td class="precio" data-producto="Campera Niño" data-dias="6" data-precio="79000">$79.000</td>
+          <td class="precio" data-producto="Campera Niño" data-dias="7" data-precio="87000">$87.000</td>
+        </tr>
+
+        <tr>
+          <td>Pantalón Niño/Enterito</td>
+          <td class="precio" data-producto="Pantalón Niño" data-dias="1" data-precio="14000">$14.000</td>
+          <td class="precio" data-producto="Pantalón Niño" data-dias="3" data-precio="38000">$38.000</td>
+          <td class="precio" data-producto="Pantalón Niño" data-dias="4" data-precio="48000">$48.000</td>
+          <td class="precio" data-producto="Pantalón Niño" data-dias="5" data-precio="58000">$58.000</td>
+          <td class="precio" data-producto="Pantalón Niño" data-dias="6" data-precio="66000">$66.000</td>
+          <td class="precio" data-producto="Pantalón Niño" data-dias="7" data-precio="74000">$74.000</td>
+        </tr>
+ 
+          <td>Campera + Pantalón Niño</td>
+          <td class="precio" data-producto="Campera + Pantalón Niño" data-dias="1" data-precio="29000">$29.000</td>
+          <td class="precio" data-producto="Campera + Pantalón Niño" data-dias="3" data-precio="76000">$76.000</td>
+          <td class="precio" data-producto="Campera + Pantalón Niño" data-dias="4" data-precio="97000">$97.000</td>
+          <td class="precio" data-producto="Campera + Pantalón Niño" data-dias="5" data-precio="115000">$115.000</td>
+          <td class="precio" data-producto="Campera + Pantalón Niño" data-dias="6" data-precio="131000">$131.000</td>
+          <td class="precio" data-producto="Campera + Pantalón Niño" data-dias="7" data-precio="145000">$145.000</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+  </div>
+</section>
+
+
+    <!-- RESERVAS -->
+      <section id="reservas" class="reservas">
+  <h2>Hacé tu reserva</h2>
+
+  <form id="formReserva" class="form-reserva">
+
+    <div class="grid">
+
+      <!-- DATOS PERSONALES -->
+      <div class="campo">
+        <label>Nombre completo</label>
+        <input type="text" name="nombre" required>
+      </div>
+
+      <div class="campo">
+        <label>Email</label>
+        <input type="email" name="email" required>
+      </div>
+
+      <div class="campo">
+        <label>Teléfono</label>
+        <input type="text" name="telefono">
+      </div>
+
+      <div class="campo">
+        <label>DNI</label>
+        <input type="text" name="dni">
+      </div>
+
+      <!-- FECHAS -->
+      <div class="campo">
+        <label>Fecha inicio</label>
+        <input type="date" name="fecha_inicio" required>
+      </div>
+
+      <div class="campo">
+        <label>Fecha fin</label>
+        <input type="date" name="fecha_fin" required>
+      </div>
+    </div>
+    <!-- BOTÓN -->
+    <button type="submit" class="btn">Enviar reserva</button>
+
+  </form>
+</section>
+    </main>
+    <!-- FOOTER -->
+    <footer class="footer">
+
+  <div class="footer-top"></div>
+
+  <div class="container">
+
+    <!-- BLOQUES PRINCIPALES -->
+    <div class="row">
+
+      <!-- INFO -->
+      <div class="col-lg-3 col-md-6 footer-one">
+        <h3>Bienvenidos!</h3>
+        <p>
+          Somos el local con mayor variedad de Villa La Angostura y contamos con experiencia y trayectoria en la localidad.
+          Artículos de pesca, camping, náutica, ski, snowboard y mucho más.
+        </p>
+      </div>
+
+      <!-- ACCESOS -->
+      <div class="col-lg-2 col-md-6 footer-two">
+        <h3>Accesos directos</h3>
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="./tiendas.html">Tiendas</a></li>
+          <li><a href="./reservas.html">Reservas</a></li>
+          <li><a href="./contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+
+      <!-- LINKS -->
+      <div class="col-lg-3 col-md-6 footer-three">
+        <h3>Sitios de interés</h3>
+        <ul>
+          <li>
+            <a href="https://www.cerrobayo.com.ar/montana/mapa/" target="_blank" rel="noopener">
+              Mapa de pistas - Cerro Bayo
+            </a>
+          </li>
+          <li>
+            <a href="http://www.accuweather.com/es/ar/villa-la-angostura/1227987/weather-forecast/1227987" target="_blank" rel="noopener">
+              Clima en Cerro Bayo
+            </a>
+          </li>
+          <li>
+            <a href="https://www.villalaangosturaturismo.gob.ar/" target="_blank" rel="noopener">
+              Conocé Villa La Angostura
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- CONTACTO -->
+      <div class="col-lg-4 col-md-6 footer-four">
+        <h3>Contactanos</h3>
+        <ul class="contact-us">
+
+          <li>
+            <p>
+              <strong>¿Dónde estamos?</strong><br>
+              Av. Arrayanes 173<br>
+              Villa La Angostura<br>
+              Neuquén, Argentina
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <strong>Whatsapp:</strong>
+              <a href="https://wa.me/message/JLSML52X57QYD1" rel="noopener" target="_blank">
+                +54 9 2944 646730
+              </a>
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <strong>Email:</strong>
+              <a href="mailto:consultas@proshopaventura.com">
+                consultas@proshopaventura.com
+              </a>
+            </p>
+            </li>
+
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- FOOTER BOTTOM -->
+    <div class="row align-items-center text-center text-md-start mt-4">
+
+      <div class="col-md-4">
+        <p class="footer-copy">© 2026 RENTAL PRO SHOP</p>
+      </div>
+
+      <div class="col-md-4 text-center">
+        <p class="footer-credit">Rental Ski and Snow</p>
+      </div>
+
+      <div class="col-md-4 text-md-end">
+        <ul class="redes">
+
+          <li>
+            <img src="../img/logosredes/facebook.png" alt="Facebook" width="15"/>
+            <a href="https://www.facebook.com" rel="noopener" target="_blank">Facebook</a>
+          </li>
+
+          <li>
+            <img src="../img/logosredes/instagram.png" alt="Instagram" width="18"/>
+            <a href="https://www.instagram.com/proshop.aventura/" rel="noopener" target="_blank">Instagram</a>
+          </li>
+
+          <li>
+            <img src="../img/logosredes/twitter.png" alt="Twitter" width="15"/>
+            <a href="https://www.twitter.com" rel="noopener" target="_blank">Twitter</a>
+          </li>
+
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+
+</footer>
+<script>
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+function guardarCarrito() {
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+  renderCarrito();
+}
+
+document.querySelectorAll(".precio").forEach(celda => {
+
+  celda.addEventListener("click", () => {
+    const producto = celda.dataset.producto;
+    const dias = celda.dataset.dias;
+    const precio = parseInt(celda.dataset.precio);
+
+    const item = {
+      nombre: producto,
+      dias: dias,
+      precio: precio,
+      cantidad: 1
+    };
+
+    carrito.push(item);
+    guardarCarrito();
+
+    alert("Agregado al carrito");
+  });
+
+});
+</script>
+<script>
+document.getElementById("formReserva").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const formData = new FormData(this);
+
+  const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+  const data = {
+    nombre: formData.get("nombre"),
+    email: formData.get("email"),
+    telefono: formData.get("telefono"),
+    dni: formData.get("dni"),
+    fecha_inicio: formData.get("fecha_inicio"),
+    fecha_fin: formData.get("fecha_fin"),
+    carrito: carrito
+  };
+
+  const res = await fetch("http://localhost:3001/reserva", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  });
+
+  if (res.ok) {
+    alert("Reserva enviada");
+    localStorage.removeItem("carrito");
+    location.reload();
+  } else {
+    alert("Error");
+  }
+});
+</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1021 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  padding-top: 100px; /* para que el contenido no quede oculto debajo del header fijo */
+
+  
+}
+
+/* HEADER */
+.header {
+  position: fixed;
+  top: 0;
+  left: 10;
+  width: 100%;
+  z-index: 1000;
+  background: #1b35c4; /* importante */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  opacity: 0.99;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  position: relative;
+  top: 0;
+  z-index: 1000;
+}
+/* CONTENEDOR */
+.container-fluid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* HAMBURGUESA */
+.hamburguesa {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburguesa span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  transition: 0.3s;
+}
+/* logo izquierda */
+.logo a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 1rem;
+}
+/* titulo centro */
+.titulo {
+  color: rgb(2, 2, 2);
+  font-size: 18px;
+  font-weight: normal;
+}
+
+/* menu derecha */
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  gap: 30px;
+  padding: 0;
+}
+
+.menu a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-size: 14px;
+  transition: opacity 0.3s;
+  margin: 1rem;
+  padding: 0.5rem;
+}
+.menu li a:hover {
+  background-color: #000000;
+  color: white;
+  margin: 1rem;
+  opacity: 0.8;
+  border-radius: 0.5rem;
+}
+
+/* CARRITO */
+.carrito-nav {
+  position: relative;
+  margin-left: 20px;
+  padding: 15px 20px;
+}
+
+.carrito-icono {
+  cursor: pointer;
+  font-size: 20px;
+  position: relative;
+  background-color: #000000;
+  color: white;
+  margin: 1rem;
+  opacity: 0.8;
+  border-radius: 0.5rem;
+}
+
+#contadorCarrito {        
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background:  #0077ff;
+  color: #fff;
+  font-size: 12px;
+  padding: 3px 7px;
+  border-radius: 50%;
+  
+}
+
+/* Dropdown */
+.carrito-dropdown {
+  position: absolute;
+  right: 10px;
+  top: 40px;
+  width: 280px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  display: none;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  z-index: 999;
+}
+
+.carrito-dropdown h4 {
+  margin-bottom: 10px;
+}
+
+.carrito-dropdown div {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.carrito-dropdown .total {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.carrito-dropdown button {
+  width: 100%;
+  padding: 8px;
+  background: black;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+/* HERO MAIN INDEX*/
+.hero {
+  padding: 0px;
+  text-align: center;
+  background: #ffffff;
+  
+}
+.hero img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: auto;
+}
+.hero h1 {
+  font-size: 36px;
+  margin: 20px 0 10px;
+  
+}
+.hero p {
+  font-size: 18px;
+  margin: 0 0 20px;
+}
+.hero .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-size: 16px;
+}
+.hero .btn:hover {
+  background-color: #0051cc;
+  color: white;
+  opacity: 0.7;
+  border-radius: 0.5rem;
+}
+
+.grid-servicios {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  padding: 20px;
+  
+}
+
+.bloque {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.bloque:hover img {
+  transform: scale(1.1);
+  transition: transform 0.5s;
+}
+.bloque img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+}
+.bloque .contenido {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+.bloque .contenido a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+.bloque .contenido:hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 0.9s;
+}
+.form-reserva .grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+}
+
+.campo input,
+.campo select {
+  padding: 10px;
+}
+.grupo {
+  margin-top: 25px;
+}
+
+.grupo h3 {
+  margin-bottom: 10px;
+}
+
+.fila-cantidad {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.fila-cantidad input {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: #f9f9f9;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+.fila-cantidad input:focus {
+  border-color: #0077ff;
+  background: #fff;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 119, 255, 0.2);
+}
+/* overlay */
+.contenido {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+/* PACK DE RESERVAS */
+/* CONTENEDOR */
+.tabla-precios-equipos {
+  padding: 40px 20px;
+}
+.tabla-precios-equipos h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 600;
+}
+.precio {
+  cursor: pointer;
+  transition: 0.2s;
+}
+.precio:hover {
+  background: #333fff;
+  color: #fff;
+  transform: scale(1.05);
+}
+.tabla-precios-indumentaria {
+  padding: 40px 20px;
+}
+.tabla-precios-indumentaria h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 600;
+}
+/* SCROLL EN MOBILE */
+.tabla-wrapper {
+  overflow-x: auto;
+}
+
+/* TABLA */
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+/* HEAD */
+.tabla thead {
+  background: #000;
+  color: #fff;
+}
+
+/* CELDAS */
+.tabla th,
+.tabla td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* PRIMER COLUMNA */
+.tabla td:first-child {
+  font-weight: bold;
+  text-align: left;
+}
+
+/* HOVER */
+
+/* DESCUENTO */
+.fila-descuento .precio-descuento {
+  text-align: center;
+  background: #f5f5f5;
+  font-weight: 500;
+ 
+  background:#0077ff;
+}
+
+/* CONTENEDOR */
+.reservas {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* TITULO */
+.reservas h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+/* GRID */
+.form-reserva .grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* CAMPOS */
+.campo {
+  display: flex;
+  flex-direction: column;
+}
+
+.campo label {
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+}
+
+/* INPUTS */
+.campo input,
+.campo select {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: #f9f9f9;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+/* HOVER / FOCUS */
+.campo input:focus,
+.campo select:focus {
+  border-color: #0077ff;
+  background: #fff;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 119, 255, 0.2);
+}
+
+/* BOTÓN */
+.btn {
+  margin-top: 25px;
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #0077ff, #0051cc);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* HOVER BOTÓN */
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+input,
+select {
+  padding: 10px;
+  width: 100%;
+}
+main .bloque-reservas {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+} 
+/* TIENDA */
+
+.hero-tienda {
+  position: relative;
+  height: 400px; /* podés subirlo a 500 o 600 */
+  
+  background-image: url("../img/snow/fotosnow1.jpg"); /* cambiá la ruta */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.tienda-portada-container  {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+.hero-tienda .tienda-portada-texto {
+  position: relative;
+  color: white;
+  z-index: 2;
+}
+.hero-tienda .tienda-portada-texto p {
+    font-size: 20px;
+    margin-top: 10px;
+    font-weight: 400;
+  }
+.hero-tienda .tienda-portada-texto h1 {
+  font-size: 80px;
+  letter-spacing: 2px;
+  margin-top: 10px;
+  font-weight: 300;
+}
+.menu-tienda {
+  display: flex;
+  gap: 60px;
+  padding: 50px;
+  justify-content: center;
+  background: #f8f8f8;
+  flex-wrap: wrap;
+}
+/* lista de productos */
+/* =========================
+   CONTENEDOR GENERAL
+========================= */
+.lista-productos-tienda {
+  padding: 40px;
+  font-family: Arial, sans-serif;
+}
+
+.lista-productos-tienda h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.filtros {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.filtros button {
+  padding: 8px 15px;
+  border: none;
+  background: #eee;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.2s;
+}
+
+.filtros button:hover {
+  background: #333fff;
+  color: white;
+}
+
+/* =========================
+   GRID DE PRODUCTOS
+========================= */
+.productos-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+/* =========================
+   CARD PRODUCTO
+========================= */
+.producto {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 15px;
+  text-align: center;
+  transition: all 0.3s ease;
+
+  /* efecto pro */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.producto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+.producto-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.producto-link:hover {
+  opacity: 0.9;
+}
+
+/* =========================
+   IMAGEN
+========================= */
+.producto img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* =========================
+   TEXTO
+========================= */
+.producto h3 {
+  margin: 15px 0 10px;
+  font-size: 20px;
+}
+
+.producto p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+/* =========================
+   BOTÓN
+========================= */
+.producto button {
+  background: black;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.producto button:hover {
+  background: #333;
+}
+
+
+
+/* NIVEL 1 */
+.nivel {
+  margin-bottom: 25px;
+}
+
+.nivel h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* SUBNIVEL SIMPLE */
+.subnivel {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.subnivel a {
+  padding: 6px 14px;
+  background: #eaeaea;
+  border-radius: 15px;
+  text-decoration: none;
+  color: #333;
+  font-size: 13px;
+  transition: 0.3s;
+}
+
+.subnivel a:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* SUBNIVEL DOBLE (Ski / Snow) */
+.subnivel-col {
+  display: flex;
+  gap: 40px;
+}
+
+.subnivel-col h4 {
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.subnivel-col a {
+  display: block;
+  margin-bottom: 6px;
+  padding: 5px 12px;
+  background: #eaeaea;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #333;
+  font-size: 12px;
+  transition: 0.3s;
+}
+
+.subnivel-col a:hover {
+  background: #000;
+  color: #fff;
+}
+
+
+
+/* RESERVAS */
+
+
+/* CONTENEDOR */
+.productos {
+  padding: 60px 20px;
+  background: #f8f9fb;
+  text-align: center;
+}
+
+.productos h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+/* GRID */
+.grid-productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  background-image: url(../img/cerro-bayo.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 2rem 2rem;
+  border-radius: 14px;
+  
+
+}
+
+/* TARJETA */
+.producto {
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+/* HOVER */
+.producto:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+/* IMAGEN */
+.producto img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* CONTENIDO */
+.producto h3 {
+  font-size: 1.2rem;
+  margin: 15px 0 5px;
+}
+
+.producto p {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 15px;
+}
+.producto select {
+  display: block;
+  width: calc(100% - 30px);
+  margin: 10px 15px;
+  padding: 10px 12px;
+
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: #fff;
+
+  font-size: 14px;
+  color: #333;
+
+  cursor: pointer;
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+/* HOVER */
+.producto select:hover {
+  border-color: #999;
+}
+
+/* FOCUS (cuando el usuario interactúa) */
+.producto select:focus {
+  border-color: #000;
+  box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
+}
+
+/* OPCIONES */
+.producto select option {
+  padding: 10px;
+}
+
+/* BOTÓN */
+.producto button {
+  margin: 0 15px 15px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #fff;
+  color: #333;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.producto button:hover {
+  background: #0077ff;
+  color: #fff;
+}
+
+/* CONTACTO */
+#contacto {
+  padding: 40px 20px;
+  background: #f0f0f0;
+}
+/* CONTACTO PAGINA */
+.contacto {
+  padding: 50px 20px;
+  /* background-image: url(../img/cerro-bayo.jpg);
+  background-size: cover;
+  background-position: center; */
+}
+.contacto h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.contacto-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+.contacto-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contacto-info li {
+  margin-bottom: 10px;
+}
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  min-height: 100px;
+}
+/* formulario contacto */
+.form input,
+.form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.contacto-form {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+.contacto-form .btn {
+  text-align: center;
+  margin-bottom: 2px;
+  font-size: 20px;
+  font-weight: 600;
+}
+.contacto-form .btn:hover {
+  background-color: #0051cc;
+  color: white;
+  opacity: 0.8;
+  border-radius: 0.5rem;
+}
+
+/*footer*/
+
+.footer {
+  padding: 40px 0;
+  margin: 0px;
+  background: black;
+  color: white;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+.footer li a {
+  font-size: 16px;
+  margin-bottom: 15px;
+  text-decoration: none;
+  color: white;
+  list-style: none;
+}
+.footer li a:hover {
+  color: #0077ff;
+  opacity: 0.7;
+}
+
+/* textos*/
+
+.footer-copy {
+  opacity: 0.7;
+}
+
+.footer-credit {
+  opacity: 0.5;
+}
+
+/* redes */
+.redes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 20px;
+}
+
+.redes li {
+  align-items: center;
+  list-style: none;
+  color: grey;
+}
+
+.redes a {
+  text-decoration: none;
+  color: inherit;
+}
+@keyframes shake {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.shake {
+  animation: shake 0.3s;
+}
+/* responsive */
+@media (max-width: 900px) {
+  .grid-servicios {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .contacto-container {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 768px) {
+  .tabla th,
+  .tabla td {
+    font-size: 12px;
+    padding: 8px;
+  }
+}
+@media (max-width: 600px) {
+  .producto img {
+    height: 160px;
+  }
+}
+@media (max-width: 600px) {
+  .form-reserva .grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 500px) {
+  .grid-servicios {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .producto img {
+    height: 160px;
+  }
+
+  .producto h3 {
+    font-size: 18px;
+  }
+}
+/* =========================
+   MOBILE
+========================= */
+@media (max-width: 768px) {
+
+  .titulo {
+    display: none;
+  }
+
+  .hamburguesa {
+    display: flex;
+  }
+
+  .menu {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: #1b35c4;
+
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+
+    display: none;
+  }
+
+  .menu.active {
+    display: flex;
+  }
+
+  .menu li {
+    margin: 10px 0;
+  }
+}
