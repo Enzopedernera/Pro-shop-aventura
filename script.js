@@ -195,3 +195,22 @@ document.addEventListener("DOMContentLoaded", () => {
   renderCarrito();
   actualizarContador();
 });
+document.querySelectorAll(".btn-agregar").forEach(boton => {
+  boton.addEventListener("click", () => {
+
+    const producto = boton.closest(".producto");
+
+    const nombre = producto.dataset.nombre;
+    const precio = parseFloat(producto.dataset.precio);
+    const medida = producto.querySelector(".medida")?.value || "";
+
+    if (producto.querySelector(".medida") && !medida) {
+      alert("Seleccioná una medida");
+      return;
+    }
+
+    agregarAlCarrito(nombre, precio, medida);
+  });
+});
+totalSpan.textContent = "$" + formatearPrecio(total);
+
