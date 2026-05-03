@@ -1,0 +1,12 @@
+.hero {
+  text-align: center;
+
+  img {
+    width: 100%;
+  }
+}
+
+.grid-servicios {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}

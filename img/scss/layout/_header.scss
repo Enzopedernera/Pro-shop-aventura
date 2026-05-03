@@ -1,0 +1,56 @@
+@use "../base/variables" as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: $azul;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+  }
+
+  .container-fluid {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .logo a {
+    color: $blanco;
+    font-weight: bold;
+  }
+
+  .titulo {
+    font-size: 18px;
+  }
+
+  .menu {
+    display: flex;
+    gap: 30px;
+
+    a {
+      color: $negro;
+
+      &:hover {
+        background: $negro;
+        color: $blanco;
+      }
+    }
+
+    &.active {
+      display: flex;
+    }
+  }
+
+  .hamburguesa {
+    display: none;
+
+    span {
+      background: $blanco;
+    }
+  }
+}

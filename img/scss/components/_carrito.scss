@@ -1,0 +1,29 @@
+@use "../base/variables" as *;
+
+.carrito-nav {
+  position: relative;
+}
+
+.carrito-icono {
+  background: $negro;
+  color: $blanco;
+  border-radius: .5rem;
+}
+
+#contadorCarrito {
+  position: absolute;
+  background: $azul-sec;
+  border-radius: 50%;
+}
+
+.carrito-dropdown {
+  position: absolute;
+  background: $blanco;
+  border-radius: $radius;
+  display: none;
+  box-shadow: $sombra;
+
+  .total {
+    font-weight: bold;
+  }
+}

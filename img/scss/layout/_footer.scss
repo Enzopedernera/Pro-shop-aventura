@@ -1,0 +1,15 @@
+@use "../base/variables" as *;
+
+.footer {
+  background: $negro;
+  color: $blanco;
+  padding: 40px 0;
+
+  a {
+    color: $blanco;
+
+    &:hover {
+      color: $azul-sec;
+    }
+  }
+}

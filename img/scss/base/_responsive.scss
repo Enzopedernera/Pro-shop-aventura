@@ -1,0 +1,99 @@
+// =========================
+// 📱 900px
+// =========================
+@media (max-width: 900px) {
+  .grid-servicios {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+// =========================
+// 📱 768px (TABLET / MOBILE)
+// =========================
+@media (max-width: 768px) {
+
+  // layout general
+  .titulo {
+    display: none;
+  }
+
+  .hamburguesa {
+    display: flex;
+  }
+
+  .menu {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: #1b35c4;
+
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+
+    display: none;
+
+    &.active {
+      display: flex;
+    }
+
+    li {
+      margin: 10px 0;
+    }
+  }
+
+  // contacto
+  .contacto-container {
+    grid-template-columns: 1fr;
+  }
+
+  // tablas
+  .tabla {
+    th,
+    td {
+      font-size: 12px;
+      padding: 8px;
+    }
+  }
+}
+
+// =========================
+// 📱 600px
+// =========================
+@media (max-width: 600px) {
+
+  // productos
+  .producto {
+    img {
+      height: 160px;
+    }
+  }
+
+  // formulario reservas
+  .form-reserva {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+// =========================
+// 📱 500px (MOBILE CHICO)
+// =========================
+@media (max-width: 500px) {
+
+  .grid-servicios {
+    grid-template-columns: 1fr;
+  }
+
+  .producto {
+    img {
+      height: 160px;
+    }
+
+    h3 {
+      font-size: 18px;
+    }
+  }
+}

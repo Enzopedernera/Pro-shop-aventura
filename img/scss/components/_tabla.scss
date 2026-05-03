@@ -1,0 +1,16 @@
+@use "../base/variables" as *;
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+
+  thead {
+    background: $negro;
+    color: $blanco;
+  }
+
+  th, td {
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+}

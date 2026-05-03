@@ -1,0 +1,30 @@
+@use "../base/variables" as *;
+
+.producto {
+  background: $blanco;
+  border-radius: $radius;
+  box-shadow: $sombra;
+  text-align: center;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  img {
+    width: 100%;
+    height: 200px;
+  }
+
+  button {
+    background: $negro;
+    color: $blanco;
+
+    &:hover {
+      background: #333;
+    }
+  }
+
+  select {
+    width: 100%;
+  }
+}

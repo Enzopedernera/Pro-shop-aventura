@@ -1,0 +1,15 @@
+@use "../base/variables" as *;
+
+.campo {
+  display: flex;
+  flex-direction: column;
+
+  input, select {
+    padding: 10px;
+  }
+}
+
+.btn {
+  background: linear-gradient(135deg, $azul-sec, #0051cc);
+  color: $blanco;
+}
