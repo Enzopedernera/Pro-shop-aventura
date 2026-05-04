@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="../css/styles.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+      rel="stylesheet"/>
+ 
+
   </head>
   <body>
     <!-- HEADER -->
@@ -58,7 +59,7 @@
     <!-- SKI -->
     <div class="producto" data-nombre="Ski" data-precio="55000"> 
       
-      <img src="../img/snow/1.jpg" alt="Ski">
+      <img src="../img/snow/1.jpg" alt="Ski para alquiler">
       <h3>Ski</h3>
       <p>$55.000</p>
       <select class="medida">
@@ -81,13 +82,12 @@
     <option>170</option>
     
   </select>
-
-      <button class="btn-agregar">Agregar</button>
+      <button onclick="agregarAlcarrito('Ski', 55000)" class="btn-agregar">Agregar al carrito</button>
     </div>
 
     <!-- SNOWBOARD -->
     <div class="producto" data-nombre="Snowboard" data-precio="58000">
-      <img src="../img/snow/2.jpg" alt="Snowboard">
+      <img src="../img/snow/2.jpg" alt="Snowboard para alquiler">
       <h3>Snowboard</h3>
       <p>$58.000</p>
       <select class="medida">
@@ -105,12 +105,12 @@
   <option>160</option>
   <option>162</option>
 </select>
-      <button class="btn-agregar">Agregar</button>
+      <button onclick="agregarAlcarrito('Snowboard', 58000 )" class="btn-agregar">Agregar al carrito</button>
     </div>
 
     <!-- BOTAS -->
     <div class="producto" data-nombre="Botas" data-precio="40000">
-      <img src="../img/snow/3.jpg" alt="Botas">
+      <img src="../img/snow/3.jpg" alt="Botas para alquiler">
       <h3>Botas</h3>
       <p>$40.000</p>
       <select class="medida">
@@ -127,12 +127,12 @@
 
 </select>
 
-      <button class="btn-agregar">Agregar</button>
+      <button onclick="agregarAlcarrito('Botas', 40000)" class="btn-agregar">Agregar al carrito</button>
     </div>
 
     <!-- CASCO -->
     <div class="producto" data-nombre="Casco" data-precio="19000">
-      <img src="../img/snow/4.jpg" alt="Casco">
+      <img src="../img/snow/4.jpg" alt="Casco para alquiler">
       <h3>Casco</h3>
       <p>$19.000</p>
       <select class="medida">
@@ -142,12 +142,12 @@
   <option>L</option>
   <option>XL</option>
 </select>
-      <button class="btn-agregar">Agregar</button>
+      <button onclick="agregarAlcarrito('Casco', 19000)" class="btn-agregar">Agregar al carrito</button>
     </div>
 
     <!-- BASTONES -->
     <div class="producto" data-nombre="Bastones" data-precio="20000">
-      <img src="../img/snow/1.jpg" alt="Bastones">
+      <img src="../img/snow/1.jpg" alt="Bastones para alquiler">
       <h3>Bastones</h3>
       <p>$20.000</p>
       <select class="medida">
@@ -164,12 +164,12 @@
   <option>130</option>
 </select>
       
-      <button class="btn-agregar">Agregar</button>
+      <button onclick="agregarAlcarrito('Bastones', 20000)" class="btn-agregar">Agregar al carrito</button>
     </div>
 
     <!-- GUANTES -->
     <div class="producto" data-nombre="Guantes" data-precio="13000">
-      <img src="../img/snow/2.jpg" alt="Guantes">
+      <img src="../img/snow/2.jpg" alt="Guantes para alquiler">
       <h3>Guantes</h3>
       <p>$13.000</p>
       <select class="medida">
@@ -179,14 +179,14 @@
   <option>L</option>
   <option>XL</option>
 </select>
-      <button class="btn-agregar">Agregar</button>
+      <button onclick="agregarAlcarrito('Guantes', 13000)" class="btn-agregar">Agregar al carrito</button>
     </div>
 
   
 
    <!-- ANTIPARRAS -->
     <div class="producto" data-nombre="Antiparras" data-precio="27000">
-      <img src="../img/snow/1.jpg" alt="Antiparras">
+      <img src="../img/snow/1.jpg" alt="Antiparras para alquiler">
       <h3>Antiparras</h3>
       <p>$27.000</p>
       <select class="medida">
@@ -196,7 +196,7 @@
   <option>L</option>
   <option>XL</option>
 </select>
-      <button class="btn-agregar">Agregar</button>
+      <button onclick="agregarAlcarrito('Antiparras', 27000)" class="btn-agregar">Agregar al carrito</button>
     </div>
   </div>
 </section>
@@ -366,7 +366,7 @@
           <td>Campera</td>
           <td class="precio" data-producto="Campera" data-dias="1" data-precio="23000">$23.000</td>
           <td class="precio" data-producto="Campera" data-dias="3" data-precio="61000">$61.000</td>
-          <td class="precio" data-producto="Campera" data-dias="4" data-precio="54000">$77.760</td>
+          <td class="precio" data-producto="Campera" data-dias="4" data-precio="77760">$77.760</td>
           <td class="precio" data-producto="Campera" data-dias="5" data-precio="59000">$92.000</td>
           <td class="precio" data-producto="Campera" data-dias="6" data-precio="68000">$105.000</td>
           <td class="precio" data-producto="Campera" data-dias="7" data-precio="75000">$116.000</td>
@@ -589,12 +589,7 @@
             <img src="../img/logosredes/instagram.png" alt="Instagram" width="18"/>
             <a href="https://www.instagram.com/proshop.aventura/" rel="noopener" target="_blank">Instagram</a>
           </li>
-
-          <li>
-            <img src="../img/logosredes/twitter.png" alt="Twitter" width="15"/>
-            <a href="https://www.twitter.com" rel="noopener" target="_blank">Twitter</a>
-          </li>
-
+          
         </ul>
       </div>
 
@@ -603,72 +598,119 @@
   </div>
 
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../script.js" defer></script>
 <script>
-let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-function guardarCarrito() {
-  localStorage.setItem("carrito", JSON.stringify(carrito));
-  renderCarrito();
-}
+//  // ── CARRITO ──────────────────────────────────────────────────────────────
+//       let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-document.querySelectorAll(".precio").forEach(celda => {
+//       function guardarCarrito() {
+//         localStorage.setItem("carrito", JSON.stringify(carrito));
+//         renderCarrito();
+//       }
 
-  celda.addEventListener("click", () => {
-    const producto = celda.dataset.producto;
-    const dias = celda.dataset.dias;
-    const precio = parseInt(celda.dataset.precio);
+//       function renderCarrito() {
+//         const lista = document.getElementById("listaCarrito");
+//         const total = document.getElementById("total");
+//         const contador = document.getElementById("contadorCarrito");
+//         if (!lista) return;
 
-    const item = {
-      nombre: producto,
-      dias: dias,
-      precio: precio,
-      cantidad: 1
-    };
-
-    carrito.push(item);
-    guardarCarrito();
-
-    alert("Agregado al carrito");
-  });
-
-});
-</script>
-<script>
-document.getElementById("formReserva").addEventListener("submit", async function(e) {
-  e.preventDefault();
-
-  const formData = new FormData(this);
-
-  const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
-  const data = {
-    nombre: formData.get("nombre"),
-    email: formData.get("email"),
-    telefono: formData.get("telefono"),
-    dni: formData.get("dni"),
-    fecha_inicio: formData.get("fecha_inicio"),
-    fecha_fin: formData.get("fecha_fin"),
-    carrito: carrito
-  };
-
-  const res = await fetch("http://localhost:3001/reserva", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(data)
-  });
-
-  if (res.ok) {
-    alert("Reserva enviada");
-    localStorage.removeItem("carrito");
-    location.reload();
-  } else {
-    alert("Error");
-  }
-});
-</script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+//         lista.innerHTML = carrito.map((item, i) =>
+//           `<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+//             <span>${item.nombre}${item.dias ? " — " + item.dias + " día/s" : ""}</span>
+//             <span>$${item.precio.toLocaleString("es-AR")}</span>
+//           </div>`
+//         ).join("");
+ 
+//         const totalNum = carrito.reduce((acc, item) => acc + item.precio, 0);
+//         if (total) total.textContent = totalNum.toLocaleString("es-AR");
+//         if (contador) contador.textContent = carrito.length;
+//       }
+ 
+//       function vaciarCarrito() {
+//         carrito = [];
+//         guardarCarrito();
+//       }
+ 
+//       function toggleCarrito() {
+//         const dropdown = document.getElementById("carritoDropdown");
+//         if (dropdown) dropdown.classList.toggle("activo");
+//       }
+ 
+//       // CORRECCIÓN: función agregarAlCarrito unificada y correctamente nombrada
+//       function agregarAlCarrito(nombre, precio) {
+//         carrito.push({ nombre, precio, cantidad: 1 });
+//         guardarCarrito();
+//       }
+ 
+//       // Click en celdas de precio de las tablas
+//       document.querySelectorAll(".precio").forEach(celda => {
+//         celda.style.cursor = "pointer";
+//         celda.addEventListener("click", () => {
+//           const producto = celda.dataset.producto;
+//           const dias = celda.dataset.dias;
+//           const precio = parseInt(celda.dataset.precio);
+ 
+//           carrito.push({ nombre: producto, dias: dias, precio: precio, cantidad: 1 });
+//           guardarCarrito();
+ 
+//           // Feedback visual en lugar de alert()
+//           const orig = celda.style.outline;
+//           celda.style.outline = "2px solid green";
+//           setTimeout(() => { celda.style.outline = orig; }, 800);
+//         });
+//       });
+ 
+//       // Inicializar carrito al cargar
+//       renderCarrito();
+ 
+//       // ── FORMULARIO ───────────────────────────────────────────────────────────
+//       document.getElementById("formReserva").addEventListener("submit", function(e) {
+//         e.preventDefault();
+ 
+//         const formData = new FormData(this);
+//         const fechaInicio = new Date(formData.get("fecha_inicio"));
+//         const fechaFin    = new Date(formData.get("fecha_fin"));
+ 
+//         // CORRECCIÓN: validación de rango de fechas
+//         if (fechaFin <= fechaInicio) {
+//           alert("La fecha de fin debe ser posterior a la fecha de inicio.");
+//           return;
+//         }
+ 
+//         const carritoActual = JSON.parse(localStorage.getItem("carrito")) || [];
+ 
+//         const nombre      = formData.get("nombre");
+//         const email       = formData.get("email");
+//         const telefono    = formData.get("telefono");
+//         const dni         = formData.get("dni");
+//         const fechaIniStr = formData.get("fecha_inicio");
+//         const fechaFinStr = formData.get("fecha_fin");
+ 
+//         const itemsTexto = carritoActual.length > 0
+//           ? carritoActual.map(i => `• ${i.nombre}${i.dias ? " (" + i.dias + " días)" : ""}: $${i.precio.toLocaleString("es-AR")}`).join("%0A")
+//           : "Sin productos seleccionados";
+ 
+//         // CORRECCIÓN: el formulario redirige a WhatsApp en lugar de localhost:3001
+//         const mensaje =
+//           `*Nueva reserva - Rental Pro Shop*%0A` +
+//           `Nombre: ${nombre}%0A` +
+//           `Email: ${email}%0A` +
+//           `Teléfono: ${telefono}%0A` +
+//           `DNI: ${dni}%0A` +
+//           `Desde: ${fechaIniStr}%0A` +
+//           `Hasta: ${fechaFinStr}%0A` +
+//           `%0A*Equipos seleccionados:*%0A${itemsTexto}`;
+ 
+//         window.open(`https://wa.me/5492944646730?text=${mensaje}`, "_blank");
+ 
+//         localStorage.removeItem("carrito");
+//         carrito = [];
+//         renderCarrito();
+//         this.reset();
+//       });
+//     </script>
+ 
   </body>
 </html>

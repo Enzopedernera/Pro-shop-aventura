@@ -7,8 +7,11 @@
     <link rel="stylesheet" href="../css/styles.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"/>
+      rel="stylesheet"
+    />
+    <script src="../script.js"></script>
   </head>
+
   <body>
     <!-- HEADER -->
     <header class="header">
@@ -26,237 +29,229 @@
             <li><a href="../page/reservas.html">RESERVAS</a></li>
             <li><a href="../page/contacto.html">CONTACTO</a></li>
           </ul>
-        <!-- CARRITO -->
-    <div class="carrito-nav">
-      <div class="carrito-icono" id="toggleCarrito">
-        🛒 <span id="contadorCarrito">0</span>
-      </div>
+          <!-- CARRITO -->
+          <div class="carrito-nav">
+            <div class="carrito-icono" id="toggleCarrito">
+              🛒 <span id="contadorCarrito">0</span>
+            </div>
 
-      <div class="carrito-dropdown" id="carritoDropdown">
-        <h4>Tu carrito</h4>
-        <div id="listaCarrito"></div>
+            <div class="carrito-dropdown" id="carritoDropdown">
+              <h4>Tu carrito</h4>
+              <div id="listaCarrito"></div>
 
-        <p class="total">
-          Total: $<span id="total">0</span>
-        </p>
-
-        <button onclick="vaciarCarrito()">Vaciar</button>
-      </div>
-    </div>
-
-  </div>
-</nav>
+              <p class="total">Total: $<span id="total">0</span></p>
+              <button onclick="vaciarCarrito()">Vaciar</button>
+            </div>
+          </div>
+        </div>
+      </nav>
     </header>
     <main>
-
-  <section id="tienda" class="hero-tienda">
-    <div class="tienda-portada-container"></div>
-      <div class="tienda-portada-texto">
-
-    
+      <section id="tienda" class="hero-tienda">
+        <div class="tienda-portada-container"></div>
+        <div class="tienda-portada-texto">
           <p>Productos de calidad para tus aventuras al aire libre</p>
-          <h1> Nuetros productos</h1>
-        
+          <h1>Nuetros productos</h1>
         </div>
-  </section>
+      </section>
 
-  <section class="lista-productos-tienda" >
+      <!-- Lista de productos-filtro -->
+      <section class="lista-productos-tienda">
+        <h1>Lista de Productos</h1>
 
-  <!-- Lista de productos-filtro -->
+        <!-- FILTROS -->
+        <div class="filtros">
+          <button onclick="filtrarProductos('todos', this)">Todos</button>
+          <button onclick="filtrarProductos('ski', this)">Ski</button>
+          <button onclick="filtrarProductos('snow', this)">Snow</button>
+          <button onclick="filtrarProductos('botas', this)">Botas</button>
+          <button onclick="filtrarProductos('indumentaria', this)">
+            Indumentaria
+          </button>
+          <button onclick="filtrarProductos('accesorios', this)">
+            Accesorios
+          </button>
+        </div>
 
-    <h1>Lista de Productos</h1>
-    <div class="filtros">
-      <button onclick="filtrarProductos('todos')">Todos</button>
-      <button onclick="filtrarProductos('ski')">Ski</button>
-      <button onclick="filtrarProductos('snow')">Snow</button>
-      <button onclick="filtrarProductos('botas')">Botas</button>
-      <button onclick="filtrarProductos('indumentaria')">Indumentaria</button>
-      <button onclick="filtrarProductos('accesorios')">Accesorios</button>
-    </div>
-   
+        <div class="productos-container">
+          <!-- ── SKI ───────────────────────────────────────────────────── -->
+          <div class="producto" data-categoria="ski">
+            <a href="../page/tiendas/productos-ski.html" class="producto-link">
+              <img src="../img/snow/1.jpg" alt="Esquís adulto" />
+              <h3>Esquís Adulto</h3>
+              <p>Set completo de esquís para adulto. Tallas 140–170 cm.</p>
+            </a>
+            <button onclick="agregarAlCarrito('Esquís Adulto', 55000)">
+              Agregar al carrito
+            </button>
+          </div>
 
+          <div class="producto" data-categoria="ski">
+            <a href="../page/tiendas/productos-ski.html" class="producto-link">
+              <img src="../img/snow/1.jpg" alt="Esquís junior" />
+              <h3>Esquís Junior</h3>
+              <p>Set de esquís para niños y jóvenes. Tallas 100–140 cm.</p>
+            </a>
+            <button onclick="agregarAlCarrito('Esquís Junior', 43000)">
+              Agregar al carrito
+            </button>
+          </div>
 
+          <div class="producto" data-categoria="ski">
+            <a href="../page/tiendas/productos-ski.html" class="producto-link">
+              <img src="../img/snow/bastones.jpg" alt="Bastones de ski" />
+              <h3>Bastones</h3>
+              <p>Bastones de aluminio para ski. Tallas 85–130 cm.</p>
+            </a>
+            <button onclick="agregarAlCarrito('Bastones', 20000)">
+              Agregar al carrito
+            </button>
+          </div>
 
-    <div class="productos-container">
-      <div class="producto">
-        <a href="../page/tiendas/productos-ski.html" class="producto-link">
-        <img src="../img/snow/4.jpg" alt="Producto 1" />
-        <h3>Producto 1</h3>
-        <p>Descripción breve del producto 1.</p>
-      </a>
-        <button onclick="agregarAlCarrito('Producto 1', 1000)">Agregar al carrito</button>
-      </div>
+          <!-- ── SNOW ──────────────────────────────────────────────────── -->
+          <div class="producto" data-categoria="snow">
+            <a href="../page/tiendas/productos-ski.html" class="producto-link">
+              <img src="../img/snow/2.jpg" alt="Snowboard adulto" />
+              <h3>Snowboard Adulto</h3>
+              <p>Tabla de snowboard para adulto. Tallas 140–162 cm.</p>
+            </a>
+            <button onclick="agregarAlCarrito('Snowboard Adulto', 58000)">
+              Agregar al carrito
+            </button>
+          </div>
 
-      <div class="producto">
-        <a href="../page/tiendas/productos-ski.html" class="producto-link">
-        <img src="../img/snow/4.jpg" alt="Producto 2" />
-        
-        <h3>Producto 2</h3>
-        <p>Descripción breve del producto 2.</p>
-      </a>
-        <button onclick="agregarAlCarrito('Producto 2', 1500)">Agregar al carrito</button>
-      </div>
+          <div class="producto" data-categoria="snow">
+            <a href="../page/tiendas/productos-ski.html" class="producto-link">
+              <img src="../img/snow/2.jpg" alt="Snowboard junior" />
+              <h3>Snowboard Junior</h3>
+              <p>Tabla de snowboard para niños y jóvenes. Tallas 100–140 cm.</p>
+            </a>
+            <button onclick="agregarAlCarrito('Snowboard Junior', 44000)">
+              Agregar al carrito
+            </button>
+          </div>
 
-      <div class="producto">
-        <a href="../page/tiendas/productos-ski.html" class="producto-link">
-        <img src="../img/snow/4.jpg" alt="Producto 3" />
-        <h3>Producto 3</h3>
-        <p>Descripción breve del producto 3.</p>
-      </a>
-        <button onclick="agregarAlCarrito('Producto 3', 2000)">Agregar al carrito</button>
-      </div><div class="producto">
-        <a href="../page/tiendas/productos-ski.html" class="producto-link">
-        <img src="../img/snow/4.jpg" alt="Producto 1" />
-        <h3>Producto 1</h3>
-        <p>Descripción breve del producto 1.</p>
-      </a>
-        <button onclick="agregarAlCarrito('Producto 1', 1000)">Agregar al carrito</button>
-      </div>
+          <!-- ── BOTAS ─────────────────────────────────────────────────── -->
+          <div class="producto" data-categoria="botas">
+            <a href="../page/tiendas/productos-ski.html" class="producto-link">
+              <img src="../img/snow/3.jpg" alt="Botas de ski" />
+              <h3>Botas de Ski</h3>
+              <p>Botas rígidas para ski. Talles EU 36–44.</p>
+            </a>
+            <button onclick="agregarAlCarrito('Botas de Ski', 40000)">
+              Agregar al carrito
+            </button>
+          </div>
 
-      <div class="producto">
-        <a href="../page/tiendas/productos-ski.html" class="producto-link">
-        <img src="../img/snow/4.jpg" alt="Producto 2" />
-        <h3>Producto 2</h3>
-        <p>Descripción breve del producto 2.</p>
-      </a>
-        <button onclick="agregarAlCarrito('Producto 2', 1500)">Agregar al carrito</button>
-      </div>
+          <div class="producto" data-categoria="botas">
+            <a href="../page/tiendas/productos-ski.html" class="producto-link">
+              <img src="../img/snow/3.jpg" alt="Botas de snowboard" />
+              <h3>Botas de Snowboard</h3>
+              <p>Botas blandas para snowboard. Talles EU 36–44.</p>
+            </a>
+            <button onclick="agregarAlCarrito('Botas de Snowboard', 40000)">
+              Agregar al carrito
+            </button>
+          </div>
 
-      <div class="producto">
-        <a href="../page/tiendas/productos-ski.html" class="producto-link">
-        <img src="../img/snow/4.jpg" alt="Producto 3" />
-        <h3>Producto 3</h3>
-        <p>Descripción breve del producto 3.</p>
-      </a>
-        <button onclick="agregarAlCarrito('Producto 3', 2000)">Agregar al carrito</button>
-      </div>
-      <div class="producto"> 
-        <a href="../page/tiendas/productos-ski.html" class="producto-link">
-        <img src="../img/snow/4.jpg" alt="Producto 1" />
-        <h3>Producto 1</h3>
-        <p>Descripción breve del producto 1.</p>
-        </a>
-        <button onclick="agregarAlCarrito('Producto 1', 1000)">Agregar al carrito</button>
-      </div>
+          <!-- ── INDUMENTARIA ───────────────────────────────────────────── -->
+          <div class="producto" data-categoria="indumentaria">
+            <a href="../page/tiendas/productos-ski.html" class="producto-link">
+              <img
+                src="../img/snow/campera_rider_h_azul.jpg"
+                alt="Campera de ski adulto"
+              />
+              <h3>Campera Adulto</h3>
+              <p>Campera impermeable y abrigada. Talles S–XL.</p>
+            </a>
+            <button onclick="agregarAlCarrito('Campera Adulto', 23000)">
+              Agregar al carrito
+            </button>
+          </div>
 
-      <div class="producto">
-        <a href="../page/tiendas/productos-ski.html" class="producto-link">
-        <img src="../img/snow/4.jpg" alt="Producto 2" />
-        <h3>Producto 2</h3>
-        <p>Descripción breve del producto 2.</p>
-      </a>
-        <button onclick="agregarAlCarrito('Producto 2', 1500)">Agregar al carrito</button>
-      </div>
+          <div class="producto" data-categoria="indumentaria">
+            <a href="../page/tiendas/productos-ski.html" class="producto-link">
+              <img
+                src="../img/snow/pantalon_slalom_3_esqui_y_snowboard_gore_tex_dama_.jpg"
+                alt="Pantalón de ski adulto"
+              />
+              <h3>Pantalón Adulto</h3>
+              <p>Pantalón impermeable para ski y snow. Talles S–XL.</p>
+            </a>
+            <button onclick="agregarAlCarrito('Pantalón Adulto', 20000)">
+              Agregar al carrito
+            </button>
+          </div>
 
-      <div class="producto">
-        <a href="../page/tiendas/productos-ski.html" class="producto-link">
-        <img src="../img/snow/4.jpg" alt="Producto 3" />
-        <h3>Producto 3</h3>
-        <p>Descripción breve del producto 3.</p>
-      </a>
-        <button onclick="agregarAlCarrito('Producto 3', 2000)">Agregar al carrito</button>
-      </div><div class="producto">
-        <a href="../page/tiendas/productos-ski.html" class="producto-link">
-        <img src="../img/snow/4.jpg" alt="Producto 1" />
-        <h3>Producto 1</h3>
-        <p>Descripción breve del producto 1.</p>
-      </a>
-        <button onclick="agregarAlCarrito('Producto 1', 1000)">Agregar al carrito</button>
-      </div>
+          <div class="producto" data-categoria="indumentaria">
+            <a href="../page/tiendas/productos-ski.html" class="producto-link">
+              <img
+                src="../img/snow/campera_de_ninos_nea_4_ansilta_gore_tex_esqui_t.jpg"
+                alt="Campera niño"
+              />
+              <h3>Campera Niño</h3>
+              <p>Campera impermeable para niños. Talles 4–14 años.</p>
+            </a>
+            <button onclick="agregarAlCarrito('Campera Niño', 17000)">
+              Agregar al carrito
+            </button>
+          </div>
 
-      <div class="producto">
-        <a href="../page/tiendas/productos-ski.html" class="producto-link">
-        <img src="../img/snow/4.jpg" alt="Producto 2" />
-        <h3>Producto 2</h3>
-        <p>Descripción breve del producto 2.</p>
-      </a>
-        <button onclick="agregarAlCarrito('Producto 2', 1500)">Agregar al carrito</button>
-      </div>
+          <div class="producto" data-categoria="indumentaria">
+            <a href="../page/tiendas/productos-ski.html" class="producto-link">
+              <img
+                src="../img/snow/enterito.jpg"
+                alt="Pantalón niño enterito"
+              />
+              <h3>Pantalón Niño / Enterito</h3>
+              <p>Pantalón o enterito para niños. Talles 4–14 años.</p>
+            </a>
+            <button onclick="agregarAlCarrito('Pantalón Niño', 14000)">
+              Agregar al carrito
+            </button>
+          </div>
 
-      <div class="producto">
-        <a href="../page/tiendas/productos-ski.html" class="producto-link">
-        <img src="../img/snow/4.jpg" alt="Producto 3" />
-        <h3>Producto 3</h3>
-        <p>Descripción breve del producto 3.</p>
-      </a>
-        <button onclick="agregarAlCarrito('Producto 3', 2000)">Agregar al carrito</button>
-      </div>
-      <div class="producto">
-        <a href="../page/tiendas/productos-ski.html" class="producto-link">
-        <img src="../img/snow/4.jpg" alt="Producto 1" />
-        <h3>Producto 1</h3>
-        <p>Descripción breve del producto 1.</p>
-        </a>
-        <button onclick="agregarAlCarrito('Producto 1', 1000)">Agregar al carrito</button>
-      </div>
-      <div class="producto">
-        <a href="../page/tiendas/productos-ski.html" class="producto-link">
-        <img src="../img/snow/4.jpg" alt="Producto 3" />
-        <h3>Producto 3</h3>
-        <p>Descripción breve del producto 3.</p>
-      </a>
-        <button onclick="agregarAlCarrito('Producto 3', 2000)">Agregar al carrito</button>
-      </div><div class="producto">
-        <a href="../page/tiendas/productos-ski.html" class="producto-link">
-        <img src="../img/snow/4.jpg" alt="Producto 1" />
-        <h3>Producto 1</h3>
-        <p>Descripción breve del producto 1.</p>
-      </a>
-        <button onclick="agregarAlCarrito('Producto 1', 1000)">Agregar al carrito</button>
-      </div>
+          <!-- ── ACCESORIOS ─────────────────────────────────────────────── -->
+          <div class="producto" data-categoria="accesorios">
+            <a href="../page/tiendas/productos-ski.html" class="producto-link">
+              <img src="../img/snow/4.jpg" alt="Casco de ski" />
+              <h3>Casco</h3>
+              <p>Casco homologado para ski y snow. Talles S–XL.</p>
+            </a>
+            <button onclick="agregarAlCarrito('Casco', 19000)">
+              Agregar al carrito
+            </button>
+          </div>
 
-      <div class="producto">
-        <a href="../page/tiendas/productos-ski.html" class="producto-link">
-        <img src="../img/snow/4.jpg" alt="Producto 2" />
-        <h3>Producto 2</h3>
-        <p>Descripción breve del producto 2.</p>
-      </a>
-        <button onclick="agregarAlCarrito('Producto 2', 1500)">Agregar al carrito</button>
-      </div>
+          <div class="producto" data-categoria="accesorios">
+            <a href="../page/tiendas/productos-ski.html" class="producto-link">
+              <img src="../img/snow/antiparras.jpg" alt="Antiparras" />
+              <h3>Antiparras</h3>
+              <p>Antiparras con filtro UV. Talles S–XL.</p>
+            </a>
+            <button onclick="agregarAlCarrito('Antiparras', 27000)">
+              Agregar al carrito
+            </button>
+          </div>
 
-      <div class="producto">
-        <a href="../page/tiendas/productos-ski.html" class="producto-link">
-        <img src="../img/snow/4.jpg" alt="Producto 3" />
-        <h3>Producto 3</h3>
-        <p>Descripción breve del producto 3.</p>
-      </a>
-        <button onclick="agregarAlCarrito('Producto 3', 2000)">Agregar al carrito</button>
-      </div>
-      <div class="producto">
-        <a href="../page/tiendas/productos-ski.html" class="producto-link">
-        <img src="../img/snow/4.jpg" alt="Producto 1" />
-        <h3>Producto 1</h3>
-        <p>Descripción breve del producto 1.</p>
-        </a>
-        <button onclick="agregarAlCarrito('Producto 1', 1000)">Agregar al carrito</button>
-      </div>
-       <div class="producto">
-        <a href="../page/tiendas/productos-ski.html" class="producto-link">
-        <img src="../img/snow/4.jpg" alt="Producto 3" />
-        <h3>Producto 3</h3>
-        <p>Descripción breve del producto 3.</p>
-      </a>
-        <button onclick="agregarAlCarrito('Producto 3', 2000)">Agregar al carrito</button>
-      </div>
-      <div class="producto">
-        <a href="../page/tiendas/productos-ski.html" class="producto-link">
-        <img src="../img/snow/4.jpg" alt="Producto 1" />
-        <h3>Producto 1</h3>
-        <p>Descripción breve del producto 1.</p>
-        </a>
-        <button onclick="agregarAlCarrito('Producto 1', 1000)">Agregar al carrito</button>
-      </div>
+          <div class="producto" data-categoria="accesorios">
+            <a href="../page/tiendas/productos-ski.html" class="producto-link">
+              <img src="../img/snow/2.jpg" alt="Guantes de ski" />
+              <h3>Guantes</h3>
+              <p>Guantes impermeables y abrigados. Talles S–XL.</p>
+            </a>
+            <button onclick="agregarAlCarrito('Guantes', 13000)">
+              Agregar al carrito
+            </button>
+          </div>
 
-      
-    </div>
+          <!-- Mensaje sin resultados (oculto por defecto)
+    <p class="sin-resultados" id="sinResultados">No hay productos en esta categoría.</p>
+  -->
+        </div>
+      </section>
 
-      <!-- Agrega más productos aquí -->
-  </section>
-
-
-
-
-  <!-- <div class="tienda-info">
+      <!-- <div class="tienda-info">
       <h1>Tiendas</h1>
       <p>
         Contamos con 3 locales en Villa La Angostura, cada uno con su propia especialidad y variedad de productos.
@@ -266,10 +261,10 @@
         Visítanos en cualquiera de nuestras ubicaciones para descubrir todo lo que tenemos para ofrecerte y recibir asesoramiento personalizado de nuestro equipo experto.
       </p>
     </div> -->
-<!-- 
+      <!-- 
     <section id="tienda-catalagos-productos" class="tienda-catalagos"> -->
 
-  <!-- SKI 
+      <!-- SKI 
   <div class="bloque">
     <h2>SKI</h2>
     <div class="nivel">
@@ -282,7 +277,7 @@
     </div>
   </div>-->
 
-  <!-- SNOW
+      <!-- SNOW
   <div class="bloque">
     <h2>SNOW</h2>
     <div class="nivel">
@@ -354,136 +349,151 @@ div class="nivel">
   </div>
 
 </section>-->
-
-
-  <!-- <--FOOTER --> 
-
-</main>  
+    </main>
+    <!-- <--FOOTER -->
     <footer class="footer">
+      <div class="footer-top"></div>
 
-  <div class="footer-top"></div>
-
-  <div class="container">
-
-    <!-- BLOQUES PRINCIPALES -->
-    <div class="row">
-
-      <!-- INFO -->
-      <div class="col-lg-3 col-md-6 footer-one">
-        <h3>Bienvenidos!</h3>
-        <p>
-          Somos el local con mayor variedad de Villa La Angostura y contamos con experiencia y trayectoria en la localidad.
-          Artículos de pesca, camping, náutica, ski, snowboard y mucho más.
-        </p>
-      </div>
-
-      <!-- ACCESOS -->
-      <div class="col-lg-2 col-md-6 footer-two">
-        <h3>Accesos directos</h3>
-        <ul>
-          <li><a href="../index.html">Inicio</a></li>
-          <li><a href="./tiendas.html">Tiendas</a></li>
-          <li><a href="./reservas.html">Reservas</a></li>
-          <li><a href="./contacto.html">Contacto</a></li>
-        </ul>
-      </div>
-
-      <!-- LINKS -->
-      <div class="col-lg-3 col-md-6 footer-three">
-        <h3>Sitios de interés</h3>
-        <ul>
-          <li>
-            <a href="https://www.cerrobayo.com.ar/montana/mapa/" target="_blank" rel="noopener">
-              Mapa de pistas - Cerro Bayo
-            </a>
-          </li>
-          <li>
-            <a href="http://www.accuweather.com/es/ar/villa-la-angostura/1227987/weather-forecast/1227987" target="_blank" rel="noopener">
-              Clima en Cerro Bayo
-            </a>
-          </li>
-          <li>
-            <a href="https://www.villalaangosturaturismo.gob.ar/" target="_blank" rel="noopener">
-              Conocé Villa La Angostura
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <!-- CONTACTO -->
-      <div class="col-lg-4 col-md-6 footer-four">
-        <h3>Contactanos</h3>
-        <ul class="contact-us">
-
-          <li>
+      <div class="container">
+        <!-- BLOQUES PRINCIPALES -->
+        <div class="row">
+          <!-- INFO -->
+          <div class="col-lg-3 col-md-6 footer-one">
+            <h3>Bienvenidos!</h3>
             <p>
-              <strong>¿Dónde estamos?</strong><br>
-              Av. Arrayanes 173<br>
-              Villa La Angostura<br>
-              Neuquén, Argentina
+              Somos el local con mayor variedad de Villa La Angostura y contamos
+              con experiencia y trayectoria en la localidad. Artículos de pesca,
+              camping, náutica, ski, snowboard y mucho más.
             </p>
-          </li>
+          </div>
 
-          <li>
-            <p>
-              <strong>Whatsapp:</strong>
-              <a href="https://wa.me/message/JLSML52X57QYD1" rel="noopener" target="_blank">
-                +54 9 2944 646730
-              </a>
-            </p>
-          </li>
+          <!-- ACCESOS -->
+          <div class="col-lg-2 col-md-6 footer-two">
+            <h3>Accesos directos</h3>
+            <ul>
+              <li><a href="../index.html">Inicio</a></li>
+              <li><a href="./tiendas.html">Tiendas</a></li>
+              <li><a href="./reservas.html">Reservas</a></li>
+              <li><a href="./contacto.html">Contacto</a></li>
+            </ul>
+          </div>
 
-          <li>
-            <p>
-              <strong>Email:</strong>
-              <a href="mailto:consultas@proshopaventura.com">
-                consultas@proshopaventura.com
-              </a>
-            </p>
-            </li>
+          <!-- LINKS -->
+          <div class="col-lg-3 col-md-6 footer-three">
+            <h3>Sitios de interés</h3>
+            <ul>
+              <li>
+                <a
+                  href="https://www.cerrobayo.com.ar/montana/mapa/"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Mapa de pistas - Cerro Bayo
+                </a>
+              </li>
+              <li>
+                <a
+                  href="http://www.accuweather.com/es/ar/villa-la-angostura/1227987/weather-forecast/1227987"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Clima en Cerro Bayo
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.villalaangosturaturismo.gob.ar/"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Conocé Villa La Angostura
+                </a>
+              </li>
+            </ul>
+          </div>
 
-        </ul>
+          <!-- CONTACTO -->
+          <div class="col-lg-4 col-md-6 footer-four">
+            <h3>Contactanos</h3>
+            <ul class="contact-us">
+              <li>
+                <p>
+                  <strong>¿Dónde estamos?</strong><br />
+                  Av. Arrayanes 173<br />
+                  Villa La Angostura<br />
+                  Neuquén, Argentina
+                </p>
+              </li>
+
+              <li>
+                <p>
+                  <strong>Whatsapp:</strong>
+                  <a
+                    href="https://wa.me/message/JLSML52X57QYD1"
+                    rel="noopener"
+                    target="_blank"
+                  >
+                    +54 9 2944 646730
+                  </a>
+                </p>
+              </li>
+
+              <li>
+                <p>
+                  <strong>Email:</strong>
+                  <a href="mailto:consultas@proshopaventura.com">
+                    consultas@proshopaventura.com
+                  </a>
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- FOOTER BOTTOM -->
+        <div class="row align-items-center text-center text-md-start mt-4">
+          <div class="col-md-4">
+            <p class="footer-copy">© 2026 RENTAL PRO SHOP</p>
+          </div>
+
+          <div class="col-md-4 text-center">
+            <p class="footer-credit">Rental Ski and Snow</p>
+          </div>
+
+          <div class="col-md-4 text-md-end">
+            <ul class="redes">
+              <li>
+                <img
+                  src="../img/logosredes/facebook.png"
+                  alt="Facebook"
+                  width="15"
+                />
+                <a
+                  href="https://www.facebook.com"
+                  rel="noopener"
+                  target="_blank"
+                  >Facebook</a
+                >
+              </li>
+
+              <li>
+                <img
+                  src="../img/logosredes/instagram.png"
+                  alt="Instagram"
+                  width="18"
+                />
+                <a
+                  href="https://www.instagram.com/proshop.aventura/"
+                  rel="noopener"
+                  target="_blank"
+                  >Instagram</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
-
-    </div>
-
-    <!-- FOOTER BOTTOM -->
-    <div class="row align-items-center text-center text-md-start mt-4">
-
-      <div class="col-md-4">
-        <p class="footer-copy">© 2026 RENTAL PRO SHOP</p>
-      </div>
-
-      <div class="col-md-4 text-center">
-        <p class="footer-credit">Rental Ski and Snow</p>
-      </div>
-
-      <div class="col-md-4 text-md-end">
-        <ul class="redes">
-
-          <li>
-            <img src="../img/logosredes/facebook.png" alt="Facebook" width="15"/>
-            <a href="https://www.facebook.com" rel="noopener" target="_blank">Facebook</a>
-          </li>
-
-          <li>
-            <img src="../img/logosredes/instagram.png" alt="Instagram" width="18"/>
-            <a href="https://www.instagram.com/proshop.aventura/" rel="noopener" target="_blank">Instagram</a>
-          </li>
-
-          <li>
-            <img src="../img/logosredes/twitter.png" alt="Twitter" width="15"/>
-            <a href="https://www.twitter.com" rel="noopener" target="_blank">Twitter</a>
-          </li>
-
-        </ul>
-      </div>
-
-    </div>
-
-  </div>
-
-</footer>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>

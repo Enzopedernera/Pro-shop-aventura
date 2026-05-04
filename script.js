@@ -3,7 +3,6 @@
 // =========================
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-
 // =========================
 // 💾 GUARDAR
 // =========================
@@ -11,14 +10,12 @@ function guardarCarrito() {
   localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
-
 // =========================
 // 🔢 CONTADOR TOTAL (PRO)
 // =========================
 function obtenerCantidadTotal() {
   return carrito.reduce((acc, item) => acc + item.cantidad, 0);
 }
-
 
 // =========================
 // 🎯 ACTUALIZAR CONTADOR
@@ -30,14 +27,12 @@ function actualizarContador() {
   }
 }
 
-
 // =========================
 // ➕ AGREGAR
 // =========================
 function agregarAlCarrito(nombre, precio, medida = "") {
-
   const existe = carrito.find(
-    item => item.nombre === nombre && item.medida === medida
+    (item) => item.nombre === nombre && item.medida === medida,
   );
 
   if (existe) {
@@ -52,7 +47,6 @@ function agregarAlCarrito(nombre, precio, medida = "") {
   animarCarrito();
 }
 
-
 // =========================
 // 🎬 ANIMACIÓN ICONO
 // =========================
@@ -63,7 +57,6 @@ function animarCarrito() {
   icono.classList.add("shake");
   setTimeout(() => icono.classList.remove("shake"), 300);
 }
-
 
 // =========================
 // 🔢 CAMBIAR CANTIDAD
@@ -80,7 +73,6 @@ function cambiarCantidad(index, cambio) {
   actualizarContador();
 }
 
-
 // =========================
 // ❌ ELIMINAR
 // =========================
@@ -91,14 +83,12 @@ function eliminarItem(index) {
   actualizarContador();
 }
 
-
 // =========================
 // 🎨 FORMATO PRECIO
 // =========================
 function formatearPrecio(num) {
   return num.toLocaleString("es-AR");
 }
-
 
 // =========================
 // 🖥️ RENDER
@@ -114,7 +104,6 @@ function renderCarrito() {
   let total = 0;
 
   carrito.forEach((item, index) => {
-
     const div = document.createElement("div");
     div.classList.add("item-carrito");
 
@@ -145,7 +134,6 @@ function renderCarrito() {
   totalSpan.textContent = formatearPrecio(total);
 }
 
-
 // =========================
 // 🗑️ VACIAR
 // =========================
@@ -156,24 +144,21 @@ function vaciarCarrito() {
   actualizarContador();
 }
 
-
 // =========================
 // 🔍 FILTRO
 // =========================
 function filtrarProductos(categoria) {
-  document.querySelectorAll(".producto").forEach(producto => {
+  document.querySelectorAll(".producto").forEach((producto) => {
     const cat = producto.dataset.categoria;
     producto.style.display =
       categoria === "todos" || cat === categoria ? "block" : "none";
   });
 }
 
-
 // =========================
 // 🚀 INIT
 // =========================
 document.addEventListener("DOMContentLoaded", () => {
-
   // Toggle carrito
   const toggle = document.getElementById("toggleCarrito");
   const drop = document.getElementById("carritoDropdown");
@@ -181,8 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (toggle && drop) {
     toggle.addEventListener("click", (e) => {
       e.stopPropagation();
-      drop.style.display =
-        drop.style.display === "block" ? "none" : "block";
+      drop.style.display = drop.style.display === "block" ? "none" : "block";
     });
 
     document.addEventListener("click", () => {
@@ -195,9 +179,8 @@ document.addEventListener("DOMContentLoaded", () => {
   renderCarrito();
   actualizarContador();
 });
-document.querySelectorAll(".btn-agregar").forEach(boton => {
+document.querySelectorAll(".btn-agregar").forEach((boton) => {
   boton.addEventListener("click", () => {
-
     const producto = boton.closest(".producto");
 
     const nombre = producto.dataset.nombre;
@@ -213,4 +196,3 @@ document.querySelectorAll(".btn-agregar").forEach(boton => {
   });
 });
 totalSpan.textContent = "$" + formatearPrecio(total);
-

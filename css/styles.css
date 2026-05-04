@@ -4,8 +4,6 @@ body {
   box-sizing: border-box;
   font-family: Arial, sans-serif;
   padding-top: 100px; /* para que el contenido no quede oculto debajo del header fijo */
-
-  
 }
 
 /* HEADER */
@@ -111,29 +109,28 @@ body {
   border-radius: 0.5rem;
 }
 
-#contadorCarrito {        
+#contadorCarrito {
   position: absolute;
   top: -10px;
   right: -10px;
-  background:  #0077ff;
+  background: #0077ff;
   color: #fff;
   font-size: 12px;
   padding: 3px 7px;
   border-radius: 50%;
-  
 }
 
 /* Dropdown */
 .carrito-dropdown {
   position: absolute;
   right: 10px;
-  top: 40px;
+  top: 80px;
   width: 280px;
   background: #fff;
   border-radius: 10px;
   padding: 15px;
   display: none;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   z-index: 999;
 }
 
@@ -165,7 +162,6 @@ body {
   padding: 0px;
   text-align: center;
   background: #ffffff;
-  
 }
 .hero img {
   width: 100%;
@@ -176,7 +172,6 @@ body {
 .hero h1 {
   font-size: 36px;
   margin: 20px 0 10px;
-  
 }
 .hero p {
   font-size: 18px;
@@ -201,7 +196,6 @@ body {
   grid-template-columns: repeat(4, 1fr);
   gap: 15px;
   padding: 20px;
-  
 }
 
 .bloque {
@@ -372,8 +366,8 @@ body {
   text-align: center;
   background: #f5f5f5;
   font-weight: 500;
- 
-  background:#0077ff;
+
+  background: #0077ff;
 }
 
 /* CONTENEDOR */
@@ -466,13 +460,13 @@ main .bloque-reservas {
   gap: 2rem;
   flex-wrap: nowrap;
   justify-content: flex-start;
-} 
+}
 /* TIENDA */
 
 .hero-tienda {
   position: relative;
   height: 400px; /* podés subirlo a 500 o 600 */
-  
+
   background-image: url("../img/snow/fotosnow1.jpg"); /* cambiá la ruta */
   background-size: cover;
   background-position: center;
@@ -483,7 +477,7 @@ main .bloque-reservas {
   justify-content: center;
   text-align: center;
 }
-.tienda-portada-container  {
+.tienda-portada-container {
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.4);
@@ -494,10 +488,10 @@ main .bloque-reservas {
   z-index: 2;
 }
 .hero-tienda .tienda-portada-texto p {
-    font-size: 20px;
-    margin-top: 10px;
-    font-weight: 400;
-  }
+  font-size: 20px;
+  margin-top: 10px;
+  font-weight: 400;
+}
 .hero-tienda .tienda-portada-texto h1 {
   font-size: 80px;
   letter-spacing: 2px;
@@ -525,25 +519,33 @@ main .bloque-reservas {
   text-align: center;
   margin-bottom: 30px;
 }
-.filtros {
+.lista-productos-tienda .filtros {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 2rem;
 }
 
-.filtros button {
-  padding: 8px 15px;
-  border: none;
-  background: #eee;
+.lista-productos-tienda .filtros button {
+  padding: 8px 20px;
+  border: 1.5px solid #ccc;
+  border-radius: 20px;
+  background: transparent;
   cursor: pointer;
-  border-radius: 5px;
-  transition: 0.2s;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
 }
 
-.filtros button:hover {
+.lista-productos-tienda .filtros button:hover {
   background: #333fff;
   color: white;
+}
+.lista-productos-tienda .filtros button.activo {
+  background: #333fff;
+  color: white;
+  border-color: #333fff;
 }
 
 /* =========================
@@ -567,13 +569,15 @@ main .bloque-reservas {
   transition: all 0.3s ease;
 
   /* efecto pro */
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .producto:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 .producto-link {
   display: block;
@@ -625,8 +629,6 @@ main .bloque-reservas {
 .producto button:hover {
   background: #333;
 }
-
-
 
 /* NIVEL 1 */
 .nivel {
@@ -688,10 +690,7 @@ main .bloque-reservas {
   color: #fff;
 }
 
-
-
 /* RESERVAS */
-
 
 /* CONTENEDOR */
 .productos {
@@ -717,8 +716,6 @@ main .bloque-reservas {
   background-attachment: fixed;
   padding: 2rem 2rem;
   border-radius: 14px;
-  
-
 }
 
 /* TARJETA */
@@ -726,17 +723,16 @@ main .bloque-reservas {
   background: #fff;
   border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
-  
 }
 
 /* HOVER */
 .producto:hover {
   transform: translateY(-8px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
 }
 
 /* IMAGEN */
@@ -784,7 +780,7 @@ main .bloque-reservas {
 /* FOCUS (cuando el usuario interactúa) */
 .producto select:focus {
   border-color: #000;
-  box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
 }
 
 /* OPCIONES */
@@ -933,9 +929,15 @@ textarea {
   color: inherit;
 }
 @keyframes shake {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.2); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .shake {
@@ -988,7 +990,6 @@ textarea {
    MOBILE
 ========================= */
 @media (max-width: 768px) {
-
   .titulo {
     display: none;
   }
