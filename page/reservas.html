@@ -4,11 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RESERVAS - RENTAL PRO SHOP</title>
-    <link rel="stylesheet" href="../css/styles.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"/>
- 
+    <link rel="stylesheet" href="../css/styles.css" />
 
   </head>
   <body>
@@ -22,7 +21,15 @@
             </a>
           </div>
           <h1 class="titulo">RENTAL PRO SHOP</h1>
-          <ul class="menu">
+          
+          <div class="hamburguesa" id="hamburguesa">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+
+          <ul class="menu" id="menu">
             <li><a href="../index.html">INICIO</a></li>
             <li><a href="./tiendas.html">TIENDA</a></li>
             <li><a href="./reservas.html">RESERVAS</a></li>
@@ -414,7 +421,8 @@
           <td class="precio" data-producto="Pantalón Niño" data-dias="6" data-precio="66000">$66.000</td>
           <td class="precio" data-producto="Pantalón Niño" data-dias="7" data-precio="74000">$74.000</td>
         </tr>
- 
+
+        <tr>
           <td>Campera + Pantalón Niño</td>
           <td class="precio" data-producto="Campera + Pantalón Niño" data-dias="1" data-precio="29000">$29.000</td>
           <td class="precio" data-producto="Campera + Pantalón Niño" data-dias="3" data-precio="76000">$76.000</td>
@@ -598,119 +606,7 @@
   </div>
 
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../script.js" defer></script>
-<script>
-
-//  // ── CARRITO ──────────────────────────────────────────────────────────────
-//       let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
-//       function guardarCarrito() {
-//         localStorage.setItem("carrito", JSON.stringify(carrito));
-//         renderCarrito();
-//       }
-
-//       function renderCarrito() {
-//         const lista = document.getElementById("listaCarrito");
-//         const total = document.getElementById("total");
-//         const contador = document.getElementById("contadorCarrito");
-//         if (!lista) return;
-
-//         lista.innerHTML = carrito.map((item, i) =>
-//           `<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-//             <span>${item.nombre}${item.dias ? " — " + item.dias + " día/s" : ""}</span>
-//             <span>$${item.precio.toLocaleString("es-AR")}</span>
-//           </div>`
-//         ).join("");
- 
-//         const totalNum = carrito.reduce((acc, item) => acc + item.precio, 0);
-//         if (total) total.textContent = totalNum.toLocaleString("es-AR");
-//         if (contador) contador.textContent = carrito.length;
-//       }
- 
-//       function vaciarCarrito() {
-//         carrito = [];
-//         guardarCarrito();
-//       }
- 
-//       function toggleCarrito() {
-//         const dropdown = document.getElementById("carritoDropdown");
-//         if (dropdown) dropdown.classList.toggle("activo");
-//       }
- 
-//       // CORRECCIÓN: función agregarAlCarrito unificada y correctamente nombrada
-//       function agregarAlCarrito(nombre, precio) {
-//         carrito.push({ nombre, precio, cantidad: 1 });
-//         guardarCarrito();
-//       }
- 
-//       // Click en celdas de precio de las tablas
-//       document.querySelectorAll(".precio").forEach(celda => {
-//         celda.style.cursor = "pointer";
-//         celda.addEventListener("click", () => {
-//           const producto = celda.dataset.producto;
-//           const dias = celda.dataset.dias;
-//           const precio = parseInt(celda.dataset.precio);
- 
-//           carrito.push({ nombre: producto, dias: dias, precio: precio, cantidad: 1 });
-//           guardarCarrito();
- 
-//           // Feedback visual en lugar de alert()
-//           const orig = celda.style.outline;
-//           celda.style.outline = "2px solid green";
-//           setTimeout(() => { celda.style.outline = orig; }, 800);
-//         });
-//       });
- 
-//       // Inicializar carrito al cargar
-//       renderCarrito();
- 
-//       // ── FORMULARIO ───────────────────────────────────────────────────────────
-//       document.getElementById("formReserva").addEventListener("submit", function(e) {
-//         e.preventDefault();
- 
-//         const formData = new FormData(this);
-//         const fechaInicio = new Date(formData.get("fecha_inicio"));
-//         const fechaFin    = new Date(formData.get("fecha_fin"));
- 
-//         // CORRECCIÓN: validación de rango de fechas
-//         if (fechaFin <= fechaInicio) {
-//           alert("La fecha de fin debe ser posterior a la fecha de inicio.");
-//           return;
-//         }
- 
-//         const carritoActual = JSON.parse(localStorage.getItem("carrito")) || [];
- 
-//         const nombre      = formData.get("nombre");
-//         const email       = formData.get("email");
-//         const telefono    = formData.get("telefono");
-//         const dni         = formData.get("dni");
-//         const fechaIniStr = formData.get("fecha_inicio");
-//         const fechaFinStr = formData.get("fecha_fin");
- 
-//         const itemsTexto = carritoActual.length > 0
-//           ? carritoActual.map(i => `• ${i.nombre}${i.dias ? " (" + i.dias + " días)" : ""}: $${i.precio.toLocaleString("es-AR")}`).join("%0A")
-//           : "Sin productos seleccionados";
- 
-//         // CORRECCIÓN: el formulario redirige a WhatsApp en lugar de localhost:3001
-//         const mensaje =
-//           `*Nueva reserva - Rental Pro Shop*%0A` +
-//           `Nombre: ${nombre}%0A` +
-//           `Email: ${email}%0A` +
-//           `Teléfono: ${telefono}%0A` +
-//           `DNI: ${dni}%0A` +
-//           `Desde: ${fechaIniStr}%0A` +
-//           `Hasta: ${fechaFinStr}%0A` +
-//           `%0A*Equipos seleccionados:*%0A${itemsTexto}`;
- 
-//         window.open(`https://wa.me/5492944646730?text=${mensaje}`, "_blank");
- 
-//         localStorage.removeItem("carrito");
-//         carrito = [];
-//         renderCarrito();
-//         this.reset();
-//       });
-//     </script>
- 
+<script src="../script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>   
   </body>
 </html>

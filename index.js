@@ -19,7 +19,7 @@ app.post("/reserva", async (req, res) => {
       service: "gmail",
       auth: {
         user: "consultas@proshopaventura.com",
-        pass: "proshop2026", // ⚠️ esto después hay que protegerlo
+        pass: "password", // ⚠️ esto después hay que protegerlo
       },
     });
 

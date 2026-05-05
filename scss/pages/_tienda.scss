@@ -21,8 +21,8 @@
     flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 2rem;
-
-    button {
+  }
+    .filtros button {
       padding: 8px 20px;
       border: 1.5px solid #ccc;
       border-radius: 20px;
@@ -31,16 +31,15 @@
       font-size: 14px;
       font-weight: 500;
       transition: all 0.2s ease;
-
-      &:hover {
+    }
+      .filtros button:hover {
         background: #333fff;
         color: white;
       }
-      button.activo {
+       .filtros button.activo {
       background: #333fff;
       color: white;
        border-color: #333fff;
 }
-    }
-  }
 }
+  

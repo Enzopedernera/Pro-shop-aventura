@@ -14,14 +14,22 @@ app.post("/reserva", async (req, res) => {
   try {
     // 🔧 CONFIG MAIL
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      service: "consultas@proshopaventura.com", // tu mail
       auth: {
         user: "consultas@proshopaventura.com",// tu mail
-        pass: "proshop2026", // app password
+      pass: "proshop2026", // app password
       },
     });
 
     // 🛒 ARMAR CARRITO
+    let detalle = carrito
+      .map(
+        (item) =>
+          `• ${item.nombre} - $${item.precio} x ${item.cantidad}`
+      )
+      .join("\n");
+
+
     let detalleCarrito = "";
 
     carrito.forEach((item) => {
@@ -35,7 +43,7 @@ Precio: $${item.precio}
     });
 
     // 📩 ENVIAR MAIL
-    await transporter.sendMail({
+ let info =   await transporter.sendMail({
       from: email,
       to: "consultas@proshopaventura.com",
       subject: "Nueva reserva RENTAL PRO SHOP",
