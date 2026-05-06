@@ -7,26 +7,154 @@
 .carrito-icono {
   background: $negro;
   color: $blanco;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-size: 16px;
+  position: relative;
+ 
+  // Animación shake al agregar producto
+  &.shake {
+    animation: shake 0.3s ease;
+  }
 }
-
+ 
+@keyframes shake {
+  0%   { transform: rotate(0deg); }
+  25%  { transform: rotate(-10deg); }
+  50%  { transform: rotate(10deg); }
+  75%  { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}
+ 
 #contadorCarrito {
   position: absolute;
+  top: -6px;
+  right: -6px;
   background: $azul-sec;
+  color: $blanco;
   border-radius: 50%;
+  font-size: 11px;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
 }
-
+ 
 .carrito-dropdown {
   position: absolute;
+  right: 0;
+  // FIX: top dinámico en lugar de 80px hardcodeado que desalineaba en mobile
+  top: calc(100% + 10px);
   background: $blanco;
   border-radius: $radius;
   display: none;
   box-shadow: $sombra;
-  top: 80px;
-
-
-
+  min-width: 280px;
+  max-width: 340px;
+  z-index: 9999;
+  padding: 16px;
+ 
+  h4 {
+    margin: 0 0 12px;
+    font-size: 16px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+  }
+ 
   .total {
     font-weight: bold;
+    margin: 12px 0 8px;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+  }
+ 
+  button {
+    width: 100%;
+    padding: 8px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+ 
+    &:hover {
+      background: #c0392b;
+    }
+  }
+}
+ 
+.item-carrito {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 13px;
+ 
+  .item-info {
+    flex: 1;
+ 
+    small {
+      display: block;
+      color: #888;
+    }
+  }
+ 
+  .item-controles {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+ 
+    button {
+      width: 24px;
+      height: 24px;
+      padding: 0;
+      background: #eee;
+      color: #333;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+ 
+      &:hover {
+        background: #ccc;
+      }
+    }
+ 
+    span {
+      min-width: 16px;
+      text-align: center;
+    }
+  }
+ 
+  .item-precio {
+    font-weight: bold;
+    white-space: nowrap;
+    font-size: 12px;
+  }
+ 
+  .eliminar {
+    background: none;
+    border: none;
+    color: #e74c3c;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 0 4px;
+    width: auto;
+ 
+    &:hover {
+      color: #c0392b;
+    }
+  }
+}
+ 
+// Responsive
+@media (max-width: 480px) {
+  .carrito-dropdown {
+    right: -10px;
+    min-width: 260px;
   }
 }

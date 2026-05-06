@@ -3,13 +3,113 @@
 .campo {
   display: flex;
   flex-direction: column;
+  gap: 6px;
 
-  input, select {
-    padding: 10px;
+  label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+  }
+
+  input,
+  select,
+  textarea {
+    padding: 10px 12px;
+    border: 1.5px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.2s ease;
+    font-family: inherit;
+
+    &:focus {
+      outline: none;
+      border-color: $azul-sec;
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
   }
 }
 
 .btn {
+  display: inline-block;
   background: linear-gradient(135deg, $azul-sec, #0051cc);
   color: $blanco;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.1s ease;
+  text-decoration: none;
+
+  &:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.hts-privacy-agree {
+  margin-bottom: 16px;
+  font-size: 13px;
+  color: #555;
+
+  label {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    cursor: pointer;
+  }
+
+  input[type="checkbox"] {
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  a {
+    color: $azul-sec;
+    text-decoration: underline;
+  }
+}
+
+.validate-message {
+  font-size: 13px;
+  color: #e74c3c;
+  margin-bottom: 10px;
+  min-height: 18px;
+}
+
+// Formulario de reserva
+.form-reserva {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+
+  .btn {
+    width: 100%;
+    margin-top: 10px;
+    font-size: 16px;
+    padding: 14px;
+  }
 }

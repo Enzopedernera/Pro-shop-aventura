@@ -1,8 +1,50 @@
+@use "../base/variables" as *;
+
 .contacto {
-  padding: 50px;
+  padding: 80px 50px 50px; // FIX: padding-top extra para compensar header fixed
 
   &-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr; // FIX: una columna en mobile
+    }
+  }
+
+  h1 {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+
+  p {
+    color: #555;
+    margin-bottom: 20px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+
+    li {
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+  }
+
+  iframe {
+    border-radius: 8px;
+    margin-top: 10px;
+  }
+
+  &-form {
+    h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
   }
 }

@@ -1,0 +1,55 @@
+@use "../base/variables" as *;
+
+// ============================================================
+// FIX: este archivo faltaba y main.scss lo importa con @use
+// Contiene estilos específicos de la página de reservas
+// ============================================================
+
+.reservas {
+  padding: 60px 20px;
+  background: #f5f7fa;
+
+  h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    text-align: center;
+    color: #555;
+    margin-bottom: 24px;
+    font-size: 15px;
+  }
+}
+
+// Portada hero de tienda/reservas
+.hero-tienda {
+  position: relative;
+  min-height: 200px;
+  background-image: url("../img/snow/fotosnow1.jpg"); // FIX: ruta relativa desde css/
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 70px; // compensa header fixed
+}
+
+.tienda-portada-texto {
+  text-align: center;
+  color: white;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  padding: 30px;
+
+  h1 {
+    font-size: 36px;
+    margin-bottom: 8px;
+  }
+
+  p {
+    font-size: 16px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.9);
+  }
+}

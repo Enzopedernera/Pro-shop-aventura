@@ -1,16 +1,90 @@
 @use "../base/variables" as *;
 
+.tabla-precios-equipos,
+.tabla-precios-indumentaria {
+  padding: 40px 20px;
+
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 26px;
+  }
+}
+
+// FIX: wrapper para scroll horizontal en mobile
+.tabla-wrapper {
+  overflow-x: auto;
+  border-radius: $radius;
+  box-shadow: $sombra;
+}
+
 .tabla {
   width: 100%;
   border-collapse: collapse;
+  min-width: 600px; // evita que se comprima demasiado en mobile
 
   thead {
     background: $negro;
     color: $blanco;
+
+    th {
+      padding: 12px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
   }
 
-  th, td {
+  th,
+  td {
     border: 1px solid #ddd;
     text-align: center;
+    padding: 10px 14px; // FIX: faltaba padding en las celdas
+    font-size: 14px;
+  }
+
+  tbody {
+    tr {
+      &:nth-child(even) {
+        background: #f9f9f9;
+      }
+
+      &:hover {
+        background: #f0f4ff;
+      }
+    }
+
+    td:first-child {
+      text-align: left;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+  }
+
+  // FIX: .precio con cursor pointer para indicar que es clickeable
+  .precio {
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+    font-weight: 500;
+    color: #1a1a2e;
+
+    &:hover {
+      background: #e8f0fe;
+      color: $azul-sec;
+    }
+  }
+
+  .precio-descuento {
+    font-style: italic;
+    color: #555;
+    font-size: 13px;
+  }
+
+  .fila-descuento {
+    background: #fff8e1;
+
+    td:first-child {
+      font-style: italic;
+    }
   }
 }
