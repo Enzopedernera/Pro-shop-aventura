@@ -4,7 +4,6 @@ body {
   box-sizing: border-box;
   font-family: Arial, sans-serif;
   padding-top: 100px; /* para que el contenido no quede oculto debajo del header fijo */
-
 }
 
 /* HEADER */
@@ -129,7 +128,6 @@ body {
   inset: 0;
   background: rgba(0, 0, 0, 0.45);
   z-index: 1100;
-
 }
 .overlay.active {
   display: block;
@@ -176,7 +174,9 @@ body {
   color: #555;
   padding: 4px 8px;
   border-radius: 4px;
-  transition: background 0.2s, color 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s;
 }
 .carrito-header button:hover {
   background: #f0f0f0;
@@ -191,32 +191,131 @@ body {
 .carrito-footer {
   padding: 16px 24px;
   border-top: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
-.carrito-footer p {
-  font-size: 16px;
-  font-weight: 600;
-  margin: 0 0 12px;
+
+.total-carrito {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 17px;
+  font-weight: 700;
+  margin: 0;
 }
-.carrito-footer button {
+.total-carrito .monto {
+  color: #0077ff;
+  font-size: 20px;
+}
+.btn-finalizar {
+  display: block;
   width: 100%;
-  padding: 12px;
-  background: #000;
+  padding: 14px;
+  background: #0077ff;
   color: #fff;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  font-size: 14px;
-  font-weight: 600;
-  transition: background 0.2s;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.1s;
+  box-sizing: border-box;
 }
-.carrito-footer button:hover {
-  background: #333;
+.btn-finalizar:hover {
+  background: #0051cc;
+  transform: translateY(-1px);
+  color: #fff;
+}
+.btn-finalizar.disabled {
+  background: #ccc;
+  color: #888;
+  cursor: not-allowed;
+  pointer-events: none;
+  transform: none;
+}
+.btn-vaciar {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  color: #aaaaaa;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.2s;
+  box-sizing: border-box;
+}
+.btn-vaciar:hover {
+  background: #e0e0e0;
+  color: black;
 }
 
-@media (max-width: 480px) {
-  .carrito-panel {
-    width: 100vw;
-  }
+.carrito-footer button:hover {
+  background: #0077ff;
+}
+.item-carrito {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 13px;
+}
+.item-carrito .item-info {
+  flex: 1;
+}
+.item-carrito strong {
+  display: block;
+  font-size: 14px;
+}
+
+.item-carrito small {
+  color: #888;
+}
+.item-controles {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.item-controles button {
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  background: #eee;
+  color: #3333;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 15px;
+}
+.item-controles button:hover {
+  background: 3333ffff;
+}
+.item-controles span {
+  min-width: 18px;
+  text-align: center;
+  font-weight: 600;
+}
+.item-precio {
+  font-weight: bold;
+  white-space: nowrap;
+  font-size: 13px;
+}
+
+.eliminar {
+  background: none;
+  border: none;
+  color: #e74c3c;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0 4px;
+}
+.eliminar:hover {
+  color: #c0392b;
 }
 
 /* Dropodwn */
@@ -232,7 +331,6 @@ body {
   height: auto;
   display: block;
   margin: auto;
-
 }
 .hero h1 {
   font-size: 36px;
@@ -1057,7 +1155,7 @@ textarea {
   }
 }
 /* =========================
-   MOBILE
+MOBILE
 ========================= */
 @media (max-width: 768px) {
   .titulo {

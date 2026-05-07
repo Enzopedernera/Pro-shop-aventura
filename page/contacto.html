@@ -39,10 +39,10 @@
     🛒 <span id="contadorCarrito">0</span>
   </div>
 </div>
+</nav>
+    </header>
 
-<!-- OVERLAY -->
-<div class="overlay" id="overlay"></div>
-
+    <div class="overlay" id="overlay"></div>
 <!-- PANEL -->
 <div class="carrito-panel" id="carritoPanel">
   <div class="carrito-header">
@@ -53,12 +53,17 @@
   <div id="listaCarrito"></div>
 
   <div class="carrito-footer">
-    <p>Total: $<span id="total">0</span></p>
-    <button onclick="vaciarCarrito()">Vaciar</button>
+    <p class="total-carrito">
+      Total: <span>$<span id="total">0</span></span>
+    </p>
+    <button class="btn-vaciar" onclick="vaciarCarrito()">🗑 Vaciar carrito</button>
+    <a href="./alquiler.html" id="btnFinalizar" class="btn-finalizar disabled">
+      Finalizar compra →
+    </a>
+    
   </div>
 </div>
-      </nav>
-    </header>
+      
     <main>
       <section class="contacto">
         <div class="contacto-container">
