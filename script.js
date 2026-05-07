@@ -177,20 +177,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ── Toggle carrito ─────────────────────────────────────────
   const toggle = document.getElementById("toggleCarrito");
-  const drop = document.getElementById("carritoDropdown");
+const panel = document.getElementById("carritoPanel");
+const overlay = document.getElementById("overlay");
+const cerrar = document.getElementById("cerrarCarrito");
 
-  if (toggle && drop) {
-    toggle.addEventListener("click", (e) => {
-      e.stopPropagation();
-      drop.style.display = drop.style.display === "block" ? "none" : "block";
-    });
+if (toggle && panel && overlay && cerrar) {
+  toggle.addEventListener("click", () => {
+    panel.classList.add("active");
+    overlay.classList.add("active");
+    document.body.classList.add("no-scroll");
+  });
 
-    document.addEventListener("click", () => {
-      drop.style.display = "none";
-    });
+  cerrar.addEventListener("click", () => {
+    panel.classList.remove("active");
+    overlay.classList.remove("active");
+    document.body.classList.remove("no-scroll");
+  });
 
-    drop.addEventListener("click", (e) => e.stopPropagation());
-  }
+  overlay.addEventListener("click", () => {
+    panel.classList.remove("active");
+    overlay.classList.remove("active");
+    document.body.classList.remove("no-scroll");
+  });
+}
 
   // ── Botones .btn-agregar (index.html) ──────────────────────
   document.querySelectorAll(".btn-agregar").forEach((boton) => {

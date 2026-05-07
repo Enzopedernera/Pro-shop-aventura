@@ -57,11 +57,11 @@
 
   // FIX: hamburguesa oculta en desktop, visible en mobile con media query
   .hamburguesa {
-    display: none;
+    display: flex;
     flex-direction: column;
     gap: 5px;
     cursor: pointer;
-    padding: 5px;
+    padding: 2px;
 
     span {
       display: block;
@@ -73,14 +73,20 @@
     }
   }
 
-  // RESPONSIVE
+  // ── RESPONSIVE MOBILE ────────────────────────────
   @media (max-width: 768px) {
-    .hamburguesa {
-      display: flex; // FIX: aparece en mobile
+ 
+    .titulo {
+      display: none;
     }
-
+ 
+    // Hamburguesa visible en mobile
+    .hamburguesa {
+      display: flex;
+    }
+ 
+    // Menú oculto por defecto en mobile
     .menu {
-      display: none; // oculto por defecto en mobile
       position: absolute;
       top: 70px;
       left: 0;
@@ -88,32 +94,32 @@
       background: $azul;
       flex-direction: column;
       align-items: center;
-      gap: 0;
       padding: 10px 0;
+      gap: 0;
       z-index: 999;
-
+ 
       li {
         width: 100%;
         text-align: center;
-
+        margin: 0;
+ 
         a {
           display: block;
           padding: 12px 0;
           color: $blanco;
-
+          margin: 0;
+ 
           &:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 0;
           }
         }
       }
-
-      &.active {
-        display: flex; // se muestra al hacer clic en la hamburguesa
-      }
     }
 
-    .titulo {
-      font-size: 14px;
+    .menu.active {
+      display: flex !important;
     }
   }
 }
+ 
