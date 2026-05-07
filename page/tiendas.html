@@ -33,21 +33,31 @@
             <li><a href="../page/alquiler.html">ALQUILER</a></li>
             <li><a href="../page/contacto.html">CONTACTO</a></li>
           </ul>
-          <!-- CARRITO -->
-          <div class="carrito-nav">
-            <div class="carrito-icono" id="toggleCarrito">
-              🛒 <span id="contadorCarrito">0</span>
-            </div>
+            <!-- CARRITO -->
+         <div class="carrito-nav">
+  <!-- ICONO -->
+  <div class="carrito-icono" id="toggleCarrito">
+    🛒 <span id="contadorCarrito">0</span>
+  </div>
+</div>
 
-            <div class="carrito-dropdown" id="carritoDropdown">
-              <h4>Tu carrito</h4>
-              <div id="listaCarrito"></div>
+<!-- OVERLAY -->
+<div class="overlay" id="overlay"></div>
 
-              <p class="total">Total: $<span id="total">0</span></p>
-              <button onclick="vaciarCarrito()">Vaciar</button>
-            </div>
-          </div>
-        </div>
+<!-- PANEL -->
+<div class="carrito-panel" id="carritoPanel">
+  <div class="carrito-header">
+    <h1>TU CARRITO</h1>
+    <button id="cerrarCarrito">✕</button>
+  </div>
+
+  <div id="listaCarrito"></div>
+
+  <div class="carrito-footer">
+    <p>Total: $<span id="total">0</span></p>
+    <button onclick="vaciarCarrito()">Vaciar</button>
+  </div>
+</div>
       </nav>
     </header>
     <main>
