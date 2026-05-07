@@ -98,6 +98,7 @@ function formatearPrecio(num) {
 function renderCarrito() {
   const lista = document.getElementById("listaCarrito");
   const totalSpan = document.getElementById("total");
+  const btnFinalizar = document.getElementById("btnFinalizar");
 
   if (!lista || !totalSpan) return;
 
@@ -106,7 +107,10 @@ function renderCarrito() {
 
   if (carrito.length === 0) {
     lista.innerHTML =
-      "<p style='color:#999;font-size:13px;text-align:center;padding:10px 0'>Tu carrito está vacío</p>";
+      "<p style='color:#999;font-size:14px;text-align:center;padding:30px 0'>Tu carrito está vacío 🛒</p>";
+    if (btnFinalizar) btnFinalizar.classList.add("disabled");
+  } else {
+    if (btnFinalizar) btnFinalizar.classList.remove("disabled");
   }
 
   carrito.forEach((item, index) => {
@@ -133,7 +137,6 @@ function renderCarrito() {
     total += item.precio * item.cantidad;
   });
 
-  // FIX: esta línea estaba suelta afuera de la función → crash global
   totalSpan.textContent = formatearPrecio(total);
 }
 
@@ -175,31 +178,27 @@ function filtrarProductos(categoria, botonActivo) {
 // =========================
 document.addEventListener("DOMContentLoaded", () => {
 
-  // ── Toggle carrito ─────────────────────────────────────────
+  // ── Toggle carrito — PANEL LATERAL ─────────────────────────
   const toggle = document.getElementById("toggleCarrito");
-const panel = document.getElementById("carritoPanel");
-const overlay = document.getElementById("overlay");
-const cerrar = document.getElementById("cerrarCarrito");
+  const panel = document.getElementById("carritoPanel");
+  const overlay = document.getElementById("overlay");
+  const cerrar = document.getElementById("cerrarCarrito");
 
-if (toggle && panel && overlay && cerrar) {
-  toggle.addEventListener("click", () => {
-    panel.classList.add("active");
-    overlay.classList.add("active");
-    document.body.classList.add("no-scroll");
-  });
+  function abrirCarrito() {
+    panel?.classList.add("active");
+    overlay?.classList.add("active");
+    document.body.style.overflow = "hidden";
+  }
 
-  cerrar.addEventListener("click", () => {
-    panel.classList.remove("active");
-    overlay.classList.remove("active");
-    document.body.classList.remove("no-scroll");
-  });
+  function cerrarCarrito() {
+    panel?.classList.remove("active");
+    overlay?.classList.remove("active");
+    document.body.style.overflow = "";
+  }
 
-  overlay.addEventListener("click", () => {
-    panel.classList.remove("active");
-    overlay.classList.remove("active");
-    document.body.classList.remove("no-scroll");
-  });
-}
+  toggle?.addEventListener("click", abrirCarrito);
+  cerrar?.addEventListener("click", cerrarCarrito);
+  overlay?.addEventListener("click", cerrarCarrito);
 
   // ── Botones .btn-agregar (index.html) ──────────────────────
   document.querySelectorAll(".btn-agregar").forEach((boton) => {

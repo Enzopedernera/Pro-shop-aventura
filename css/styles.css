@@ -212,8 +212,6 @@ body {
   display: block;
   width: 100%;
   padding: 14px;
-  background: #0077ff;
-  color: #fff;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -231,8 +229,8 @@ body {
   color: #fff;
 }
 .btn-finalizar.disabled {
-  background: #ccc;
-  color: #888;
+  background: #0077ff;
+  color: #fff;
   cursor: not-allowed;
   pointer-events: none;
   transform: none;
