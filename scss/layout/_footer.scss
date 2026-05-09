@@ -1,97 +1,141 @@
+// =============================================
+// FOOTER
+// =============================================
 @use "../base/variables" as *;
 
 .footer {
   background: $negro;
   color: $blanco;
   padding: 40px 0 20px;
-  margin-top: 60px;
+  margin-top: $espaciado-xl;
 
-  a {
-    color: $blanco;
-    text-decoration: none;
-
-    &:hover {
-      color: $azul-sec;
-    }
-  }
-
-  h3 {
-    font-size: 16px;
-    margin-bottom: 16px;
-    color: $blanco;
-    font-weight: 600;
-  }
-
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-
-    li {
-      margin-bottom: 8px;
-      font-size: 14px;
-    }
-  }
-
+  // Textos generales
   p {
     font-size: 14px;
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.8);
   }
 
-  .footer-top {
-    height: 4px;
-    background: $azul-sec;
-    margin-bottom: 30px;
+  h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: $blanco;
+    margin-bottom: 16px;
   }
 
-  .footer-copy,
-  .footer-credit {
+  ul {
+    li {
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+  }
+
+  a {
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $azul-sec;
+    }
+  }
+
+  // Copyright y crédito
+  &-copy,
+  &-credit {
     font-size: 13px;
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.5);
     margin: 0;
   }
 
+  // Redes sociales
   .redes {
     display: flex;
-    gap: 16px;
+    align-items: center;
     justify-content: flex-end;
+    gap: 20px;
     list-style: none;
     padding: 0;
     margin: 0;
 
     li {
+      margin: 0;
+    }
+
+    a {
       display: flex;
       align-items: center;
-      gap: 6px;
-      margin: 0;
+      gap: 8px;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.7);
+      transition: color 0.2s ease;
 
-      img {
-        filter: brightness(0) invert(1);
-        opacity: 0.8;
+      &:hover {
+        color: $blanco;
       }
 
-      a {
-        font-size: 13px;
+      svg {
+        flex-shrink: 0;
       }
     }
   }
 
+  // Info de contacto
   .contact-us {
     li {
       margin-bottom: 12px;
     }
   }
 
-  // Responsive
-  @media (max-width: 768px) {
+  // Grid principal del footer
+  &-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.5fr 2fr;
+    gap: 40px;
+    margin-bottom: 40px;
+    padding: 0 40px;
+
+    @media (max-width: $bp-desktop) {
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    @media (max-width: $bp-tablet) {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      padding: 0 20px;
+    }
+  }
+
+  // Barra inferior
+  &-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    flex-wrap: wrap;
+    gap: 12px;
+
+    @media (max-width: $bp-tablet) {
+      flex-direction: column;
+      text-align: center;
+      padding: 20px 20px 0;
+
+      .redes {
+        justify-content: center;
+      }
+    }
+  }
+
+  // ── RESPONSIVE ──────────────────────────────
+  @media (max-width: $bp-tablet) {
     .redes {
       justify-content: center;
       margin-top: 12px;
     }
 
-    .footer-copy,
-    .footer-credit {
+    &-copy,
+    &-credit {
       text-align: center;
     }
   }

@@ -1,14 +1,23 @@
+// =============================================
+// MAIN — punto de entrada SCSS
+// =============================================
+
+// Base
 @use "base/variables";
 @use "base/reset";
+@use "base/responsive";
 
+// Layout
 @use "layout/header";
 @use "layout/footer";
 
+// Components
 @use "components/carrito";
 @use "components/producto";
 @use "components/form";
 @use "components/tabla";
 
+// Pages
 @use "pages/home";
 @use "pages/tienda";
 @use "pages/contacto";

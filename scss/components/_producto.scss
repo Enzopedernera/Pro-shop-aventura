@@ -1,26 +1,50 @@
+// =============================================
+// PRODUCTOS
+// =============================================
 @use "../base/variables" as *;
 
-.grid-productos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 24px;
-  padding: 20px;
+// ── SECCIÓN CONTENEDORA ───────────────────────
+.productos {
+  padding: $espaciado-xl $espaciado-md;
+  background: $gris-claro;
+  text-align: center;
+
+  h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: $negro;
+  }
 }
 
+// ── GRID ──────────────────────────────────────
+.grid-productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  padding: 20px;
+  background-image: url("../img/cerro-bayo.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  border-radius: $radius-lg;
+}
+
+// ── TARJETA ───────────────────────────────────
 .producto {
   background: $blanco;
-  border-radius: $radius;
-  box-shadow: $sombra;
-  text-align: center;
-  // FIX: flex para alinear contenido verticalmente
+  border-radius: $radius-lg;
+  overflow: hidden;
+  box-shadow: $sombra-md;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transform: translateY(-6px);
+    box-shadow: $sombra-lg;
   }
 
   img {
@@ -32,67 +56,61 @@
 
   h3 {
     font-size: 16px;
+    font-weight: 600;
     margin: 12px 12px 4px;
+    color: $negro;
   }
 
   p {
     font-size: 15px;
-    font-weight: 600;
-    color: #333;
+    font-weight: 700;
+    color: $negro;
     margin: 0 12px 10px;
   }
 
   select {
     width: calc(100% - 24px);
     margin: 0 12px 10px;
-    padding: 8px;
-    border: 1.5px solid #ddd;
-    border-radius: 6px;
+    padding: 8px 10px;
+    border: 1.5px solid $gris-medio;
+    border-radius: $radius-sm;
     font-size: 13px;
+    background: $blanco;
+    color: $negro;
     cursor: pointer;
+    transition: border-color 0.2s ease;
+
+    &:hover {
+      border-color: #999;
+    }
 
     &:focus {
       outline: none;
       border-color: $azul-sec;
+      box-shadow: 0 0 0 2px rgba(0, 119, 255, 0.15);
     }
   }
 
-  // FIX: btn-agregar empujado al fondo con margin-top: auto
-  .btn-agregar {
-    margin: auto 12px 12px;
-    padding: 10px;
-    background: $negro;
-    color: $blanco;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 500;
-    transition: background 0.2s ease;
-
-    &:hover {
-      background: #333;
-    }
-  }
-
-  // Para productos en tiendas.html que tienen botones directos
+  // Botón agregar — empujado al fondo con margin-top: auto
+  .btn-agregar,
   > button {
     margin: auto 12px 12px;
     padding: 10px;
     background: $negro;
     color: $blanco;
     border: none;
-    border-radius: 6px;
-    cursor: pointer;
+    border-radius: $radius-sm;
     font-size: 14px;
     font-weight: 500;
     transition: background 0.2s ease;
 
     &:hover {
-      background: #333;
+      background: $azul-sec;
+      color: $blanco;
     }
   }
 
+  // Link producto tienda
   .producto-link {
     text-decoration: none;
     color: inherit;
@@ -100,12 +118,49 @@
   }
 }
 
-.productos {
-  padding: 40px 20px;
+// ── TIENDA — GRID DE PRODUCTOS ────────────────
+.productos-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  padding: 20px;
+}
+// ── BREADCRUMB ────────────────────────────────
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 40px;
+  font-size: 13px;
+  color: $gris-texto;
+  background: $blanco;
+  border-bottom: 1px solid $gris-medio;
 
-  h2 {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 28px;
+  a {
+    color: $azul-sec;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+
+  span {
+    color: $gris-texto;
+  }
+
+  .breadcrumb-sep {
+    color: $gris-medio;
+    font-size: 12px;
+  }
+
+  .breadcrumb-actual {
+    color: $negro;
+    font-weight: 500;
+  }
+
+  @media (max-width: $bp-mobile) {
+    padding: 12px 20px;
   }
 }

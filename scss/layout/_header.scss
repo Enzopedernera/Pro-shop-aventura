@@ -1,125 +1,137 @@
+// =============================================
+// HEADER
+// =============================================
 @use "../base/variables" as *;
 
 .header {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
+  height: $header-height;
   background: $azul;
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
 
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 40px;
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding: 0 40px;
+  gap: 20px;
+}
+
+// Logo
+.logo {
+  flex-shrink: 0;
+
+  img {
+    height: 65px;
+    width: auto;
+    display: block;
   }
+}
 
-  .container-fluid {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-  }
+// Título central
+.titulo {
+  font-size: 18px;
+  font-weight: 500;
+  color: $blanco;
+  white-space: nowrap;
+}
 
-  .logo a {
+// Menú
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  a {
     color: $blanco;
-    font-weight: bold;
-  }
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: $radius-sm;
+    transition: background 0.2s ease;
 
-  .titulo {
-    font-size: 18px;
-  }
-
-  .menu {
-    display: flex;
-    gap: 30px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-
-    a {
-      color: $negro;
-      text-decoration: none;
-
-      &:hover {
-        background: $negro;
-        color: $blanco;
-        padding: 4px 8px;
-        border-radius: 4px;
-      }
-    }
-
-    // FIX: .active solo se usa en mobile para mostrar el menú desplegado
-    &.active {
-      display: flex;
-    }
-  }
-
-  // FIX: hamburguesa oculta en desktop, visible en mobile con media query
-  .hamburguesa {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    padding: 2px;
-
-    span {
-      display: block;
-      width: 25px;
-      height: 3px;
-      background: $blanco;
-      border-radius: 3px;
-      transition: all 0.3s ease;
-    }
-  }
-
-  // ── RESPONSIVE MOBILE ────────────────────────────
-  @media (max-width: 768px) {
- 
-    .titulo {
-      display: none;
-    }
- 
-    // Hamburguesa visible en mobile
-    .hamburguesa {
-      display: flex;
-    }
- 
-    // Menú oculto por defecto en mobile
-    .menu {
-      position: absolute;
-      top: 70px;
-      left: 0;
-      width: 100%;
-      background: $azul;
-      flex-direction: column;
-      align-items: center;
-      padding: 10px 0;
-      gap: 0;
-      z-index: 999;
- 
-      li {
-        width: 100%;
-        text-align: center;
-        margin: 0;
- 
-        a {
-          display: block;
-          padding: 12px 0;
-          color: $blanco;
-          margin: 0;
- 
-          &:hover {
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 0;
-          }
-        }
-      }
-    }
-
-    .menu.active {
-      display: flex !important;
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
     }
   }
 }
- 
+
+// Hamburguesa — oculta en desktop
+.hamburguesa {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  background: none;
+  border: none;
+  flex-shrink: 0;
+
+  span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: $blanco;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+  }
+}
+
+// ── RESPONSIVE MOBILE ─────────────────────────
+@media (max-width: $bp-tablet) {
+
+  .navbar {
+    padding: 0 20px;
+  }
+
+  .titulo {
+    display: none;
+  }
+
+  .hamburguesa {
+    display: flex;
+  }
+
+  .menu {
+    display: none;
+    position: absolute;
+    top: $header-height;
+    left: 0;
+    width: 100%;
+    background: $azul;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+    gap: 0;
+    z-index: 999;
+
+    &.active {
+      display: flex;
+    }
+
+    li {
+      width: 100%;
+      text-align: center;
+    }
+
+    a {
+      display: block;
+      padding: 14px 0;
+      border-radius: 0;
+      width: 100%;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.15);
+      }
+    }
+  }
+}

@@ -1,84 +1,143 @@
 <!doctype html>
-<html lang="en">
+<html lang="es-AR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RENTAL PRO SHOP</title>   
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"/>
-    <link rel="stylesheet" href="css/styles.css" />
+    <meta
+      name="description"
+      content="Alquilá equipos de ski y snowboard en Villa La Angostura. Reservá online con descuentos exclusivos. Rental Pro Shop — Av. Arrayanes 173."
+    />
+    <title>
+      Rental Pro Shop — Alquiler de Ski y Snowboard en Villa La Angostura
+    </title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="./img/ico/favicon.ico" />
+    <link rel="apple-touch-icon" href="./img/ico/apple-touch-icon.png" />
+
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="Rental Pro Shop — Ski y Snowboard en Villa La Angostura"
+    />
+    <meta
+      property="og:description"
+      content="Alquilá equipos de ski y snowboard con reserva online. Descuentos exclusivos."
+    />
+    <meta property="og:image" content="./img/slider/1nieve.jpg" />
+    <meta property="og:type" content="website" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
     <!-- HEADER -->
     <header class="header">
       <nav class="navbar">
-        <div class="container-fluid">
-          <div class="logo">
-            <a href="index.html"> <img src="img/logo.png" alt="Logo" /></a>
+        <div class="logo">
+          <a href="./index.html">
+            <img
+              src="./img/logo.png"
+              alt="Rental Pro Shop"
+              width="120"
+              height="45"
+            />
+          </a>
+        </div>
+
+        <span class="titulo">RENTAL PRO SHOP</span>
+
+        <!-- HAMBURGUESA -->
+        <button
+          class="hamburguesa"
+          id="hamburguesa"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul class="menu" id="menu">
+          <li><a href="./index.html">INICIO</a></li>
+          <li><a href="./page/tiendas.html">TIENDA</a></li>
+          <li><a href="./page/alquiler.html">ALQUILER</a></li>
+          <li><a href="./page/contacto.html">CONTACTO</a></li>
+        </ul>
+
+        <!-- CARRITO ICONO -->
+        <div class="carrito-nav">
+          <div
+            class="carrito-icono"
+            id="toggleCarrito"
+            role="button"
+            aria-label="Abrir carrito"
+          >
+            🛒 <span id="contadorCarrito">0</span>
           </div>
-          <h1 class="titulo">RENTAL PRO SHOP</h1>
-
-          <!-- HAMBURGUESA -->
-          <div class="hamburguesa" id="hamburguesa">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-
-          <ul class="menu" id="menu">
-            <li><a href="./index.html">INICIO</a></li>
-            <li><a href="./page/tiendas.html">TIENDA</a></li>
-            <li><a href="./page/alquiler.html">ALQUILER</a></li>
-            <li><a href="./page/contacto.html">CONTACTO</a></li>
-          </ul>
-
-          <!-- CARRITO -->
-         <div class="carrito-nav">
-  <!-- ICONO -->
-  <div class="carrito-icono" id="toggleCarrito">
-    🛒 <span id="contadorCarrito">0</span>
-  </div>
-</div>
-
-<div class="overlay" id="overlay"></div>
-
-<!-- PANEL -->
-<div class="carrito-panel" id="carritoPanel">
-  <div class="carrito-header">
-    <h1>TU CARRITO</h1>
-    <button id="cerrarCarrito">✕</button>
-  </div>
-
-  <div id="listaCarrito"></div>
-
-  <div class="carrito-footer">
-    <p class="total-carrito">
-      Total: <span>$<span id="total">0</span></span>
-    </p>
-    <button class="btn-vaciar" onclick="vaciarCarrito()">🗑 Vaciar carrito</button>
-    <a href="./page/alquiler.html" id="btnFinalizar" class="btn-finalizar disabled">
-      Finalizar compra →
-    </a>
-    
-  </div>
-</div>
+        </div>
       </nav>
     </header>
+
+    <!-- OVERLAY -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- PANEL CARRITO -->
+    <div
+      class="carrito-panel"
+      id="carritoPanel"
+      aria-label="Carrito de compras"
+    >
+      <div class="carrito-header">
+        <h2>TU CARRITO</h2>
+        <button id="cerrarCarrito" aria-label="Cerrar carrito">✕</button>
+      </div>
+      <div id="listaCarrito"></div>
+      <div class="carrito-footer">
+        <p class="total-carrito">
+          Total: <span>$<span id="total">0</span></span>
+        </p>
+        <button class="btn-vaciar" onclick="vaciarCarrito()">
+          🗑 Vaciar carrito
+        </button>
+        <a
+          href="./page/alquiler.html"
+          id="btnFinalizar"
+          class="btn-finalizar disabled"
+        >
+          Finalizar compra →
+        </a>
+      </div>
+    </div>
+
     <main>
       <!-- HERO -->
-      <section id="inicio" class="hero">
-        <img src="img/slider/1nieve.jpg" alt="imagen de ski" />
+      <section class="hero">
+        <img
+          src="./img/slider/1nieve.jpg"
+          alt="Ski y snowboard en Villa La Angostura"
+          width="1920"
+          height="600"
+        />
         <div class="hero-content">
           <h1>
-            ¡Tu mejor opción para alquilar equipos de ski y snowboard en Villa
-            La Angostura!
+            Tu mejor opción para alquilar equipos de ski y snowboard en Villa La
+            Angostura
           </h1>
         </div>
       </section>
+
+      <!-- SERVICIOS -->
       <section class="grid-servicios">
         <div class="bloque">
-          <img src="./img/snow/1.jpg" alt="Alquiler de equipos" />
+          <img
+            src="./img/snow/1.jpg"
+            alt="Alquiler de equipos de ski"
+            width="480"
+            height="250"
+            loading="lazy"
+          />
           <div class="contenido">
             <a href="./page/alquiler.html">
               <h3>Alquiler de equipos</h3>
@@ -88,7 +147,13 @@
         </div>
 
         <div class="bloque">
-          <img src="./img/snow/marcas.jpg" alt="Mejores marcas" />
+          <img
+            src="./img/snow/marcas.jpg"
+            alt="Mejores marcas de ski y snowboard"
+            width="480"
+            height="250"
+            loading="lazy"
+          />
           <div class="contenido">
             <a href="./page/tiendas.html">
               <h3>Mejores marcas</h3>
@@ -98,7 +163,13 @@
         </div>
 
         <div class="bloque">
-          <img src="./img/snow/fotosnow1.jpg" alt="Descuentos exclusivos" />
+          <img
+            src="./img/snow/fotosnow1.jpg"
+            alt="Descuentos exclusivos por reserva online"
+            width="480"
+            height="250"
+            loading="lazy"
+          />
           <div class="contenido">
             <a href="./page/tiendas.html">
               <h3>Descuentos exclusivos</h3>
@@ -108,7 +179,13 @@
         </div>
 
         <div class="bloque">
-          <img src="./img/snow/2.jpg" alt="Reserva online" />
+          <img
+            src="./img/snow/2.jpg"
+            alt="Reserva online de equipos"
+            width="480"
+            height="250"
+            loading="lazy"
+          />
           <div class="contenido">
             <a href="./page/alquiler.html">
               <h3>Reserva online</h3>
@@ -118,16 +195,22 @@
         </div>
       </section>
 
+      <!-- PRODUCTOS -->
       <section class="productos">
         <h2>Alquiler fácil</h2>
-
         <div class="grid-productos">
           <!-- SKI -->
           <div class="producto" data-nombre="Ski" data-precio="55000">
-            <img src="./img/snow/1.jpg" alt="Ski" />
+            <img
+              src="./img/snow/1.jpg"
+              alt="Ski para alquiler"
+              width="220"
+              height="200"
+              loading="lazy"
+            />
             <h3>Ski</h3>
             <p>$55.000</p>
-            <select class="medida">
+            <select class="medida" aria-label="Seleccioná altura de ski">
               <option value="">Altura (cm)</option>
               <option>140</option>
               <option>142</option>
@@ -146,16 +229,21 @@
               <option>168</option>
               <option>170</option>
             </select>
-
             <button class="btn-agregar">Agregar</button>
           </div>
 
           <!-- SNOWBOARD -->
           <div class="producto" data-nombre="Snowboard" data-precio="58000">
-            <img src="./img/snow/2.jpg" alt="Snowboard" />
+            <img
+              src="./img/snow/2.jpg"
+              alt="Snowboard para alquiler"
+              width="220"
+              height="200"
+              loading="lazy"
+            />
             <h3>Snowboard</h3>
             <p>$58.000</p>
-            <select class="medida">
+            <select class="medida" aria-label="Seleccioná altura de snowboard">
               <option value="">Altura (cm)</option>
               <option>140</option>
               <option>142</option>
@@ -175,10 +263,16 @@
 
           <!-- BOTAS -->
           <div class="producto" data-nombre="Botas" data-precio="40000">
-            <img src="./img/snow/3.jpg" alt="Botas" />
+            <img
+              src="./img/snow/3.jpg"
+              alt="Botas de ski para alquiler"
+              width="220"
+              height="200"
+              loading="lazy"
+            />
             <h3>Botas</h3>
             <p>$40.000</p>
-            <select class="medida">
+            <select class="medida" aria-label="Seleccioná talle de botas">
               <option value="">Talle EU</option>
               <option>36</option>
               <option>37</option>
@@ -190,16 +284,21 @@
               <option>43</option>
               <option>44</option>
             </select>
-
             <button class="btn-agregar">Agregar</button>
           </div>
 
           <!-- CASCO -->
           <div class="producto" data-nombre="Casco" data-precio="19000">
-            <img src="./img/snow/4.jpg" alt="Casco" />
+            <img
+              src="./img/snow/4.jpg"
+              alt="Casco para ski y snowboard"
+              width="220"
+              height="200"
+              loading="lazy"
+            />
             <h3>Casco</h3>
             <p>$19.000</p>
-            <select class="medida">
+            <select class="medida" aria-label="Seleccioná talle de casco">
               <option value="">Talle</option>
               <option>S</option>
               <option>M</option>
@@ -211,11 +310,17 @@
 
           <!-- BASTONES -->
           <div class="producto" data-nombre="Bastones" data-precio="20000">
-            <img src="./img/snow/1.jpg" alt="Bastones" />
+            <img
+              src="./img/snow/bastones.jpg"
+              alt="Bastones de ski"
+              width="220"
+              height="200"
+              loading="lazy"
+            />
             <h3>Bastones</h3>
             <p>$20.000</p>
-            <select class="medida">
-              <option value="">Altura</option>
+            <select class="medida" aria-label="Seleccioná altura de bastones">
+              <option value="">Altura (cm)</option>
               <option>85</option>
               <option>90</option>
               <option>95</option>
@@ -227,58 +332,21 @@
               <option>125</option>
               <option>130</option>
             </select>
-
             <button class="btn-agregar">Agregar</button>
           </div>
 
           <!-- GUANTES -->
           <div class="producto" data-nombre="Guantes" data-precio="13000">
-            <img src="./img/snow/2.jpg" alt="Guantes" />
+            <img
+              src="./img/snow/4.jpg"
+              alt="Guantes de ski y snowboard"
+              width="220"
+              height="200"
+              loading="lazy"
+            />
             <h3>Guantes</h3>
             <p>$13.000</p>
-            <select class="medida">
-              <option value="">Talle</option>
-              <option>S</option>
-              <option>M</option>
-              <option>L</option>
-              <option>XL</option>
-            </select>
-            <button class="btn-agregar">Agregar</button>
-          </div>
-          <!-- GUANTES -->
-          <div class="producto" data-nombre="Guantes" data-precio="13000">
-            <img src="./img/snow/2.jpg" alt="Guantes" />
-            <h3>Guantes</h3>
-            <p>$13.000</p>
-            <select class="medida">
-              <option value="">Talle</option>
-              <option>S</option>
-              <option>M</option>
-              <option>L</option>
-              <option>XL</option>
-            </select>
-            <button class="btn-agregar">Agregar</button>
-          </div>
-          <!-- GUANTES -->
-          <div class="producto" data-nombre="Guantes" data-precio="13000">
-            <img src="./img/snow/2.jpg" alt="Guantes" />
-            <h3>Guantes</h3>
-            <p>$13.000</p>
-            <select class="medida">
-              <option value="">Talle</option>
-              <option>S</option>
-              <option>M</option>
-              <option>L</option>
-              <option>XL</option>
-            </select>
-            <button class="btn-agregar">Agregar</button>
-          </div>
-          <!-- GUANTES -->
-          <div class="producto" data-nombre="Guantes" data-precio="13000">
-            <img src="./img/snow/2.jpg" alt="Guantes" />
-            <h3>Guantes</h3>
-            <p>$13.000</p>
-            <select class="medida">
+            <select class="medida" aria-label="Seleccioná talle de guantes">
               <option value="">Talle</option>
               <option>S</option>
               <option>M</option>
@@ -290,10 +358,16 @@
 
           <!-- ANTIPARRAS -->
           <div class="producto" data-nombre="Antiparras" data-precio="27000">
-            <img src="./img/snow/1.jpg" alt="Antiparras" />
+            <img
+              src="./img/snow/antiparras.jpg"
+              alt="Antiparras de ski y snowboard"
+              width="220"
+              height="200"
+              loading="lazy"
+            />
             <h3>Antiparras</h3>
             <p>$27.000</p>
-            <select class="medida">
+            <select class="medida" aria-label="Seleccioná talle de antiparras">
               <option value="">Talle</option>
               <option>S</option>
               <option>M</option>
@@ -305,36 +379,33 @@
         </div>
       </section>
     </main>
+
     <!-- FOOTER -->
     <footer class="footer">
-      <div class="footer-top"></div>
-
       <div class="container">
-        <!-- BLOQUES PRINCIPALES -->
-        <div class="row">
+        <div class="footer-grid">
           <!-- INFO -->
-          <div class="col-lg-3 col-md-6 footer-one">
-            <h3>Bienvenidos!</h3>
+          <div class="footer-one">
+            <h3>Bienvenidos</h3>
             <p>
-              Somos el local con mayor variedad de Villa La Angostura y contamos
-              con experiencia y trayectoria en la localidad. Artículos de pesca,
-              camping, náutica, ski, snowboard y mucho más.
+              Somos el local con mayor variedad de Villa La Angostura. Artículos
+              de pesca, camping, náutica, ski, snowboard y mucho más.
             </p>
           </div>
 
           <!-- ACCESOS -->
-          <div class="col-lg-2 col-md-6 footer-two">
-            <h3 class="accesos">Accesos directos</h3>
+          <div class="footer-two">
+            <h3>Accesos directos</h3>
             <ul>
               <li><a href="./index.html">Inicio</a></li>
-              <li><a href="./page/tiendas.html">Tiendas</a></li>
+              <li><a href="./page/tiendas.html">Tienda</a></li>
               <li><a href="./page/alquiler.html">Alquiler</a></li>
               <li><a href="./page/contacto.html">Contacto</a></li>
             </ul>
           </div>
 
           <!-- LINKS -->
-          <div class="col-lg-3 col-md-6 footer-three">
+          <div class="footer-three">
             <h3>Sitios de interés</h3>
             <ul>
               <li>
@@ -342,112 +413,142 @@
                   href="https://www.cerrobayo.com.ar/montana/mapa/"
                   target="_blank"
                   rel="noopener"
+                  >Mapa de pistas — Cerro Bayo</a
                 >
-                  Mapa de pistas - Cerro Bayo
-                </a>
               </li>
               <li>
                 <a
-                  href="http://www.accuweather.com/es/ar/villa-la-angostura/1227987/weather-forecast/1227987"
+                  href="https://www.accuweather.com/es/ar/villa-la-angostura/1227987/weather-forecast/1227987"
                   target="_blank"
                   rel="noopener"
+                  >Clima en Cerro Bayo</a
                 >
-                  Clima en Cerro Bayo
-                </a>
               </li>
               <li>
                 <a
                   href="https://www.villalaangosturaturismo.gob.ar/"
                   target="_blank"
                   rel="noopener"
+                  >Conocé Villa La Angostura</a
                 >
-                  Conocé Villa La Angostura
-                </a>
               </li>
             </ul>
           </div>
 
           <!-- CONTACTO -->
-          <div class="col-lg-4 col-md-6 footer-four">
+          <div class="footer-four">
             <h3>Contactanos</h3>
             <ul class="contact-us">
               <li>
                 <p>
                   <strong>¿Dónde estamos?</strong><br />
                   Av. Arrayanes 173<br />
-                  Villa La Angostura<br />
-                  Neuquén, Argentina
+                  Villa La Angostura, Neuquén
                 </p>
               </li>
-
               <li>
                 <p>
                   <strong>Whatsapp:</strong>
                   <a
-                    href="https://wa.me/message/JLSML52X57QYD1"
+                    href="https://wa.me/5492944646730"
                     rel="noopener"
                     target="_blank"
+                    >+54 9 2944 646730</a
                   >
-                    +54 9 2944 646730
-                  </a>
                 </p>
               </li>
-
               <li>
                 <p>
                   <strong>Email:</strong>
-                  <a href="mailto:consultas@proshopaventura.com">
-                    consultas@proshopaventura.com
-                  </a>
+                  <a href="mailto:consultas@proshopaventura.com"
+                    >consultas@proshopaventura.com</a
+                  >
                 </p>
               </li>
             </ul>
           </div>
         </div>
-        <div class="row align-items-center text-center text-md-start mt-4">
-          <!-- izquierda -->
-          <div class="col-md-4">
-            <p class="footer-copy">© 2026 RENTAL PRO SHOP</p>
-          </div>
 
-          <!-- centro -->
-          <div class="col-md-4 mb-3 mb-md-0 text-center">
-            <p class="footer-credit">Rental Ski and Snow</p>
-          </div>
-          <div class="col-md-4 text-md-end">
-            <ul class="redes">
-              <li>
-                <img
-                  src="./img/logosredes/facebook.png"
-                  alt="Logo de Facebook"
-                  width="15"
-                />
-                <a
-                  href="https://www.facebook.com"
-                  rel="noopener"
-                  target="_blank"
-                  >Facebook</a
+        <!-- FOOTER BOTTOM -->
+        <div class="footer-bottom">
+          <p class="footer-copy">© 2026 Rental Pro Shop</p>
+          <p class="footer-credit">Rental Ski and Snow</p>
+          <ul class="redes">
+            <li>
+              <a
+                href="https://www.instagram.com/proshop.aventura/"
+                rel="noopener"
+                target="_blank"
+                aria-label="Instagram"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
                 >
-              </li>
-              <li>
-                <img
-                  src="./img/logosredes/instagram.png"
-                  alt="Logo de Instagram"
-                  width="18"
-                />
-                <a
-                  href="https://www.instagram.com/proshop.aventura/"
-                  rel="noopener"
-                  target="_blank"
-                  >Instagram</a
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                </svg>
+                Instagram
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.facebook.com"
+                rel="noopener"
+                target="_blank"
+                aria-label="Facebook"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
                 >
-              </li>
-            </ul>
-          </div>
+                  <path
+                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                  />
+                </svg>
+                Facebook
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </footer>
-    <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Schema.org LocalBusiness -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Rental Pro Shop",
+        "description": "Alquiler de equipos de ski y snowboard en Villa La Angostura",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Av. Arrayanes 173",
+          "addressLocality": "Villa La Angostura",
+          "addressRegion": "Neuquén",
+          "addressCountry": "AR"
+        },
+        "telephone": "+54-9-2944-646730",
+        "email": "consultas@proshopaventura.com",
+        "url": "https://www.proshopaventura.com"
+      }
+    </script>
+
+    <script src="./script.js"></script>
   </body>
 </html>

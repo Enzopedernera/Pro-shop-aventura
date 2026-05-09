@@ -1,28 +1,44 @@
+// =============================================
+// TABLAS DE PRECIOS
+// =============================================
 @use "../base/variables" as *;
 
+// ── SECCIÓN CONTENEDORA ───────────────────────
 .tabla-precios-equipos,
 .tabla-precios-indumentaria {
-  padding: 40px 20px;
+  padding: $espaciado-xl $espaciado-md;
 
-  h1 {
+  h2 {
     text-align: center;
-    margin-bottom: 20px;
     font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: $negro;
+  }
+
+  p {
+    text-align: center;
+    color: $gris-texto;
+    margin-bottom: 24px;
+    font-size: 15px;
   }
 }
 
-// FIX: wrapper para scroll horizontal en mobile
+// ── WRAPPER — scroll horizontal en mobile ─────
 .tabla-wrapper {
   overflow-x: auto;
-  border-radius: $radius;
-  box-shadow: $sombra;
+  border-radius: $radius-md;
+  box-shadow: $sombra-md;
+  -webkit-overflow-scrolling: touch;
 }
 
+// ── TABLA ─────────────────────────────────────
 .tabla {
   width: 100%;
   border-collapse: collapse;
-  min-width: 600px; // evita que se comprima demasiado en mobile
+  min-width: 600px;
 
+  // Encabezado
   thead {
     background: $negro;
     color: $blanco;
@@ -32,19 +48,24 @@
       font-size: 14px;
       font-weight: 600;
       white-space: nowrap;
+      text-align: center;
     }
   }
 
+  // Celdas
   th,
   td {
-    border: 1px solid #ddd;
+    border: 1px solid $gris-medio;
     text-align: center;
-    padding: 10px 14px; // FIX: faltaba padding en las celdas
+    padding: 10px 14px;
     font-size: 14px;
   }
 
+  // Filas
   tbody {
     tr {
+      transition: background 0.15s ease;
+
       &:nth-child(even) {
         background: #f9f9f9;
       }
@@ -54,19 +75,23 @@
       }
     }
 
+    // Primera columna — nombre del equipo
     td:first-child {
       text-align: left;
       font-weight: 500;
       white-space: nowrap;
+      color: $negro;
     }
   }
 
-  // FIX: .precio con cursor pointer para indicar que es clickeable
+  // ── CELDAS CLICKEABLES ──────────────────────
   .precio {
     cursor: pointer;
-    transition: background 0.15s ease, color 0.15s ease;
-    font-weight: 500;
-    color: #1a1a2e;
+    font-weight: 600;
+    color: $negro;
+    transition:
+      background 0.15s ease,
+      color 0.15s ease;
 
     &:hover {
       background: #e8f0fe;
@@ -74,17 +99,22 @@
     }
   }
 
-  .precio-descuento {
-    font-style: italic;
-    color: #555;
-    font-size: 13px;
-  }
-
+  // Fila de descuento
   .fila-descuento {
     background: #fff8e1;
 
     td:first-child {
       font-style: italic;
+      color: $gris-texto;
+    }
+  }
+
+  // ── RESPONSIVE ──────────────────────────────
+  @media (max-width: $bp-tablet) {
+    th,
+    td {
+      font-size: 12px;
+      padding: 8px;
     }
   }
 }

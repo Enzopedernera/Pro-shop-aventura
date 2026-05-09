@@ -1,69 +1,101 @@
 <!doctype html>
-<html lang="en">
+<html lang="es-AR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CONTACTO - RENTAL PRO SHOP</title>   
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"/>
+    <meta
+      name="description"
+      content="Contactate con Rental Pro Shop en Villa La Angostura. Envianos un mensaje o visitanos en Av. Arrayanes 173."
+    />
+    <title>Contacto — Rental Pro Shop</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="../img/ico/favicon.ico" />
+
+    <!-- CSS -->
     <link rel="stylesheet" href="../css/styles.css" />
   </head>
   <body>
     <!-- HEADER -->
     <header class="header">
       <nav class="navbar">
-        <div class="container-fluid">
-          <div class="logo">
-            <a href="../index.html">
-              <img src="../img/logo.png" alt="Logo rental pro shop" />
-            </a>
-          </div>
-          <h1 class="titulo">RENTAL PRO SHOP</h1>
+        <div class="logo">
+          <a href="../index.html">
+            <img
+              src="../img/logo.png"
+              alt="Rental Pro Shop"
+              width="120"
+              height="60"
+            />
+          </a>
+        </div>
 
-          <div class="hamburguesa" id="hamburguesa">
-            <span></span>
-            <span></span>
-            <span></span>
+        <span class="titulo">RENTAL PRO SHOP</span>
+
+        <!-- HAMBURGUESA -->
+        <button
+          class="hamburguesa"
+          id="hamburguesa"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul class="menu" id="menu">
+          <li><a href="../index.html">INICIO</a></li>
+          <li><a href="./tiendas.html">TIENDA</a></li>
+          <li><a href="./alquiler.html">ALQUILER</a></li>
+          <li><a href="./contacto.html">CONTACTO</a></li>
+        </ul>
+
+        <!-- CARRITO ICONO -->
+        <div class="carrito-nav">
+          <div
+            class="carrito-icono"
+            id="toggleCarrito"
+            role="button"
+            aria-label="Abrir carrito"
+          >
+            🛒 <span id="contadorCarrito">0</span>
           </div>
-          <ul class="menu" id="menu">
-            <li><a href="../index.html">INICIO</a></li>
-            <li><a href="../page/tiendas.html">TIENDA</a></li>
-            <li><a href="../page/alquiler.html">ALQUILER</a></li>
-            <li><a href="../page/contacto.html">CONTACTO</a></li>
-          </ul>
-           <!-- CARRITO -->
-         <div class="carrito-nav">
-  <!-- ICONO -->
-  <div class="carrito-icono" id="toggleCarrito">
-    🛒 <span id="contadorCarrito">0</span>
-  </div>
-</div>
-</nav>
+        </div>
+      </nav>
     </header>
 
+    <!-- OVERLAY -->
     <div class="overlay" id="overlay"></div>
-<!-- PANEL -->
-<div class="carrito-panel" id="carritoPanel">
-  <div class="carrito-header">
-    <h1>TU CARRITO</h1>
-    <button id="cerrarCarrito">✕</button>
-  </div>
 
-  <div id="listaCarrito"></div>
+    <!-- PANEL CARRITO -->
+    <div
+      class="carrito-panel"
+      id="carritoPanel"
+      aria-label="Carrito de compras"
+    >
+      <div class="carrito-header">
+        <h2>TU CARRITO</h2>
+        <button id="cerrarCarrito" aria-label="Cerrar carrito">✕</button>
+      </div>
+      <div id="listaCarrito"></div>
+      <div class="carrito-footer">
+        <p class="total-carrito">
+          Total: <span>$<span id="total">0</span></span>
+        </p>
+        <button class="btn-vaciar" onclick="vaciarCarrito()">
+          🗑 Vaciar carrito
+        </button>
+        <a
+          href="./alquiler.html"
+          id="btnFinalizar"
+          class="btn-finalizar disabled"
+        >
+          Finalizar compra →
+        </a>
+      </div>
+    </div>
 
-  <div class="carrito-footer">
-    <p class="total-carrito">
-      Total: <span>$<span id="total">0</span></span>
-    </p>
-    <button class="btn-vaciar" onclick="vaciarCarrito()">🗑 Vaciar carrito</button>
-    <a href="./alquiler.html" id="btnFinalizar" class="btn-finalizar disabled">
-      Finalizar compra →
-    </a>
-    
-  </div>
-</div>
-      
     <main>
       <section class="contacto">
         <div class="contacto-container">
@@ -75,45 +107,71 @@
             <ul>
               <li><strong>Email:</strong> consultas@proshopaventura.com</li>
               <li><strong>Teléfono:</strong> +54 9 2944 646730</li>
-              <li><strong>Ubicación:</strong> Villa La Angostura</li>
+              <li>
+                <strong>Ubicación:</strong> Av. Arrayanes 173, Villa La
+                Angostura
+              </li>
             </ul>
 
             <iframe
-              title="Ubicación"
+              title="Ubicación Rental Pro Shop"
               width="100%"
               height="300"
               style="border: 0"
               loading="lazy"
+              allowfullscreen
+              referrerpolicy="no-referrer-when-downgrade"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.007421198843!2d-71.64681952418414!3d-40.761861508210366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9610bf42a55ba19f%3A0xbd3c087dec3132a1!2sProshop%20Aventura!5e0!3m2!1ses!2sar"
-              referrerpolicy="no-referrer"
             >
             </iframe>
           </div>
 
           <!-- FORMULARIO -->
           <div class="contacto-form">
-            <h2>Contactanos</h2>
+            <h2>Envianos un mensaje</h2>
 
             <form id="formContacto">
               <div class="grid">
                 <div class="campo">
-                  <label>Nombre completo</label>
-                  <input type="text" name="nombre" required />
+                  <label for="nombre">Nombre completo</label>
+                  <input
+                    type="text"
+                    id="nombre"
+                    name="nombre"
+                    required
+                    placeholder="Juan Pérez"
+                  />
                 </div>
 
                 <div class="campo">
-                  <label>Email</label>
-                  <input type="email" name="email" required />
+                  <label for="email">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    placeholder="juan@email.com"
+                  />
                 </div>
 
                 <div class="campo">
-                  <label>Teléfono</label>
-                  <input type="text" name="telefono" />
+                  <label for="telefono">Teléfono</label>
+                  <input
+                    type="tel"
+                    id="telefono"
+                    name="telefono"
+                    placeholder="+54 9 294 000 0000"
+                  />
                 </div>
 
                 <div class="campo">
-                  <label>Mensaje</label>
-                  <textarea name="mensaje" required></textarea>
+                  <label for="mensaje">Mensaje</label>
+                  <textarea
+                    id="mensaje"
+                    name="mensaje"
+                    required
+                    placeholder="¿En qué te podemos ayudar?"
+                  ></textarea>
                 </div>
               </div>
 
@@ -122,7 +180,9 @@
                 <label>
                   <input type="checkbox" name="privacy_policy" required />
                   Autorizo el uso de mis datos según la
-                  <a href="#" target="_blank">Política de privacidad</a>.
+                  <a href="../page/privacidad.html" target="_blank"
+                    >Política de privacidad</a
+                  >.
                 </label>
               </div>
 
@@ -134,36 +194,28 @@
         </div>
       </section>
     </main>
+
     <!-- FOOTER -->
     <footer class="footer">
-      <div class="footer-top"></div>
-
       <div class="container">
-        <!-- BLOQUES PRINCIPALES -->
-        <div class="row">
-          <!-- INFO -->
-          <div class="col-lg-3 col-md-6 footer-one">
-            <h3>Bienvenidos!</h3>
+        <div class="footer-grid">
+          <div class="footer-one">
+            <h3>Bienvenidos</h3>
             <p>
-              Somos el local con mayor variedad de Villa La Angostura y contamos
-              con experiencia y trayectoria en la localidad. Artículos de pesca,
-              camping, náutica, ski, snowboard y mucho más.
+              Somos el local con mayor variedad de Villa La Angostura. Artículos
+              de pesca, camping, náutica, ski, snowboard y mucho más.
             </p>
           </div>
-
-          <!-- ACCESOS -->
-          <div class="col-lg-2 col-md-6 footer-two">
+          <div class="footer-two">
             <h3>Accesos directos</h3>
             <ul>
               <li><a href="../index.html">Inicio</a></li>
-              <li><a href="../tiendas.html">Tiendas</a></li>
-              <li><a href="../reservas.html">Reservas</a></li>
-              <li><a href="../contacto.html">Contacto</a></li>
+              <li><a href="./tiendas.html">Tienda</a></li>
+              <li><a href="./alquiler.html">Alquiler</a></li>
+              <li><a href="./contacto.html">Contacto</a></li>
             </ul>
           </div>
-
-          <!-- LINKS -->
-          <div class="col-lg-3 col-md-6 footer-three">
+          <div class="footer-three">
             <h3>Sitios de interés</h3>
             <ul>
               <li>
@@ -171,114 +223,118 @@
                   href="https://www.cerrobayo.com.ar/montana/mapa/"
                   target="_blank"
                   rel="noopener"
+                  >Mapa de pistas — Cerro Bayo</a
                 >
-                  Mapa de pistas - Cerro Bayo
-                </a>
               </li>
               <li>
                 <a
-                  href="http://www.accuweather.com/es/ar/villa-la-angostura/1227987/weather-forecast/1227987"
+                  href="https://www.accuweather.com/es/ar/villa-la-angostura/1227987/weather-forecast/1227987"
                   target="_blank"
                   rel="noopener"
+                  >Clima en Cerro Bayo</a
                 >
-                  Clima en Cerro Bayo
-                </a>
               </li>
               <li>
                 <a
                   href="https://www.villalaangosturaturismo.gob.ar/"
                   target="_blank"
                   rel="noopener"
+                  >Conocé Villa La Angostura</a
                 >
-                  Conocé Villa La Angostura
-                </a>
               </li>
             </ul>
           </div>
-
-          <!-- CONTACTO -->
-          <div class="col-lg-4 col-md-6 footer-four">
+          <div class="footer-four">
             <h3>Contactanos</h3>
             <ul class="contact-us">
               <li>
                 <p>
                   <strong>¿Dónde estamos?</strong><br />
                   Av. Arrayanes 173<br />
-                  Villa La Angostura<br />
-                  Neuquén, Argentina
+                  Villa La Angostura, Neuquén
                 </p>
               </li>
-
               <li>
                 <p>
                   <strong>Whatsapp:</strong>
                   <a
-                    href="https://wa.me/message/JLSML52X57QYD1"
+                    href="https://wa.me/5492944646730"
                     rel="noopener"
                     target="_blank"
+                    >+54 9 2944 646730</a
                   >
-                    +54 9 2944 646730
-                  </a>
                 </p>
               </li>
-
               <li>
                 <p>
                   <strong>Email:</strong>
-                  <a href="mailto:consultas@proshopaventura.com">
-                    consultas@proshopaventura.com
-                  </a>
+                  <a href="mailto:consultas@proshopaventura.com"
+                    >consultas@proshopaventura.com</a
+                  >
                 </p>
               </li>
             </ul>
           </div>
         </div>
-
-        <!-- FOOTER BOTTOM -->
-        <div class="row align-items-center text-center text-md-start mt-4">
-          <div class="col-md-4">
-            <p class="footer-copy">© 2026 RENTAL PRO SHOP</p>
-          </div>
-
-          <div class="col-md-4 text-center">
-            <p class="footer-credit">Rental Ski and Snow</p>
-          </div>
-
-          <div class="col-md-4 text-md-end">
-            <ul class="redes">
-              <li>
-                <img
-                  src="../img/logosredes/facebook.png"
-                  alt="Facebook"
-                  width="15"
-                />
-                <a
-                  href="https://www.facebook.com"
-                  rel="noopener"
-                  target="_blank"
-                  >Facebook</a
+        <div class="footer-bottom">
+          <p class="footer-copy">© 2026 Rental Pro Shop</p>
+          <p class="footer-credit">Rental Ski and Snow</p>
+          <ul class="redes">
+            <li>
+              <a
+                href="https://www.instagram.com/proshop.aventura/"
+                rel="noopener"
+                target="_blank"
+                aria-label="Instagram"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
                 >
-              </li>
-
-              <li>
-                <img
-                  src="../img/logosredes/instagram.png"
-                  alt="Instagram"
-                  width="18"
-                />
-                <a
-                  href="https://www.instagram.com/proshop.aventura/"
-                  rel="noopener"
-                  target="_blank"
-                  >Instagram</a
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                </svg>
+                Instagram
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.facebook.com"
+                rel="noopener"
+                target="_blank"
+                aria-label="Facebook"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
                 >
-              </li>
-            </ul>
-          </div>
+                  <path
+                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                  />
+                </svg>
+                Facebook
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </footer>
+
     <script src="../script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

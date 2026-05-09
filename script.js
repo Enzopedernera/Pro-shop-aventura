@@ -203,24 +203,45 @@ document.addEventListener("DOMContentLoaded", () => {
   // ── Botones .btn-agregar (index.html) ──────────────────────
   document.querySelectorAll(".btn-agregar").forEach((boton) => {
     boton.addEventListener("click", () => {
-      const producto = boton.closest(".producto");
-      const nombre = producto.dataset.nombre;
-      const precio = parseFloat(producto.dataset.precio);
-      const selectMedida = producto.querySelector(".medida");
-      const medida = selectMedida ? selectMedida.value : "";
 
-      if (selectMedida && !medida) {
-        alert("Seleccioná una medida");
-        return;
+      // Busca el contenedor — puede ser .producto o .detalle-card
+      const contenedor = boton.closest(".producto") || boton.closest(".detalle-info");
+
+      let nombre, precio, medida = "";
+
+      if (contenedor) {
+        // Caso .producto — datos en data attributes del contenedor
+        if (contenedor.classList.contains("producto")) {
+          nombre = contenedor.dataset.nombre;
+          precio = parseFloat(contenedor.dataset.precio);
+          const selectMedida = contenedor.querySelector(".medida");
+          medida = selectMedida ? selectMedida.value : "";
+
+          if (selectMedida && !medida) {
+            alert("Seleccioná una medida");
+            return;
+          }
+
+        // Caso .detalle-info — datos en data attributes del botón
+        } else {
+          nombre = boton.dataset.nombre;
+          precio = parseFloat(boton.dataset.precio);
+          const selectMedida = contenedor.querySelector(".medida");
+          medida = selectMedida ? selectMedida.value : "";
+
+          if (selectMedida && !medida) {
+            alert("Seleccioná una medida");
+            return;
+          }
+        }
+
+        agregarAlCarrito(nombre, precio, medida);
       }
-
-      agregarAlCarrito(nombre, precio, medida);
     });
   });
 
   // ── Click en celdas de precio (tablas de reservas.html) ────
   document.querySelectorAll(".precio").forEach((celda) => {
-    celda.style.cursor = "pointer";
     celda.addEventListener("click", () => {
       const producto = celda.dataset.producto;
       const dias = celda.dataset.dias;
@@ -229,15 +250,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
       agregarAlCarrito(nombre, precio, "");
 
-      // Feedback visual en celda
+      // Guardar contenido original
+      const textoOriginal = celda.textContent;
       const origBg = celda.style.background;
       const origColor = celda.style.color;
+
+      // Feedback visual
+      celda.textContent = "✓ Agregado";
       celda.style.background = "#22c55e";
       celda.style.color = "#fff";
+      celda.style.fontWeight = "600";
+      celda.style.fontSize = "13px";
+
       setTimeout(() => {
+        celda.textContent = textoOriginal;
         celda.style.background = origBg;
         celda.style.color = origColor;
-      }, 600);
+        celda.style.fontWeight = "";
+        celda.style.fontSize = "";
+      }, 1200);
     });
   });
 

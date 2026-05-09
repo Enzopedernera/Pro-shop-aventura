@@ -1,8 +1,44 @@
+// =============================================
+// VARIABLES GLOBALES
+// =============================================
+
+// Colores principales
 $azul: #1b35c4;
 $azul-sec: #0077ff;
-$negro: #000;
-$blanco: #fff;
-$gris: #f5f5f5;
+$negro: #111111;
+$blanco: #ffffff;
+$gris-claro: #f5f7fa;
+$gris-medio: #e0e0e0;
+$gris-texto: #555555;
+$rojo-error: #e74c3c;
+$verde-ok: #22c55e;
 
-$sombra: 0 5px 15px rgba(0,0,0,0.1);
-$radius: 10px;
+// Tipografía
+$font-base: Arial, sans-serif;
+$font-size-base: 16px;
+
+// Espaciado
+$espaciado-sm: 8px;
+$espaciado-md: 16px;
+$espaciado-lg: 32px;
+$espaciado-xl: 60px;
+
+// Bordes y sombras
+$radius-sm: 6px;
+$radius-md: 10px;
+$radius-lg: 14px;
+$sombra-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+$sombra-md: 0 5px 15px rgba(0, 0, 0, 0.1);
+$sombra-lg: 0 10px 30px rgba(0, 0, 0, 0.12);
+
+// Header
+$header-height: 70px;
+
+// Breakpoints
+$bp-mobile: 480px;
+$bp-tablet: 768px;
+$bp-desktop: 900px;
+
+// Aliases temporales (se eliminan al terminar la migración)
+$radius: $radius-md;
+$sombra: $sombra-md;

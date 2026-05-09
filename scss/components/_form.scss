@@ -1,5 +1,9 @@
+// =============================================
+// FORMULARIOS
+// =============================================
 @use "../base/variables" as *;
 
+// ── CAMPO ─────────────────────────────────────
 .campo {
   display: flex;
   flex-direction: column;
@@ -8,22 +12,30 @@
   label {
     font-size: 14px;
     font-weight: 500;
-    color: #333;
+    color: $negro;
   }
 
   input,
   select,
   textarea {
     padding: 10px 12px;
-    border: 1.5px solid #ddd;
-    border-radius: 6px;
+    border: 1.5px solid $gris-medio;
+    border-radius: $radius-sm;
     font-size: 14px;
-    transition: border-color 0.2s ease;
-    font-family: inherit;
+    color: $negro;
+    background: $blanco;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
 
     &:focus {
       outline: none;
       border-color: $azul-sec;
+      box-shadow: 0 0 0 2px rgba(0, 119, 255, 0.15);
+    }
+
+    &::placeholder {
+      color: #aaa;
     }
   }
 
@@ -33,33 +45,39 @@
   }
 }
 
+// ── GRID DE CAMPOS ────────────────────────────
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
   margin-bottom: 20px;
 
-  @media (max-width: 600px) {
+  @media (max-width: $bp-tablet) {
     grid-template-columns: 1fr;
   }
 }
 
+// ── BOTÓN PRINCIPAL ─
 .btn {
   display: inline-block;
-  background: linear-gradient(135deg, $azul-sec, #0051cc);
+  background: $azul-sec;
   color: $blanco;
   padding: 12px 28px;
   border: none;
-  border-radius: 8px;
+  border-radius: $radius-sm;
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
-  transition: opacity 0.2s ease, transform 0.1s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.1s ease;
   text-decoration: none;
+  text-align: center;
 
   &:hover {
-    opacity: 0.9;
+    opacity: 0.88;
     transform: translateY(-1px);
+    color: $blanco;
   }
 
   &:active {
@@ -67,44 +85,14 @@
   }
 }
 
-.hts-privacy-agree {
-  margin-bottom: 16px;
-  font-size: 13px;
-  color: #555;
-
-  label {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    cursor: pointer;
-  }
-
-  input[type="checkbox"] {
-    margin-top: 2px;
-    flex-shrink: 0;
-  }
-
-  a {
-    color: $azul-sec;
-    text-decoration: underline;
-  }
-}
-
-.validate-message {
-  font-size: 13px;
-  color: #e74c3c;
-  margin-bottom: 10px;
-  min-height: 18px;
-}
-
-// Formulario de reserva
+// ── FORMULARIO RESERVA ────────────────────────
 .form-reserva {
   max-width: 700px;
   margin: 0 auto;
   padding: 30px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  background: $blanco;
+  border-radius: $radius-lg;
+  box-shadow: $sombra-lg;
 
   .btn {
     width: 100%;
@@ -112,4 +100,42 @@
     font-size: 16px;
     padding: 14px;
   }
+}
+
+// ── PRIVACIDAD ────────────────────────────────
+.hts-privacy-agree {
+  margin-bottom: 16px;
+  font-size: 13px;
+  color: $gris-texto;
+
+  label {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    cursor: pointer;
+    font-weight: 400;
+  }
+
+  input[type="checkbox"] {
+    margin-top: 2px;
+    flex-shrink: 0;
+    accent-color: $azul-sec;
+  }
+
+  a {
+    color: $azul-sec;
+    text-decoration: underline;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+// ── MENSAJE DE VALIDACIÓN ─────────────────────
+.validate-message {
+  font-size: 13px;
+  color: $rojo-error;
+  margin-bottom: 10px;
+  min-height: 18px;
 }

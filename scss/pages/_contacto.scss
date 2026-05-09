@@ -1,8 +1,13 @@
+// =============================================
+// CONTACTO
+// =============================================
 @use "../base/variables" as *;
 
+// ── SECCIÓN ───────────────────────────────────
 .contacto {
-  padding: 80px 50px 50px; // FIX: padding-top extra para compensar header fixed
+  padding: $espaciado-xl $espaciado-lg;
 
+  // ── CONTENEDOR DOS COLUMNAS ───────────────
   &-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -10,41 +15,73 @@
     max-width: 1100px;
     margin: 0 auto;
 
-    @media (max-width: 768px) {
-      grid-template-columns: 1fr; // FIX: una columna en mobile
+    @media (max-width: $bp-tablet) {
+      grid-template-columns: 1fr;
     }
   }
 
-  h1 {
-    font-size: 32px;
-    margin-bottom: 12px;
-  }
+  // ── INFO ──────────────────────────────────
+  &-info {
+    h1 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: $negro;
+    }
 
-  p {
-    color: #555;
-    margin-bottom: 20px;
-  }
+    p {
+      color: $gris-texto;
+      margin-bottom: 20px;
+      font-size: 15px;
+    }
 
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 24px;
+    ul {
+      margin-bottom: 24px;
 
-    li {
-      margin-bottom: 8px;
-      font-size: 14px;
+      li {
+        margin-bottom: 8px;
+        font-size: 14px;
+        color: $negro;
+      }
+    }
+
+    iframe {
+      border-radius: $radius-md;
+      margin-top: 10px;
+      width: 100%;
     }
   }
 
-  iframe {
-    border-radius: 8px;
-    margin-top: 10px;
-  }
-
+  // ── FORMULARIO ────────────────────────────
   &-form {
+    background: $blanco;
+    padding: 30px;
+    border-radius: $radius-lg;
+    box-shadow: $sombra-lg;
+
     h2 {
       font-size: 24px;
-      margin-bottom: 20px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: $negro;
+    }
+
+    .btn {
+      width: 100%;
+      margin-top: 8px;
+      padding: 14px;
+      font-size: 16px;
+    }
+  }
+}
+
+// ── RESPONSIVE ────────────────────────────────
+@media (max-width: $bp-mobile) {
+  .contacto {
+    padding: $espaciado-xl $espaciado-md;
+
+    &-form {
+      padding: 20px;
     }
   }
 }

@@ -1,50 +1,230 @@
-.productos-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+// =============================================
+// TIENDA
+// =============================================
+@use "../base/variables" as *;
+
+// ── HERO TIENDA ───────────────────────────────
+.hero-tienda {
+  position: relative;
+  min-height: 400px;
+  background-image: url("../../img/snow/fotosnow1.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: $header-height;
 }
 
-.menu-tienda {
-  display: flex;
-  justify-content: center;
+.tienda-portada-texto {
+  text-align: center;
+  color: $blanco;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  padding: 30px;
+  z-index: 1;
+
+  h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  p {
+    font-size: 16px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.9);
+  }
 }
+
+// ── LISTA DE PRODUCTOS ────────────────────────
 .lista-productos-tienda {
-  padding: 40px;
-  font-family: Arial, sans-serif;
+  padding: $espaciado-xl $espaciado-lg;
 
   h1 {
     text-align: center;
-    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: $negro;
   }
+}
 
-  .filtros {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    margin-bottom: 2rem;
- 
-    button {
-      padding: 8px 20px;
-      border: 1.5px solid #ccc;
-      border-radius: 20px;
-      background: transparent;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 500;
-      transition: all 0.2s ease;
- 
-      &:hover {
-        background: #333fff;
-        color: white;
-        border-color: #333fff;
-      }
-    }
-    button.activo {
-      background: #333fff;
-      color: white;
-      border-color: #333fff;
+// ── FILTROS ───────────────────────────────────
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 32px;
+
+  button {
+    padding: 8px 20px;
+    border: 1.5px solid $gris-medio;
+    border-radius: 20px;
+    background: transparent;
+    color: $negro;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+
+    &:hover,
+    &.activo {
+      background: $azul;
+      color: $blanco;
+      border-color: $azul;
     }
   }
 }
- 
-  
+
+// ── MENÚ TIENDA ───────────────────────────────
+.menu-tienda {
+  display: flex;
+  justify-content: center;
+  margin-bottom: $espaciado-md;
+}
+// ── DETALLE DE PRODUCTO ───────────────────────
+.detalle-producto {
+  padding: $espaciado-xl $espaciado-lg;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.detalle-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+  background: $blanco;
+  border-radius: $radius-lg;
+  box-shadow: $sombra-md;
+  padding: 30px;
+
+  &--reverse {
+    direction: rtl;
+
+    > * {
+      direction: ltr;
+    }
+  }
+
+  @media (max-width: $bp-tablet) {
+    grid-template-columns: 1fr;
+    direction: ltr;
+  }
+}
+
+.detalle-galeria {
+  img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: $radius-md;
+  }
+}
+
+.detalle-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: $negro;
+    margin: 0;
+  }
+}
+
+.detalle-precio {
+  font-size: 24px;
+  font-weight: 700;
+  color: $azul-sec;
+  margin: 0;
+}
+
+.detalle-desc {
+  font-size: 15px;
+  color: $gris-texto;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.detalle-select {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  label {
+    font-size: 14px;
+    font-weight: 500;
+    color: $negro;
+  }
+
+  select {
+    padding: 10px 12px;
+    border: 1.5px solid $gris-medio;
+    border-radius: $radius-sm;
+    font-size: 14px;
+    background: $blanco;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+
+    &:focus {
+      outline: none;
+      border-color: $azul-sec;
+    }
+  }
+}
+
+// Guía de tallas
+.guia-tallas {
+  margin-top: 8px;
+
+  h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: $negro;
+  }
+}
+
+.tabla-tallas {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+
+  th {
+    background: $negro;
+    color: $blanco;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 500;
+  }
+
+  td {
+    padding: 8px 12px;
+    border-bottom: 1px solid $gris-medio;
+    color: $negro;
+  }
+
+  tr:nth-child(even) td {
+    background: $gris-claro;
+  }
+}
+
+// Productos relacionados
+.productos-relacionados {
+  padding: $espaciado-xl $espaciado-lg;
+  background: $gris-claro;
+
+  h2 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: $negro;
+  }
+}

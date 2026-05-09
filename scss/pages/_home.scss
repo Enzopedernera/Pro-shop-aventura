@@ -1,9 +1,12 @@
-// FIX: agregado @use de variables para poder usar $variables en el futuro
+// =============================================
+// HOME
+// =============================================
 @use "../base/variables" as *;
 
+// ── HERO ──────────────────────────────────────
 .hero {
+  position: relative;
   text-align: center;
-  margin-top: 0;
 
   img {
     width: 100%;
@@ -12,25 +15,52 @@
     display: block;
   }
 
-  &-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: $blanco;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-    padding: 20px;
-    width: 80%;
+ &-content {
+    padding: 24px 40px;
+    width: 100%;
+    background: $blanco;
+
+    h1 {
+      font-size: 22px;
+      font-weight: 600;
+      color: $negro;
+      text-align: center;
+      margin: 0;
+    }
+  }
+
+  // ── RESPONSIVE ────────────────────────────
+  @media (max-width: $bp-tablet) {
+    &-content {
+      width: 90%;
+
+      h1 {
+        font-size: 20px;
+      }
+    }
+  }
+
+  @media (max-width: $bp-mobile) {
+    &-content {
+      h1 {
+        font-size: 16px;
+      }
+    }
   }
 }
 
+// ── GRID SERVICIOS ────────────────────────────
 .grid-servicios {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  padding: 24px 40px;
+  background: $blanco;
 
   .bloque {
     position: relative;
     overflow: hidden;
+    border-radius: $radius-lg;
 
     img {
       width: 100%;
@@ -50,6 +80,7 @@
       width: 100%;
       background: rgba(0, 0, 0, 0.55);
       padding: 15px;
+      transition: background 0.3s ease;
 
       a {
         text-decoration: none;
@@ -58,6 +89,7 @@
         h3 {
           margin: 0 0 4px;
           font-size: 16px;
+          font-weight: 600;
         }
 
         p {
@@ -67,14 +99,18 @@
         }
       }
     }
+
+    &:hover .contenido {
+      background: rgba(0, 0, 0, 0.72);
+    }
   }
 
-  // Responsive
-  @media (max-width: 768px) {
+  @media (max-width: $bp-desktop) {
     grid-template-columns: repeat(2, 1fr);
+    padding: 20px;
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: $bp-mobile) {
     grid-template-columns: 1fr;
   }
 }
