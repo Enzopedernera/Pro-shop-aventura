@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Política de privacidad de Rental Pro Shop. Información sobre el uso de datos personales." />
+    <title>Política de Privacidad — Rental Pro Shop</title>
+    <!-- Favicon -->
+    <link rel="icon" href="../img/logo.png" />
+    <link rel="apple-touch-icon" href="../img/logo.png" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+
+    <header class="header">
+      <nav class="navbar">
+        <div class="logo">
+          <a href="../index.html">
+            <img src="../img/logo.png" alt="Rental Pro Shop" width="120" height="60" />
+          </a>
+        </div>
+        <span class="titulo">RENTAL PRO SHOP</span>
+        <button class="hamburguesa" id="hamburguesa" aria-label="Abrir menú" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="menu" id="menu">
+          <li><a href="../index.html">INICIO</a></li>
+          <li><a href="./tiendas.html">TIENDA</a></li>
+          <li><a href="./alquiler.html">ALQUILER</a></li>
+          <li><a href="./contacto.html">CONTACTO</a></li>
+        </ul>
+        <div class="carrito-nav">
+          <div class="carrito-icono" id="toggleCarrito" role="button" aria-label="Abrir carrito">
+            🛒 <span id="contadorCarrito">0</span>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="overlay" id="overlay"></div>
+    <div class="carrito-panel" id="carritoPanel" aria-label="Carrito de compras">
+      <div class="carrito-header">
+        <h2>TU CARRITO</h2>
+        <button id="cerrarCarrito" aria-label="Cerrar carrito">✕</button>
+      </div>
+      <div id="listaCarrito"></div>
+      <div class="carrito-footer">
+        <p class="total-carrito">Total: <span>$<span id="total">0</span></span></p>
+        <button class="btn-vaciar" onclick="vaciarCarrito()">🗑 Vaciar carrito</button>
+        <a href="./alquiler.html" id="btnFinalizar" class="btn-finalizar disabled">Finalizar compra →</a>
+      </div>
+    </div>
+
+    <!-- BREADCRUMB -->
+    <nav class="breadcrumb" aria-label="Ruta de navegación">
+      <a href="../index.html">Inicio</a>
+      <span class="breadcrumb-sep">›</span>
+      <span class="breadcrumb-actual">Política de Privacidad</span>
+    </nav>
+
+    <main>
+      <section class="privacidad">
+        <div class="privacidad-container">
+
+          <h1>Política de Privacidad</h1>
+          <p class="privacidad-fecha">Última actualización: mayo 2026</p>
+
+          <div class="privacidad-bloque">
+            <h2>1. Responsable del tratamiento</h2>
+            <p>Rental Pro Shop, con domicilio en Av. Arrayanes 173, Villa La Angostura, Neuquén, Argentina. Email de contacto: <a href="mailto:consultas@proshopaventura.com">consultas@proshopaventura.com</a>.</p>
+          </div>
+
+          <div class="privacidad-bloque">
+            <h2>2. Datos que recopilamos</h2>
+            <p>A través de nuestros formularios de contacto y reserva recopilamos los siguientes datos personales:</p>
+            <ul>
+              <li>Nombre completo</li>
+              <li>Dirección de correo electrónico</li>
+              <li>Número de teléfono</li>
+              <li>DNI (solo para reservas)</li>
+              <li>Fechas de alquiler solicitadas</li>
+            </ul>
+          </div>
+
+          <div class="privacidad-bloque">
+            <h2>3. Finalidad del tratamiento</h2>
+            <p>Los datos recopilados se utilizan exclusivamente para:</p>
+            <ul>
+              <li>Gestionar y confirmar reservas de equipos de ski y snowboard</li>
+              <li>Responder consultas enviadas a través del formulario de contacto</li>
+              <li>Enviar confirmaciones de reserva por email</li>
+            </ul>
+          </div>
+
+          <div class="privacidad-bloque">
+            <h2>4. Almacenamiento y seguridad</h2>
+            <p>Los datos personales no son almacenados en bases de datos propias. La información ingresada en los formularios se transmite directamente por email y WhatsApp para gestionar la reserva o consulta. No compartimos tus datos con terceros.</p>
+          </div>
+
+          <div class="privacidad-bloque">
+            <h2>5. Derechos del usuario</h2>
+            <p>De acuerdo con la Ley 25.326 de Protección de Datos Personales de la República Argentina, tenés derecho a:</p>
+            <ul>
+              <li>Acceder a tus datos personales</li>
+              <li>Rectificar datos incorrectos</li>
+              <li>Solicitar la eliminación de tus datos</li>
+              <li>Oponerte al tratamiento de tus datos</li>
+            </ul>
+            <p>Para ejercer estos derechos podés contactarnos en <a href="mailto:consultas@proshopaventura.com">consultas@proshopaventura.com</a>.</p>
+          </div>
+
+          <div class="privacidad-bloque">
+            <h2>6. Cookies</h2>
+            <p>Este sitio utiliza <strong>localStorage</strong> del navegador para mantener el carrito de compras activo durante tu visita. No utilizamos cookies de seguimiento ni publicidad.</p>
+          </div>
+
+          <div class="privacidad-bloque">
+            <h2>7. Cambios en esta política</h2>
+            <p>Nos reservamos el derecho de actualizar esta política de privacidad. Cualquier cambio será publicado en esta página con la fecha de última actualización.</p>
+          </div>
+
+          <div class="privacidad-volver">
+            <a href="./contacto.html" class="btn">← Volver al contacto</a>
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-one">
+            <h3>Bienvenidos</h3>
+            <p>Somos el local con mayor variedad de Villa La Angostura. Artículos de pesca, camping, náutica, ski, snowboard y mucho más.</p>
+          </div>
+          <div class="footer-two">
+            <h3>Accesos directos</h3>
+            <ul>
+              <li><a href="../index.html">Inicio</a></li>
+              <li><a href="./tiendas.html">Tienda</a></li>
+              <li><a href="./alquiler.html">Alquiler</a></li>
+              <li><a href="./contacto.html">Contacto</a></li>
+            </ul>
+          </div>
+          <div class="footer-three">
+            <h3>Sitios de interés</h3>
+            <ul>
+              <li><a href="https://www.cerrobayo.com.ar/montana/mapa/" target="_blank" rel="noopener">Mapa de pistas — Cerro Bayo</a></li>
+              <li><a href="https://www.accuweather.com/es/ar/villa-la-angostura/1227987/weather-forecast/1227987" target="_blank" rel="noopener">Clima en Cerro Bayo</a></li>
+              <li><a href="https://www.villalaangosturaturismo.gob.ar/" target="_blank" rel="noopener">Conocé Villa La Angostura</a></li>
+            </ul>
+          </div>
+          <div class="footer-four">
+            <h3>Contactanos</h3>
+            <ul class="contact-us">
+              <li>
+                <p><strong>¿Dónde estamos?</strong><br />
+                Av. Arrayanes 173<br />
+                Villa La Angostura, Neuquén</p>
+              </li>
+              <li>
+                <p><strong>Whatsapp:</strong>
+                <a href="https://wa.me/5492944646730" rel="noopener" target="_blank">+54 9 2944 646730</a></p>
+              </li>
+              <li>
+                <p><strong>Email:</strong>
+                <a href="mailto:consultas@proshopaventura.com">consultas@proshopaventura.com</a></p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p class="footer-copy">© 2026 Rental Pro Shop</p>
+          <p class="footer-credit">Rental Ski and Snow</p>
+          <ul class="redes">
+            <li>
+              <a href="https://www.instagram.com/proshop.aventura/" rel="noopener" target="_blank" aria-label="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                </svg>
+                Instagram
+              </a>
+            </li>
+            <li>
+              <a href="https://www.facebook.com" rel="noopener" target="_blank" aria-label="Facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                </svg>
+                Facebook
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../script.js"></script>
+  </body>
+</html>

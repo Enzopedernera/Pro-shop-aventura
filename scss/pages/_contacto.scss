@@ -85,3 +85,122 @@
     }
   }
 }
+// ── PRIVACIDAD ────────────────────────────────
+.privacidad {
+  padding: $espaciado-xl $espaciado-lg;
+  background: $gris-claro;
+  min-height: 60vh;
+
+  &-container {
+    max-width: 800px;
+    margin: 0 auto;
+
+    > h1 {
+      font-size: 32px;
+      font-weight: 700;
+      color: $negro;
+      margin-bottom: 6px;
+      padding-bottom: 16px;
+      border-bottom: 3px solid $azul-sec;
+    }
+  }
+
+  &-fecha {
+    color: $gris-texto;
+    font-size: 13px;
+    margin-bottom: 32px;
+    display: block;
+  }
+
+  &-bloque {
+    background: $blanco;
+    border-radius: $radius-lg;
+    padding: 24px 28px;
+    margin-bottom: 16px;
+    box-shadow: $sombra-sm;
+
+    h2 {
+      font-size: 17px;
+      font-weight: 600;
+      color: $azul;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      &::before {
+        content: "";
+        display: inline-block;
+        width: 4px;
+        height: 18px;
+        background: $azul-sec;
+        border-radius: 2px;
+        flex-shrink: 0;
+      }
+    }
+
+    p {
+      font-size: 14px;
+      color: $gris-texto;
+      line-height: 1.75;
+      margin-bottom: 8px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    ul {
+      padding-left: 0;
+      list-style: none;
+      margin-top: 8px;
+
+      li {
+        font-size: 14px;
+        color: $gris-texto;
+        line-height: 1.6;
+        padding: 6px 0 6px 20px;
+        position: relative;
+        border-bottom: 1px solid $gris-claro;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        &::before {
+          content: "→";
+          position: absolute;
+          left: 0;
+          color: $azul-sec;
+          font-size: 13px;
+        }
+      }
+    }
+
+    a {
+      color: $azul-sec;
+      text-decoration: underline;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  &-volver {
+    margin-top: 32px;
+    text-align: center;
+  }
+
+  @media (max-width: $bp-tablet) {
+    padding: $espaciado-lg $espaciado-md;
+  }
+
+  @media (max-width: $bp-mobile) {
+    padding: $espaciado-md;
+
+    &-bloque {
+      padding: 18px;
+    }
+  }
+}
