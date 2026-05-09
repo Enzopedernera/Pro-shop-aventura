@@ -48,7 +48,8 @@
 
   @media (max-width: $bp-mobile) {
     img {
-      max-height: 260px;
+      max-height: 20px;
+      object-fit: cover;
       object-position: 80% center;
     }
 
