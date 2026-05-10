@@ -49,7 +49,7 @@
       <div class="carrito-footer">
         <p class="total-carrito">Total: <span>$<span id="total">0</span></span></p>
         <button class="btn-vaciar" onclick="vaciarCarrito()">🗑 Vaciar carrito</button>
-        <a href="./alquiler.html" id="btnFinalizar" class="btn-finalizar disabled">Finalizar compra →</a>
+        <a href="../checkout.html" id="btnFinalizar" class="btn-finalizar disabled"> compra →</a>
       </div>
     </div>
 
@@ -121,9 +121,9 @@
             <p>Nos reservamos el derecho de actualizar esta política de privacidad. Cualquier cambio será publicado en esta página con la fecha de última actualización.</p>
           </div>
 
-          <div class="privacidad-volver">
-            <a href="./contacto.html" class="btn">← Volver al contacto</a>
-          </div>
+            <div class="privacidad-volver">
+              <a href="#" class="btn" id="btnVolver">← Volver</a>
+            </div>
 
         </div>
       </section>
@@ -196,7 +196,22 @@
         </div>
       </div>
     </footer>
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const from = params.get("from");
+      const btnVolver = document.getElementById("btnVolver");
 
+      if (from === "checkout") {
+        btnVolver.href = "./checkout.html";
+        btnVolver.textContent = "← Volver a la reserva";
+      } else if (from === "contacto") {
+        btnVolver.href = "./contacto.html";
+        btnVolver.textContent = "← Volver al contacto";
+      } else {
+        btnVolver.href = "../index.html";
+        btnVolver.textContent = "← Volver al inicio";
+      }
+    </script>
     <script src="../script.js"></script>
   </body>
 </html>

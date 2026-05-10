@@ -2,40 +2,21 @@
 // SERVIDOR — Rental Pro Shop
 // =============================================
 require("dotenv").config({ path: require("path").resolve(__dirname, "../.env") });
+
 const express = require("express");
 const cors = require("cors");
-const nodemailer = require("nodemailer");
+const { Resend } = require("resend");
 
 const app = express();
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 app.use(cors());
 app.use(express.json());
-
-// ── TRANSPORTER ───────────────────────────────
-const transporter = nodemailer.createTransport({
-  host: process.env.EMAIL_HOST,
-  port: parseInt(process.env.EMAIL_PORT),
-  secure: false,
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-});
-
-// ── VERIFICAR CONEXIÓN ────────────────────────
-transporter.verify((error) => {
-  if (error) {
-    console.error("❌ Error de conexión SMTP:", error.message);
-  } else {
-    console.log("✅ Servidor SMTP conectado correctamente");
-  }
-});
 
 // ── RUTA RESERVA ──────────────────────────────
 app.post("/reserva", async (req, res) => {
   const { nombre, email, telefono, dni, fecha_inicio, fecha_fin, carrito } = req.body;
 
-  // Validación
   if (!nombre || !email || !carrito || carrito.length === 0) {
     return res.status(400).json({ error: "Faltan datos obligatorios" });
   }
@@ -55,10 +36,11 @@ app.post("/reserva", async (req, res) => {
       )
       .join("");
 
-    await transporter.sendMail({
-      from: `"Rental Pro Shop" <${process.env.EMAIL_USER}>`,
+    // Email al negocio
+    await resend.emails.send({
+      from: "Rental Pro Shop <reservas@proshoprental.com>",
       replyTo: email,
-      to: process.env.EMAIL_USER,
+      to: "consultas@proshopaventura.com",
       subject: `Nueva reserva — ${nombre}`,
       html: `
         <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto">
@@ -66,9 +48,7 @@ app.post("/reserva", async (req, res) => {
             <h1 style="color:#fff;margin:0;font-size:22px">🎿 Nueva Reserva</h1>
             <p style="color:rgba(255,255,255,0.8);margin:5px 0 0">Rental Pro Shop</p>
           </div>
-
           <div style="padding:24px;background:#f5f7fa">
-
             <div style="background:#fff;border-radius:8px;padding:20px;margin-bottom:16px">
               <h2 style="margin:0 0 16px;font-size:16px;color:#111">👤 Datos del cliente</h2>
               <p style="margin:4px 0"><strong>Nombre:</strong> ${nombre}</p>
@@ -76,13 +56,11 @@ app.post("/reserva", async (req, res) => {
               <p style="margin:4px 0"><strong>Teléfono:</strong> ${telefono || "No indicado"}</p>
               <p style="margin:4px 0"><strong>DNI:</strong> ${dni || "No indicado"}</p>
             </div>
-
             <div style="background:#fff;border-radius:8px;padding:20px;margin-bottom:16px">
               <h2 style="margin:0 0 16px;font-size:16px;color:#111">📅 Fechas</h2>
               <p style="margin:4px 0"><strong>Desde:</strong> ${fecha_inicio}</p>
               <p style="margin:4px 0"><strong>Hasta:</strong> ${fecha_fin}</p>
             </div>
-
             <div style="background:#fff;border-radius:8px;padding:20px;margin-bottom:16px">
               <h2 style="margin:0 0 16px;font-size:16px;color:#111">🛒 Equipos seleccionados</h2>
               <table style="width:100%;border-collapse:collapse">
@@ -94,20 +72,15 @@ app.post("/reserva", async (req, res) => {
                     <th style="padding:8px;text-align:right">Subtotal</th>
                   </tr>
                 </thead>
-                <tbody>
-                  ${detalleCarrito}
-                </tbody>
+                <tbody>${detalleCarrito}</tbody>
               </table>
             </div>
-
             <div style="background:#1b35c4;border-radius:8px;padding:16px;text-align:right">
               <p style="color:#fff;font-size:20px;font-weight:700;margin:0">
                 Total: $${total.toLocaleString("es-AR")}
               </p>
             </div>
-
           </div>
-
           <div style="padding:16px;text-align:center;background:#111;color:rgba(255,255,255,0.5);font-size:12px">
             Rental Pro Shop — Av. Arrayanes 173, Villa La Angostura
           </div>
@@ -116,8 +89,8 @@ app.post("/reserva", async (req, res) => {
     });
 
     // Email de confirmación al cliente
-    await transporter.sendMail({
-      from: `"Rental Pro Shop" <${process.env.EMAIL_USER}>`,
+    await resend.emails.send({
+      from: "Rental Pro Shop <reservas@proshoprental.com>",
       to: email,
       subject: `Confirmación de reserva — Rental Pro Shop`,
       html: `
@@ -126,14 +99,12 @@ app.post("/reserva", async (req, res) => {
             <h1 style="color:#fff;margin:0;font-size:22px">¡Reserva recibida! 🎿</h1>
             <p style="color:rgba(255,255,255,0.8);margin:5px 0 0">Rental Pro Shop</p>
           </div>
-
           <div style="padding:24px;background:#f5f7fa">
             <div style="background:#fff;border-radius:8px;padding:20px;margin-bottom:16px">
               <p style="margin:0 0 12px">Hola <strong>${nombre}</strong>,</p>
               <p style="margin:0 0 12px">Recibimos tu reserva correctamente. Nos contactaremos a la brevedad para confirmar la disponibilidad.</p>
               <p style="margin:0"><strong>Fechas solicitadas:</strong> ${fecha_inicio} al ${fecha_fin}</p>
             </div>
-
             <div style="background:#fff;border-radius:8px;padding:20px;margin-bottom:16px">
               <h2 style="margin:0 0 16px;font-size:16px;color:#111">🛒 Tu pedido</h2>
               <table style="width:100%;border-collapse:collapse">
@@ -154,13 +125,11 @@ app.post("/reserva", async (req, res) => {
                 </tbody>
               </table>
             </div>
-
             <div style="background:#1b35c4;border-radius:8px;padding:16px;text-align:right">
               <p style="color:#fff;font-size:20px;font-weight:700;margin:0">
                 Total: $${total.toLocaleString("es-AR")}
               </p>
             </div>
-
             <div style="background:#fff;border-radius:8px;padding:20px;margin-top:16px">
               <h2 style="margin:0 0 12px;font-size:16px;color:#111">📍 Contacto</h2>
               <p style="margin:4px 0">Av. Arrayanes 173, Villa La Angostura</p>
@@ -168,7 +137,6 @@ app.post("/reserva", async (req, res) => {
               <p style="margin:4px 0">Email: consultas@proshopaventura.com</p>
             </div>
           </div>
-
           <div style="padding:16px;text-align:center;background:#111;color:rgba(255,255,255,0.5);font-size:12px">
             Rental Pro Shop — Av. Arrayanes 173, Villa La Angostura
           </div>
@@ -193,10 +161,10 @@ app.post("/contacto", async (req, res) => {
   }
 
   try {
-    await transporter.sendMail({
-      from: `"Rental Pro Shop Web" <${process.env.EMAIL_USER}>`,
+    await resend.emails.send({
+      from: "Rental Pro Shop <reservas@proshoprental.com>",
       replyTo: email,
-      to: process.env.EMAIL_USER,
+      to: "consultas@proshopaventura.com",
       subject: `Nuevo mensaje — ${nombre}`,
       html: `
         <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto">
