@@ -191,189 +191,81 @@
         </div>
       </section>
 
-      <!-- PRODUCTOS -->
-      <section class="productos">
-        <h2>Alquiler fácil</h2>
-        <div class="grid-productos">
-          <!-- SKI -->
-          <div class="producto" data-nombre="Ski" data-precio="55000">
-            <img
-              src="./img/snow/1.webp"
-              alt="Ski para alquiler"
-              width="220"
-              height="200"
-              loading="lazy"
-            />
-            <h3>Ski</h3>
-            <p>$55.000</p>
-            <select class="medida" aria-label="Seleccioná altura de ski">
-              <option value="">Altura (cm)</option>
-              <option>140</option>
-              <option>142</option>
-              <option>144</option>
-              <option>146</option>
-              <option>148</option>
-              <option>150</option>
-              <option>152</option>
-              <option>154</option>
-              <option>156</option>
-              <option>158</option>
-              <option>160</option>
-              <option>162</option>
-              <option>164</option>
-              <option>166</option>
-              <option>168</option>
-              <option>170</option>
-            </select>
-            <button class="btn-agregar">Agregar</button>
-          </div>
+      <!-- LLAMADA A LA ACCIÓN -->
+<section class="cta-reserva">
+  <div class="cta-reserva-inner">
+    <div class="cta-reserva-texto">
+      <h2>Reservá tu equipo online</h2>
+      <p>Elegí tus fechas, seleccioná el equipo y confirmá tu reserva en minutos. Sin filas, sin esperas.</p>
+    </div>
+    <a href="./page/alquiler.html" class="btn cta-reserva-btn">
+      Ver equipos y precios →
+    </a>
+  </div>
+</section>
 
-          <!-- SNOWBOARD -->
-          <div class="producto" data-nombre="Snowboard" data-precio="58000">
-            <img
-              src="./img/snow/2.webp"
-              alt="Snowboard para alquiler"
-              width="220"
-              height="200"
-              loading="lazy"
-            />
-            <h3>Snowboard</h3>
-            <p>$58.000</p>
-            <select class="medida" aria-label="Seleccioná altura de snowboard">
-              <option value="">Altura (cm)</option>
-              <option>140</option>
-              <option>142</option>
-              <option>144</option>
-              <option>146</option>
-              <option>148</option>
-              <option>150</option>
-              <option>152</option>
-              <option>154</option>
-              <option>156</option>
-              <option>158</option>
-              <option>160</option>
-              <option>162</option>
-            </select>
-            <button class="btn-agregar">Agregar</button>
-          </div>
+<!-- PACKS POPULARES -->
+<section class="packs">
+  <h1 >Packs más populares</h1 >
+  <p class="packs-subtitulo">Todo lo que necesitás en un solo pack</p>
 
-          <!-- BOTAS -->
-          <div class="producto" data-nombre="Botas" data-precio="40000">
-            <img
-              src="./img/snow/3.webp"
-              alt="Botas de ski para alquiler"
-              width="220"
-              height="200"
-              loading="lazy"
-            />
-            <h3>Botas</h3>
-            <p>$40.000</p>
-            <select class="medida" aria-label="Seleccioná talle de botas">
-              <option value="">Talle EU</option>
-              <option>36</option>
-              <option>37</option>
-              <option>38</option>
-              <option>39</option>
-              <option>40</option>
-              <option>41</option>
-              <option>42</option>
-              <option>43</option>
-              <option>44</option>
-            </select>
-            <button class="btn-agregar">Agregar</button>
-          </div>
+  <div class="packs-grid">
 
-          <!-- CASCO -->
-          <div class="producto" data-nombre="Casco" data-precio="19000">
-            <img
-              src="./img/snow/4.webp"
-              alt="Casco para ski y snowboard"
-              width="220"
-              height="200"
-              loading="lazy"
-            />
-            <h3>Casco</h3>
-            <p>$19.000</p>
-            <select class="medida" aria-label="Seleccioná talle de casco">
-              <option value="">Talle</option>
-              <option>S</option>
-              <option>M</option>
-              <option>L</option>
-              <option>XL</option>
-            </select>
-            <button class="btn-agregar">Agregar</button>
-          </div>
+    <!-- PACK SKI ADULTO -->
+    <div class="pack-card">
+  <img src="./img/snow/1.webp" alt="Pack Ski Adulto" class="pack-img" />
+  <div class="pack-icon"></div>
+      <h3>Pack Ski Adulto</h3>
+      <ul class="pack-items">
+        <li>✓ Ski</li>
+        <li>✓ Botas</li>
+        <li>✓ Bastones</li>
+      </ul>
+      <div class="pack-precio">
+        <span class="pack-precio-desde">desde</span>
+        <span class="pack-precio-num">$115.000</span>
+        <span class="pack-precio-dia">/ día</span>
+      </div>
+      <a href="./page/alquiler.html" class="btn pack-btn">Reservar pack →</a>
+    </div>
 
-          <!-- BASTONES -->
-          <div class="producto" data-nombre="Bastones" data-precio="20000">
-            <img
-              src="./img/snow/bastones.webp"
-              alt="Bastones de ski"
-              width="220"
-              height="200"
-              loading="lazy"
-            />
-            <h3>Bastones</h3>
-            <p>$20.000</p>
-            <select class="medida" aria-label="Seleccioná altura de bastones">
-              <option value="">Altura (cm)</option>
-              <option>85</option>
-              <option>90</option>
-              <option>95</option>
-              <option>100</option>
-              <option>105</option>
-              <option>110</option>
-              <option>115</option>
-              <option>120</option>
-              <option>125</option>
-              <option>130</option>
-            </select>
-            <button class="btn-agregar">Agregar</button>
-          </div>
+    <!-- PACK SNOWBOARD ADULTO -->
+    <div class="pack-card pack-card--destacado">
+  <img src="./img/snow/2.webp" alt="Pack Snowboard Adulto" class="pack-img" />
+  <div class="pack-icon"></div>
+      <h3>Pack Snowboard Adulto</h3>
+      <ul class="pack-items">
+        <li>✓ Tabla</li>
+        <li>✓ Botas</li>
+      </ul>
+      <div class="pack-precio">
+        <span class="pack-precio-desde">desde</span>
+        <span class="pack-precio-num">$98.000</span>
+        <span class="pack-precio-dia">/ día</span>
+      </div>
+      <a href="./page/alquiler.html" class="btn pack-btn">Reservar pack →</a>
+    </div>
 
-          <!-- GUANTES -->
-          <div class="producto" data-nombre="Guantes" data-precio="13000">
-            <img
-              src="./img/snow/4.webp"
-              alt="Guantes de ski y snowboard"
-              width="220"
-              height="200"
-              loading="lazy"
-            />
-            <h3>Guantes</h3>
-            <p>$13.000</p>
-            <select class="medida" aria-label="Seleccioná talle de guantes">
-              <option value="">Talle</option>
-              <option>S</option>
-              <option>M</option>
-              <option>L</option>
-              <option>XL</option>
-            </select>
-            <button class="btn-agregar">Agregar</button>
-          </div>
+    <!-- PACK NIÑO -->
+    <div class="pack-card">
+  <img src="./img/snow/3.webp" alt="Pack Niño Completo" class="pack-img" />
+  <div class="pack-icon"></div>
+      <h3>Pack Niño Completo</h3>
+      <ul class="pack-items">
+        <li>✓ Ski Junior</li>
+        <li>✓ Botas</li>
+        <li>✓ Casco</li>
+      </ul>
+      <div class="pack-precio">
+        <span class="pack-precio-desde">desde</span>
+        <span class="pack-precio-num">$102.000</span>
+        <span class="pack-precio-dia">/ día</span>
+      </div>
+      <a href="./page/alquiler.html" class="btn pack-btn">Reservar pack →</a>
+    </div>
 
-          <!-- ANTIPARRAS -->
-          <div class="producto" data-nombre="Antiparras" data-precio="27000">
-            <img
-              src="./img/snow/antiparras.webp"
-              alt="Antiparras de ski y snowboard"
-              width="220"
-              height="200"
-              loading="lazy"
-            />
-            <h3>Antiparras</h3>
-            <p>$27.000</p>
-            <select class="medida" aria-label="Seleccioná talle de antiparras">
-              <option value="">Talle</option>
-              <option>S</option>
-              <option>M</option>
-              <option>L</option>
-              <option>XL</option>
-            </select>
-            <button class="btn-agregar">Agregar</button>
-          </div>
-        </div>
-      </section>
+  </div>
+</section>
     </main>
 
     <!-- FOOTER -->

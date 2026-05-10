@@ -126,3 +126,279 @@
     grid-template-columns: 1fr;
   }
 }
+
+// ── MARCAS ────────────────────────────────────
+.marcas {
+  padding: $espaciado-lg $espaciado-md;
+  background: $blanco;
+  text-align: center;
+  overflow: hidden;
+
+  h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: $negro;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+}
+
+.marcas-track-wrapper {
+  overflow: hidden;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+
+.marcas-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: scrollMarcas 20s linear infinite;
+
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+.marca-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $gris-claro;
+  border: 1.5px solid $gris-medio;
+  border-radius: $radius-md;
+  padding: 14px 28px;
+  font-size: 15px;
+  font-weight: 700;
+  color: $negro;
+  letter-spacing: 1.5px;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  min-width: 140px;
+
+  &:hover {
+    background: $azul;
+    color: $blanco;
+    border-color: $azul;
+  }
+}
+
+@keyframes scrollMarcas {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+// ── CTA RESERVA ───────────────────────────────
+.cta-reserva {
+  background: linear-gradient(135deg, $azul, $azul-sec);
+  padding: $espaciado-xl $espaciado-lg;
+
+  &-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+
+    @media (max-width: $bp-tablet) {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  &-texto {
+    h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: $blanco;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.85);
+      margin: 0;
+      line-height: 1.6;
+    }
+  }
+
+  &-btn {
+    background: $blanco;
+    color: $azul;
+    padding: 16px 32px;
+    font-size: 16px;
+    font-weight: 700;
+    white-space: nowrap;
+    flex-shrink: 0;
+    border-radius: $radius-md;
+
+    &:hover {
+      background: $gris-claro;
+      color: $azul;
+      opacity: 1;
+    }
+  }
+}
+
+// ── PACKS ─────────────────────────────────────
+.packs {
+  padding: $espaciado-xl $espaciado-lg;
+  background: $gris-claro;
+  text-align: center;
+
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: $negro;
+    margin-bottom: 8px;
+  }
+
+  &-subtitulo {
+    font-size: 20px;
+    color: $gris-texto;
+    margin-bottom: 40px;
+  }
+
+  &-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    @media (max-width: $bp-desktop) {
+      grid-template-columns: 1fr;
+      max-width: 400px;
+    }
+  }
+}
+
+.pack-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: $radius-md;
+  margin-bottom: 16px;
+}
+
+.pack-card {
+  background: $blanco;
+  border-radius: $radius-lg;
+  padding: 24px;
+  box-shadow: $sombra-md;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: $sombra-lg;
+  }
+
+  &--destacado {
+    background: $blanco;
+
+    h3 { color: $negro; }
+
+    .pack-items li {
+      color: $gris-texto;
+      border-bottom-color: $gris-claro;
+    }
+
+    .pack-precio-desde,
+    .pack-precio-dia { color: $gris-texto; }
+
+    .pack-precio-num { color: $azul; }
+
+    .pack-btn {
+      background: $azul-sec;
+      color: $blanco;
+
+      &:hover {
+        background: $azul;
+        color: $blanco;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.pack-icon {
+  font-size: 40px;
+  margin-bottom: 12px;
+}
+
+.pack-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: $negro;
+  margin-bottom: 16px;
+}
+
+.pack-items {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+  width: 100%;
+
+  li {
+    font-size: 14px;
+    color: $gris-texto;
+    padding: 6px 0;
+    border-bottom: 1px solid $gris-claro;
+    text-align: left;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+.pack-precio {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 24px;
+
+  &-desde {
+    font-size: 12px;
+    color: $gris-texto;
+  }
+
+  &-num {
+    font-size: 26px;
+    font-weight: 700;
+    color: $azul;
+  }
+
+  &-dia {
+    font-size: 13px;
+    color: $gris-texto;
+  }
+}
+
+.pack-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: $radius-sm;
+}

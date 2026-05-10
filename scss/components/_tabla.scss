@@ -1,7 +1,9 @@
 // =============================================
 // TABLAS DE PRECIOS
 // =============================================
+
 @use "../base/variables" as *;
+@use "sass:color";
 
 // ── SECCIÓN CONTENEDORA ───────────────────────
 .tabla-precios-equipos,
@@ -100,15 +102,26 @@
   }
 
   // Fila de descuento
-  .fila-descuento {
-    background: #fff8e1;
+    .fila-descuento {
+    background: $azul !important;
+
+    td {
+      color: $blanco !important;
+      font-weight: 600;
+      text-align: center;
+      font-style: italic;
+    }
 
     td:first-child {
-      font-style: italic;
-      color: $gris-texto;
+      color: $blanco !important;
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    &:hover {
+      background: color.adjust($azul, $lightness: -5%) !important;
     }
   }
-
   // ── RESPONSIVE ──────────────────────────────
   @media (max-width: $bp-tablet) {
     th,
