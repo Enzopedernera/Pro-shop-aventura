@@ -17,7 +17,6 @@
             <img src="../img/logo.png" alt="Rental Pro Shop" width="120" height="60" />
           </a>
         </div>
-        <!-- <span class="titulo">RENTAL PRO SHOP</span> -->
         <button class="hamburguesa" id="hamburguesa" aria-label="Abrir menú" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
@@ -32,7 +31,6 @@
 
     <div class="overlay" id="overlay"></div>
 
-    <!-- BREADCRUMB -->
     <nav class="breadcrumb" aria-label="Ruta de navegación">
       <a href="../index.html">Inicio</a>
       <span class="breadcrumb-sep">›</span>
@@ -42,22 +40,21 @@
     </nav>
 
     <main class="checkout-main">
-
       <div class="checkout-container">
 
-        <!-- COLUMNA IZQUIERDA — FORMULARIO -->
+        <!-- COLUMNA IZQUIERDA -->
         <div class="checkout-form-col">
 
+          <!-- PASO 1 — DATOS CLIENTE -->
           <div class="checkout-card">
             <div class="checkout-card-header">
               <span class="checkout-step">1</span>
               <h2>Tus datos</h2>
             </div>
-
-            <form id="formReserva" class="checkout-form">
+            <form id="formReserva">
               <div class="checkout-grid">
                 <div class="campo">
-                  <label for="nombre">Nombre completo *</label>
+                  <label for="nombre">Nombre y apellido *</label>
                   <input type="text" id="nombre" name="nombre" required placeholder="Juan Pérez" />
                 </div>
                 <div class="campo">
@@ -65,23 +62,23 @@
                   <input type="email" id="email" name="email" required placeholder="juan@email.com" />
                 </div>
                 <div class="campo">
-                  <label for="telefono">Teléfono</label>
-                  <input type="tel" id="telefono" name="telefono" placeholder="+54 9 294 000 0000" />
-                </div>
-                <div class="campo">
                   <label for="dni">DNI</label>
                   <input type="text" id="dni" name="dni" placeholder="12.345.678" />
+                </div>
+                <div class="campo">
+                  <label for="telefono">Teléfono</label>
+                  <input type="tel" id="telefono" name="telefono" placeholder="+54 9 294 000 0000" />
                 </div>
               </div>
             </form>
           </div>
 
+          <!-- PASO 2 — FECHAS -->
           <div class="checkout-card">
             <div class="checkout-card-header">
               <span class="checkout-step">2</span>
               <h2>Fechas de alquiler</h2>
             </div>
-
             <div class="checkout-grid">
               <div class="campo">
                 <label for="fecha_inicio">Fecha de inicio *</label>
@@ -92,21 +89,44 @@
                 <input type="date" id="fecha_fin" name="fecha_fin" required form="formReserva" />
               </div>
             </div>
-
             <div class="checkout-dias" id="checkoutDias" style="display:none">
               <span>📅</span>
               <strong id="cantDias">0</strong> día/s de alquiler
             </div>
           </div>
 
+          <!-- PASO 3 — CANTIDAD ESQUIADORES -->
           <div class="checkout-card">
             <div class="checkout-card-header">
               <span class="checkout-step">3</span>
-              <h2>Información adicional</h2>
+              <h2>¿Cuántos esquiadores?</h2>
+            </div>
+            <div class="cantidad-esquiadores">
+              <button type="button" class="cant-btn" id="btnMenosEsq">−</button>
+              <span class="cant-num" id="numEsq">1</span>
+              <button type="button" class="cant-btn" id="btnMasEsq">+</button>
+              <span class="cant-hint">máximo 6</span>
+            </div>
+          </div>
+
+          <!-- PASO 4 — EQUIPOS POR ESQUIADOR -->
+          <div class="checkout-card">
+            <div class="checkout-card-header">
+              <span class="checkout-step">4</span>
+              <h2>Equipos por esquiador</h2>
+            </div>
+            <div id="listaEsquiadores"></div>
+          </div>
+
+          <!-- PASO 5 — NOTAS -->
+          <div class="checkout-card">
+            <div class="checkout-card-header">
+              <span class="checkout-step">5</span>
+              <h2>Notas adicionales</h2>
             </div>
             <div class="campo">
-              <label for="notas">Notas o comentarios</label>
-              <textarea id="notas" name="notas" form="formReserva" placeholder="Ej: soy principiante, necesito equipos para 2 personas, tengo alguna preferencia especial..."></textarea>
+              <label for="notas">Comentarios o pedidos especiales</label>
+              <textarea id="notas" name="notas" form="formReserva" placeholder="Ej: primera vez en nieve, necesito equipos para zurdo..."></textarea>
             </div>
           </div>
 
@@ -114,57 +134,48 @@
 
         <!-- COLUMNA DERECHA — RESUMEN -->
         <div class="checkout-resumen-col">
-
           <div class="checkout-card checkout-sticky">
-
             <div class="checkout-card-header">
-              <span class="checkout-step">🛒</span>
-              <h2>Tu reserva</h2>
+              <span class="checkout-step">📋</span>
+              <h2>Resumen</h2>
             </div>
 
-            <!-- Lista de productos -->
-            <div id="checkoutLista" class="checkout-lista"></div>
+            <div id="resumenLista" class="checkout-lista"></div>
 
-            <!-- Totales -->
             <div class="checkout-totales">
               <div class="checkout-total-row">
-                <span>Subtotal</span>
-                <span id="checkoutSubtotal">$0</span>
+                <span>Total por día</span>
+                <span id="totalDia">$0</span>
               </div>
               <div class="checkout-total-row checkout-total-final">
-                <span>Total</span>
-                <span id="checkoutTotal">$0</span>
+                <span>Total reserva</span>
+                <span id="totalReserva">$0</span>
               </div>
             </div>
 
-            <!-- Privacidad -->
             <div class="hts-privacy-agree">
               <label>
-                <input type="checkbox" id="checkPrivacidad" required />
-               Acepté los <a href="./privacidad.html?from=checkout">Términos y condiciones</a> y la <a href="./privacidad.html?from=checkout">Política de privacidad</a>.
+                <input type="checkbox" id="checkPrivacidad" />
+                Acepté los <a href="./privacidad.html?from=checkout">Términos y condiciones</a> y la <a href="./privacidad.html?from=checkout">Política de privacidad</a>.
               </label>
             </div>
 
-            <!-- Botón confirmar -->
             <button type="submit" form="formReserva" id="btnConfirmar" class="btn checkout-btn-confirmar">
               Confirmar reserva →
             </button>
 
-            <!-- Volver -->
             <a href="./alquiler.html" class="checkout-volver">← Volver y modificar</a>
-
           </div>
-
         </div>
 
       </div>
 
-      <!-- MENSAJE DE ÉXITO -->
+      <!-- MENSAJE ÉXITO -->
       <div class="checkout-exito" id="checkoutExito" style="display:none">
         <div class="checkout-exito-inner">
           <div class="checkout-exito-icon">✓</div>
           <h2>¡Reserva confirmada!</h2>
-          <p>Enviamos la confirmación a tu email. Nos contactaremos a la brevedad para confirmar la disponibilidad.</p>
+          <p>Enviamos la confirmación a tu email. Nos contactaremos a la brevedad para confirmar disponibilidad.</p>
           <div class="checkout-exito-info" id="checkoutExitoInfo"></div>
           <a href="../index.html" class="btn">Volver al inicio</a>
         </div>

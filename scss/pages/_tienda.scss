@@ -228,3 +228,108 @@
     color: $negro;
   }
 }
+// ── AVISO PRÓXIMAMENTE ────────────────────────
+// ── AVISO PRÓXIMAMENTE ────────────────────────
+.aviso-proximamente {
+  max-width: 700px;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  background: $blanco;
+  border: 2px dashed $azul-sec;
+  border-radius: $radius-lg;
+  padding: 40px 32px;
+  text-align: center;
+  box-shadow: $sombra-md;
+
+  .aviso-icono {
+    font-size: 48px;
+  }
+
+  p {
+    font-size: 16px;
+    color: $gris-texto;
+    margin: 0;
+    line-height: 1.6;
+
+    strong {
+      font-size: 20px;
+      color: $azul;
+      display: block;
+      margin-bottom: 6px;
+    }
+  }
+
+  .aviso-btn {
+    background: $azul-sec;
+    color: $blanco;
+    padding: 12px 28px;
+    border-radius: $radius-sm;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: $azul;
+      color: $blanco;
+    }
+  }
+
+  @media (max-width: $bp-tablet) {
+    margin: 24px 20px;
+    padding: 28px 20px;
+  }
+}// ── AVISO PRÓXIMAMENTE ────────────────────────
+.aviso-proximamente {
+  max-width: 700px;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  background: linear-gradient(135deg, $azul, $azul-sec);
+  border-radius: $radius-lg;
+  padding: 40px 32px;
+  text-align: center;
+  box-shadow: $sombra-md;
+
+  .aviso-icono {
+    font-size: 48px;
+  }
+
+  p {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    line-height: 1.6;
+
+    strong {
+      font-size: 22px;
+      color: $blanco;
+      display: block;
+      margin-bottom: 8px;
+    }
+  }
+
+  .aviso-btn {
+    background: $blanco;
+    color: $azul;
+    padding: 12px 28px;
+    border-radius: $radius-sm;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: $gris-claro;
+      color: $azul;
+    }
+  }
+
+  @media (max-width: $bp-tablet) {
+    margin: 24px 20px;
+    padding: 28px 20px;
+  }
+}
