@@ -210,33 +210,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Celdas tabla de precios
-  document.querySelectorAll(".precio").forEach((celda) => {
-    celda.addEventListener("click", () => {
-      const producto = celda.dataset.producto;
-      const diasCelda = celda.dataset.dias;
-      const precio = parseInt(celda.dataset.precio);
-      const nombre = diasCelda ? `${producto} (${diasCelda} día/s)` : producto;
-
-      agregarAlCarrito(nombre, precio, "");
-
-      const textoOriginal = celda.textContent;
-      celda.textContent = "✓ Agregado";
-      celda.style.background = "#22c55e";
-      celda.style.color = "#fff";
-      celda.style.fontWeight = "600";
-      celda.style.fontSize = "13px";
-
-      setTimeout(() => {
-        celda.textContent = textoOriginal;
-        celda.style.background = "";
-        celda.style.color = "";
-        celda.style.fontWeight = "";
-        celda.style.fontSize = "";
-      }, 1200);
-    });
-  });
-
   // Hamburguesa
   const hamburguesa = document.getElementById("hamburguesa");
   const menu = document.getElementById("menu");
@@ -307,6 +280,8 @@ document.addEventListener("DOMContentLoaded", () => {
       snow_junior:     { 1: 44000,  3: 113000, 4: 143000, 5: 170000, 6: 193000, 7: 213000 },
       casco:           { 1: 19000,  3: 49000,  4: 62000,  5: 73000,  6: 83000,  7: 92000  },
       antiparras:      { 1: 27000,  3: 69000,  4: 88000,  5: 104000, 6: 118000, 7: 131000 },
+      guantes:         { 1: 13000,  3: 33000,  4: 42000,  5: 50000,  6: 57000,  7: 63000  },
+      botas_preski:    { 1: 15000,  3: 38000,  4: 48000,  5: 58000,  6: 65500,  7: 73000  },
       campera_adulto:  { 1: 23000,  3: 61000,  4: 78000,  5: 92000,  6: 105000, 7: 116000 },
       campera_nino:    { 1: 17000,  3: 45000,  4: 58000,  5: 69000,  6: 79000,  7: 87000  },
       pantalon_adulto: { 1: 20000,  3: 53000,  4: 78000,  5: 92000,  6: 105000, 7: 116000 },
@@ -314,16 +289,18 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     function getPrecio(equipo, d) {
-      const tabla = TABLA_PRECIOS[equipo];
-      if (!tabla) return 0;
-      if (tabla[d]) return tabla[d];
-      if (d >= 7) return tabla[7];
-      if (d >= 6) return tabla[6];
-      if (d >= 5) return tabla[5];
-      if (d >= 4) return tabla[4];
-      if (d >= 3) return tabla[3];
-      return tabla[1] * d;
-    }
+  const tabla = TABLA_PRECIOS[equipo];
+  if (!tabla) return 0;
+  if (d <= 0) return 0;
+  if (d === 1) return tabla[1];
+  if (d === 2) return tabla[1] * 2;
+  if (d === 3) return tabla[3];
+  if (d === 4) return tabla[4];
+  if (d === 5) return tabla[5];
+  if (d === 6) return tabla[6];
+  if (d >= 7) return tabla[7];
+  return tabla[1] * d;
+}
 
     function calcularDiasEsq(inicio, fin) {
       if (!inicio || !fin) return 0;
@@ -337,7 +314,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let esquiadores = [];
 
     document.getElementById("btnMasEsq")?.addEventListener("click", () => {
-      if (cantEsq < 6) {
+      if (cantEsq < 10) {
         cantEsq++;
         document.getElementById("numEsq").textContent = cantEsq;
         renderEsquiadores();
@@ -359,7 +336,10 @@ document.addEventListener("DOMContentLoaded", () => {
         fecha_inicio: "", fecha_fin: "",
         casco: false, talleCasco: "M",
         antiparras: false, talleAntiparras: "M",
-        indumentaria: false, talleIndum: "M",
+        guantes: false, talleGuantes: "M",
+        botas_preski: false,
+        campera: false, talleCampera: "M",
+        pantalon: false, tallePantalon: "M",
       };
     }
 
@@ -466,18 +446,54 @@ document.addEventListener("DOMContentLoaded", () => {
             </select>` : ""}
           </div>
 
+          <div class="accesorio-row">
+            <span class="acc-label">Guantes</span>
+            <div class="acc-toggle">
+              <button type="button" class="${esq.guantes ? "activo" : ""}"
+                onclick="actualizarEsq(${i}, 'guantes', true)">Sí</button>
+              <button type="button" class="${!esq.guantes ? "activo" : ""}"
+                onclick="actualizarEsq(${i}, 'guantes', false)">No</button>
+            </div>
+            ${esq.guantes ? `<select onchange="actualizarEsq(${i}, 'talleGuantes', this.value)">
+              ${["S","M","L","XL"].map(t => `<option ${esq.talleGuantes === t ? "selected" : ""}>${t}</option>`).join("")}
+            </select>` : ""}
+          </div>
+
+          <div class="accesorio-row">
+            <span class="acc-label">Botas Preski</span>
+            <div class="acc-toggle">
+              <button type="button" class="${esq.botas_preski ? "activo" : ""}"
+                onclick="actualizarEsq(${i}, 'botas_preski', true)">Sí</button>
+              <button type="button" class="${!esq.botas_preski ? "activo" : ""}"
+                onclick="actualizarEsq(${i}, 'botas_preski', false)">No</button>
+            </div>
+          </div>
+
           <div class="esq-section">Indumentaria</div>
 
           <div class="accesorio-row">
-            <span class="acc-label">Campera + Pantalón</span>
+            <span class="acc-label">Campera</span>
             <div class="acc-toggle">
-              <button type="button" class="${esq.indumentaria ? "activo" : ""}"
-                onclick="actualizarEsq(${i}, 'indumentaria', true)">Sí</button>
-              <button type="button" class="${!esq.indumentaria ? "activo" : ""}"
-                onclick="actualizarEsq(${i}, 'indumentaria', false)">No</button>
+              <button type="button" class="${esq.campera ? "activo" : ""}"
+                onclick="actualizarEsq(${i}, 'campera', true)">Sí</button>
+              <button type="button" class="${!esq.campera ? "activo" : ""}"
+                onclick="actualizarEsq(${i}, 'campera', false)">No</button>
             </div>
-            ${esq.indumentaria ? `<select onchange="actualizarEsq(${i}, 'talleIndum', this.value)">
-              ${["S","M","L","XL","4","6","8","10","12","14"].map(t => `<option ${esq.talleIndum === t ? "selected" : ""}>${t}</option>`).join("")}
+            ${esq.campera ? `<select onchange="actualizarEsq(${i}, 'talleCampera', this.value)">
+              ${["S","M","L","XL","4","6","8","10","12","14"].map(t => `<option ${esq.talleCampera === t ? "selected" : ""}>${t}</option>`).join("")}
+            </select>` : ""}
+          </div>
+
+          <div class="accesorio-row">
+            <span class="acc-label">Pantalón / Enterito niño</span>
+            <div class="acc-toggle">
+              <button type="button" class="${esq.pantalon ? "activo" : ""}"
+                onclick="actualizarEsq(${i}, 'pantalon', true)">Sí</button>
+              <button type="button" class="${!esq.pantalon ? "activo" : ""}"
+                onclick="actualizarEsq(${i}, 'pantalon', false)">No</button>
+            </div>
+            ${esq.pantalon ? `<select onchange="actualizarEsq(${i}, 'tallePantalon', this.value)">
+              ${["S","M","L","XL","4","6","8","10","12","14"].map(t => `<option ${esq.tallePantalon === t ? "selected" : ""}>${t}</option>`).join("")}
             </select>` : ""}
           </div>
         `;
@@ -505,10 +521,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (esq.casco) total += getPrecio("casco", d);
       if (esq.antiparras) total += getPrecio("antiparras", d);
-      if (esq.indumentaria) {
-        total += getPrecio(esNino ? "campera_nino" : "campera_adulto", d);
-        total += getPrecio(esNino ? "pantalon_nino" : "pantalon_adulto", d);
-      }
+      if (esq.guantes) total += getPrecio("guantes", d);
+      if (esq.botas_preski) total += getPrecio("botas_preski", d);
+      if (esq.campera) total += getPrecio(esNino ? "campera_nino" : "campera_adulto", d);
+      if (esq.pantalon) total += getPrecio(esNino ? "pantalon_nino" : "pantalon_adulto", d);
 
       return total;
     }
@@ -545,13 +561,10 @@ document.addEventListener("DOMContentLoaded", () => {
         items.push([packLabel, getPrecio(packKey, d)]);
         if (esq.casco) items.push([`Casco talle ${esq.talleCasco}`, getPrecio("casco", d)]);
         if (esq.antiparras) items.push([`Antiparras talle ${esq.talleAntiparras}`, getPrecio("antiparras", d)]);
-        if (esq.indumentaria) {
-          items.push([
-            `Campera + Pantalón talle ${esq.talleIndum}`,
-            getPrecio(esNino ? "campera_nino" : "campera_adulto", d) +
-            getPrecio(esNino ? "pantalon_nino" : "pantalon_adulto", d)
-          ]);
-        }
+        if (esq.guantes) items.push([`Guantes talle ${esq.talleGuantes}`, getPrecio("guantes", d)]);
+        if (esq.botas_preski) items.push(["Botas Preski", getPrecio("botas_preski", d)]);
+        if (esq.campera) items.push([`Campera talle ${esq.talleCampera}`, getPrecio(esNino ? "campera_nino" : "campera_adulto", d)]);
+        if (esq.pantalon) items.push([`Pantalón/Enterito talle ${esq.tallePantalon}`, getPrecio(esNino ? "pantalon_nino" : "pantalon_adulto", d)]);
 
         items.forEach(([label, precio]) => {
           const item = document.createElement("div");
@@ -566,7 +579,7 @@ document.addEventListener("DOMContentLoaded", () => {
         resumenLista.appendChild(grupo);
       });
 
-      // Total por día (usando precios de 1 día)
+      // Total por día
       if (totalDiaEl) {
         const totalPorDia = esquiadores.reduce((acc, esq) => {
           const esNino = esq.edad === "nino";
@@ -574,10 +587,10 @@ document.addEventListener("DOMContentLoaded", () => {
           let t = getPrecio(packKey, 1);
           if (esq.casco) t += getPrecio("casco", 1);
           if (esq.antiparras) t += getPrecio("antiparras", 1);
-          if (esq.indumentaria) {
-            t += getPrecio(esNino ? "campera_nino" : "campera_adulto", 1);
-            t += getPrecio(esNino ? "pantalon_nino" : "pantalon_adulto", 1);
-          }
+          if (esq.guantes) t += getPrecio("guantes", 1);
+          if (esq.botas_preski) t += getPrecio("botas_preski", 1);
+          if (esq.campera) t += getPrecio(esNino ? "campera_nino" : "campera_adulto", 1);
+          if (esq.pantalon) t += getPrecio(esNino ? "pantalon_nino" : "pantalon_adulto", 1);
           return acc + t;
         }, 0);
         totalDiaEl.textContent = `$${formatearPrecio(totalPorDia)}`;

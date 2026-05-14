@@ -87,14 +87,10 @@
   }
 
   // ── CELDAS CLICKEABLES ──────────────────────
-  .precio {
-    cursor: pointer;
+ .precio {
     font-weight: 600;
     color: $negro;
-    transition:
-      background 0.15s ease,
-      color 0.15s ease;
-
+  
     &:hover {
       background: #e8f0fe;
       color: $azul-sec;

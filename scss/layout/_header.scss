@@ -9,7 +9,7 @@
   left: 0;
   width: 100%;
   height: $header-height;
-  background: $azul;
+  background: $blanco;
   z-index: 1000;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 }
@@ -35,12 +35,12 @@
 }
 
 // Título central
-.titulo {
-  font-size: 18px;
-  font-weight: 500;
-  color: $blanco;
-  white-space: nowrap;
-}
+// .titulo {
+//   font-size: 18px;
+//   font-weight: 500;
+//   color: $negro;
+//   white-space: nowrap;
+// }
 
 // Menú
 .menu {
@@ -52,7 +52,7 @@
   padding: 0;
 
   a {
-    color: $blanco;
+    color: $negro;
     font-size: 14px;
     font-weight: 500;
     padding: 6px 12px;
@@ -60,7 +60,8 @@
     transition: background 0.2s ease;
 
     &:hover {
-      background: rgba(255, 255, 255, 0.2);
+      background: $azul;
+      color: $blanco;
     }
   }
 }
@@ -80,7 +81,7 @@
     display: block;
     width: 25px;
     height: 3px;
-    background: $blanco;
+    background: $negro;
     border-radius: 3px;
     transition: all 0.3s ease;
   }
@@ -106,7 +107,7 @@
     top: $header-height;
     left: 0;
     width: 100%;
-    background: $azul;
+    background: $blanco;
     flex-direction: column;
     align-items: center;
     padding: 10px 0;
@@ -129,7 +130,10 @@
       width: 100%;
 
       &:hover {
-        background: rgba(255, 255, 255, 0.15);
+        background:$azul;
+        transition: background 0.5s ease;
+        color: $blanco;
+        
       }
     }
   }

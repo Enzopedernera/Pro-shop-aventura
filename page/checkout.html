@@ -73,55 +73,33 @@
             </form>
           </div>
 
-          <!-- PASO 2 — FECHAS -->
+          <!-- PASO 2 — CANTIDAD ESQUIADORES -->
           <div class="checkout-card">
             <div class="checkout-card-header">
               <span class="checkout-step">2</span>
-              <h2>Fechas de alquiler</h2>
-            </div>
-            <div class="checkout-grid">
-              <div class="campo">
-                <label for="fecha_inicio">Fecha de inicio *</label>
-                <input type="date" id="fecha_inicio" name="fecha_inicio" required form="formReserva" />
-              </div>
-              <div class="campo">
-                <label for="fecha_fin">Fecha de fin *</label>
-                <input type="date" id="fecha_fin" name="fecha_fin" required form="formReserva" />
-              </div>
-            </div>
-            <div class="checkout-dias" id="checkoutDias" style="display:none">
-              <span>📅</span>
-              <strong id="cantDias">0</strong> día/s de alquiler
-            </div>
-          </div>
-
-          <!-- PASO 3 — CANTIDAD ESQUIADORES -->
-          <div class="checkout-card">
-            <div class="checkout-card-header">
-              <span class="checkout-step">3</span>
               <h2>¿Cuántos esquiadores?</h2>
             </div>
             <div class="cantidad-esquiadores">
               <button type="button" class="cant-btn" id="btnMenosEsq">−</button>
               <span class="cant-num" id="numEsq">1</span>
               <button type="button" class="cant-btn" id="btnMasEsq">+</button>
-              <span class="cant-hint">máximo 6</span>
+              <span class="cant-hint">máximo 10</span>
             </div>
           </div>
 
-          <!-- PASO 4 — EQUIPOS POR ESQUIADOR -->
+          <!-- PASO 3 — EQUIPOS POR ESQUIADOR -->
           <div class="checkout-card">
             <div class="checkout-card-header">
-              <span class="checkout-step">4</span>
+              <span class="checkout-step">3</span>
               <h2>Equipos por esquiador</h2>
             </div>
             <div id="listaEsquiadores"></div>
           </div>
 
-          <!-- PASO 5 — NOTAS -->
+          <!-- PASO 4 — NOTAS -->
           <div class="checkout-card">
             <div class="checkout-card-header">
-              <span class="checkout-step">5</span>
+              <span class="checkout-step">4</span>
               <h2>Notas adicionales</h2>
             </div>
             <div class="campo">
