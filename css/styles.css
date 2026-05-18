@@ -128,7 +128,7 @@ textarea {
   height: 70px;
   background: #ffffff;
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 10px rgba(245, 243, 243, 0.15);
 }
 
 .navbar {
@@ -2262,6 +2262,204 @@ textarea {
   font-size: 12px !important;
   color: #e0e0e0 !important;
   font-style: italic;
+}
+
+.equipos-filtros {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+  align-items: center;
+  justify-content: center;
+}
+
+.filtro-btn {
+  padding: 8px 20px;
+  border-radius: 999px;
+  border: 2px solid #e0e0e0;
+  background: transparent;
+  color: #111111;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.filtro-btn:hover {
+  border-color: #1b35c4;
+  color: #1b35c4;
+}
+.filtro-btn.active {
+  background: #111111;
+  border-color: #111111;
+  color: #ffffff;
+}
+
+.filtro-dropdown {
+  position: relative;
+}
+.filtro-dropdown.active .filtro-dropdown-toggle {
+  background: #111111;
+  border-color: #111111;
+  color: #ffffff;
+}
+
+.filtro-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  min-width: 140px;
+  overflow: hidden;
+}
+.filtro-dropdown-menu.open {
+  display: flex;
+  flex-direction: column;
+}
+
+.subfiltro-btn {
+  padding: 10px 16px;
+  border: none;
+  background: transparent;
+  text-align: left;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #111111;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.subfiltro-btn:hover {
+  background: #f5f7fa;
+}
+.subfiltro-btn.active {
+  background: #f5f7fa;
+  font-weight: bold;
+  color: #1b35c4;
+}
+
+.equipo-card.v2 {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  transition: box-shadow 0.2s ease;
+}
+.equipo-card.v2:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.equipo-card-v2-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 16px 0;
+  gap: 8px;
+}
+
+.equipo-card-v2-titulo {
+  font-size: 15px;
+  font-weight: 800;
+  color: #111111;
+  letter-spacing: 0.3px;
+}
+
+.equipo-card-v2-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+.equipo-card-v2-badge.badge-azul {
+  background: #e8f0fe;
+  color: #1b35c4;
+}
+.equipo-card-v2-badge.badge-verde {
+  background: #e6f9ee;
+  color: #16a34a;
+}
+.equipo-card-v2-badge.badge-gris {
+  background: #f5f7fa;
+  color: #555555;
+  border: 1px solid #e0e0e0;
+}
+
+.equipo-card-v2-desc {
+  font-size: 13px;
+  color: #555555;
+  line-height: 1.6;
+  padding: 10px 16px 0;
+}
+
+.equipo-card.v2 .equipo-card-tags {
+  padding: 8px 16px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.equipo-card-v2-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  margin-top: 14px;
+  background: #f5f7fa;
+}
+
+.equipo-card-v2-beneficios {
+  list-style: none;
+  padding: 12px 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.equipo-card-v2-beneficios li {
+  font-size: 12px;
+  color: #16a34a;
+  font-weight: 500;
+}
+
+.equipo-card-v2-precio {
+  padding: 14px 16px 0;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+.equipo-card-v2-precio .precio-monto {
+  font-size: 26px;
+  font-weight: 800;
+  color: #111111;
+  line-height: 1;
+}
+.equipo-card-v2-precio .precio-dia {
+  font-size: 13px;
+  color: #555555;
+}
+
+.equipo-card-v2-btn {
+  display: block;
+  margin: 14px 16px 16px;
+  padding: 13px;
+  background: #1b35c4;
+  color: #ffffff;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+.equipo-card-v2-btn:hover {
+  background: #0077ff;
+  color: #ffffff;
 }
 
 .equipo-detalle-btn {
