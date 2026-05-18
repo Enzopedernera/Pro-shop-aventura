@@ -13,32 +13,61 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 app.use(cors());
 app.use(express.json());
 
+function formatPrecio(num) {
+  return Number(num).toLocaleString("es-AR");
+}
+
 // ── RUTA RESERVA ──────────────────────────────
 app.post("/reserva", async (req, res) => {
-  const { nombre, email, telefono, dni, fecha_inicio, fecha_fin, carrito } = req.body;
+  const { nombre, email, telefono, dni, notas, esquiadores, total_reserva } = req.body;
 
-  if (!nombre || !email || !carrito || carrito.length === 0) {
+  if (!nombre || !email || !esquiadores || esquiadores.length === 0) {
     return res.status(400).json({ error: "Faltan datos obligatorios" });
   }
 
   try {
-    const total = carrito.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
 
-    const detalleCarrito = carrito
-      .map(
-        (item) => `
-        <tr>
-          <td style="padding:8px;border:1px solid #ddd">${item.nombre}${item.medida ? ` (${item.medida})` : ""}</td>
-          <td style="padding:8px;border:1px solid #ddd;text-align:center">${item.cantidad}</td>
-          <td style="padding:8px;border:1px solid #ddd;text-align:right">$${item.precio.toLocaleString("es-AR")}</td>
-          <td style="padding:8px;border:1px solid #ddd;text-align:right">$${(item.precio * item.cantidad).toLocaleString("es-AR")}</td>
-        </tr>`
-      )
-      .join("");
+    // Armar HTML detalle de esquiadores
+    const detalleEsquiadores = esquiadores.map((esq, i) => {
+      const items = [];
+      const esNino = esq.edad === "nino";
+      const pack = esq.tipo === "ski"
+        ? (esNino ? "Pack Ski Junior" : "Pack Ski Adulto")
+        : (esNino ? "Pack Snowboard Junior" : "Pack Snowboard Adulto");
 
-    // Email al negocio
+      items.push(pack);
+      if (esq.casco) items.push(`Casco talle ${esq.talleCasco}`);
+      if (esq.antiparras) items.push(`Antiparras talle ${esq.talleAntiparras}`);
+      if (esq.guantes) items.push(`Guantes talle ${esq.talleGuantes}`);
+      if (esq.botas_preski) items.push("Botas Preski");
+      if (esq.campera) items.push(`Campera ${esNino ? "niño" : "adulto"} talle ${esq.talleCampera}`);
+      if (esq.pantalon_adulto) items.push(`Pantalón adulto talle ${esq.tallePantalon}`);
+      if (esq.pantalon_nino) items.push(`Pantalón/Enterito niño talle ${esq.tallePantalon_nino}`);
+      if (esq.combo_adulto) items.push("Campera + Pantalón adulto (combo)");
+      if (esq.combo_nino) items.push("Campera + Pantalón niño (combo)");
+
+      const fechas = esq.fecha_inicio && esq.fecha_fin
+        ? `${esq.fecha_inicio} al ${esq.fecha_fin}`
+        : "Sin fechas indicadas";
+
+      return `
+        <div style="background:#fff;border-radius:8px;padding:16px;margin-bottom:12px;border-left:4px solid #1b35c4">
+          <p style="margin:0 0 8px;font-weight:700;color:#111">
+            Esquiador ${i + 1}${esq.nombre ? ` — ${esq.nombre}` : ""} 
+            <span style="font-weight:400;color:#555;font-size:13px">(${esq.edad === "adulto" ? "Adulto" : "Niño"})</span>
+          </p>
+          <p style="margin:0 0 4px;font-size:13px;color:#555">📅 ${fechas}</p>
+          <p style="margin:0 0 4px;font-size:13px;color:#555">📐 Altura: ${esq.altura || "No indicado"} cm &nbsp;|&nbsp; Bota EU: ${esq.talleBota || "No indicado"}</p>
+          <ul style="margin:8px 0 0;padding-left:16px;font-size:13px;color:#333">
+            ${items.map(item => `<li style="margin-bottom:3px">${item}</li>`).join("")}
+          </ul>
+        </div>
+      `;
+    }).join("");
+
+    // ── EMAIL AL NEGOCIO ──
     await resend.emails.send({
-      from: "Rental Pro Shop <reservas@proshoprental.com>",
+      from: "Rental Pro Shop Aventura <reservas@proshoprental.com>",
       replyTo: email,
       to: "consultas@proshopaventura.com",
       subject: `Nueva reserva — ${nombre}`,
@@ -46,90 +75,65 @@ app.post("/reserva", async (req, res) => {
         <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto">
           <div style="background:#1b35c4;padding:20px;text-align:center">
             <h1 style="color:#fff;margin:0;font-size:22px">🎿 Nueva Reserva</h1>
-            <p style="color:rgba(255,255,255,0.8);margin:5px 0 0">Rental Pro Shop</p>
+            <p style="color:rgba(255,255,255,0.8);margin:5px 0 0">Rental Pro Shop Aventura</p>
           </div>
           <div style="padding:24px;background:#f5f7fa">
+
             <div style="background:#fff;border-radius:8px;padding:20px;margin-bottom:16px">
               <h2 style="margin:0 0 16px;font-size:16px;color:#111">👤 Datos del cliente</h2>
               <p style="margin:4px 0"><strong>Nombre:</strong> ${nombre}</p>
               <p style="margin:4px 0"><strong>Email:</strong> ${email}</p>
               <p style="margin:4px 0"><strong>Teléfono:</strong> ${telefono || "No indicado"}</p>
               <p style="margin:4px 0"><strong>DNI:</strong> ${dni || "No indicado"}</p>
+              ${notas ? `<p style="margin:8px 0 0"><strong>Notas:</strong> ${notas}</p>` : ""}
             </div>
-            <div style="background:#fff;border-radius:8px;padding:20px;margin-bottom:16px">
-              <h2 style="margin:0 0 16px;font-size:16px;color:#111">📅 Fechas</h2>
-              <p style="margin:4px 0"><strong>Desde:</strong> ${fecha_inicio}</p>
-              <p style="margin:4px 0"><strong>Hasta:</strong> ${fecha_fin}</p>
+
+            <div style="background:#f5f7fa;border-radius:8px;padding:16px;margin-bottom:16px">
+              <h2 style="margin:0 0 16px;font-size:16px;color:#111">🎿 Equipos por esquiador (${esquiadores.length})</h2>
+              ${detalleEsquiadores}
             </div>
-            <div style="background:#fff;border-radius:8px;padding:20px;margin-bottom:16px">
-              <h2 style="margin:0 0 16px;font-size:16px;color:#111">🛒 Equipos seleccionados</h2>
-              <table style="width:100%;border-collapse:collapse">
-                <thead>
-                  <tr style="background:#111;color:#fff">
-                    <th style="padding:8px;text-align:left">Producto</th>
-                    <th style="padding:8px;text-align:center">Cant.</th>
-                    <th style="padding:8px;text-align:right">Precio</th>
-                    <th style="padding:8px;text-align:right">Subtotal</th>
-                  </tr>
-                </thead>
-                <tbody>${detalleCarrito}</tbody>
-              </table>
-            </div>
+
             <div style="background:#1b35c4;border-radius:8px;padding:16px;text-align:right">
               <p style="color:#fff;font-size:20px;font-weight:700;margin:0">
-                Total: $${total.toLocaleString("es-AR")}
+                Total estimado: $${formatPrecio(total_reserva)}
               </p>
             </div>
           </div>
           <div style="padding:16px;text-align:center;background:#111;color:rgba(255,255,255,0.5);font-size:12px">
-            Rental Pro Shop — Av. Arrayanes 173, Villa La Angostura
+            Rental Pro Shop Aventura — Av. Arrayanes 173, Villa La Angostura
           </div>
         </div>
       `,
     });
 
-    // Email de confirmación al cliente
+    // ── EMAIL DE CONFIRMACIÓN AL CLIENTE ──
     await resend.emails.send({
-      from: "Rental Pro Shop <reservas@proshoprental.com>",
+      from: "Rental Pro Shop Aventura <reservas@proshoprental.com>",
       to: email,
-      subject: `Confirmación de reserva — Rental Pro Shop`,
+      subject: `Confirmación de reserva — Rental Pro Shop Aventura`,
       html: `
         <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto">
           <div style="background:#1b35c4;padding:20px;text-align:center">
             <h1 style="color:#fff;margin:0;font-size:22px">¡Reserva recibida! 🎿</h1>
-            <p style="color:rgba(255,255,255,0.8);margin:5px 0 0">Rental Pro Shop</p>
+            <p style="color:rgba(255,255,255,0.8);margin:5px 0 0">Rental Pro Shop Aventura</p>
           </div>
           <div style="padding:24px;background:#f5f7fa">
             <div style="background:#fff;border-radius:8px;padding:20px;margin-bottom:16px">
               <p style="margin:0 0 12px">Hola <strong>${nombre}</strong>,</p>
               <p style="margin:0 0 12px">Recibimos tu reserva correctamente. Nos contactaremos a la brevedad para confirmar la disponibilidad.</p>
-              <p style="margin:0"><strong>Fechas solicitadas:</strong> ${fecha_inicio} al ${fecha_fin}</p>
             </div>
-            <div style="background:#fff;border-radius:8px;padding:20px;margin-bottom:16px">
-              <h2 style="margin:0 0 16px;font-size:16px;color:#111">🛒 Tu pedido</h2>
-              <table style="width:100%;border-collapse:collapse">
-                <thead>
-                  <tr style="background:#111;color:#fff">
-                    <th style="padding:8px;text-align:left">Producto</th>
-                    <th style="padding:8px;text-align:center">Cant.</th>
-                    <th style="padding:8px;text-align:right">Subtotal</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  ${carrito.map((item) => `
-                    <tr>
-                      <td style="padding:8px;border:1px solid #ddd">${item.nombre}${item.medida ? ` (${item.medida})` : ""}</td>
-                      <td style="padding:8px;border:1px solid #ddd;text-align:center">${item.cantidad}</td>
-                      <td style="padding:8px;border:1px solid #ddd;text-align:right">$${(item.precio * item.cantidad).toLocaleString("es-AR")}</td>
-                    </tr>`).join("")}
-                </tbody>
-              </table>
+
+            <div style="background:#f5f7fa;border-radius:8px;padding:16px;margin-bottom:16px">
+              <h2 style="margin:0 0 16px;font-size:16px;color:#111">🎿 Tu reserva (${esquiadores.length} esquiador/es)</h2>
+              ${detalleEsquiadores}
             </div>
+
             <div style="background:#1b35c4;border-radius:8px;padding:16px;text-align:right">
               <p style="color:#fff;font-size:20px;font-weight:700;margin:0">
-                Total: $${total.toLocaleString("es-AR")}
+                Total estimado: $${formatPrecio(total_reserva)}
               </p>
             </div>
+
             <div style="background:#fff;border-radius:8px;padding:20px;margin-top:16px">
               <h2 style="margin:0 0 12px;font-size:16px;color:#111">📍 Contacto</h2>
               <p style="margin:4px 0">Av. Arrayanes 173, Villa La Angostura</p>
@@ -138,7 +142,7 @@ app.post("/reserva", async (req, res) => {
             </div>
           </div>
           <div style="padding:16px;text-align:center;background:#111;color:rgba(255,255,255,0.5);font-size:12px">
-            Rental Pro Shop — Av. Arrayanes 173, Villa La Angostura
+            Rental Pro Shop Aventura — Av. Arrayanes 173, Villa La Angostura
           </div>
         </div>
       `,
@@ -162,7 +166,7 @@ app.post("/contacto", async (req, res) => {
 
   try {
     await resend.emails.send({
-      from: "Rental Pro Shop <reservas@proshoprental.com>",
+      from: "Rental Pro Shop Aventura <reservas@proshoprental.com>",
       replyTo: email,
       to: "consultas@proshopaventura.com",
       subject: `Nuevo mensaje — ${nombre}`,
@@ -170,7 +174,7 @@ app.post("/contacto", async (req, res) => {
         <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto">
           <div style="background:#1b35c4;padding:20px;text-align:center">
             <h1 style="color:#fff;margin:0;font-size:22px">✉️ Nuevo mensaje</h1>
-            <p style="color:rgba(255,255,255,0.8);margin:5px 0 0">Rental Pro Shop</p>
+            <p style="color:rgba(255,255,255,0.8);margin:5px 0 0">Rental Pro Shop Aventura</p>
           </div>
           <div style="padding:24px;background:#f5f7fa">
             <div style="background:#fff;border-radius:8px;padding:20px">
