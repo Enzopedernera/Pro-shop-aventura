@@ -460,3 +460,109 @@
   font-weight: 600;
   border-radius: $radius-sm;
 }
+// ── BANNER TEMPORADA BAJA ─────────────────────
+.banner-temporada {
+  background: $negro;
+  padding: $espaciado-lg;
+
+  &-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+
+    @media (max-width: $bp-tablet) {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  &-texto {
+    flex: 1;
+
+    h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: $blanco;
+      margin-bottom: 8px;
+    }
+
+    p {
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.75);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+  }
+}
+
+.banner-badge-temp {
+  display: inline-block;
+  background: $azul-sec;
+  color: $blanco;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+
+.banner-fechas {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+
+  @media (max-width: $bp-tablet) {
+    justify-content: center;
+  }
+}
+
+.fecha-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  .fecha-label {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.55);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  strong {
+    font-size: 18px;
+    color: $azul-sec;
+    font-weight: 700;
+  }
+}
+
+.fecha-sep {
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.2);
+  font-weight: 300;
+
+  @media (max-width: $bp-mobile) {
+    display: none;
+  }
+}
+
+.banner-temp-btn {
+  background: $azul-sec;
+  color: $blanco;
+  padding: 14px 32px;
+  border-radius: $radius-sm;
+  font-size: 15px;
+  font-weight: 700;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: $azul;
+    color: $blanco;
+  }
+}

@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Conocé los equipos de ski, snowboard e indumentaria disponibles para alquilar en Rental Pro Shop." />
+    <title>Equipos — Rental Pro Shop</title>
+    <link rel="icon" href="../img/logo.png" />
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+
+    <!-- BARRA DESCUENTO -->
+    <div class="barra-descuento">
+      <div class="barra-track">
+        <span>🎿 <strong>20% OFF</strong> abonando en efectivo &nbsp;|&nbsp; <strong>3 cuotas sin interés</strong> con tarjetas bancarias &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>🎿 <strong>20% OFF</strong> abonando en efectivo &nbsp;|&nbsp; <strong>3 cuotas sin interés</strong> con tarjetas bancarias &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>🎿 <strong>20% OFF</strong> abonando en efectivo &nbsp;|&nbsp; <strong>3 cuotas sin interés</strong> con tarjetas bancarias &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>🎿 <strong>20% OFF</strong> abonando en efectivo &nbsp;|&nbsp; <strong>3 cuotas sin interés</strong> con tarjetas bancarias &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      </div>
+    </div>
+
+    <header class="header">
+      <nav class="navbar">
+        <div class="logo">
+          <a href="../index.html">
+            <img src="../img/logo.png" alt="Rental Pro Shop" width="120" height="60" />
+          </a>
+        </div>
+        <button class="hamburguesa" id="hamburguesa" aria-label="Abrir menú" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="menu" id="menu">
+          <li><a href="../index.html">INICIO</a></li>
+          <li><a href="./tiendas.html">TIENDA</a></li>
+          <li><a href="./alquiler.html">ALQUILER</a></li>
+          <li><a href="./contacto.html">CONTACTO</a></li>
+        </ul>
+        <div class="carrito-nav">
+          <div class="carrito-icono" id="toggleCarrito" role="button" aria-label="Abrir carrito">
+            🛒 <span id="contadorCarrito">0</span>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="overlay" id="overlay"></div>
+
+    <div class="carrito-panel" id="carritoPanel" aria-label="Carrito de compras">
+      <div class="carrito-header">
+        <h2>TU CARRITO</h2>
+        <button id="cerrarCarrito" aria-label="Cerrar carrito">✕</button>
+      </div>
+      <div id="listaCarrito"></div>
+      <div class="carrito-footer">
+        <p class="total-carrito">Total: <span>$<span id="total">0</span></span></p>
+        <button class="btn-vaciar" onclick="vaciarCarrito()">🗑 Vaciar carrito</button>
+        <a href="./checkout.html" id="btnFinalizar" class="btn-finalizar disabled">Finalizar reserva →</a>
+      </div>
+    </div>
+
+    <nav class="breadcrumb" aria-label="Ruta de navegación">
+      <a href="../index.html">Inicio</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="./alquiler.html">Alquiler</a>
+      <span class="breadcrumb-sep">›</span>
+      <span class="breadcrumb-actual">Equipos</span>
+    </nav>
+
+    <main class="equipos-page">
+
+      <div class="equipos-page-header">
+        <h1>Nuestros equipos</h1>
+        <p>Equipos renovados, cómodos y fáciles de controlar en todo tipo de pistas.</p>
+      </div>
+
+      <!-- SKI -->
+      <section class="equipo-detalle">
+        <div class="equipo-detalle-img">
+          <img src="../img/snow/1.webp" alt="Equipo de Ski" />
+          <span class="equipo-detalle-badge">🎿 Ski</span>
+        </div>
+        <div class="equipo-detalle-info">
+          <h2>Pack Ski</h2>
+          <p class="equipo-detalle-ideal">Ideal para nivel inicial e intermedio</p>
+          <p>Equipo ideal para quienes se inician en la nieve y niveles intermedios inclusive. Esquís all mountain versátiles y botas con flex entre 75 y 85.</p>
+          <p>Equipos renovados, cómodos y fáciles de controlar en todo tipo de pistas.</p>
+          <div class="equipo-detalle-incluye">
+            <h3>Incluye:</h3>
+            <ul>
+              <li>✓ Esquís</li>
+              <li>✓ Botas</li>
+              <li>✓ Bastones</li>
+            </ul>
+          </div>
+          <div class="equipo-detalle-marcas">
+            <span class="tag">HEAD</span>
+            <span class="tag">DYNASTAR</span>
+            <span class="tag">BLIZZARD</span>
+            <span class="tag">ATOMIC</span>
+          </div>
+          <p class="equipo-detalle-disclaimer">* Las imágenes de los productos son de carácter ilustrativo.</p>
+          <a href="./alquiler.html" class="btn equipo-detalle-btn">Ver tarifas →</a>
+        </div>
+      </section>
+
+      <!-- SNOWBOARD -->
+      <section class="equipo-detalle equipo-detalle--reverse">
+        <div class="equipo-detalle-img">
+          <img src="../img/snow/1.webp" alt="Equipo de Snowboard" />
+          <span class="equipo-detalle-badge">🏂 Snowboard</span>
+        </div>
+        <div class="equipo-detalle-info">
+          <h2>Pack Snowboard</h2>
+          <p class="equipo-detalle-ideal">Ideal para nivel inicial e intermedio</p>
+          <p>Equipo ideal para nivel inicial e intermedios inclusive. Botas de dureza media con sistema BOA o cordones y tabla versátil para toda la montaña.</p>
+          <p>Equipos renovados, cómodos y fáciles de controlar en todo tipo de pistas.</p>
+          <div class="equipo-detalle-incluye">
+            <h3>Incluye:</h3>
+            <ul>
+              <li>✓ Tabla</li>
+              <li>✓ Botas</li>
+              <li>✓ Fijaciones</li>
+            </ul>
+          </div>
+          <div class="equipo-detalle-marcas">
+            <span class="tag">NITRO</span>
+            <span class="tag">HEAD</span>
+          </div>
+          <p class="equipo-detalle-disclaimer">* Las imágenes de los productos son de carácter ilustrativo.</p>
+          <a href="./alquiler.html" class="btn equipo-detalle-btn">Ver tarifas →</a>
+        </div>
+      </section>
+
+      <!-- INDUMENTARIA -->
+      <section class="equipo-detalle">
+        <div class="equipo-detalle-img">
+          <img src="../img/snow/1.webp" alt="Indumentaria de nieve" />
+          <span class="equipo-detalle-badge">🧥 Indumentaria</span>
+        </div>
+        <div class="equipo-detalle-info">
+          <h2>Indumentaria</h2>
+          <p class="equipo-detalle-ideal">Adultos y niños</p>
+          <p>Camperas y pantalones impermeables diseñados para la nieve. Equipos cómodos y abrigados para disfrutar la montaña en cualquier condición climática.</p>
+          <p>Disponible en talles S al XL para adultos y talle 4 al 14 para niños. También contamos con enteritos para los más chicos.</p>
+          <div class="equipo-detalle-incluye">
+            <h3>Disponible:</h3>
+            <ul>
+              <li>✓ Campera</li>
+              <li>✓ Pantalón</li>
+              <li>✓ Enterito niño</li>
+            </ul>
+          </div>
+          <div class="equipo-detalle-marcas">
+            <span class="tag">Adulto S-XL</span>
+            <span class="tag">Niño 4-14</span>
+          </div>
+          <p class="equipo-detalle-disclaimer">* Las imágenes de los productos son de carácter ilustrativo.</p>
+          <a href="./alquiler.html" class="btn equipo-detalle-btn">Ver tarifas →</a>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-one">
+            <h3>Bienvenidos</h3>
+            <p>Somos el local con mayor variedad de Villa La Angostura. Artículos de pesca, camping, náutica, ski, snowboard y mucho más.</p>
+          </div>
+          <div class="footer-two">
+            <h3>Accesos directos</h3>
+            <ul>
+              <li><a href="../index.html">Inicio</a></li>
+              <li><a href="./tiendas.html">Tienda</a></li>
+              <li><a href="./alquiler.html">Alquiler</a></li>
+              <li><a href="./contacto.html">Contacto</a></li>
+            </ul>
+          </div>
+          <div class="footer-three">
+            <h3>Sitios de interés</h3>
+            <ul>
+              <li><a href="https://www.cerrobayo.com.ar/montana/mapa/" target="_blank" rel="noopener">Mapa de pistas — Cerro Bayo</a></li>
+              <li><a href="https://www.accuweather.com/es/ar/villa-la-angostura/1227987/weather-forecast/1227987" target="_blank" rel="noopener">Clima en Cerro Bayo</a></li>
+              <li><a href="https://www.villalaangosturaturismo.gob.ar/" target="_blank" rel="noopener">Conocé Villa La Angostura</a></li>
+            </ul>
+          </div>
+          <div class="footer-four">
+            <h3>Contactanos</h3>
+            <ul class="contact-us">
+              <li>
+                <p><strong>¿Dónde estamos?</strong><br />Av. Arrayanes 173<br />Villa La Angostura, Neuquén</p>
+              </li>
+              <li>
+                <p><strong>Whatsapp:</strong> <a href="https://wa.me/5492944646730" rel="noopener" target="_blank">+54 9 2944 646730</a></p>
+              </li>
+              <li>
+                <p><strong>Email:</strong> <a href="mailto:consultas@proshopaventura.com">consultas@proshopaventura.com</a></p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p class="footer-copy">© 2026 Rental Pro Shop</p>
+          <p class="footer-credit">Rental Ski and Snow</p>
+          <ul class="redes">
+            <li>
+              <a href="https://www.instagram.com/proshop.aventura/" rel="noopener" target="_blank" aria-label="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                </svg>
+                Instagram
+              </a>
+            </li>
+            <li>
+              <a href="https://www.facebook.com" rel="noopener" target="_blank" aria-label="Facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                </svg>
+                Facebook
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../script.js"></script>
+  </body>
+</html>

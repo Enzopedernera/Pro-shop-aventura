@@ -31,7 +31,32 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
+    <div class="barra-descuento">
+      <div class="barra-track">
+        <span
+          >🎿 <strong>20% OFF</strong> abonando en efectivo &nbsp;|&nbsp;
+          <strong>3 cuotas sin interés</strong> con tarjetas bancarias
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+        >
+        <span
+          >🎿 <strong>20% OFF</strong> abonando en efectivo &nbsp;|&nbsp;
+          <strong>3 cuotas sin interés</strong> con tarjetas bancarias
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+        >
+        <span
+          >🎿 <strong>20% OFF</strong> abonando en efectivo &nbsp;|&nbsp;
+          <strong>3 cuotas sin interés</strong> con tarjetas bancarias
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+        >
+        <span
+          >🎿 <strong>20% OFF</strong> abonando en efectivo &nbsp;|&nbsp;
+          <strong>3 cuotas sin interés</strong> con tarjetas bancarias
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+        >
+      </div>
+    </div>
     <!-- HEADER -->
+
     <header class="header">
       <nav class="navbar">
         <div class="logo">
@@ -101,7 +126,11 @@
         <button class="btn-vaciar" onclick="vaciarCarrito()">
           🗑 Vaciar carrito
         </button>
-        <a href="./page/checkout.html" id="btnFinalizar" class="btn-finalizar disabled">
+        <a
+          href="./page/checkout.html"
+          id="btnFinalizar"
+          class="btn-finalizar disabled"
+        >
           Finalizar reserva →
         </a>
       </div>
@@ -116,9 +145,9 @@
           width="1920"
           height="600"
         />
-      <div class="hero-content">
+        <div class="hero-content">
           <h1>VIVI PRO SHOP<span>VIVI VILLA LA ANGOSTURA</span></h1>
-      </div>
+        </div>
       </section>
 
       <!-- SERVICIOS -->
@@ -189,80 +218,122 @@
       </section>
 
       <!-- LLAMADA A LA ACCIÓN -->
-<section class="cta-reserva">
-  <div class="cta-reserva-inner">
-    <div class="cta-reserva-texto">
-      <h2>Reservá tu equipo online</h2>
-      <p>Elegí tus fechas, seleccioná el equipo y confirmá tu reserva en minutos. Sin filas, sin esperas.</p>
+      <section class="cta-reserva">
+        <div class="cta-reserva-inner">
+          <div class="cta-reserva-texto">
+            <h2>Reservá tu equipo online</h2>
+            <p>
+              Elegí tus fechas, seleccioná el equipo y confirmá tu reserva en
+              minutos. Sin filas, sin esperas.
+            </p>
+          </div>
+          <a href="./page/checkout.html" class="btn cta-reserva-btn">
+            Ver equipos y precios →
+          </a>
+        </div>
+      </section>
+
+      <!-- BANNER TEMPORADA BAJA -->
+<!-- <div class="banner-temporada">
+  <div class="banner-temporada-inner">
+    <div class="banner-temporada-texto">
+      <span class="banner-badge-temp">OFERTA TEMPORADA BAJA</span>
+      <h2>15% OFF en fechas especiales</h2>
+      <p>Aprovechá los mejores precios de la temporada en equipos de ski y snowboard.</p>
+      <div class="banner-fechas">
+        <div class="fecha-item">
+          <span class="fecha-label">Primera temporada</span>
+          <strong>20 Jun — 27 Jun</strong>
+        </div>
+        <div class="fecha-sep">|</div>
+        <div class="fecha-item">
+          <span class="fecha-label">Segunda temporada</span>
+          <strong>30 Ago — 27 Sep</strong>
+        </div>
+      </div>
     </div>
-    <a href="./page/checkout.html" class="btn cta-reserva-btn">
-      Ver equipos y precios →
-    </a>
+    <a href="./page/alquiler.html" class="banner-temp-btn">Ver equipos →</a>
   </div>
-</section>
+</div> -->
 
-<!-- PACKS POPULARES -->
-<section class="packs">
-  <h1 >Packs más populares</h1 >
-  <p class="packs-subtitulo">Todo lo que necesitás en un solo pack</p>
+      <!-- PACKS POPULARES -->
+      <section class="packs">
+        <h1>Packs más populares</h1>
+        <p class="packs-subtitulo">Todo lo que necesitás en un solo pack</p>
 
-  <div class="packs-grid">
+        <div class="packs-grid">
+          <!-- PACK SKI ADULTO -->
+          <div class="pack-card">
+            <img
+              src="./img/snow/1.webp"
+              alt="Pack Ski Adulto"
+              class="pack-img"
+            />
+            <div class="pack-icon"></div>
+            <h3>Pack Ski Adulto</h3>
+            <ul class="pack-items">
+              <li>✓ Ski</li>
+              <li>✓ Botas</li>
+              <li>✓ Bastones</li>
+            </ul>
+            <div class="pack-precio">
+              <span class="pack-precio-desde">desde</span>
+              <span class="pack-precio-num">$55.000</span>
+              <span class="pack-precio-dia">/ día</span>
+            </div>
+            <a href="./page/alquiler.html" class="btn pack-btn"
+              >Reservar pack →</a
+            >
+          </div>
 
-    <!-- PACK SKI ADULTO -->
-    <div class="pack-card">
-  <img src="./img/snow/1.webp" alt="Pack Ski Adulto" class="pack-img" />
-  <div class="pack-icon"></div>
-      <h3>Pack Ski Adulto</h3>
-      <ul class="pack-items">
-        <li>✓ Ski</li>
-        <li>✓ Botas</li>
-        <li>✓ Bastones</li>
-      </ul>
-      <div class="pack-precio">
-        <span class="pack-precio-desde">desde</span>
-        <span class="pack-precio-num">$55.000</span>
-        <span class="pack-precio-dia">/ día</span>
-      </div>
-      <a href="./page/alquiler.html" class="btn pack-btn">Reservar pack →</a>
-    </div>
+          <!-- PACK SNOWBOARD ADULTO -->
+          <div class="pack-card pack-card--destacado">
+            <img
+              src="./img/snow/fotosnow1.webp"
+              alt="Pack Snowboard Adulto"
+              class="pack-img"
+            />
+            <div class="pack-icon"></div>
+            <h3>Pack Snowboard Adulto</h3>
+            <ul class="pack-items">
+              <li>✓ Tabla</li>
+              <li>✓ Botas</li>
+            </ul>
+            <div class="pack-precio">
+              <span class="pack-precio-desde">desde</span>
+              <span class="pack-precio-num">$58.000</span>
+              <span class="pack-precio-dia">/ día</span>
+            </div>
+            <a href="./page/alquiler.html" class="btn pack-btn"
+              >Reservar pack →</a
+            >
+          </div>
 
-    <!-- PACK SNOWBOARD ADULTO -->
-    <div class="pack-card pack-card--destacado">
-  <img src="./img/snow/fotosnow1.webp" alt="Pack Snowboard Adulto" class="pack-img" />
-  <div class="pack-icon"></div>
-      <h3>Pack Snowboard Adulto</h3>
-      <ul class="pack-items">
-        <li>✓ Tabla</li>
-        <li>✓ Botas</li>
-      </ul>
-      <div class="pack-precio">
-        <span class="pack-precio-desde">desde</span>
-        <span class="pack-precio-num">$58.000</span>
-        <span class="pack-precio-dia">/ día</span>
-      </div>
-      <a href="./page/alquiler.html" class="btn pack-btn">Reservar pack →</a>
-    </div>
-
-    <!-- PACK NIÑO -->
-    <div class="pack-card">
-  <img src="./img/snow/3.webp" alt="Pack Ski Niño Completo" class="pack-img" />
-  <div class="pack-icon"></div>
-      <h3>Pack Ski Niño Completo</h3>
-      <ul class="pack-items">
-        <li>✓ Ski Junior</li>
-        <li>✓ Botas</li>
-        <li>✓ Casco</li>
-      </ul>
-      <div class="pack-precio">
-        <span class="pack-precio-desde">desde</span>
-        <span class="pack-precio-num">$43.000</span>
-        <span class="pack-precio-dia">/ día</span>
-      </div>
-      <a href="./page/alquiler.html" class="btn pack-btn">Reservar pack →</a>
-    </div>
-
-  </div>
-</section>
+          <!-- PACK NIÑO -->
+          <div class="pack-card">
+            <img
+              src="./img/snow/3.webp"
+              alt="Pack Ski Niño Completo"
+              class="pack-img"
+            />
+            <div class="pack-icon"></div>
+            <h3>Pack Ski Niño Completo</h3>
+            <ul class="pack-items">
+              <li>✓ Ski Junior</li>
+              <li>✓ Botas</li>
+              <li>✓ Casco</li>
+            </ul>
+            <div class="pack-precio">
+              <span class="pack-precio-desde">desde</span>
+              <span class="pack-precio-num">$43.000</span>
+              <span class="pack-precio-dia">/ día</span>
+            </div>
+            <a href="./page/alquiler.html" class="btn pack-btn"
+              >Reservar pack →</a
+            >
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- FOOTER -->

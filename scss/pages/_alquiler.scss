@@ -1,5 +1,5 @@
 // =============================================
-// ALQUILER / RESERVAS
+// ALQUILER
 // =============================================
 @use "../base/variables" as *;
 
@@ -57,640 +57,326 @@
     color: rgba(255, 255, 255, 0.9);
   }
 }
-// ── CHECKOUT ──────────────────────────────────
-// ── CHECKOUT ──────────────────────────────────
-.checkout-main {
-  padding: $espaciado-lg $espaciado-md;
-  background: $gris-claro;
-  min-height: 70vh;
+
+// ── BANNER COMPACTO 20% OFF ───────────────────
+.banner-compact {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: $azul;
+  border-radius: $radius-md;
+  padding: 10px 18px;
+  margin-bottom: 8px;
+  margin-top: 0;
+
+  &-badge {
+    background: rgba(255, 255, 255, 0.2);
+    color: $blanco;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: $radius-sm;
+    line-height: 1;
+  }
+
+  &-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  &-titulo {
+    font-size: 15px;
+    font-weight: 600;
+    color: $blanco;
+  }
+
+  &-sub {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+  }
 }
 
-.checkout-container {
+// ── BANNERS ROW ───────────────────────────────
+.banners-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+
+  @media (max-width: $bp-tablet) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.banner-temp {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: $negro;
+  border-radius: $radius-md;
+  padding: 10px 18px;
+
+  &-badge {
+    background: $azul-sec;
+    color: $blanco;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: $radius-sm;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  &-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  &-titulo {
+    font-size: 15px;
+    font-weight: 600;
+    color: $blanco;
+  }
+
+  &-fechas {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+// ── CARDS EQUIPOS REFERENCIA ──────────────────
+.equipos-ref {
+  padding: $espaciado-lg $espaciado-md;
+  background: $gris-claro;
+}
+
+.equipos-grid {
   display: grid;
-  grid-template-columns: 1fr 380px;
-  gap: 28px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
   max-width: 1100px;
   margin: 0 auto;
 
   @media (max-width: $bp-desktop) {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
-}
-
-.checkout-card {
-  background: $blanco;
-  border-radius: $radius-lg;
-  box-shadow: $sombra-md;
-  padding: 24px;
-  margin-bottom: 20px;
-  border-top: 3px solid $azul;
-}
-
-.checkout-sticky {
-  position: sticky;
-  top: calc($header-height + 20px);
-  border-top: 3px solid $azul-sec;
-}
-
-.checkout-card-header {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 20px;
-  padding-bottom: 16px;
-  border-bottom: 1.5px solid $gris-medio;
-
-  h2 {
-    font-size: 17px;
-    font-weight: 700;
-    color: $negro;
-    margin: 0;
-  }
-}
-
-.checkout-step {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  background: $azul;
-  color: $blanco;
-  border-radius: 50%;
-  font-size: 15px;
-  font-weight: 700;
-  flex-shrink: 0;
-}
-
-.checkout-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
 
   @media (max-width: $bp-mobile) {
     grid-template-columns: 1fr;
   }
 }
 
-.checkout-dias {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 16px;
-  padding: 12px 16px;
-  background: #e8f0fe;
-  border-radius: $radius-sm;
-  font-size: 14px;
-  color: $azul;
-  font-weight: 500;
-  border-left: 3px solid $azul;
+.equipo-card {
+  background: $blanco;
+  border: 1px solid $gris-medio;
+  border-radius: $radius-lg;
+  overflow: hidden;
 
-  strong {
-    font-size: 20px;
+  &-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+  }
+
+  &-body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &-titulo {
+    font-size: 16px;
     font-weight: 700;
+    color: $negro;
+  }
+
+  &-desc {
+    font-size: 13px;
+    color: $gris-texto;
+    line-height: 1.6;
+  }
+
+  &-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
   }
 }
 
-// ── SELECTOR CANTIDAD ─────────────────────────
-.cantidad-esquiadores {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
+.tag {
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: $gris-claro;
+  color: $gris-texto;
+  border: 1px solid $gris-medio;
 
-.cant-btn {
-  width: 36px;
-  height: 36px;
-  border: 1.5px solid $gris-medio;
-  border-radius: $radius-sm;
-  background: $blanco;
-  color: $negro;
-  font-size: 20px;
-  font-weight: 500;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
-
-  &:hover {
-    background: $azul;
-    color: $blanco;
+  &-blue {
+    background: #e8f0fe;
+    color: $azul;
     border-color: $azul;
   }
 }
+// ── PÁGINA EQUIPOS ────────────────────────────
+.equipos-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: $espaciado-lg $espaciado-md;
+}
 
-.cant-num {
-  font-size: 28px;
-  font-weight: 700;
-  color: $azul;
-  min-width: 32px;
+.equipos-page-header {
   text-align: center;
-}
+  margin-bottom: $espaciado-xl;
 
-.cant-hint {
-  font-size: 13px;
-  color: $gris-texto;
-}
-
-// ── CARD DE ESQUIADOR ─────────────────────────
-.esquiador-card {
-  background: $gris-claro;
-  border-radius: $radius-md;
-  padding: 20px;
-  margin-bottom: 16px;
-  border-left: 3px solid $azul;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
-
-.esquiador-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 16px;
-
-  .esq-num {
-    width: 28px;
-    height: 28px;
-    background: $azul;
-    color: $blanco;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 13px;
-    font-weight: 700;
-    flex-shrink: 0;
-  }
-
-  .esq-titulo {
-    font-size: 15px;
-    font-weight: 600;
-    color: $negro;
-  }
-
-  .esq-badge {
-    margin-left: auto;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 3px 10px;
-    border-radius: 20px;
-    background: #e8f0fe;
-    color: $azul;
-  }
-}
-
-.esq-section {
-  font-size: 11px;
-  color: $gris-texto;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin: 14px 0 8px;
-  padding-bottom: 4px;
-  border-bottom: 1px solid $gris-medio;
-}
-
-// Toggle Ski/Snow
-.tipo-toggle {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 14px;
-
-  .tipo-btn {
-    flex: 1;
-    padding: 10px;
-    border: 1.5px solid $gris-medio;
-    border-radius: $radius-sm;
-    background: $blanco;
-    color: $gris-texto;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    text-align: center;
-    transition: all 0.2s ease;
-
-    &.activo {
-      background: $azul;
-      color: $blanco;
-      border-color: $azul;
-    }
-  }
-}
-
-// Toggle Sí/No accesorio
-.accesorio-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
-  flex-wrap: wrap;
-
-  .acc-label {
-    font-size: 13px;
-    color: $negro;
-    font-weight: 500;
-    flex: 1;
-    min-width: 100px;
-  }
-
-  .acc-toggle {
-    display: flex;
-    gap: 4px;
-
-    button {
-      padding: 5px 14px;
-      border: 1.5px solid $gris-medio;
-      border-radius: $radius-sm;
-      background: $blanco;
-      color: $gris-texto;
-      font-size: 12px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-
-      &.activo {
-        background: $azul;
-        color: $blanco;
-        border-color: $azul;
-      }
-    }
-  }
-
-  select {
-    padding: 6px 10px;
-    border: 1.5px solid $gris-medio;
-    border-radius: $radius-sm;
-    font-size: 13px;
-    background: $blanco;
-    color: $negro;
-    cursor: pointer;
-  }
-}
-
-// ── RESUMEN ───────────────────────────────────
-.checkout-lista {
-  margin-bottom: 16px;
-}
-
-.resumen-grupo {
-  margin-bottom: 12px;
-
-  .resumen-grupo-titulo {
-    font-size: 12px;
-    font-weight: 600;
-    color: $azul;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 6px;
-    padding-bottom: 4px;
-    border-bottom: 1px solid #e8f0fe;
-  }
-}
-
-.checkout-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5px 0;
-  font-size: 13px;
-
-  .checkout-item-info {
-    color: $gris-texto;
-  }
-
-  .checkout-item-precio {
-    font-weight: 600;
-    color: $negro;
-    white-space: nowrap;
-  }
-}
-
-.checkout-totales {
-  border-top: 1.5px solid $gris-medio;
-  padding-top: 14px;
-  margin-bottom: 16px;
-}
-
-.checkout-total-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 14px;
-  color: $gris-texto;
-  margin-bottom: 8px;
-}
-
-.checkout-total-final {
-  font-size: 20px;
-  font-weight: 700;
-  color: $negro;
-  margin-top: 8px;
-  padding-top: 8px;
-  border-top: 1.5px solid $gris-medio;
-
-  span:last-child {
-    color: $azul-sec;
-  }
-}
-
-.checkout-btn-confirmar {
-  width: 100%;
-  padding: 16px;
-  font-size: 16px;
-  margin-bottom: 12px;
-  background: linear-gradient(135deg, $azul, $azul-sec);
-  border-radius: $radius-md;
-  box-shadow: 0 4px 12px rgba($azul, 0.3);
-  transition: all 0.2s ease;
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba($azul, 0.4);
-    color: $blanco;
-  }
-
-  &:disabled {
-    background: $gris-medio;
-    color: $gris-texto;
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
-  }
-}
-
-.checkout-volver {
-  display: block;
-  text-align: center;
-  font-size: 13px;
-  color: $gris-texto;
-  padding: 8px;
-  transition: color 0.2s ease;
-
-  &:hover {
-    color: $azul-sec;
-  }
-}
-
-// ── ÉXITO ─────────────────────────────────────
-.checkout-exito {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2000;
-  padding: 20px;
-  -webkit-backdrop-filter: blur(4px);
-  backdrop-filter: blur(4px);
-}
-
-.checkout-exito-inner {
-  background: $blanco;
-  border-radius: $radius-lg;
-  padding: 48px 40px;
-  text-align: center;
-  max-width: 500px;
-  width: 100%;
-  box-shadow: $sombra-lg;
-
-  h2 {
-    font-size: 26px;
+  h1 {
+    font-size: 32px;
     font-weight: 700;
     color: $negro;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
 
   p {
-    font-size: 15px;
+    font-size: 16px;
     color: $gris-texto;
-    margin-bottom: 24px;
-    line-height: 1.6;
   }
 }
 
-.checkout-exito-icon {
-  width: 80px;
-  height: 80px;
-  background: #22c55e;
-  color: $blanco;
-  border-radius: 50%;
-  display: flex;
+.equipo-detalle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
   align-items: center;
-  justify-content: center;
-  font-size: 40px;
-  margin: 0 auto 24px;
-}
-
-.checkout-exito-info {
-  background: $gris-claro;
-  border-radius: $radius-md;
-  padding: 16px 20px;
-  margin-bottom: 28px;
-  font-size: 14px;
-  color: $negro;
-  text-align: left;
-  line-height: 2;
-  border-left: 3px solid $azul-sec;
-}
-
-// Lista de productos en resumen
-.checkout-lista {
-  margin-bottom: 20px;
-}
-
-.checkout-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 0;
-  border-bottom: 1px solid $gris-claro;
-  gap: 10px;
+  margin-bottom: $espaciado-xl;
+  padding-bottom: $espaciado-xl;
+  border-bottom: 1px solid $gris-medio;
 
   &:last-child {
     border-bottom: none;
   }
-}
 
-.checkout-item-info {
-  flex: 1;
+  &--reverse {
+    direction: rtl;
 
-  strong {
-    display: block;
-    font-size: 13.5px;
-    color: $negro;
-    font-weight: 600;
+    .equipo-detalle-info {
+      direction: ltr;
+    }
+
+    .equipo-detalle-img {
+      direction: ltr;
+    }
   }
 
-  small {
-    font-size: 12px;
-    color: $gris-texto;
-    margin-top: 2px;
-    display: block;
-  }
-}
-
-.checkout-item-precio {
-  font-size: 14px;
-  font-weight: 700;
-  color: $negro;
-  white-space: nowrap;
-}
-
-.checkout-item-cantidad {
-  font-size: 11px;
-  color: $azul;
-  background: #e8f0fe;
-  padding: 3px 10px;
-  border-radius: 20px;
-  font-weight: 600;
-}
-
-// Totales
-.checkout-totales {
-  border-top: 1.5px solid $gris-medio;
-  padding-top: 16px;
-  margin-bottom: 20px;
-}
-
-.checkout-total-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 14px;
-  color: $gris-texto;
-  margin-bottom: 8px;
-}
-
-.checkout-total-final {
-  font-size: 20px;
-  font-weight: 700;
-  color: $negro;
-  margin-top: 12px;
-  padding-top: 12px;
-  border-top: 1.5px solid $gris-medio;
-
-  span:last-child {
-    color: $azul-sec;
+  @media (max-width: $bp-desktop) {
+    grid-template-columns: 1fr;
+    direction: ltr !important;
   }
 }
 
-.checkout-btn-confirmar {
-  width: 100%;
-  padding: 16px;
-  font-size: 16px;
-  margin-bottom: 12px;
-  background: linear-gradient(135deg, $azul, $azul-sec);
-  border-radius: $radius-md;
-  letter-spacing: 0.3px;
-  box-shadow: 0 4px 12px rgba($azul, 0.3);
-  transition: all 0.2s ease;
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba($azul, 0.4);
-    color: $blanco;
-  }
-
-  &:active {
-    transform: translateY(0);
-  }
-
-  &:disabled {
-    background: $gris-medio;
-    color: $gris-texto;
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
-  }
-}
-
-.checkout-volver {
-  display: block;
-  text-align: center;
-  font-size: 13px;
-  color: $gris-texto;
-  transition: color 0.2s ease;
-  padding: 8px;
-
-  &:hover {
-    color: $azul-sec;
-  }
-}
-
-// Mensaje de éxito
-.checkout-exito {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2000;
-  padding: 20px;
-  -webkit-backdrop-filter: blur(4px);
-  backdrop-filter: blur(4px);
-}
-
-.checkout-exito-inner {
-  background: $blanco;
+.equipo-detalle-img {
+  position: relative;
   border-radius: $radius-lg;
-  padding: 48px 40px;
-  text-align: center;
-  max-width: 500px;
-  width: 100%;
-  box-shadow: $sombra-lg;
-  animation: exitoAppear 0.3s ease;
+  overflow: hidden;
+  box-shadow: $sombra-md;
+
+  img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.equipo-detalle-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: $azul;
+  color: $blanco;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+
+.equipo-detalle-info {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 
   h2 {
-    font-size: 26px;
+    font-size: 28px;
     font-weight: 700;
     color: $negro;
-    margin-bottom: 12px;
+    margin: 0;
   }
 
   p {
     font-size: 15px;
     color: $gris-texto;
-    margin-bottom: 24px;
-    line-height: 1.6;
+    line-height: 1.7;
+    margin: 0;
   }
 }
 
-@keyframes exitoAppear {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
+.equipo-detalle-ideal {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: $azul !important;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.equipo-detalle-incluye {
+  h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: $negro;
+    margin-bottom: 8px;
   }
-  to {
-    opacity: 1;
-    transform: scale(1);
+
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    li {
+      font-size: 14px;
+      color: $gris-texto;
+    }
   }
 }
 
-.checkout-exito-icon {
-  width: 80px;
-  height: 80px;
-  background: linear-gradient(135deg, #22c55e, #16a34a);
-  color: $blanco;
-  border-radius: 50%;
+.equipo-detalle-marcas {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 40px;
-  margin: 0 auto 24px;
-  box-shadow: 0 4px 16px rgba(34, 197, 94, 0.4);
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
-.checkout-exito-info {
-  background: $gris-claro;
-  border-radius: $radius-md;
-  padding: 18px 20px;
-  margin-bottom: 28px;
-  font-size: 14px;
-  color: $negro;
-  text-align: left;
-  line-height: 2;
-  border-left: 3px solid $azul-sec;
+.equipo-detalle-disclaimer {
+  font-size: 12px !important;
+  color: $gris-medio !important;
+  font-style: italic;
+}
+
+.equipo-detalle-btn {
+  align-self: flex-start;
+  padding: 12px 28px;
+  background: $azul;
+  color: $blanco;
+  border-radius: $radius-sm;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: $azul-sec;
+    color: $blanco;
+  }
 }

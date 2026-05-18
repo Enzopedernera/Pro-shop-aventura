@@ -3,9 +3,49 @@
 // =============================================
 @use "../base/variables" as *;
 
-.header {
+// ── BARRA DESCUENTO ──
+.barra-descuento {
+  background: $azul;
+  color: $blanco;
+  padding: 8px 0;
   position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1001;
+  overflow: hidden;
+
+  .barra-track {
+    display: flex;
+    width: max-content;
+    animation: scrollBarra 20s linear infinite;
+
+    &:hover {
+      animation-play-state: paused;
+    }
+
+    span {
+      font-size: 13px;
+      color: $blanco;
+      white-space: nowrap;
+      padding: 0 20px;
+
+      strong {
+        font-size: 14px;
+        letter-spacing: 0.5px;
+      }
+    }
+  }
+}
+
+@keyframes scrollBarra {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.header {
+  position: fixed;
+  top: 34px;
   left: 0;
   width: 100%;
   height: $header-height;
@@ -28,7 +68,7 @@
   flex-shrink: 0;
 
   img {
-    height: 65px;
+    height: 55px;
     width: auto;
     display: block;
   }

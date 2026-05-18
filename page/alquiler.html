@@ -17,6 +17,33 @@
     <link rel="stylesheet" href="../css/styles.css" />
   </head>
   <body>
+    <!-- BARRA DESCUENTO -->
+
+        <div class="barra-descuento">
+      <div class="barra-track">
+        <span
+          >🎿 <strong>20% OFF</strong> abonando en efectivo &nbsp;|&nbsp;
+          <strong>3 cuotas sin interés</strong> con tarjetas bancarias
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+        >
+        <span
+          >🎿 <strong>20% OFF</strong> abonando en efectivo &nbsp;|&nbsp;
+          <strong>3 cuotas sin interés</strong> con tarjetas bancarias
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+        >
+        <span
+          >🎿 <strong>20% OFF</strong> abonando en efectivo &nbsp;|&nbsp;
+          <strong>3 cuotas sin interés</strong> con tarjetas bancarias
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+        >
+        <span
+          >🎿 <strong>20% OFF</strong> abonando en efectivo &nbsp;|&nbsp;
+          <strong>3 cuotas sin interés</strong> con tarjetas bancarias
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+        >
+      </div>
+    </div>
+
     <!-- HEADER -->
     <header class="header">
       <nav class="navbar">
@@ -94,10 +121,79 @@
       </div>
     </div>
     <main>
+      <!-- CARDS EQUIPOS -->
+<section class="equipos-ref">
+  <div class="equipos-grid">
+
+    <div class="equipo-card">
+      <img src="../img/snow/fotosnow1.webp" alt="Pack Ski" class="equipo-card-img" />
+      
+      <div class="equipo-card-body">
+        <div class="equipo-card-titulo">Pack Ski</div>
+        <div class="equipo-card-desc">Incluye ski, botas y bastones. Disponible en tallas para adultos y niños. Marcas: HEAD, DYNASTAR, BLIZZARD, ATOMIC.</div>
+        <div class="equipo-card-tags">
+          <span class="tag tag-blue">Adulto</span>
+          <span class="tag tag-blue">Junior</span>
+          <span class="tag">HEAD</span>
+          <span class="tag">DYNASTAR</span>
+          <span class="tag">BLIZZARD</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="equipo-card">
+      <img src="../img/snow/fotosnow1.webp" alt="Pack Ski" class="equipo-card-img" />
+      <div class="equipo-card-body">
+        <div class="equipo-card-titulo">Pack Snowboard</div>
+        <div class="equipo-card-desc">Incluye tabla y botas. Disponible en tallas para adultos y niños. Marcas: NITRO, HEAD.</div>
+        <div class="equipo-card-tags">
+          <span class="tag tag-blue">Adulto</span>
+          <span class="tag tag-blue">Junior</span>
+          <span class="tag">NITRO</span>
+          <span class="tag">HEAD</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="equipo-card">
+      <img src="../img/snow/fotosnow1.webp" alt="Pack Ski" class="equipo-card-img" />
+      <div class="equipo-card-body">
+        <div class="equipo-card-titulo">Indumentaria</div>
+        <div class="equipo-card-desc">Camperas y pantalones impermeables para nieve. Talles S al XL en adultos y 4 al 14 en niños.</div>
+        <div class="equipo-card-tags">
+          <span class="tag tag-blue">Adulto</span>
+          <span class="tag tag-blue">Niño</span>
+          <span class="tag">Campera</span>
+          <span class="tag">Pantalón</span>
+          <span class="tag">Enterito</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
       <!-- TABLA EQUIPOS -->
       <section class="tabla-precios-equipos">
         <h2>Tarifas Ski y Snow</h2>
-        <p>Hacé click en cualquier precio para agregarlo al carrito</p>
+        <!-- <p>Hacé click en cualquier precio para agregarlo al carrito</p> -->
+         <!-- BANNER 20% OFF -->
+<div class="banners-row">
+  <div class="banner-compact">
+    <div class="banner-compact-badge">20%</div>
+    <div class="banner-compact-texto">
+      <span class="banner-compact-titulo">OFF pagando en efectivo</span>
+      <span class="banner-compact-sub">Descuento en todos los equipos</span>
+    </div>
+  </div>
+  <div class="banner-temp">
+    <div class="banner-temp-badge">15%</div>
+    <div class="banner-temp-texto">
+      <span class="banner-temp-titulo">OFF temporada baja</span>
+      <span class="banner-temp-fechas">20 Jun–27 Jun &nbsp;|&nbsp; 30 Ago–27 Sep</span>
+    </div>
+  </div>
+</div>
         <div class="tabla-wrapper">
           <table class="tabla">
             <thead>
@@ -524,10 +620,33 @@
                   $63.000
                 </td>
               </tr>
+              <tr> 
+                <td>Raquetas</td>
+                <td
+                  class="precio"
+                  data-producto="Raquetas"
+                  data-dias="1"
+                  data-precio="25000"
+                >
+                  $25.000
+                </td>
+              </tr>
+              <tr>
+                <td>Trineo</td>
+                <td
+                  class="precio"
+                  data-producto="Trineo"
+                  data-dias="1"
+                  data-precio="15000"
+                >
+                  $15.000
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
       </section>
+
       <section class="cta-reserva">
   <div class="cta-reserva-inner">
     <div class="cta-reserva-texto">
@@ -540,10 +659,34 @@
   </div>
 </section>
 
+
+<!-- BANNER TEMPORADA BAJA -->
+<!-- <div class="banner-temporada">
+  <div class="banner-temporada-inner">
+    <div class="banner-temporada-texto">
+      <span class="banner-badge-temp">OFERTA TEMPORADA BAJA</span>
+      <h2>15% OFF en fechas especiales</h2>
+      <p>Aprovechá los mejores precios de la temporada en equipos de ski y snowboard.</p>
+      <div class="banner-fechas">
+        <div class="fecha-item">
+          <span class="fecha-label">Primera temporada</span>
+          <strong>20 Jun — 27 Jun</strong>
+        </div>
+        <div class="fecha-sep">|</div>
+        <div class="fecha-item">
+          <span class="fecha-label">Segunda temporada</span>
+          <strong>30 Ago — 27 Sep</strong>
+        </div>
+      </div>
+    </div>
+    <a href="./checkout.html" class="banner-temp-btn">Reservar ahora →</a>
+  </div>
+</div> -->
+
       <!-- TABLA INDUMENTARIA -->
       <section class="tabla-precios-indumentaria">
         <h2>Tarifas Indumentaria</h2>
-        <p>Hacé click en cualquier precio para agregarlo al carrito</p>
+        <!-- <p>Hacé click en cualquier precio para agregarlo al carrito</p> -->
         <div class="tabla-wrapper">
           <table class="tabla">
             <thead>
