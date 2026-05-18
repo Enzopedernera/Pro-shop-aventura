@@ -874,12 +874,14 @@ textarea {
 
 .tabla-precios-equipos,
 .tabla-precios-indumentaria {
-  padding: 60px 16px;
+  padding: 32px 16px;
+  max-width: 860px;
+  margin: 0 auto;
 }
 .tabla-precios-equipos h2,
 .tabla-precios-indumentaria h2 {
   text-align: center;
-  font-size: 26px;
+  font-size: 20px;
   font-weight: 700;
   margin-bottom: 8px;
   color: #111111;
@@ -888,29 +890,28 @@ textarea {
 .tabla-precios-indumentaria p {
   text-align: center;
   color: #555555;
-  margin-bottom: 24px;
-  font-size: 15px;
+  margin-bottom: 16px;
+  font-size: 14px;
 }
 
 .tabla-wrapper {
   overflow-x: auto;
   border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  -webkit-overflow-scrolling: touch;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .tabla {
   width: 100%;
   border-collapse: collapse;
-  min-width: 600px;
+  min-width: 520px;
 }
 .tabla thead {
   background: #111111;
   color: #ffffff;
 }
 .tabla thead th {
-  padding: 12px 16px;
-  font-size: 14px;
+  padding: 9px 12px;
+  font-size: 12px;
   font-weight: 600;
   white-space: nowrap;
   text-align: center;
@@ -919,8 +920,8 @@ textarea {
 .tabla td {
   border: 1px solid #e0e0e0;
   text-align: center;
-  padding: 10px 14px;
-  font-size: 14px;
+  padding: 7px 10px;
+  font-size: 13px;
 }
 .tabla tbody tr {
   transition: background 0.15s ease;
@@ -965,8 +966,8 @@ textarea {
 @media (max-width: 768px) {
   .tabla th,
   .tabla td {
-    font-size: 12px;
-    padding: 8px;
+    font-size: 11px;
+    padding: 6px 8px;
   }
 }
 
