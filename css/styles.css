@@ -2793,6 +2793,20 @@ textarea {
   color: #ffffff;
 }
 
+.tablas-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px 40px;
+}
+@media (max-width: 900px) {
+  .tablas-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .checkout-main {
   padding: 32px 16px;
   background: #f5f7fa;

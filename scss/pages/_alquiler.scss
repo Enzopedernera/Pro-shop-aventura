@@ -594,3 +594,16 @@
     color: $blanco;
   }
 }
+// ── TABLAS EN GRID DOS COLUMNAS ──
+.tablas-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px 40px;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+}

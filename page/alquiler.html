@@ -7,40 +7,21 @@
       name="description"
       content="Alquilá equipos de ski y snowboard en Villa La Angostura. Consultá tarifas y reservá online en Rental Pro Shop."
     />
-    <title>Alquiler — Rental Pro Shop</title>
+    <title>Alquiler de Ski y Snowboard — Rental Pro Shop | Villa La Angostura</title>
 
-    <!-- Favicon -->
     <link rel="icon" href="../img/logo.png" />
     <link rel="apple-touch-icon" href="../img/logo.png" />
-
-    <!-- CSS -->
     <link rel="stylesheet" href="../css/styles.css" />
   </head>
   <body>
-    <!-- BARRA DESCUENTO -->
 
-        <div class="barra-descuento">
+    <!-- BARRA DESCUENTO -->
+    <div class="barra-descuento">
       <div class="barra-track">
-        <span
-          >🎿 <strong>20% OFF</strong> abonando en efectivo &nbsp;|&nbsp;
-          <strong>3 cuotas sin interés</strong> con tarjetas bancarias
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
-        >
-        <span
-          >🎿 <strong>20% OFF</strong> abonando en efectivo &nbsp;|&nbsp;
-          <strong>3 cuotas sin interés</strong> con tarjetas bancarias
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
-        >
-        <span
-          >🎿 <strong>20% OFF</strong> abonando en efectivo &nbsp;|&nbsp;
-          <strong>3 cuotas sin interés</strong> con tarjetas bancarias
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
-        >
-        <span
-          >🎿 <strong>20% OFF</strong> abonando en efectivo &nbsp;|&nbsp;
-          <strong>3 cuotas sin interés</strong> con tarjetas bancarias
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
-        >
+        <span>🎿 <strong>20% OFF</strong> abonando en efectivo &nbsp;|&nbsp; <strong>3 cuotas sin interés</strong> con tarjetas bancarias &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>🎿 <strong>20% OFF</strong> abonando en efectivo &nbsp;|&nbsp; <strong>3 cuotas sin interés</strong> con tarjetas bancarias &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>🎿 <strong>20% OFF</strong> abonando en efectivo &nbsp;|&nbsp; <strong>3 cuotas sin interés</strong> con tarjetas bancarias &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>🎿 <strong>20% OFF</strong> abonando en efectivo &nbsp;|&nbsp; <strong>3 cuotas sin interés</strong> con tarjetas bancarias &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
       </div>
     </div>
 
@@ -49,44 +30,22 @@
       <nav class="navbar">
         <div class="logo">
           <a href="../index.html">
-            <img
-              src="../img/home/logo1.webp"
-              alt="Rental Pro Shop"
-              width="120"
-              height="60"
-            />
+            <img src="../img/home/logo1.webp" alt="Rental Pro Shop" width="120" height="60" />
           </a>
         </div>
-
-        <!-- <span class="titulo">RENTAL PRO SHOP</span> -->
-
-        <!-- HAMBURGUESA -->
-        <button
-          class="hamburguesa"
-          id="hamburguesa"
-          aria-label="Abrir menú"
-          aria-expanded="false"
-        >
+        <button class="hamburguesa" id="hamburguesa" aria-label="Abrir menú" aria-expanded="false">
           <span></span>
           <span></span>
           <span></span>
         </button>
-
         <ul class="menu" id="menu">
           <li><a href="../index.html">INICIO</a></li>
           <li><a href="./tiendas.html">TIENDA</a></li>
           <li><a href="./alquiler.html">ALQUILER</a></li>
           <li><a href="./contacto.html">CONTACTO</a></li>
         </ul>
-
-        <!-- CARRITO ICONO -->
         <div class="carrito-nav">
-          <div
-            class="carrito-icono"
-            id="toggleCarrito"
-            role="button"
-            aria-label="Abrir carrito"
-          >
+          <div class="carrito-icono" id="toggleCarrito" role="button" aria-label="Abrir carrito">
             🛒 <span id="contadorCarrito">0</span>
           </div>
         </div>
@@ -97,1144 +56,471 @@
     <div class="overlay" id="overlay"></div>
 
     <!-- PANEL CARRITO -->
-    <div
-      class="carrito-panel"
-      id="carritoPanel"
-      aria-label="Carrito de compras"
-    >
+    <div class="carrito-panel" id="carritoPanel" aria-label="Carrito de compras">
       <div class="carrito-header">
         <h2>TU CARRITO</h2>
         <button id="cerrarCarrito" aria-label="Cerrar carrito">✕</button>
       </div>
       <div id="listaCarrito"></div>
       <div class="carrito-footer">
-        <p class="total-carrito">
-          Total: <span>$<span id="total">0</span></span>
-        </p>
-        <button class="btn-vaciar" onclick="vaciarCarrito()">
-          🗑 Vaciar carrito
-        </button>
-        <a
-          href="./checkout.html" id="btnFinalizar" class="btn-finalizar disabled">
-          Finalizar reserva →
-        </a>
+        <p class="total-carrito">Total: <span>$<span id="total">0</span></span></p>
+        <button class="btn-vaciar" onclick="vaciarCarrito()">🗑 Vaciar carrito</button>
+        <a href="./checkout.html" id="btnFinalizar" class="btn-finalizar disabled">Finalizar reserva →</a>
       </div>
     </div>
+
     <main>
+
       <!-- CARDS EQUIPOS -->
-<section class="equipos-ref">
+      <section class="equipos-ref">
 
-  <!-- FILTROS -->
-  <div class="equipos-filtros">
-    <button class="filtro-btn active" data-filtro="todos">Todos</button>
-    <button class="filtro-btn" data-filtro="Adulto">Adulto</button>
-    <button class="filtro-btn" data-filtro="Junior">Junior</button>
-    <div class="filtro-dropdown">
-      <button class="filtro-btn filtro-dropdown-toggle" data-filtro="Indumentaria">
-        Indumentaria ▾
-      </button>
-      <div class="filtro-dropdown-menu">
-        <button class="subfiltro-btn" data-subfiltro="Hombre">Hombre</button>
-        <button class="subfiltro-btn" data-subfiltro="Mujer">Mujer</button>
-        <button class="subfiltro-btn" data-subfiltro="Niño">Niño</button>
-      </div>
-    </div>
-  </div>
+        <!-- FILTROS -->
+        <div class="equipos-filtros">
+          <button class="filtro-btn active" data-filtro="todos">Todos</button>
+          <button class="filtro-btn" data-filtro="Adulto">Adulto</button>
+          <button class="filtro-btn" data-filtro="Junior">Junior</button>
+          <div class="filtro-dropdown">
+            <button class="filtro-btn filtro-dropdown-toggle" data-filtro="Indumentaria">
+              Indumentaria ▾
+            </button>
+            <div class="filtro-dropdown-menu">
+              <button class="subfiltro-btn" data-subfiltro="Hombre">Hombre</button>
+              <button class="subfiltro-btn" data-subfiltro="Mujer">Mujer</button>
+              <button class="subfiltro-btn" data-subfiltro="Niño">Niño</button>
+            </div>
+          </div>
+        </div>
 
-  <div class="equipos-grid">
+        <div class="equipos-grid">
 
-    <!-- PACK SKI ADULTO -->
-    <div class="equipo-card v2" data-categorias="Adulto">
-      <div class="equipo-card-v2-header">
-        <div class="equipo-card-v2-titulo">PACK SKI ADULTO</div>
-        <span class="equipo-card-v2-badge badge-azul">🎿 SKI</span>
-      </div>
-      <div class="equipo-card-v2-desc">Incluye ski, botas y bastones. Marcas HEAD, DYNASTAR, BLIZZARD y ATOMIC. Talles S al XL.</div>
-      <div class="equipo-card-tags">
-        <span class="tag tag-blue">Adulto</span>
-        <span class="tag">HEAD</span>
-        <span class="tag">DYNASTAR</span>
-        <span class="tag">BLIZZARD</span>
-        <span class="tag">ATOMIC</span>
-      </div>
-      <img src="../img/snow/fotosnow1.webp" alt="Pack Ski Adulto" class="equipo-card-v2-img" />
-      <ul class="equipo-card-v2-beneficios">
-        <li>✓ Ajuste profesional incluido</li>
-        <li>✓ Cancelación gratuita hasta 24h</li>
-        <li>✓ Material sujeto a disponibilidad</li>
-      </ul>
-      <div class="equipo-card-v2-precio">
-        <span class="precio-monto">$55.000</span>
-        <span class="precio-dia">/día</span>
-      </div>
-      <a href="./equipos.html" class="equipo-card-v2-btn">Ver Equipo →</a>
-    </div>
+          <!-- PACK SKI ADULTO -->
+          <div class="equipo-card v2" data-categorias="Adulto">
+            <div class="equipo-card-v2-header">
+              <div class="equipo-card-v2-titulo">PACK SKI ADULTO</div>
+              <span class="equipo-card-v2-badge badge-azul">🎿 SKI</span>
+            </div>
+            <div class="equipo-card-v2-desc">Incluye ski, botas y bastones. Marcas HEAD, DYNASTAR, BLIZZARD y ATOMIC. Talles S al XL.</div>
+            <div class="equipo-card-tags">
+              <span class="tag tag-blue">Adulto</span>
+              <span class="tag">HEAD</span>
+              <span class="tag">DYNASTAR</span>
+              <span class="tag">BLIZZARD</span>
+              <span class="tag">ATOMIC</span>
+            </div>
+            <img src="../img/snow/fotosnow1.webp" alt="Pack Ski Adulto" class="equipo-card-v2-img" />
+            <ul class="equipo-card-v2-beneficios">
+              <li>✓ Ajuste profesional incluido</li>
+              <li>✓ Cancelación gratuita hasta 24h</li>
+              <li>✓ Material sujeto a disponibilidad</li>
+            </ul>
+            <div class="equipo-card-v2-precio">
+              <span class="precio-monto">$55.000</span>
+              <span class="precio-dia">/día</span>
+            </div>
+            <a href="./equipos.html" class="equipo-card-v2-btn">Ver Equipo →</a>
+          </div>
 
-    <!-- PACK SKI JUNIOR -->
-    <div class="equipo-card v2" data-categorias="Junior">
-      <div class="equipo-card-v2-header">
-        <div class="equipo-card-v2-titulo">PACK SKI JUNIOR</div>
-        <span class="equipo-card-v2-badge badge-verde">🎿 JUNIOR</span>
-      </div>
-      <div class="equipo-card-v2-desc">Incluye ski, botas y bastones para niños. Marcas HEAD, DYNASTAR y ATOMIC. Talles 4 al 12.</div>
-      <div class="equipo-card-tags">
-        <span class="tag tag-blue">Junior</span>
-        <span class="tag">HEAD</span>
-        <span class="tag">ATOMIC</span>
-      </div>
-      <img src="../img/snow/fotosnow1.webp" alt="Pack Ski Junior" class="equipo-card-v2-img" />
-      <ul class="equipo-card-v2-beneficios">
-        <li>✓ Ajuste profesional incluido</li>
-        <li>✓ Cancelación gratuita hasta 24h</li>
-        <li>✓ Material sujeto a disponibilidad</li>
-      </ul>
-      <div class="equipo-card-v2-precio">
-        <span class="precio-monto">$43.000</span>
-        <span class="precio-dia">/día</span>
-      </div>
-      <a href="./equipos.html" class="equipo-card-v2-btn">Ver Equipo →</a>
-    </div>
+          <!-- PACK SKI JUNIOR -->
+          <div class="equipo-card v2" data-categorias="Junior">
+            <div class="equipo-card-v2-header">
+              <div class="equipo-card-v2-titulo">PACK SKI JUNIOR</div>
+              <span class="equipo-card-v2-badge badge-verde">🎿 JUNIOR</span>
+            </div>
+            <div class="equipo-card-v2-desc">Incluye ski, botas y bastones para niños. Marcas HEAD, DYNASTAR y ATOMIC. Talles 4 al 12.</div>
+            <div class="equipo-card-tags">
+              <span class="tag tag-blue">Junior</span>
+              <span class="tag">HEAD</span>
+              <span class="tag">ATOMIC</span>
+            </div>
+            <img src="../img/snow/fotosnow1.webp" alt="Pack Ski Junior" class="equipo-card-v2-img" />
+            <ul class="equipo-card-v2-beneficios">
+              <li>✓ Ajuste profesional incluido</li>
+              <li>✓ Cancelación gratuita hasta 24h</li>
+              <li>✓ Material sujeto a disponibilidad</li>
+            </ul>
+            <div class="equipo-card-v2-precio">
+              <span class="precio-monto">$43.000</span>
+              <span class="precio-dia">/día</span>
+            </div>
+            <a href="./equipos.html" class="equipo-card-v2-btn">Ver Equipo →</a>
+          </div>
 
-    <!-- PACK SNOWBOARD ADULTO -->
-    <div class="equipo-card v2" data-categorias="Adulto">
-      <div class="equipo-card-v2-header">
-        <div class="equipo-card-v2-titulo">PACK SNOWBOARD ADULTO</div>
-        <span class="equipo-card-v2-badge badge-azul">🏂 SNOW</span>
-      </div>
-      <div class="equipo-card-v2-desc">Incluye tabla y botas. Marcas NITRO y HEAD. Disponible en talles adultos.</div>
-      <div class="equipo-card-tags">
-        <span class="tag tag-blue">Adulto</span>
-        <span class="tag">NITRO</span>
-        <span class="tag">HEAD</span>
-        <span class="tag">BURTON</span>
-      </div>
-      <img src="../img/snow/fotosnow1.webp" alt="Pack Snowboard Adulto" class="equipo-card-v2-img" />
-      <ul class="equipo-card-v2-beneficios">
-        <li>✓ Ajuste profesional incluido</li>
-        <li>✓ Cancelación gratuita hasta 24h</li>
-        <li>✓ Material sujeto a disponibilidad</li>
-      </ul>
-      <div class="equipo-card-v2-precio">
-        <span class="precio-monto">$58.000</span>
-        <span class="precio-dia">/día</span>
-      </div>
-      <a href="./equipos.html" class="equipo-card-v2-btn">Ver Equipo →</a>
-    </div>
+          <!-- PACK SNOWBOARD ADULTO -->
+          <div class="equipo-card v2" data-categorias="Adulto">
+            <div class="equipo-card-v2-header">
+              <div class="equipo-card-v2-titulo">PACK SNOWBOARD ADULTO</div>
+              <span class="equipo-card-v2-badge badge-azul">🏂 SNOW</span>
+            </div>
+            <div class="equipo-card-v2-desc">Incluye tabla y botas. Marcas NITRO y HEAD. Disponible en talles adultos.</div>
+            <div class="equipo-card-tags">
+              <span class="tag tag-blue">Adulto</span>
+              <span class="tag">NITRO</span>
+              <span class="tag">HEAD</span>
+              <span class="tag">BURTON</span>
+            </div>
+            <img src="../img/snow/fotosnow1.webp" alt="Pack Snowboard Adulto" class="equipo-card-v2-img" />
+            <ul class="equipo-card-v2-beneficios">
+              <li>✓ Ajuste profesional incluido</li>
+              <li>✓ Cancelación gratuita hasta 24h</li>
+              <li>✓ Material sujeto a disponibilidad</li>
+            </ul>
+            <div class="equipo-card-v2-precio">
+              <span class="precio-monto">$58.000</span>
+              <span class="precio-dia">/día</span>
+            </div>
+            <a href="./equipos.html" class="equipo-card-v2-btn">Ver Equipo →</a>
+          </div>
 
-    <!-- PACK SNOWBOARD JUNIOR -->
-    <div class="equipo-card v2" data-categorias="Junior">
-      <div class="equipo-card-v2-header">
-        <div class="equipo-card-v2-titulo">PACK SNOWBOARD JUNIOR</div>
-        <span class="equipo-card-v2-badge badge-verde">🏂 JUNIOR</span>
-      </div>
-      <div class="equipo-card-v2-desc">Incluye tabla y botas para niños. Marcas NITRO y HEAD. Talles 4 al 12.</div>
-      <div class="equipo-card-tags">
-        <span class="tag tag-blue">Junior</span>
-        <span class="tag">NITRO</span>
-        <span class="tag">HEAD</span>
-      </div>
-      <img src="../img/snow/fotosnow1.webp" alt="Pack Snowboard Junior" class="equipo-card-v2-img" />
-      <ul class="equipo-card-v2-beneficios">
-        <li>✓ Ajuste profesional incluido</li>
-        <li>✓ Cancelación gratuita hasta 24h</li>
-        <li>✓ Material sujeto a disponibilidad</li>
-      </ul>
-      <div class="equipo-card-v2-precio">
-        <span class="precio-monto">$45.000</span>
-        <span class="precio-dia">/día</span>
-      </div>
-      <a href="./equipos.html" class="equipo-card-v2-btn">Ver Equipo →</a>
-  </div>
+          <!-- PACK SNOWBOARD JUNIOR -->
+          <div class="equipo-card v2" data-categorias="Junior">
+            <div class="equipo-card-v2-header">
+              <div class="equipo-card-v2-titulo">PACK SNOWBOARD JUNIOR</div>
+              <span class="equipo-card-v2-badge badge-verde">🏂 JUNIOR</span>
+            </div>
+            <div class="equipo-card-v2-desc">Incluye tabla y botas para niños. Marcas NITRO y HEAD. Talles 4 al 12.</div>
+            <div class="equipo-card-tags">
+              <span class="tag tag-blue">Junior</span>
+              <span class="tag">NITRO</span>
+              <span class="tag">HEAD</span>
+            </div>
+            <img src="../img/snow/fotosnow1.webp" alt="Pack Snowboard Junior" class="equipo-card-v2-img" />
+            <ul class="equipo-card-v2-beneficios">
+              <li>✓ Ajuste profesional incluido</li>
+              <li>✓ Cancelación gratuita hasta 24h</li>
+              <li>✓ Material sujeto a disponibilidad</li>
+            </ul>
+            <div class="equipo-card-v2-precio">
+              <span class="precio-monto">$45.000</span>
+              <span class="precio-dia">/día</span>
+            </div>
+            <a href="./equipos.html" class="equipo-card-v2-btn">Ver Equipo →</a>
+          </div>
 
-    <!-- INDUMENTARIA ADULTO (Campera + Pantalón) -->
-    <div class="equipo-card v2" data-categorias="Indumentaria Hombre Mujer">
-      <div class="equipo-card-v2-header">
-        <div class="equipo-card-v2-titulo">INDUMENTARIA ADULTO</div>
-        <span class="equipo-card-v2-badge badge-gris">🧥 ADULTO</span>
-      </div>
-      <div class="equipo-card-v2-desc">Campera + pantalón impermeables para nieve. Talles S al XL. Hombre y mujer.</div>
-      <div class="equipo-card-tags">
-        <span class="tag tag-blue">Hombre</span>
-        <span class="tag tag-blue">Mujer</span>
-        <span class="tag">Campera</span>
-        <span class="tag">Pantalón</span>
-      </div>
-      <img src="../img/snow/fotosnow1.webp" alt="Indumentaria Adulto" class="equipo-card-v2-img" />
-      <ul class="equipo-card-v2-beneficios">
-        <li>✓ Campera desde $23.000/día</li>
-        <li>✓ Pantalón desde $20.000/día</li>
-        <li>✓ Cancelación gratuita hasta 24h</li>
-      </ul>
-      <div class="equipo-card-v2-precio">
-        <span class="precio-monto">$39.000</span>
-        <span class="precio-dia">/día combo</span>
-      </div>
-      <a href="./equipos.html" class="equipo-card-v2-btn">Ver Equipo →</a>
-    </div>
+          <!-- INDUMENTARIA ADULTO -->
+          <div class="equipo-card v2" data-categorias="Indumentaria Hombre Mujer">
+            <div class="equipo-card-v2-header">
+              <div class="equipo-card-v2-titulo">INDUMENTARIA ADULTO</div>
+              <span class="equipo-card-v2-badge badge-gris">🧥 ADULTO</span>
+            </div>
+            <div class="equipo-card-v2-desc">Campera + pantalón impermeables para nieve. Talles S al XL. Hombre y mujer.</div>
+            <div class="equipo-card-tags">
+              <span class="tag tag-blue">Hombre</span>
+              <span class="tag tag-blue">Mujer</span>
+              <span class="tag">Campera</span>
+              <span class="tag">Pantalón</span>
+            </div>
+            <img src="../img/snow/fotosnow1.webp" alt="Indumentaria Adulto" class="equipo-card-v2-img" />
+            <ul class="equipo-card-v2-beneficios">
+              <li>✓ Campera desde $23.000/día</li>
+              <li>✓ Pantalón desde $20.000/día</li>
+              <li>✓ Cancelación gratuita hasta 24h</li>
+            </ul>
+            <div class="equipo-card-v2-precio">
+              <span class="precio-monto">$39.000</span>
+              <span class="precio-dia">/día combo</span>
+            </div>
+            <a href="./equipos.html" class="equipo-card-v2-btn">Ver Equipo →</a>
+          </div>
 
-    <!-- INDUMENTARIA NIÑO -->
-    <div class="equipo-card v2" data-categorias="Indumentaria Niño Junior">
-      <div class="equipo-card-v2-header">
-        <div class="equipo-card-v2-titulo">INDUMENTARIA NIÑO</div>
-        <span class="equipo-card-v2-badge badge-verde">🧥 NIÑO</span>
-      </div>
-      <div class="equipo-card-v2-desc">Campera, pantalón y enteritos impermeables para nieve. Talles 4 al 14.</div>
-      <div class="equipo-card-tags">
-        <span class="tag tag-blue">Niño</span>
-        <span class="tag">Campera</span>
-        <span class="tag">Pantalón</span>
-        <span class="tag">Enterito</span>
-      </div>
-      <img src="../img/snow/fotosnow1.webp" alt="Indumentaria Niño" class="equipo-card-v2-img" />
-      <ul class="equipo-card-v2-beneficios">
-        <li>✓ Campera desde $17.000/día</li>
-        <li>✓ Pantalón/enterito desde $14.000/día</li>
-        <li>✓ Cancelación gratuita hasta 24h</li>
-      </ul>
-      <div class="equipo-card-v2-precio">
-        <span class="precio-monto">$29.000</span>
-        <span class="precio-dia">/día combo</span>
-      </div>
-      <a href="./equipos.html" class="equipo-card-v2-btn">Ver Equipo →</a>
-    </div>
+          <!-- INDUMENTARIA NIÑO -->
+          <div class="equipo-card v2" data-categorias="Indumentaria Niño Junior">
+            <div class="equipo-card-v2-header">
+              <div class="equipo-card-v2-titulo">INDUMENTARIA NIÑO</div>
+              <span class="equipo-card-v2-badge badge-verde">🧥 NIÑO</span>
+            </div>
+            <div class="equipo-card-v2-desc">Campera, pantalón y enteritos impermeables para nieve. Talles 4 al 14.</div>
+            <div class="equipo-card-tags">
+              <span class="tag tag-blue">Niño</span>
+              <span class="tag">Campera</span>
+              <span class="tag">Pantalón</span>
+              <span class="tag">Enterito</span>
+            </div>
+            <img src="../img/snow/fotosnow1.webp" alt="Indumentaria Niño" class="equipo-card-v2-img" />
+            <ul class="equipo-card-v2-beneficios">
+              <li>✓ Campera desde $17.000/día</li>
+              <li>✓ Pantalón/enterito desde $14.000/día</li>
+              <li>✓ Cancelación gratuita hasta 24h</li>
+            </ul>
+            <div class="equipo-card-v2-precio">
+              <span class="precio-monto">$29.000</span>
+              <span class="precio-dia">/día combo</span>
+            </div>
+            <a href="./equipos.html" class="equipo-card-v2-btn">Ver Equipo →</a>
+          </div>
 
-  </div>
-</section>
-
-<script>
-  // Filtros
-  document.querySelectorAll('.filtro-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      if (btn.classList.contains('filtro-dropdown-toggle')) return;
-      document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('active'));
-      document.querySelectorAll('.subfiltro-btn').forEach(b => b.classList.remove('active'));
-      document.querySelector('.filtro-dropdown').classList.remove('active');
-      btn.classList.add('active');
-      const filtro = btn.dataset.filtro;
-      document.querySelectorAll('.equipo-card').forEach(card => {
-        const cats = card.dataset.categorias || '';
-        card.style.display = (filtro === 'todos' || cats.includes(filtro)) ? '' : 'none';
-      });
-    });
-  });
-
-  // Toggle dropdown
-  document.querySelector('.filtro-dropdown-toggle').addEventListener('click', (e) => {
-    e.stopPropagation();
-    document.querySelector('.filtro-dropdown-menu').classList.toggle('open');
-  });
-
-  document.addEventListener('click', () => {
-    document.querySelector('.filtro-dropdown-menu').classList.remove('open');
-  });
-
-  // Subfiltros
-  document.querySelectorAll('.subfiltro-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      document.querySelectorAll('.subfiltro-btn').forEach(b => b.classList.remove('active'));
-      document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      document.querySelector('.filtro-dropdown').classList.add('active');
-      document.querySelector('.filtro-dropdown-menu').classList.remove('open');
-      const subfiltro = btn.dataset.subfiltro;
-      document.querySelectorAll('.equipo-card').forEach(card => {
-        const cats = card.dataset.categorias || '';
-        card.style.display = cats.includes(subfiltro) ? '' : 'none';
-      });
-    });
-  });
-</script>
-      <!-- TABLA EQUIPOS -->
-      <section class="tabla-precios-equipos">
-        <h2>Tarifas Ski y Snow</h2>
-        <!-- <p>Hacé click en cualquier precio para agregarlo al carrito</p> -->
-          <!-- BANNER 20% OFF -->
-<div class="banners-row">
-  <div class="banner-compact">
-    <div class="banner-compact-badge">20%</div>
-    <div class="banner-compact-texto">
-      <span class="banner-compact-titulo">OFF pagando en efectivo</span>
-      <span class="banner-compact-sub">Descuento en todos los equipos</span>
-    </div>
-  </div>
-  <div class="banner-temp">
-    <div class="banner-temp-badge">15%</div>
-    <div class="banner-temp-texto">
-      <span class="banner-temp-titulo">OFF temporada baja</span>
-      <span class="banner-temp-fechas">20 Jun–27 Jun &nbsp;|&nbsp; 30 Ago–27 Sep</span>
-    </div>
-  </div>
-</div>
-        <div class="tabla-wrapper">
-          <table class="tabla">
-            <thead>
-              <tr>
-                <th>Equipo</th>
-                <th>1 Día</th>
-                <th>3 Días</th>
-                <th>4 Días</th>
-                <th>5 Días</th>
-                <th>6 Días</th>
-                <th>7 Días</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Ski Adulto</td>
-                <td
-                  class="precio"
-                  data-producto="Ski Adulto"
-                  data-dias="1"
-                  data-precio="55000"
-                >
-                  $55.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Ski Adulto"
-                  data-dias="3"
-                  data-precio="141000"
-                >
-                  $141.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Ski Adulto"
-                  data-dias="4"
-                  data-precio="179000"
-                >
-                  $179.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Ski Adulto"
-                  data-dias="5"
-                  data-precio="212000"
-                >
-                  $212.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Ski Adulto"
-                  data-dias="6"
-                  data-precio="241000"
-                >
-                  $241.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Ski Adulto"
-                  data-dias="7"
-                  data-precio="267000"
-                >
-                  $267.000
-                </td>
-              </tr>
-              <tr>
-                <td>Ski Junior</td>
-                <td
-                  class="precio"
-                  data-producto="Ski Junior"
-                  data-dias="1"
-                  data-precio="43000"
-                >
-                  $43.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Ski Junior"
-                  data-dias="3"
-                  data-precio="110000"
-                >
-                  $110.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Ski Junior"
-                  data-dias="4"
-                  data-precio="140000"
-                >
-                  $140.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Ski Junior"
-                  data-dias="5"
-                  data-precio="166000"
-                >
-                  $166.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Ski Junior"
-                  data-dias="6"
-                  data-precio="188000"
-                >
-                  $188.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Ski Junior"
-                  data-dias="7"
-                  data-precio="208000"
-                >
-                  $208.000
-                </td>
-              </tr>
-              <tr>
-                <td>Snowboard Adulto</td>
-                <td
-                  class="precio"
-                  data-producto="Snowboard Adulto"
-                  data-dias="1"
-                  data-precio="58000"
-                >
-                  $58.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Snowboard Adulto"
-                  data-dias="3"
-                  data-precio="149000"
-                >
-                  $149.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Snowboard Adulto"
-                  data-dias="4"
-                  data-precio="189000"
-                >
-                  $189.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Snowboard Adulto"
-                  data-dias="5"
-                  data-precio="224000"
-                >
-                  $224.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Snowboard Adulto"
-                  data-dias="6"
-                  data-precio="254000"
-                >
-                  $254.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Snowboard Adulto"
-                  data-dias="7"
-                  data-precio="281000"
-                >
-                  $281.000
-                </td>
-              </tr>
-              <tr>
-                <td>Snowboard Junior</td>
-                <td
-                  class="precio"
-                  data-producto="Snowboard Junior"
-                  data-dias="1"
-                  data-precio="45000"
-                >
-                  $45.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Snowboard Junior"
-                  data-dias="3"
-                  data-precio="103000"
-                >
-                  $103.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Snowboard Junior"
-                  data-dias="4"
-                  data-precio="130000"
-                >
-                  $130.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Snowboard Junior"
-                  data-dias="5"
-                  data-precio="154000"
-                >
-                  $154.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Snowboard Junior"
-                  data-dias="6"
-                  data-precio="175000"
-                >
-                  $175.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Snowboard Junior"
-                  data-dias="7"
-                  data-precio="194000"
-                >
-                  $194.000
-                </td>
-              </tr>
-              <tr class="fila-descuento">
-                <td>Ski / Tabla / Bota SOLA</td>
-                <td colspan="6">70% DEL VALOR DEL EQUIPO COMPLETO</td>
-              </tr>
-              <tr>
-                <td>Casco</td>
-                <td
-                  class="precio"
-                  data-producto="Casco"
-                  data-dias="1"
-                  data-precio="19000"
-                >
-                  $19.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Casco"
-                  data-dias="3"
-                  data-precio="49000"
-                >
-                  $49.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Casco"
-                  data-dias="4"
-                  data-precio="62000"
-                >
-                  $62.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Casco"
-                  data-dias="5"
-                  data-precio="73000"
-                >
-                  $73.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Casco"
-                  data-dias="6"
-                  data-precio="83000"
-                >
-                  $83.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Casco"
-                  data-dias="7"
-                  data-precio="92000"
-                >
-                  $92.000
-                </td>
-              </tr>
-              <tr>
-                <td>Bastones</td>
-                <td
-                  class="precio"
-                  data-producto="Bastones"
-                  data-dias="1"
-                  data-precio="20000"
-                >
-                  $20.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Bastones"
-                  data-dias="3"
-                  data-precio="51000"
-                >
-                  $51.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Bastones"
-                  data-dias="4"
-                  data-precio="65000"
-                >
-                  $65.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Bastones"
-                  data-dias="5"
-                  data-precio="77000"
-                >
-                  $77.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Bastones"
-                  data-dias="6"
-                  data-precio="87000"
-                >
-                  $87.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Bastones"
-                  data-dias="7"
-                  data-precio="97000"
-                >
-                  $97.000
-                </td>
-              </tr>
-              <tr>
-                <td>Antiparras</td>
-                <td
-                  class="precio"
-                  data-producto="Antiparras"
-                  data-dias="1"
-                  data-precio="27000"
-                >
-                  $27.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Antiparras"
-                  data-dias="3"
-                  data-precio="69000"
-                >
-                  $69.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Antiparras"
-                  data-dias="4"
-                  data-precio="88000"
-                >
-                  $88.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Antiparras"
-                  data-dias="5"
-                  data-precio="104000"
-                >
-                  $104.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Antiparras"
-                  data-dias="6"
-                  data-precio="118000"
-                >
-                  $118.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Antiparras"
-                  data-dias="7"
-                  data-precio="131000"
-                >
-                  $131.000
-                </td>
-              </tr>
-              <tr>
-                <td>Guantes</td>
-                <td
-                  class="precio"
-                  data-producto="Guantes"
-                  data-dias="1"
-                  data-precio="13000"
-                >
-                  $13.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Guantes"
-                  data-dias="3"
-                  data-precio="33000"
-                >
-                  $33.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Guantes"
-                  data-dias="4"
-                  data-precio="42000"
-                >
-                  $42.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Guantes"
-                  data-dias="5"
-                  data-precio="50000"
-                >
-                  $50.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Guantes"
-                  data-dias="6"
-                  data-precio="57000"
-                >
-                  $57.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Guantes"
-                  data-dias="7"
-                  data-precio="63000"
-                >
-                  $63.000
-                </td>
-              </tr>
-              <tr> 
-                <td>Raquetas</td>
-                <td
-                  class="precio"
-                  data-producto="Raquetas"
-                  data-dias="1"
-                  data-precio="25000"
-                >
-                  $25.000
-                </td>
-              </tr>
-              <tr>
-                <td>Trineo</td>
-                <td
-                  class="precio"
-                  data-producto="Trineo"
-                  data-dias="1"
-                  data-precio="15000"
-                >
-                  $15.000
-                </td>
-              </tr>
-            </tbody>
-          </table>
         </div>
       </section>
 
+      <script>
+        document.querySelectorAll('.filtro-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            if (btn.classList.contains('filtro-dropdown-toggle')) return;
+            document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.subfiltro-btn').forEach(b => b.classList.remove('active'));
+            document.querySelector('.filtro-dropdown').classList.remove('active');
+            btn.classList.add('active');
+            const filtro = btn.dataset.filtro;
+            document.querySelectorAll('.equipo-card').forEach(card => {
+              const cats = card.dataset.categorias || '';
+              card.style.display = (filtro === 'todos' || cats.includes(filtro)) ? '' : 'none';
+            });
+          });
+        });
+
+        document.querySelector('.filtro-dropdown-toggle').addEventListener('click', (e) => {
+          e.stopPropagation();
+          document.querySelector('.filtro-dropdown-menu').classList.toggle('open');
+        });
+
+        document.addEventListener('click', () => {
+          document.querySelector('.filtro-dropdown-menu').classList.remove('open');
+        });
+
+        document.querySelectorAll('.subfiltro-btn').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            document.querySelectorAll('.subfiltro-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            document.querySelector('.filtro-dropdown').classList.add('active');
+            document.querySelector('.filtro-dropdown-menu').classList.remove('open');
+            const subfiltro = btn.dataset.subfiltro;
+            document.querySelectorAll('.equipo-card').forEach(card => {
+              const cats = card.dataset.categorias || '';
+              card.style.display = cats.includes(subfiltro) ? '' : 'none';
+            });
+          });
+        });
+      </script>
+
+      <!-- BANNERS -->
+      <div class="banners-row">
+        <div class="banner-compact">
+          <div class="banner-compact-badge">20%</div>
+          <div class="banner-compact-texto">
+            <span class="banner-compact-titulo">OFF pagando en efectivo</span>
+            <span class="banner-compact-sub">Descuento en todos los equipos</span>
+          </div>
+        </div>
+        <div class="banner-temp">
+          <div class="banner-temp-badge">15%</div>
+          <div class="banner-temp-texto">
+            <span class="banner-temp-titulo">OFF temporada baja</span>
+            <span class="banner-temp-fechas">20 Jun–27 Jun &nbsp;|&nbsp; 30 Ago–27 Sep</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- TABLAS EN GRID -->
+      <div class="tablas-grid">
+
+        <!-- TABLA SKI Y SNOW -->
+        <section class="tabla-precios-equipos">
+          <h2>Tarifas Ski y Snow</h2>
+          <div class="tabla-wrapper">
+            <table class="tabla">
+              <thead>
+                <tr>
+                  <th>Equipo</th>
+                  <th>1 Día</th>
+                  <th>3 Días</th>
+                  <th>4 Días</th>
+                  <th>5 Días</th>
+                  <th>6 Días</th>
+                  <th>7 Días</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Ski Adulto</td>
+                  <td class="precio" data-producto="Ski Adulto" data-dias="1" data-precio="55000">$55.000</td>
+                  <td class="precio" data-producto="Ski Adulto" data-dias="3" data-precio="141000">$141.000</td>
+                  <td class="precio" data-producto="Ski Adulto" data-dias="4" data-precio="179000">$179.000</td>
+                  <td class="precio" data-producto="Ski Adulto" data-dias="5" data-precio="212000">$212.000</td>
+                  <td class="precio" data-producto="Ski Adulto" data-dias="6" data-precio="241000">$241.000</td>
+                  <td class="precio" data-producto="Ski Adulto" data-dias="7" data-precio="267000">$267.000</td>
+                </tr>
+                <tr>
+                  <td>Ski Junior</td>
+                  <td class="precio" data-producto="Ski Junior" data-dias="1" data-precio="43000">$43.000</td>
+                  <td class="precio" data-producto="Ski Junior" data-dias="3" data-precio="110000">$110.000</td>
+                  <td class="precio" data-producto="Ski Junior" data-dias="4" data-precio="140000">$140.000</td>
+                  <td class="precio" data-producto="Ski Junior" data-dias="5" data-precio="166000">$166.000</td>
+                  <td class="precio" data-producto="Ski Junior" data-dias="6" data-precio="188000">$188.000</td>
+                  <td class="precio" data-producto="Ski Junior" data-dias="7" data-precio="208000">$208.000</td>
+                </tr>
+                <tr>
+                  <td>Snowboard Adulto</td>
+                  <td class="precio" data-producto="Snowboard Adulto" data-dias="1" data-precio="58000">$58.000</td>
+                  <td class="precio" data-producto="Snowboard Adulto" data-dias="3" data-precio="149000">$149.000</td>
+                  <td class="precio" data-producto="Snowboard Adulto" data-dias="4" data-precio="189000">$189.000</td>
+                  <td class="precio" data-producto="Snowboard Adulto" data-dias="5" data-precio="224000">$224.000</td>
+                  <td class="precio" data-producto="Snowboard Adulto" data-dias="6" data-precio="254000">$254.000</td>
+                  <td class="precio" data-producto="Snowboard Adulto" data-dias="7" data-precio="281000">$281.000</td>
+                </tr>
+                <tr>
+                  <td>Snowboard Junior</td>
+                  <td class="precio" data-producto="Snowboard Junior" data-dias="1" data-precio="45000">$45.000</td>
+                  <td class="precio" data-producto="Snowboard Junior" data-dias="3" data-precio="103000">$103.000</td>
+                  <td class="precio" data-producto="Snowboard Junior" data-dias="4" data-precio="130000">$130.000</td>
+                  <td class="precio" data-producto="Snowboard Junior" data-dias="5" data-precio="154000">$154.000</td>
+                  <td class="precio" data-producto="Snowboard Junior" data-dias="6" data-precio="175000">$175.000</td>
+                  <td class="precio" data-producto="Snowboard Junior" data-dias="7" data-precio="194000">$194.000</td>
+                </tr>
+                <tr class="fila-descuento">
+                  <td>Ski / Tabla / Bota SOLA</td>
+                  <td colspan="6">70% DEL VALOR DEL EQUIPO COMPLETO</td>
+                </tr>
+                <tr>
+                  <td>Casco</td>
+                  <td class="precio" data-producto="Casco" data-dias="1" data-precio="19000">$19.000</td>
+                  <td class="precio" data-producto="Casco" data-dias="3" data-precio="49000">$49.000</td>
+                  <td class="precio" data-producto="Casco" data-dias="4" data-precio="62000">$62.000</td>
+                  <td class="precio" data-producto="Casco" data-dias="5" data-precio="73000">$73.000</td>
+                  <td class="precio" data-producto="Casco" data-dias="6" data-precio="83000">$83.000</td>
+                  <td class="precio" data-producto="Casco" data-dias="7" data-precio="92000">$92.000</td>
+                </tr>
+                <tr>
+                  <td>Bastones</td>
+                  <td class="precio" data-producto="Bastones" data-dias="1" data-precio="20000">$20.000</td>
+                  <td class="precio" data-producto="Bastones" data-dias="3" data-precio="51000">$51.000</td>
+                  <td class="precio" data-producto="Bastones" data-dias="4" data-precio="65000">$65.000</td>
+                  <td class="precio" data-producto="Bastones" data-dias="5" data-precio="77000">$77.000</td>
+                  <td class="precio" data-producto="Bastones" data-dias="6" data-precio="87000">$87.000</td>
+                  <td class="precio" data-producto="Bastones" data-dias="7" data-precio="97000">$97.000</td>
+                </tr>
+                <tr>
+                  <td>Antiparras</td>
+                  <td class="precio" data-producto="Antiparras" data-dias="1" data-precio="27000">$27.000</td>
+                  <td class="precio" data-producto="Antiparras" data-dias="3" data-precio="69000">$69.000</td>
+                  <td class="precio" data-producto="Antiparras" data-dias="4" data-precio="88000">$88.000</td>
+                  <td class="precio" data-producto="Antiparras" data-dias="5" data-precio="104000">$104.000</td>
+                  <td class="precio" data-producto="Antiparras" data-dias="6" data-precio="118000">$118.000</td>
+                  <td class="precio" data-producto="Antiparras" data-dias="7" data-precio="131000">$131.000</td>
+                </tr>
+                <tr>
+                  <td>Guantes</td>
+                  <td class="precio" data-producto="Guantes" data-dias="1" data-precio="13000">$13.000</td>
+                  <td class="precio" data-producto="Guantes" data-dias="3" data-precio="33000">$33.000</td>
+                  <td class="precio" data-producto="Guantes" data-dias="4" data-precio="42000">$42.000</td>
+                  <td class="precio" data-producto="Guantes" data-dias="5" data-precio="50000">$50.000</td>
+                  <td class="precio" data-producto="Guantes" data-dias="6" data-precio="57000">$57.000</td>
+                  <td class="precio" data-producto="Guantes" data-dias="7" data-precio="63000">$63.000</td>
+                </tr>
+                <tr>
+                  <td>Raquetas</td>
+                  <td class="precio" data-producto="Raquetas" data-dias="1" data-precio="25000">$25.000</td>
+                </tr>
+                <tr>
+                  <td>Trineo</td>
+                  <td class="precio" data-producto="Trineo" data-dias="1" data-precio="15000">$15.000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- TABLA INDUMENTARIA -->
+        <section class="tabla-precios-indumentaria">
+          <h2>Tarifas Indumentaria</h2>
+          <div class="tabla-wrapper">
+            <table class="tabla">
+              <thead>
+                <tr>
+                  <th>Equipo</th>
+                  <th>1 Día</th>
+                  <th>3 Días</th>
+                  <th>4 Días</th>
+                  <th>5 Días</th>
+                  <th>6 Días</th>
+                  <th>7 Días</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Campera Adulto</td>
+                  <td class="precio" data-producto="Campera Adulto" data-dias="1" data-precio="23000">$23.000</td>
+                  <td class="precio" data-producto="Campera Adulto" data-dias="3" data-precio="61000">$61.000</td>
+                  <td class="precio" data-producto="Campera Adulto" data-dias="4" data-precio="78000">$78.000</td>
+                  <td class="precio" data-producto="Campera Adulto" data-dias="5" data-precio="92000">$92.000</td>
+                  <td class="precio" data-producto="Campera Adulto" data-dias="6" data-precio="105000">$105.000</td>
+                  <td class="precio" data-producto="Campera Adulto" data-dias="7" data-precio="116000">$116.000</td>
+                </tr>
+                <tr>
+                  <td>Pantalón Adulto</td>
+                  <td class="precio" data-producto="Pantalón Adulto" data-dias="1" data-precio="20000">$20.000</td>
+                  <td class="precio" data-producto="Pantalón Adulto" data-dias="3" data-precio="53000">$53.000</td>
+                  <td class="precio" data-producto="Pantalón Adulto" data-dias="4" data-precio="78000">$78.000</td>
+                  <td class="precio" data-producto="Pantalón Adulto" data-dias="5" data-precio="92000">$92.000</td>
+                  <td class="precio" data-producto="Pantalón Adulto" data-dias="6" data-precio="105000">$105.000</td>
+                  <td class="precio" data-producto="Pantalón Adulto" data-dias="7" data-precio="116000">$116.000</td>
+                </tr>
+                <tr>
+                  <td>Campera + Pantalón Adulto</td>
+                  <td class="precio" data-producto="Campera + Pantalón Adulto" data-dias="1" data-precio="39000">$39.000</td>
+                  <td class="precio" data-producto="Campera + Pantalón Adulto" data-dias="3" data-precio="103000">$103.000</td>
+                  <td class="precio" data-producto="Campera + Pantalón Adulto" data-dias="4" data-precio="131000">$131.000</td>
+                  <td class="precio" data-producto="Campera + Pantalón Adulto" data-dias="5" data-precio="156000">$156.000</td>
+                  <td class="precio" data-producto="Campera + Pantalón Adulto" data-dias="6" data-precio="177000">$177.000</td>
+                  <td class="precio" data-producto="Campera + Pantalón Adulto" data-dias="7" data-precio="196000">$196.000</td>
+                </tr>
+                <tr>
+                  <td>Campera Niño</td>
+                  <td class="precio" data-producto="Campera Niño" data-dias="1" data-precio="17000">$17.000</td>
+                  <td class="precio" data-producto="Campera Niño" data-dias="3" data-precio="45000">$45.000</td>
+                  <td class="precio" data-producto="Campera Niño" data-dias="4" data-precio="58000">$58.000</td>
+                  <td class="precio" data-producto="Campera Niño" data-dias="5" data-precio="69000">$69.000</td>
+                  <td class="precio" data-producto="Campera Niño" data-dias="6" data-precio="79000">$79.000</td>
+                  <td class="precio" data-producto="Campera Niño" data-dias="7" data-precio="87000">$87.000</td>
+                </tr>
+                <tr>
+                  <td>Pantalón Niño / Enterito</td>
+                  <td class="precio" data-producto="Pantalón Niño" data-dias="1" data-precio="14000">$14.000</td>
+                  <td class="precio" data-producto="Pantalón Niño" data-dias="3" data-precio="38000">$38.000</td>
+                  <td class="precio" data-producto="Pantalón Niño" data-dias="4" data-precio="48000">$48.000</td>
+                  <td class="precio" data-producto="Pantalón Niño" data-dias="5" data-precio="58000">$58.000</td>
+                  <td class="precio" data-producto="Pantalón Niño" data-dias="6" data-precio="66000">$66.000</td>
+                  <td class="precio" data-producto="Pantalón Niño" data-dias="7" data-precio="74000">$74.000</td>
+                </tr>
+                <tr>
+                  <td>Campera + Pantalón Niño</td>
+                  <td class="precio" data-producto="Campera + Pantalón Niño" data-dias="1" data-precio="29000">$29.000</td>
+                  <td class="precio" data-producto="Campera + Pantalón Niño" data-dias="3" data-precio="76000">$76.000</td>
+                  <td class="precio" data-producto="Campera + Pantalón Niño" data-dias="4" data-precio="97000">$97.000</td>
+                  <td class="precio" data-producto="Campera + Pantalón Niño" data-dias="5" data-precio="115000">$115.000</td>
+                  <td class="precio" data-producto="Campera + Pantalón Niño" data-dias="6" data-precio="131000">$131.000</td>
+                  <td class="precio" data-producto="Campera + Pantalón Niño" data-dias="7" data-precio="145000">$145.000</td>
+                </tr>
+                <tr>
+                  <td>Botas Preski</td>
+                  <td class="precio" data-producto="Botas Preski" data-dias="1" data-precio="15000">$15.000</td>
+                  <td class="precio" data-producto="Botas Preski" data-dias="3" data-precio="38000">$38.000</td>
+                  <td class="precio" data-producto="Botas Preski" data-dias="4" data-precio="48000">$48.000</td>
+                  <td class="precio" data-producto="Botas Preski" data-dias="5" data-precio="58000">$58.000</td>
+                  <td class="precio" data-producto="Botas Preski" data-dias="6" data-precio="65500">$65.500</td>
+                  <td class="precio" data-producto="Botas Preski" data-dias="7" data-precio="73000">$73.000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+      </div>
+      <!-- FIN TABLAS GRID -->
+
+      <!-- CTA RESERVA — debajo de las dos tablas -->
       <section class="cta-reserva">
-  <div class="cta-reserva-inner">
-    <div class="cta-reserva-texto">
-      <h2>Reservá tu equipo online</h2>
-      <p>Elegí tus fechas, seleccioná el equipo y confirmá tu reserva en minutos. Sin filas, sin esperas.</p>
-    </div>
-    <a href="../page/checkout.html" class="btn cta-reserva-btn">
-      Reservar online →
-    </a>
-  </div>
-</section>
-
-
-<!-- BANNER TEMPORADA BAJA -->
-<!-- <div class="banner-temporada">
-  <div class="banner-temporada-inner">
-    <div class="banner-temporada-texto">
-      <span class="banner-badge-temp">OFERTA TEMPORADA BAJA</span>
-      <h2>15% OFF en fechas especiales</h2>
-      <p>Aprovechá los mejores precios de la temporada en equipos de ski y snowboard.</p>
-      <div class="banner-fechas">
-        <div class="fecha-item">
-          <span class="fecha-label">Primera temporada</span>
-          <strong>20 Jun — 27 Jun</strong>
-        </div>
-        <div class="fecha-sep">|</div>
-        <div class="fecha-item">
-          <span class="fecha-label">Segunda temporada</span>
-          <strong>30 Ago — 27 Sep</strong>
-        </div>
-      </div>
-    </div>
-    <a href="./checkout.html" class="banner-temp-btn">Reservar ahora →</a>
-  </div>
-</div> -->
-
-      <!-- TABLA INDUMENTARIA -->
-      <section class="tabla-precios-indumentaria">
-        <h2>Tarifas Indumentaria</h2>
-        <!-- <p>Hacé click en cualquier precio para agregarlo al carrito</p> -->
-        <div class="tabla-wrapper">
-          <table class="tabla">
-            <thead>
-              <tr>
-                <th>Equipo</th>
-                <th>1 Día</th>
-                <th>3 Días</th>
-                <th>4 Días</th>
-                <th>5 Días</th>
-                <th>6 Días</th>
-                <th>7 Días</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Campera Adulto</td>
-                <td
-                  class="precio"
-                  data-producto="Campera Adulto"
-                  data-dias="1"
-                  data-precio="23000"
-                >
-                  $23.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Campera Adulto"
-                  data-dias="3"
-                  data-precio="61000"
-                >
-                  $61.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Campera Adulto"
-                  data-dias="4"
-                  data-precio="78000"
-                >
-                  $78.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Campera Adulto"
-                  data-dias="5"
-                  data-precio="92000"
-                >
-                  $92.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Campera Adulto"
-                  data-dias="6"
-                  data-precio="105000"
-                >
-                  $105.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Campera Adulto"
-                  data-dias="7"
-                  data-precio="116000"
-                >
-                  $116.000
-                </td>
-              </tr>
-              <tr>
-                <td>Pantalón Adulto</td>
-                <td
-                  class="precio"
-                  data-producto="Pantalón Adulto"
-                  data-dias="1"
-                  data-precio="20000"
-                >
-                  $20.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Pantalón Adulto"
-                  data-dias="3"
-                  data-precio="53000"
-                >
-                  $53.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Pantalón Adulto"
-                  data-dias="4"
-                  data-precio="78000"
-                >
-                  $78.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Pantalón Adulto"
-                  data-dias="5"
-                  data-precio="92000"
-                >
-                  $92.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Pantalón Adulto"
-                  data-dias="6"
-                  data-precio="105000"
-                >
-                  $105.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Pantalón Adulto"
-                  data-dias="7"
-                  data-precio="116000"
-                >
-                  $116.000
-                </td>
-              </tr>
-              <tr>
-                <td>Campera + Pantalón Adulto</td>
-                <td
-                  class="precio"
-                  data-producto="Campera + Pantalón Adulto"
-                  data-dias="1"
-                  data-precio="39000"
-                >
-                  $39.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Campera + Pantalón Adulto"
-                  data-dias="3"
-                  data-precio="103000"
-                >
-                  $103.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Campera + Pantalón Adulto"
-                  data-dias="4"
-                  data-precio="131000"
-                >
-                  $131.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Campera + Pantalón Adulto"
-                  data-dias="5"
-                  data-precio="156000"
-                >
-                  $156.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Campera + Pantalón Adulto"
-                  data-dias="6"
-                  data-precio="177000"
-                >
-                  $177.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Campera + Pantalón Adulto"
-                  data-dias="7"
-                  data-precio="196000"
-                >
-                  $196.000
-                </td>
-              </tr>
-              <tr>
-                <td>Campera Niño</td>
-                <td
-                  class="precio"
-                  data-producto="Campera Niño"
-                  data-dias="1"
-                  data-precio="17000"
-                >
-                  $17.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Campera Niño"
-                  data-dias="3"
-                  data-precio="45000"
-                >
-                  $45.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Campera Niño"
-                  data-dias="4"
-                  data-precio="58000"
-                >
-                  $58.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Campera Niño"
-                  data-dias="5"
-                  data-precio="69000"
-                >
-                  $69.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Campera Niño"
-                  data-dias="6"
-                  data-precio="79000"
-                >
-                  $79.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Campera Niño"
-                  data-dias="7"
-                  data-precio="87000"
-                >
-                  $87.000
-                </td>
-              </tr>
-              <tr>
-                <td>Pantalón Niño / Enterito</td>
-                <td
-                  class="precio"
-                  data-producto="Pantalón Niño"
-                  data-dias="1"
-                  data-precio="14000"
-                >
-                  $14.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Pantalón Niño"
-                  data-dias="3"
-                  data-precio="38000"
-                >
-                  $38.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Pantalón Niño"
-                  data-dias="4"
-                  data-precio="48000"
-                >
-                  $48.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Pantalón Niño"
-                  data-dias="5"
-                  data-precio="58000"
-                >
-                  $58.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Pantalón Niño"
-                  data-dias="6"
-                  data-precio="66000"
-                >
-                  $66.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Pantalón Niño"
-                  data-dias="7"
-                  data-precio="74000"
-                >
-                  $74.000
-                </td>
-              </tr>
-              <tr>
-                <td>Campera + Pantalón Niño</td>
-                <td
-                  class="precio"
-                  data-producto="Campera + Pantalón Niño"
-                  data-dias="1"
-                  data-precio="29000"
-                >
-                  $29.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Campera + Pantalón Niño"
-                  data-dias="3"
-                  data-precio="76000"
-                >
-                  $76.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Campera + Pantalón Niño"
-                  data-dias="4"
-                  data-precio="97000"
-                >
-                  $97.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Campera + Pantalón Niño"
-                  data-dias="5"
-                  data-precio="115000"
-                >
-                  $115.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Campera + Pantalón Niño"
-                  data-dias="6"
-                  data-precio="131000"
-                >
-                  $131.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Campera + Pantalón Niño"
-                  data-dias="7"
-                  data-precio="145000"
-                >
-                  $145.000
-                </td>
-              </tr>
-              <tr>
-                <td>Botas Preski</td>
-                <td
-                  class="precio"
-                  data-producto="Botas Preski"
-                  data-dias="1"
-                  data-precio="15000"
-                >
-                  $15.000
-                </td>
-
-                <td
-                  class="precio" 
-                  data-producto="Botas Preski"
-                  data-dias="3"
-                  data-precio="38000"
-                >
-                  $38.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Botas Preski"
-                  data-dias="4"
-                  data-precio="48000"
-                >
-                  $48.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Botas Preski"
-                  data-dias="5"
-                  data-precio="58000"
-                >
-                  $58.000
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Botas Preski"
-                  data-dias="6"
-                  data-precio="65500"
-                >
-                  $65.500
-                </td>
-                <td
-                  class="precio"
-                  data-producto="Botas Preski"
-                  data-dias="7"
-                  data-precio="73000"
-                >
-                  $73.000
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="cta-reserva-inner">
+          <div class="cta-reserva-texto">
+            <h2>Reservá tu equipo online</h2>
+            <p>Elegí tus fechas, seleccioná el equipo y confirmá tu reserva en minutos. Sin filas, sin esperas.</p>
+          </div>
+          <a href="../page/checkout.html" class="btn cta-reserva-btn">
+            Reservar online →
+          </a>
         </div>
       </section>
+
     </main>
 
     <!-- FOOTER -->
@@ -1243,10 +529,7 @@
         <div class="footer-grid">
           <div class="footer-one">
             <h3>Rental Pro Shop Aventura</h3>
-            <p>
-              Somos el local con mayor variedad de Villa La Angostura. Artículos
-              de pesca, camping, náutica, ski, snowboard y mucho más.
-            </p>
+            <p>Somos el local con mayor variedad de Villa La Angostura. Artículos de pesca, camping, náutica, ski, snowboard y mucho más.</p>
           </div>
           <div class="footer-two">
             <h3>Accesos directos</h3>
@@ -1260,61 +543,17 @@
           <div class="footer-three">
             <h3>Sitios de interés</h3>
             <ul>
-              <li>
-                <a
-                  href="https://www.cerrobayo.com.ar/montana/mapa/"
-                  target="_blank"
-                  rel="noopener"
-                  >Mapa de pistas — Cerro Bayo</a
-                >
-              </li>
-              <li>
-                <a
-                  href="https://www.accuweather.com/es/ar/villa-la-angostura/1227987/weather-forecast/1227987"
-                  target="_blank"
-                  rel="noopener"
-                  >Clima en Cerro Bayo</a
-                >
-              </li>
-              <li>
-                <a
-                  href="https://www.villalaangosturaturismo.gob.ar/"
-                  target="_blank"
-                  rel="noopener"
-                  >Conocé Villa La Angostura</a
-                >
-              </li>
+              <li><a href="https://www.cerrobayo.com.ar/montana/mapa/" target="_blank" rel="noopener">Mapa de pistas — Cerro Bayo</a></li>
+              <li><a href="https://www.accuweather.com/es/ar/villa-la-angostura/1227987/weather-forecast/1227987" target="_blank" rel="noopener">Clima en Cerro Bayo</a></li>
+              <li><a href="https://www.villalaangosturaturismo.gob.ar/" target="_blank" rel="noopener">Conocé Villa La Angostura</a></li>
             </ul>
           </div>
           <div class="footer-four">
             <h3>Contactanos</h3>
             <ul class="contact-us">
-              <li>
-                <p>
-                  <strong>¿Dónde estamos?</strong><br />
-                  Av. Arrayanes 173<br />
-                  Villa La Angostura, Neuquén
-                </p>
-              </li>
-              <li>
-                <p>
-                  <strong>Whatsapp:</strong>
-                  <a
-                    href="https://wa.me/5492944646730"
-                    rel="noopener"
-                    target="_blank"
-                    >+54 9 2944 646730</a
-                  >
-                </p>
-              </li>
-              <li>
-                <p>
-                  <strong>Email:</strong>
-                  <a href="mailto:consultas@proshopaventura.com"
-                    >consultas@proshopaventura.com</a
-                  >
-                </p>
-              </li>
+              <li><p><strong>¿Dónde estamos?</strong><br />Av. Arrayanes 173<br />Villa La Angostura, Neuquén</p></li>
+              <li><p><strong>Whatsapp:</strong> <a href="https://wa.me/5492944646730" rel="noopener" target="_blank">+54 9 2944 646730</a></p></li>
+              <li><p><strong>Email:</strong> <a href="mailto:consultas@proshopaventura.com">consultas@proshopaventura.com</a></p></li>
             </ul>
           </div>
         </div>
@@ -1323,23 +562,8 @@
           <p class="footer-credit">Rental Ski and Snow</p>
           <ul class="redes">
             <li>
-              <a
-                href="https://www.instagram.com/proshop.aventura/"
-                rel="noopener"
-                target="_blank"
-                aria-label="Instagram"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
+              <a href="https://www.instagram.com/proshop.aventura/" rel="noopener" target="_blank" aria-label="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
                   <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
                   <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
@@ -1348,26 +572,9 @@
               </a>
             </li>
             <li>
-              <a
-                href="https://www.facebook.com"
-                rel="noopener"
-                target="_blank"
-                aria-label="Facebook"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path
-                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
-                  />
+              <a href="https://www.facebook.com" rel="noopener" target="_blank" aria-label="Facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
                 </svg>
                 Facebook
               </a>
