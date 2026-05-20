@@ -2,10 +2,10 @@
   "name": "web-rental-pro-shop",
   "version": "1.0.0",
   "description": "Servidor backend para Rental Pro Shop - envío de reservas por email",
-  "main": "index.js",
+  "main": "server/server.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "start": "node server/server.js",
+    "dev": "nodemon server/server.js"
   },
   "keywords": [],
   "author": "",

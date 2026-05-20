@@ -466,15 +466,15 @@ document.addEventListener("DOMContentLoaded", () => {
               <label>Altura (cm)</label>
               <select onchange="actualizarEsq(${i}, 'altura', this.value)">
                 <option value="">Seleccioná</option>
-                ${[100,110,120,125,130,135,140,145,150,155,160,165,170,175,180,185,190]
+                ${[100,105,110,115,120,125,130,135,140,145,150,155,160,165,170,175,180,185,190]
                   .map(h => `<option value="${h}" ${esq.altura == h ? "selected" : ""}>${h} cm</option>`).join("")}
               </select>
             </div>
             <div class="campo">
-              <label>Talle bota EU</label>
+              <label>Talle bota AR</label>
               <select onchange="actualizarEsq(${i}, 'talleBota', this.value)">
                 <option value="">Seleccioná</option>
-                ${[28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45]
+                ${[36,37,38,39,40,41,42,43,44,45,46,47,48]
                   .map(t => `<option value="${t}" ${esq.talleBota == t ? "selected" : ""}>${t}</option>`).join("")}
               </select>
             </div>
