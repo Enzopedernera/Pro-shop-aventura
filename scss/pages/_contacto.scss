@@ -204,3 +204,23 @@
     }
   }
 }
+// ── BOTÓN WHATSAPP EN CONTACTO (nuevo) ────────
+.contacto-wa-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #25d366;
+  color: #ffffff;
+  padding: 14px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 16px 0;
+  transition: background 0.2s, transform 0.15s;
+  width: fit-content;
+
+  &:hover {
+    background: #1da851;
+    transform: translateY(-1px);
+  }
+}

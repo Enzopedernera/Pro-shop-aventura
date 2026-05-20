@@ -1,5 +1,5 @@
 // =============================================
-// HEADER
+// HEADER — Rental Pro Shop
 // =============================================
 @use "../base/variables" as *;
 
@@ -18,7 +18,7 @@
   .barra-track {
     display: flex;
     width: max-content;
-    animation: scrollBarra 20s linear infinite;
+    animation: scrollBarra 28s linear infinite;
 
     &:hover {
       animation-play-state: paused;
@@ -43,61 +43,52 @@
   100% { transform: translateX(-50%); }
 }
 
+// ── HEADER PRINCIPAL ──
 .header {
   position: fixed;
   top: 34px;
   left: 0;
   width: 100%;
-  height: $header-height;
   background: $blanco;
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(245, 243, 243, 0.15);
+  height: $header-height;
+  display: flex;
+  align-items: center;
 }
 
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100%;
-  padding: 0 40px;
-  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  gap: 16px;
 }
 
-// Logo
-.logo {
-  flex-shrink: 0;
-
-  img {
-    height: 55px;
-    width: auto;
-    display: block;
-  }
+.logo img {
+  display: block;
+  height: 65px;
+  width: auto;
 }
 
-// Título central
-// .titulo {
-//   font-size: 18px;
-//   font-weight: 500;
-//   color: $negro;
-//   white-space: nowrap;
-// }
-
-// Menú
+// ── MENÚ ──
 .menu {
   display: flex;
   align-items: center;
-  gap: 8px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  gap: 4px;
+  margin-left: auto;
 
-  a {
-    color: $negro;
-    font-size: 14px;
-    font-weight: 500;
-    padding: 6px 12px;
+  li a {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    padding: 8px 14px;
     border-radius: $radius-sm;
-    transition: background 0.2s ease;
+    transition: background 0.2s, color 0.2s;
+    color: $negro;
 
     &:hover {
       background: $azul;
@@ -106,75 +97,68 @@
   }
 }
 
-// Hamburguesa — oculta en desktop
+// ── HAMBURGUESA ──
 .hamburguesa {
   display: none;
   flex-direction: column;
   gap: 5px;
-  cursor: pointer;
-  padding: 4px;
   background: none;
   border: none;
-  flex-shrink: 0;
+  padding: 8px;
+  cursor: pointer;
+  margin-left: auto;
 
   span {
     display: block;
-    width: 25px;
-    height: 3px;
-    background: $negro;
-    border-radius: 3px;
-    transition: all 0.3s ease;
+    width: 24px;
+    height: 2px;
+    background: $blanco;
+    border-radius: 2px;
+    transition: all 0.3s;
   }
 }
 
-// ── RESPONSIVE MOBILE ─────────────────────────
-@media (max-width: $bp-tablet) {
-  .navbar {
-    padding: 0 20px;
-  }
+// ── OVERLAY ──
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
 
-  .titulo {
-    display: none;
+  &.active {
+    display: block;
   }
+}
 
+// ── RESPONSIVE HEADER ──
+@media (max-width: $bp-desktop) {
   .hamburguesa {
     display: flex;
   }
 
   .menu {
-    display: none;
-    position: absolute;
-    top: $header-height;
-    left: 0;
-    width: 100%;
-    background: $blanco;
+    position: fixed;
+    top: 104px;
+    right: -100%;
     flex-direction: column;
-    align-items: center;
-    padding: 10px 0;
-    gap: 0;
-    z-index: 999;
+    background: $negro;
+    width: 260px;
+    height: calc(100vh - 104px);
+    padding: 24px 16px;
+    gap: 4px;
+    transition: right 0.3s ease;
+    z-index: 1000;
+    margin-left: 0;
 
     &.active {
-      display: flex;
+      right: 0;
     }
 
-    li {
-      width: 100%;
-      text-align: center;
-    }
-
-    a {
+    li a {
       display: block;
-      padding: 14px 0;
-      border-radius: 0;
-      width: 100%;
-
-      &:hover {
-        background:$azul;
-        transition: background 0.5s ease;
-        color: $blanco;
-        
-      }
+      font-size: 15px;
+      padding: 12px 16px;
     }
   }
 }

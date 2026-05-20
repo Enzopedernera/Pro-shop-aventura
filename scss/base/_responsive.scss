@@ -1,5 +1,5 @@
 // =============================================
-// RESPONSIVE GLOBAL
+// RESPONSIVE GLOBAL — Rental Pro Shop
 // =============================================
 @use "variables" as *;
 
@@ -8,12 +8,45 @@
   .grid-servicios {
     grid-template-columns: repeat(2, 1fr);
   }
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 // ── 768px — TABLET ────────────────────────────
 @media (max-width: $bp-tablet) {
   .contacto-container {
     grid-template-columns: 1fr;
+  }
+
+  .pasos-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .paso-flecha {
+    display: none;
+  }
+
+  .cta-reserva-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .testimonios-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .ubicacion-inner {
+    grid-template-columns: 1fr !important;
+  }
+
+  .packs-grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin: 0 auto;
   }
 }
 
@@ -30,11 +63,19 @@
   .producto img {
     height: 160px;
   }
+
+  .fechas-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 // ── 500px — MOBILE CHICO ──────────────────────
 @media (max-width: $bp-mobile) {
   .grid-servicios {
+    grid-template-columns: 1fr;
+  }
+
+  .trust-grid {
     grid-template-columns: 1fr;
   }
 
@@ -46,5 +87,20 @@
     h3 {
       font-size: 16px;
     }
+  }
+
+  .marcas-logos {
+    gap: 20px;
+  }
+
+  .marca-nombre {
+    font-size: 15px !important;
+  }
+
+  .whatsapp-flotante {
+    bottom: 16px;
+    right: 16px;
+    width: 52px;
+    height: 52px;
   }
 }

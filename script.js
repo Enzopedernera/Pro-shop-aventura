@@ -1,5 +1,10 @@
 // =============================================
-// CARRITO — Rental Pro Shop
+// SCRIPT — Rental Pro Shop
+// Versión mejorada con:
+//   - Selector de fechas en home → pasa fechas al checkout
+//   - WhatsApp flotante con tooltip
+//   - FAQ accordion nativo (usa <details>, no necesita JS)
+//   - Todas las funciones originales preservadas
 // =============================================
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
@@ -142,6 +147,7 @@ function renderCarrito() {
   totalSpan.textContent = formatearPrecio(total);
 }
 
+// ── FILTROS DE PRODUCTOS ───────────────────────
 function filtrarProductos(categoria, botonActivo) {
   document.querySelectorAll(".producto").forEach((producto) => {
     const cat = producto.dataset.categoria;
@@ -155,7 +161,58 @@ function filtrarProductos(categoria, botonActivo) {
   }
 }
 
-// ── INIT ──────────────────────────────────────
+// ── SELECTOR DE FECHAS EN HOME ────────────────
+function initSelectorFechas() {
+  const fechaLlegada = document.getElementById("fechaLlegada");
+  const fechaSalida = document.getElementById("fechaSalida");
+  const cantPersonas = document.getElementById("cantPersonas");
+  const btnBuscar = document.getElementById("btnBuscarEquipos");
+
+  if (!fechaLlegada || !btnBuscar) return;
+
+  // Fecha mínima = hoy
+  const hoy = new Date().toISOString().split("T")[0];
+  fechaLlegada.min = hoy;
+  fechaSalida.min = hoy;
+
+  // Cuando cambia fecha llegada, actualizar mínimo en fecha salida
+  fechaLlegada.addEventListener("change", () => {
+    if (fechaSalida) {
+      fechaSalida.min = fechaLlegada.value;
+      if (fechaSalida.value && fechaSalida.value <= fechaLlegada.value) {
+        fechaSalida.value = "";
+      }
+    }
+  });
+
+  // Al hacer clic en buscar, guardar fechas y redirigir
+  btnBuscar.addEventListener("click", (e) => {
+    e.preventDefault();
+    const llegada = fechaLlegada.value;
+    const salida = fechaSalida.value;
+    const personas = cantPersonas ? cantPersonas.value : "1";
+
+    // Guardar en localStorage para pre-completar el checkout
+    if (llegada) localStorage.setItem("fechaLlegada", llegada);
+    if (salida) localStorage.setItem("fechaSalida", salida);
+    if (personas) localStorage.setItem("cantPersonas", personas);
+
+    window.location.href = "./page/checkout.html";
+  });
+}
+
+// ── INIT CHECKOUT CON FECHAS PRE-CARGADAS ────
+function initFechasCheckout() {
+  const listaEsquiadores = document.getElementById("listaEsquiadores");
+  if (!listaEsquiadores) return;
+
+  // Se pre-cargan al renderizar cada esquiador
+  window._fechaInicioPrecargada = localStorage.getItem("fechaLlegada") || "";
+  window._fechaFinPrecargada = localStorage.getItem("fechaSalida") || "";
+  window._cantPersonasPrecargada = localStorage.getItem("cantPersonas") || "1";
+}
+
+// ── INIT PRINCIPAL ─────────────────────────────
 document.addEventListener("DOMContentLoaded", () => {
 
   // Panel carrito
@@ -228,6 +285,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Selector de fechas en home
+  initSelectorFechas();
+
+  // Pre-carga de fechas en checkout
+  initFechasCheckout();
+
   // Formulario CONTACTO
   const formContacto = document.getElementById("formContacto");
   if (formContacto) {
@@ -236,6 +299,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const formData = new FormData(this);
       const btnSubmit = formContacto.querySelector("button[type='submit']");
+      const textoOriginal = btnSubmit.textContent;
       btnSubmit.textContent = "Enviando...";
       btnSubmit.disabled = true;
 
@@ -263,13 +327,13 @@ document.addEventListener("DOMContentLoaded", () => {
         alert("❌ No se pudo conectar con el servidor. Intentá de nuevo.");
         console.error(error);
       } finally {
-        btnSubmit.textContent = "Enviar mensaje";
+        btnSubmit.textContent = textoOriginal;
         btnSubmit.disabled = false;
       }
     });
   }
 
-  // ── CHECKOUT ──────────────────────────────
+  // ── CHECKOUT ──────────────────────────────────
   const listaEsquiadores = document.getElementById("listaEsquiadores");
   if (listaEsquiadores) {
 
@@ -312,7 +376,15 @@ document.addEventListener("DOMContentLoaded", () => {
       return d > 0 ? d : 0;
     }
 
-    let cantEsq = 1;
+    // Leer fechas pre-cargadas desde home
+    const fechaInicioDefault = window._fechaInicioPrecargada || "";
+    const fechaFinDefault = window._fechaFinPrecargada || "";
+    const cantPersonasDefault = parseInt(window._cantPersonasPrecargada || "1", 10);
+
+    let cantEsq = Math.min(cantPersonasDefault, 10) || 1;
+    const numEsqEl = document.getElementById("numEsq");
+    if (numEsqEl) numEsqEl.textContent = cantEsq;
+
     let esquiadores = [];
 
     document.getElementById("btnMasEsq")?.addEventListener("click", () => {
@@ -335,7 +407,8 @@ document.addEventListener("DOMContentLoaded", () => {
       return {
         nombre: "", edad: "adulto", tipo: "ski",
         altura: "", talleBota: "",
-        fecha_inicio: "", fecha_fin: "",
+        fecha_inicio: fechaInicioDefault,
+        fecha_fin: fechaFinDefault,
         casco: false, talleCasco: "M",
         antiparras: false, talleAntiparras: "M",
         guantes: false, talleGuantes: "M",
@@ -623,7 +696,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (totalReservaEl) totalReservaEl.textContent = `$${formatearPrecio(totalGeneral)}`;
     }
 
-    // Submit
+    // Submit reserva
     const formReservaCheckout = document.getElementById("formReserva");
     if (formReservaCheckout) {
       formReservaCheckout.addEventListener("submit", async function(e) {
@@ -673,6 +746,11 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             if (exito) exito.style.display = "flex";
+
+            // Limpiar fechas guardadas
+            localStorage.removeItem("fechaLlegada");
+            localStorage.removeItem("fechaSalida");
+            localStorage.removeItem("cantPersonas");
             localStorage.removeItem("carrito");
             carrito = [];
 
