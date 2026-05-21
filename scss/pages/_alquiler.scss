@@ -603,7 +603,8 @@
   margin: 0 auto;
   padding: 0 24px 40px;
 
-  @media (max-width: 900px) {
+    @media (max-width: 1024px) {  
     grid-template-columns: 1fr;
+    padding: 0 16px 40px;
   }
 }

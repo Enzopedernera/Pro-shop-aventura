@@ -7,10 +7,6 @@
   padding: 0;
 }
 
-html {
-  overflow-x: hidden;
-}
-
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
@@ -144,7 +140,6 @@ textarea {
   width: 100%;
   z-index: 1001;
   overflow: hidden;
-  max-width: 100vw;
 }
 .barra-descuento .barra-track {
   display: flex;
@@ -2844,9 +2839,10 @@ textarea {
   margin: 0 auto;
   padding: 0 24px 40px;
 }
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .tablas-grid {
     grid-template-columns: 1fr;
+    padding: 0 16px 40px;
   }
 }
 
