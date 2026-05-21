@@ -70,7 +70,7 @@ textarea {
   .paso-flecha {
     display: none;
   }
-  .cta-reserva-inner {
+  .-inner {
     flex-direction: column;
     text-align: center;
   }
@@ -138,6 +138,7 @@ textarea {
   width: 100%;
   z-index: 1001;
   overflow: hidden;
+  max-width: 100vw;
 }
 .barra-descuento .barra-track {
   display: flex;
@@ -177,6 +178,7 @@ textarea {
   height: 70px;
   display: flex;
   align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .navbar {
@@ -231,7 +233,7 @@ textarea {
   display: block;
   width: 24px;
   height: 2px;
-  background: #ffffff;
+  background: #111111;
   border-radius: 2px;
   transition: all 0.3s;
 }
@@ -256,7 +258,7 @@ textarea {
     top: 104px;
     right: -100%;
     flex-direction: column;
-    background: #111111;
+    background: #ffffff;
     width: 260px;
     height: calc(100vh - 104px);
     padding: 24px 16px;
@@ -272,6 +274,11 @@ textarea {
     display: block;
     font-size: 15px;
     padding: 12px 16px;
+    color: #111111 !important;
+  }
+  .menu li a:hover {
+    background: #1b35c4;
+    color: #ffffff;
   }
 }
 .footer {
@@ -1516,36 +1523,57 @@ textarea {
 }
 
 .marcas-section {
-  background: #111111;
-  padding: 40px 24px;
+  padding: 32px 16px;
   text-align: center;
 }
 .marcas-section h2 {
-  font-size: 16px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.5);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 24px;
-}
-.marcas-section .marcas-logos {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 32px;
-  flex-wrap: wrap;
-}
-.marcas-section .marca-nombre {
-  font-size: 20px;
+  font-size: 32px;
   font-weight: 800;
-  letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.4);
-  transition: color 0.2s;
-}
-.marcas-section .marca-nombre:hover {
-  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 8px;
+  color: #111111;
 }
 
+.marcas-track-wrapper {
+  overflow: hidden;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.marcas-track {
+  display: flex;
+  align-items: center;
+  width: -moz-max-content;
+  width: max-content;
+  animation: scrollMarcas 30s linear infinite;
+}
+.marcas-track:hover {
+  animation-play-state: paused;
+}
+
+.marca-logo {
+  height: 40px;
+  width: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+  padding: 0 32px;
+  filter: grayscale(100%);
+  opacity: 0.6;
+  transition: filter 0.3s, opacity 0.3s;
+}
+.marca-logo:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+@keyframes scrollMarcas {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 .ubicacion-section {
   background: #f5f7fa;
   padding: 60px 24px;
@@ -1700,6 +1728,8 @@ textarea {
 .cta-reserva-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  background-color: #22c55e;
+  color: #ffffff;
 }
 @media (max-width: 768px) {
   .cta-reserva-inner {
@@ -2798,6 +2828,20 @@ textarea {
   color: #ffffff;
 }
 
+.tablas-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px 40px;
+}
+@media (max-width: 900px) {
+  .tablas-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .checkout-main {
   padding: 32px 16px;
   background: #f5f7fa;
@@ -3159,7 +3203,6 @@ textarea {
   justify-content: center;
   z-index: 2000;
   padding: 20px;
-  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
 }
 

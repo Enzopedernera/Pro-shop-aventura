@@ -3,15 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-     <meta name="color-scheme" content="light"> 
-    <meta name="description" content="Confirmá tu reserva de equipos de ski y snowboard en Rental Pro Shop." />
+    <meta name="color-scheme" content="light" />
+    <meta
+      name="description"
+      content="Confirmá tu reserva de equipos de ski y snowboard en Rental Pro Shop."
+    />
     <title>Confirmar Reserva — Rental Pro Shop</title>
     <link rel="icon" href="../img/logo.png" />
     <link rel="stylesheet" href="../css/styles.css" />
   </head>
   <body>
     <!-- BARRA DESCUENTO -->
-     <div class="barra-descuento">
+    <div class="barra-descuento">
       <div class="barra-track">
         <span
           >🎿 <strong>20% OFF</strong> abonando en efectivo &nbsp;|&nbsp;
@@ -36,15 +39,24 @@
       </div>
     </div>
 
-
     <header class="header">
       <nav class="navbar">
         <div class="logo">
           <a href="../index.html">
-            <img src="../img/home/logo1.webp" alt="Rental Pro Shop" width="120" height="60" />
+            <img
+              src="../img/home/logo1.webp"
+              alt="Rental Pro Shop"
+              width="120"
+              height="60"
+            />
           </a>
         </div>
-        <button class="hamburguesa" id="hamburguesa" aria-label="Abrir menú" aria-expanded="false">
+        <button
+          class="hamburguesa"
+          id="hamburguesa"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+        >
           <span></span><span></span><span></span>
         </button>
         <ul class="menu" id="menu">
@@ -68,10 +80,8 @@
 
     <main class="checkout-main">
       <div class="checkout-container">
-
         <!-- COLUMNA IZQUIERDA -->
         <div class="checkout-form-col">
-
           <!-- PASO 1 — DATOS CLIENTE -->
           <div class="checkout-card">
             <div class="checkout-card-header">
@@ -82,19 +92,41 @@
               <div class="checkout-grid">
                 <div class="campo">
                   <label for="nombre">Nombre y apellido *</label>
-                  <input type="text" id="nombre" name="nombre" required placeholder="Juan Pérez" />
+                  <input
+                    type="text"
+                    id="nombre"
+                    name="nombre"
+                    required
+                    placeholder="Juan Pérez"
+                  />
                 </div>
                 <div class="campo">
                   <label for="email">Email *</label>
-                  <input type="email" id="email" name="email" required placeholder="juan@email.com" />
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    placeholder="juan@email.com"
+                  />
                 </div>
                 <div class="campo">
                   <label for="dni">DNI</label>
-                  <input type="text" id="dni" name="dni" placeholder="12.345.678" />
+                  <input
+                    type="text"
+                    id="dni"
+                    name="dni"
+                    placeholder="12.345.678"
+                  />
                 </div>
                 <div class="campo">
                   <label for="telefono">Teléfono</label>
-                  <input type="tel" id="telefono" name="telefono" placeholder="+54 9 294 000 0000" />
+                  <input
+                    type="tel"
+                    id="telefono"
+                    name="telefono"
+                    placeholder="+54 9 294 000 0000"
+                  />
                 </div>
               </div>
             </form>
@@ -131,10 +163,14 @@
             </div>
             <div class="campo">
               <label for="notas">Comentarios o pedidos especiales</label>
-              <textarea id="notas" name="notas" form="formReserva" placeholder="Ej: primera vez en nieve, necesito equipos para zurdo..."></textarea>
+              <textarea
+                id="notas"
+                name="notas"
+                form="formReserva"
+                placeholder="Ej: primera vez en nieve, necesito equipos para zurdo..."
+              ></textarea>
             </div>
           </div>
-
         </div>
 
         <!-- COLUMNA DERECHA — RESUMEN -->
@@ -161,31 +197,46 @@
             <div class="hts-privacy-agree">
               <label>
                 <input type="checkbox" id="checkPrivacidad" />
-                Acepté los <a href="./privacidad.html?from=checkout">Términos y condiciones</a> y la <a href="./privacidad.html?from=checkout">Política de privacidad</a>.
+                Acepté los
+                <a href="./privacidad.html?from=checkout"
+                  >Términos y condiciones</a
+                >
+                y la
+                <a href="./privacidad.html?from=checkout"
+                  >Política de privacidad</a
+                >.
               </label>
             </div>
 
-            <button type="submit" form="formReserva" id="btnConfirmar" class="btn checkout-btn-confirmar">
+            <button
+              type="submit"
+              form="formReserva"
+              id="btnConfirmar"
+              class="btn checkout-btn-confirmar"
+            >
               Confirmar reserva →
             </button>
 
-            <a href="./alquiler.html" class="checkout-volver">← Volver y modificar</a>
+            <a href="./alquiler.html" class="checkout-volver"
+              >← Volver y modificar</a
+            >
           </div>
         </div>
-
       </div>
 
       <!-- MENSAJE ÉXITO -->
-      <div class="checkout-exito" id="checkoutExito" style="display:none">
+      <div class="checkout-exito" id="checkoutExito" style="display: none">
         <div class="checkout-exito-inner">
           <div class="checkout-exito-icon">✓</div>
           <h2>¡Reserva confirmada!</h2>
-          <p>Enviamos la confirmación a tu email. Nos contactaremos a la brevedad para confirmar disponibilidad.</p>
+          <p>
+            Enviamos la confirmación a tu email. Nos contactaremos a la brevedad
+            para confirmar disponibilidad.
+          </p>
           <div class="checkout-exito-info" id="checkoutExitoInfo"></div>
           <a href="../index.html" class="btn">Volver al inicio</a>
         </div>
       </div>
-
     </main>
 
     <footer class="footer">
@@ -193,7 +244,10 @@
         <div class="footer-grid">
           <div class="footer-one">
             <h3>Rental Pro Shop Aventura</h3>
-            <p>Somos el local con mayor variedad de Villa La Angostura. Artículos de pesca, camping, náutica, ski, snowboard y mucho más.</p>
+            <p>
+              Somos el local con mayor variedad de Villa La Angostura. Artículos
+              de pesca, camping, náutica, ski, snowboard y mucho más.
+            </p>
           </div>
           <div class="footer-two">
             <h3>Accesos directos</h3>
@@ -207,26 +261,60 @@
           <div class="footer-three">
             <h3>Sitios de interés</h3>
             <ul>
-              <li><a href="https://www.cerrobayo.com.ar/montana/mapa/" target="_blank" rel="noopener">Mapa de pistas — Cerro Bayo</a></li>
-              <li><a href="https://www.accuweather.com/es/ar/villa-la-angostura/1227987/weather-forecast/1227987" target="_blank" rel="noopener">Clima en Cerro Bayo</a></li>
-              <li><a href="https://www.villalaangosturaturismo.gob.ar/" target="_blank" rel="noopener">Conocé Villa La Angostura</a></li>
+              <li>
+                <a
+                  href="https://www.cerrobayo.com.ar/montana/mapa/"
+                  target="_blank"
+                  rel="noopener"
+                  >Mapa de pistas — Cerro Bayo</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://es.snow-forecast.com/resorts/Cerro-Bayo/6day/mid"
+                  target="_blank"
+                  rel="noopener"
+                  >Clima en Cerro Bayo</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.villalaangosturaturismo.gob.ar/"
+                  target="_blank"
+                  rel="noopener"
+                  >Conocé Villa La Angostura</a
+                >
+              </li>
             </ul>
           </div>
           <div class="footer-four">
             <h3>Contactanos</h3>
             <ul class="contact-us">
               <li>
-                <p><strong>¿Dónde estamos?</strong><br />
-                Av. Arrayanes 173<br />
-                Villa La Angostura, Neuquén</p>
+                <p>
+                  <strong>¿Dónde estamos?</strong><br />
+                  Av. Arrayanes 173<br />
+                  Villa La Angostura, Neuquén
+                </p>
               </li>
               <li>
-                <p><strong>Whatsapp:</strong>
-                <a href="https://wa.me/5492944646730" rel="noopener" target="_blank">+54 9 2944 646730</a></p>
+                <p>
+                  <strong>Whatsapp:</strong>
+                  <a
+                    href="https://wa.me/5492944646730"
+                    rel="noopener"
+                    target="_blank"
+                    >+54 9 2944 646730</a
+                  >
+                </p>
               </li>
               <li>
-                <p><strong>Email:</strong>
-                <a href="mailto:consultas@proshopaventura.com">consultas@proshopaventura.com</a></p>
+                <p>
+                  <strong>Email:</strong>
+                  <a href="mailto:consultas@proshopaventura.com"
+                    >consultas@proshopaventura.com</a
+                  >
+                </p>
               </li>
             </ul>
           </div>
@@ -236,17 +324,51 @@
           <p class="footer-credit">Rental Ski and Snow</p>
           <ul class="redes">
             <li>
-              <a href="https://www.instagram.com/proshop.aventura/" rel="noopener" target="_blank" aria-label="Instagram">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              <a
+                href="https://www.instagram.com/proshop.aventura/"
+                rel="noopener"
+                target="_blank"
+                aria-label="Instagram"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
                 </svg>
                 Instagram
               </a>
             </li>
             <li>
-              <a href="https://www.facebook.com" rel="noopener" target="_blank" aria-label="Facebook">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+              <a
+                href="https://www.facebook.com"
+                rel="noopener"
+                target="_blank"
+                aria-label="Facebook"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                  />
                 </svg>
                 Facebook
               </a>

@@ -23,7 +23,9 @@ function actualizarContador() {
 }
 
 function agregarAlCarrito(nombre, precio, medida = "") {
-  const existe = carrito.find(item => item.nombre === nombre && item.medida === medida);
+  const existe = carrito.find(
+    (item) => item.nombre === nombre && item.medida === medida,
+  );
   if (existe) {
     existe.cantidad++;
   } else {
@@ -80,7 +82,8 @@ function renderCarrito() {
 
   if (carrito.length === 0) {
     const vacio = document.createElement("p");
-    vacio.style.cssText = "color:#999;font-size:14px;text-align:center;padding:30px 0";
+    vacio.style.cssText =
+      "color:#999;font-size:14px;text-align:center;padding:30px 0";
     vacio.textContent = "Tu carrito está vacío 🛒";
     lista.appendChild(vacio);
     if (btnFinalizar) btnFinalizar.classList.add("disabled");
@@ -151,12 +154,18 @@ function renderCarrito() {
 function filtrarProductos(categoria, botonActivo) {
   document.querySelectorAll(".producto").forEach((producto) => {
     const cat = producto.dataset.categoria;
-    if (!cat) { producto.style.display = "flex"; return; }
-    producto.style.display = categoria === "todos" || cat === categoria ? "flex" : "none";
+    if (!cat) {
+      producto.style.display = "flex";
+      return;
+    }
+    producto.style.display =
+      categoria === "todos" || cat === categoria ? "flex" : "none";
   });
 
   if (botonActivo) {
-    document.querySelectorAll(".filtros button").forEach(btn => btn.classList.remove("activo"));
+    document
+      .querySelectorAll(".filtros button")
+      .forEach((btn) => btn.classList.remove("activo"));
     botonActivo.classList.add("activo");
   }
 }
@@ -214,7 +223,6 @@ function initFechasCheckout() {
 
 // ── INIT PRINCIPAL ─────────────────────────────
 document.addEventListener("DOMContentLoaded", () => {
-
   // Panel carrito
   const toggle = document.getElementById("toggleCarrito");
   const panel = document.getElementById("carritoPanel");
@@ -244,23 +252,32 @@ document.addEventListener("DOMContentLoaded", () => {
   // Botones .btn-agregar
   document.querySelectorAll(".btn-agregar").forEach((boton) => {
     boton.addEventListener("click", () => {
-      const contenedor = boton.closest(".producto") || boton.closest(".detalle-info");
+      const contenedor =
+        boton.closest(".producto") || boton.closest(".detalle-info");
       if (!contenedor) return;
 
-      let nombre, precio, medida = "";
+      let nombre,
+        precio,
+        medida = "";
 
       if (contenedor.classList.contains("producto")) {
         nombre = contenedor.dataset.nombre;
         precio = parseFloat(contenedor.dataset.precio);
         const selectMedida = contenedor.querySelector(".medida");
         medida = selectMedida ? selectMedida.value : "";
-        if (selectMedida && !medida) { alert("Seleccioná una medida"); return; }
+        if (selectMedida && !medida) {
+          alert("Seleccioná una medida");
+          return;
+        }
       } else {
         nombre = boton.dataset.nombre;
         precio = parseFloat(boton.dataset.precio);
         const selectMedida = contenedor.querySelector(".medida");
         medida = selectMedida ? selectMedida.value : "";
-        if (selectMedida && !medida) { alert("Seleccioná una medida"); return; }
+        if (selectMedida && !medida) {
+          alert("Seleccioná una medida");
+          return;
+        }
       }
 
       agregarAlCarrito(nombre, precio, medida);
@@ -318,7 +335,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const data = await response.json();
 
         if (data.ok) {
-          alert("✅ Mensaje enviado correctamente. Te responderemos a la brevedad.");
+          alert(
+            "✅ Mensaje enviado correctamente. Te responderemos a la brevedad.",
+          );
           this.reset();
         } else {
           alert("❌ Error al enviar el mensaje. Intentá de nuevo.");
@@ -336,22 +355,105 @@ document.addEventListener("DOMContentLoaded", () => {
   // ── CHECKOUT ──────────────────────────────────
   const listaEsquiadores = document.getElementById("listaEsquiadores");
   if (listaEsquiadores) {
-
     const TABLA_PRECIOS = {
-      ski_adulto:      { 1: 55000,  3: 141000, 4: 179000, 5: 212000, 6: 241000, 7: 267000 },
-      ski_junior:      { 1: 43000,  3: 110000, 4: 140000, 5: 166000, 6: 188000, 7: 208000 },
-      snow_adulto:     { 1: 58000,  3: 149000, 4: 189000, 5: 224000, 6: 254000, 7: 281000 },
-      snow_junior:     { 1: 44000,  3: 113000, 4: 143000, 5: 170000, 6: 193000, 7: 213000 },
-      casco:           { 1: 19000,  3: 49000,  4: 62000,  5: 73000,  6: 83000,  7: 92000  },
-      antiparras:      { 1: 27000,  3: 69000,  4: 88000,  5: 104000, 6: 118000, 7: 131000 },
-      guantes:         { 1: 13000,  3: 33000,  4: 42000,  5: 50000,  6: 57000,  7: 63000  },
-      botas_preski:    { 1: 15000,  3: 38000,  4: 48000,  5: 58000,  6: 65500,  7: 73000  },
-      campera_adulto:  { 1: 23000,  3: 61000,  4: 78000,  5: 92000,  6: 105000, 7: 116000 },
-      campera_nino:    { 1: 17000,  3: 45000,  4: 58000,  5: 69000,  6: 79000,  7: 87000  },
-      pantalon_adulto: { 1: 20000,  3: 53000,  4: 78000,  5: 92000,  6: 105000, 7: 116000 },
-      pantalon_nino:   { 1: 14000,  3: 38000,  4: 48000,  5: 58000,  6: 66000,  7: 74000  },
-      combo_adulto:    { 1: 39000,  3: 103000, 4: 131000, 5: 156000, 6: 177000, 7: 196000 },
-      combo_nino:      { 1: 29000,  3: 76000,  4: 97000,  5: 115000, 6: 131000, 7: 145000 },
+      ski_adulto: {
+        1: 55000,
+        3: 141000,
+        4: 179000,
+        5: 212000,
+        6: 241000,
+        7: 267000,
+      },
+      ski_junior: {
+        1: 43000,
+        3: 110000,
+        4: 140000,
+        5: 166000,
+        6: 188000,
+        7: 208000,
+      },
+      snow_adulto: {
+        1: 58000,
+        3: 149000,
+        4: 189000,
+        5: 224000,
+        6: 254000,
+        7: 281000,
+      },
+      snow_junior: {
+        1: 44000,
+        3: 113000,
+        4: 143000,
+        5: 170000,
+        6: 193000,
+        7: 213000,
+      },
+      casco: { 1: 19000, 3: 49000, 4: 62000, 5: 73000, 6: 83000, 7: 92000 },
+      antiparras: {
+        1: 27000,
+        3: 69000,
+        4: 88000,
+        5: 104000,
+        6: 118000,
+        7: 131000,
+      },
+      guantes: { 1: 13000, 3: 33000, 4: 42000, 5: 50000, 6: 57000, 7: 63000 },
+      botas_preski: {
+        1: 15000,
+        3: 38000,
+        4: 48000,
+        5: 58000,
+        6: 65500,
+        7: 73000,
+      },
+      campera_adulto: {
+        1: 23000,
+        3: 61000,
+        4: 78000,
+        5: 92000,
+        6: 105000,
+        7: 116000,
+      },
+      campera_nino: {
+        1: 17000,
+        3: 45000,
+        4: 58000,
+        5: 69000,
+        6: 79000,
+        7: 87000,
+      },
+      pantalon_adulto: {
+        1: 20000,
+        3: 53000,
+        4: 78000,
+        5: 92000,
+        6: 105000,
+        7: 116000,
+      },
+      pantalon_nino: {
+        1: 14000,
+        3: 38000,
+        4: 48000,
+        5: 58000,
+        6: 66000,
+        7: 74000,
+      },
+      combo_adulto: {
+        1: 39000,
+        3: 103000,
+        4: 131000,
+        5: 156000,
+        6: 177000,
+        7: 196000,
+      },
+      combo_nino: {
+        1: 29000,
+        3: 76000,
+        4: 97000,
+        5: 115000,
+        6: 131000,
+        7: 145000,
+      },
     };
 
     function getPrecio(equipo, d) {
@@ -379,7 +481,10 @@ document.addEventListener("DOMContentLoaded", () => {
     // Leer fechas pre-cargadas desde home
     const fechaInicioDefault = window._fechaInicioPrecargada || "";
     const fechaFinDefault = window._fechaFinPrecargada || "";
-    const cantPersonasDefault = parseInt(window._cantPersonasPrecargada || "1", 10);
+    const cantPersonasDefault = parseInt(
+      window._cantPersonasPrecargada || "1",
+      10,
+    );
 
     let cantEsq = Math.min(cantPersonasDefault, 10) || 1;
     const numEsqEl = document.getElementById("numEsq");
@@ -405,18 +510,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function esquiadorDefault() {
       return {
-        nombre: "", edad: "adulto", tipo: "ski",
-        altura: "", talleBota: "",
+        nombre: "",
+        edad: "adulto",
+        tipo: "ski",
+        altura: "",
+        talleBota: "",
         fecha_inicio: fechaInicioDefault,
         fecha_fin: fechaFinDefault,
-        casco: false, talleCasco: "M",
-        antiparras: false, talleAntiparras: "M",
-        guantes: false, talleGuantes: "M",
+        casco: false,
+        talleCasco: "M",
+        antiparras: false,
+        talleAntiparras: "M",
+        guantes: false,
+        talleGuantes: "M",
         botas_preski: false,
-        campera: false, talleCampera: "M",
-        pantalon_adulto: false, tallePantalon: "M",
+        campera: false,
+        talleCampera: "M",
+        pantalon_adulto: false,
+        tallePantalon: "M",
         combo_adulto: false,
-        pantalon_nino: false, tallePantalon_nino: "4",
+        pantalon_nino: false,
+        tallePantalon_nino: "4",
         combo_nino: false,
       };
     }
@@ -448,8 +562,8 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="campo">
               <label>Edad</label>
               <select onchange="actualizarEsq(${i}, 'edad', this.value)">
-                <option value="adulto" ${esq.edad === "adulto" ? "selected" : ""}>Adulto (15+ años)</option>
-                <option value="nino" ${esq.edad === "nino" ? "selected" : ""}>Niño (hasta 14 años)</option>
+                <option value="adulto" ${esq.edad === "adulto" ? "selected" : ""}>Adulto (12+ años)</option>
+                <option value="nino" ${esq.edad === "nino" ? "selected" : ""}>Niño (hasta 12 años)</option>
               </select>
             </div>
           </div>
@@ -466,16 +580,30 @@ document.addEventListener("DOMContentLoaded", () => {
               <label>Altura (cm)</label>
               <select onchange="actualizarEsq(${i}, 'altura', this.value)">
                 <option value="">Seleccioná</option>
-                ${[100,105,110,115,120,125,130,135,140,145,150,155,160,165,170,175,180,185,190]
-                  .map(h => `<option value="${h}" ${esq.altura == h ? "selected" : ""}>${h} cm</option>`).join("")}
+                ${[
+                  100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155,
+                  160, 165, 170, 175, 180, 185, 190,
+                ]
+                  .map(
+                    (h) =>
+                      `<option value="${h}" ${esq.altura == h ? "selected" : ""}>${h} cm</option>`,
+                  )
+                  .join("")}
               </select>
             </div>
             <div class="campo">
               <label>Talle bota AR</label>
               <select onchange="actualizarEsq(${i}, 'talleBota', this.value)">
                 <option value="">Seleccioná</option>
-                ${[36,37,38,39,40,41,42,43,44,45,46,47,48]
-                  .map(t => `<option value="${t}" ${esq.talleBota == t ? "selected" : ""}>${t}</option>`).join("")}
+                ${(esNino
+                  ? [26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38]
+                  : [36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48]
+                )
+                  .map(
+                    (t) =>
+                      `<option value="${t}" ${esq.talleBota == t ? "selected" : ""}>${t}</option>`,
+                  )
+                  .join("")}
               </select>
             </div>
           </div>
@@ -493,24 +621,39 @@ document.addEventListener("DOMContentLoaded", () => {
                 onchange="actualizarEsq(${i}, 'fecha_fin', this.value)" />
             </div>
           </div>
-          ${diasEsq > 0 ? `<div class="checkout-dias" style="display:flex;margin-bottom:10px;gap:8px">
+          ${
+            diasEsq > 0
+              ? `<div class="checkout-dias" style="display:flex;margin-bottom:10px;gap:8px">
             <span>📅</span><strong>${diasEsq}</strong>&nbsp;día/s de alquiler
-          </div>` : ""}
+          </div>`
+              : ""
+          }
 
           <div class="esq-section">Accesorios</div>
 
           <div class="accesorio-row">
-            <span class="acc-label">Casco</span>
-            <div class="acc-toggle">
-              <button type="button" class="${esq.casco ? "activo" : ""}"
-                onclick="actualizarEsq(${i}, 'casco', true)">Sí</button>
-              <button type="button" class="${!esq.casco ? "activo" : ""}"
-                onclick="actualizarEsq(${i}, 'casco', false)">No</button>
-            </div>
-            ${esq.casco ? `<select onchange="actualizarEsq(${i}, 'talleCasco', this.value)">
-              ${["S","M","L","XL"].map(t => `<option ${esq.talleCasco === t ? "selected" : ""}>${t}</option>`).join("")}
-            </select>` : ""}
-          </div>
+  <span class="acc-label">Casco</span>
+  ${
+    esNino
+      ? `<span style="color:#2e7d32;font-size:13px;font-weight:600">✅ Incluido en el pack</span>
+       <select onchange="actualizarEsq(${i}, 'talleCasco', this.value)">
+         ${["S", "M", "L", "XL"].map((t) => `<option ${esq.talleCasco === t ? "selected" : ""}>${t}</option>`).join("")}
+       </select>`
+      : `<div class="acc-toggle">
+         <button type="button" class="${esq.casco ? "activo" : ""}"
+           onclick="actualizarEsq(${i}, 'casco', true)">Sí</button>
+         <button type="button" class="${!esq.casco ? "activo" : ""}"
+           onclick="actualizarEsq(${i}, 'casco', false)">No</button>
+       </div>
+       ${
+         esq.casco
+           ? `<select onchange="actualizarEsq(${i}, 'talleCasco', this.value)">
+         ${["S", "M", "L", "XL"].map((t) => `<option ${esq.talleCasco === t ? "selected" : ""}>${t}</option>`).join("")}
+       </select>`
+           : ""
+       }`
+  }
+</div>
 
           <div class="accesorio-row">
             <span class="acc-label">Antiparras</span>
@@ -520,9 +663,13 @@ document.addEventListener("DOMContentLoaded", () => {
               <button type="button" class="${!esq.antiparras ? "activo" : ""}"
                 onclick="actualizarEsq(${i}, 'antiparras', false)">No</button>
             </div>
-            ${esq.antiparras ? `<select onchange="actualizarEsq(${i}, 'talleAntiparras', this.value)">
-              ${["S","M","L","XL"].map(t => `<option ${esq.talleAntiparras === t ? "selected" : ""}>${t}</option>`).join("")}
-            </select>` : ""}
+            ${
+              esq.antiparras
+                ? `<select onchange="actualizarEsq(${i}, 'talleAntiparras', this.value)">
+              ${["S", "M", "L", "XL"].map((t) => `<option ${esq.talleAntiparras === t ? "selected" : ""}>${t}</option>`).join("")}
+            </select>`
+                : ""
+            }
           </div>
 
           <div class="accesorio-row">
@@ -533,9 +680,13 @@ document.addEventListener("DOMContentLoaded", () => {
               <button type="button" class="${!esq.guantes ? "activo" : ""}"
                 onclick="actualizarEsq(${i}, 'guantes', false)">No</button>
             </div>
-            ${esq.guantes ? `<select onchange="actualizarEsq(${i}, 'talleGuantes', this.value)">
-              ${["S","M","L","XL"].map(t => `<option ${esq.talleGuantes === t ? "selected" : ""}>${t}</option>`).join("")}
-            </select>` : ""}
+            ${
+              esq.guantes
+                ? `<select onchange="actualizarEsq(${i}, 'talleGuantes', this.value)">
+              ${["S", "M", "L", "XL"].map((t) => `<option ${esq.talleGuantes === t ? "selected" : ""}>${t}</option>`).join("")}
+            </select>`
+                : ""
+            }
           </div>
 
           <div class="accesorio-row">
@@ -558,30 +709,38 @@ document.addEventListener("DOMContentLoaded", () => {
               <button type="button" class="${!esq.campera ? "activo" : ""}"
                 onclick="actualizarEsq(${i}, 'campera', false)">No</button>
             </div>
-            ${esq.campera ? `<select onchange="actualizarEsq(${i}, 'talleCampera', this.value)">
-              ${(esNino ? ["4","6","8","10","12","14"] : ["S","M","L","XL"]).map(t => `<option ${esq.talleCampera === t ? "selected" : ""}>${t}</option>`).join("")}
-            </select>` : ""}
+            ${
+              esq.campera
+                ? `<select onchange="actualizarEsq(${i}, 'talleCampera', this.value)">
+              ${(esNino ? ["4", "6", "8", "10", "12", "14"] : ["S", "M", "L", "XL"]).map((t) => `<option ${esq.talleCampera === t ? "selected" : ""}>${t}</option>`).join("")}
+            </select>`
+                : ""
+            }
           </div>
 
           <div class="accesorio-row">
             <span class="acc-label">Pantalón ${esNino ? "niño / Enterito" : "adulto"}</span>
             <div class="acc-toggle">
-              <button type="button" class="${esNino ? (esq.pantalon_nino ? "activo" : "") : (esq.pantalon_adulto ? "activo" : "")}"
+              <button type="button" class="${esNino ? (esq.pantalon_nino ? "activo" : "") : esq.pantalon_adulto ? "activo" : ""}"
                 onclick="actualizarEsq(${i}, '${esNino ? "pantalon_nino" : "pantalon_adulto"}', true)">Sí</button>
-              <button type="button" class="${esNino ? (!esq.pantalon_nino ? "activo" : "") : (!esq.pantalon_adulto ? "activo" : "")}"
+              <button type="button" class="${esNino ? (!esq.pantalon_nino ? "activo" : "") : !esq.pantalon_adulto ? "activo" : ""}"
                 onclick="actualizarEsq(${i}, '${esNino ? "pantalon_nino" : "pantalon_adulto"}', false)">No</button>
             </div>
-            ${(esNino ? esq.pantalon_nino : esq.pantalon_adulto) ? `<select onchange="actualizarEsq(${i}, '${esNino ? "tallePantalon_nino" : "tallePantalon"}', this.value)">
-              ${(esNino ? ["4","6","8","10","12","14"] : ["S","M","L","XL"]).map(t => `<option ${(esNino ? esq.tallePantalon_nino : esq.tallePantalon) === t ? "selected" : ""}>${t}</option>`).join("")}
-            </select>` : ""}
+            ${
+              (esNino ? esq.pantalon_nino : esq.pantalon_adulto)
+                ? `<select onchange="actualizarEsq(${i}, '${esNino ? "tallePantalon_nino" : "tallePantalon"}', this.value)">
+              ${(esNino ? ["4", "6", "8", "10", "12", "14"] : ["S", "M", "L", "XL"]).map((t) => `<option ${(esNino ? esq.tallePantalon_nino : esq.tallePantalon) === t ? "selected" : ""}>${t}</option>`).join("")}
+            </select>`
+                : ""
+            }
           </div>
 
           <div class="accesorio-row">
             <span class="acc-label">Campera + Pantalón ${esNino ? "niño" : "adulto"} (combo)</span>
             <div class="acc-toggle">
-              <button type="button" class="${esNino ? (esq.combo_nino ? "activo" : "") : (esq.combo_adulto ? "activo" : "")}"
+              <button type="button" class="${esNino ? (esq.combo_nino ? "activo" : "") : esq.combo_adulto ? "activo" : ""}"
                 onclick="actualizarEsq(${i}, '${esNino ? "combo_nino" : "combo_adulto"}', true)">Sí</button>
-              <button type="button" class="${esNino ? (!esq.combo_nino ? "activo" : "") : (!esq.combo_adulto ? "activo" : "")}"
+              <button type="button" class="${esNino ? (!esq.combo_nino ? "activo" : "") : !esq.combo_adulto ? "activo" : ""}"
                 onclick="actualizarEsq(${i}, '${esNino ? "combo_nino" : "combo_adulto"}', false)">No</button>
             </div>
           </div>
@@ -592,7 +751,7 @@ document.addEventListener("DOMContentLoaded", () => {
       actualizarResumen();
     }
 
-    window.actualizarEsq = function(i, campo, valor) {
+    window.actualizarEsq = function (i, campo, valor) {
       esquiadores[i][campo] = valor;
       renderEsquiadores();
     };
@@ -608,11 +767,12 @@ document.addEventListener("DOMContentLoaded", () => {
         total += getPrecio(esNino ? "snow_junior" : "snow_adulto", d);
       }
 
-      if (esq.casco) total += getPrecio("casco", d);
+      if (esq.casco && !esNino) total += getPrecio("casco", d);
       if (esq.antiparras) total += getPrecio("antiparras", d);
       if (esq.guantes) total += getPrecio("guantes", d);
       if (esq.botas_preski) total += getPrecio("botas_preski", d);
-      if (esq.campera) total += getPrecio(esNino ? "campera_nino" : "campera_adulto", d);
+      if (esq.campera)
+        total += getPrecio(esNino ? "campera_nino" : "campera_adulto", d);
       if (esq.pantalon_adulto) total += getPrecio("pantalon_adulto", d);
       if (esq.pantalon_nino) total += getPrecio("pantalon_nino", d);
       if (esq.combo_adulto) total += getPrecio("combo_adulto", d);
@@ -645,21 +805,63 @@ document.addEventListener("DOMContentLoaded", () => {
         grupo.appendChild(titulo);
 
         const items = [];
-        const packKey = esq.tipo === "ski" ? (esNino ? "ski_junior" : "ski_adulto") : (esNino ? "snow_junior" : "snow_adulto");
-        const packLabel = esq.tipo === "ski"
-          ? (esNino ? "Pack Ski Junior (ski + botas + bastones)" : "Pack Ski Adulto (ski + botas + bastones)")
-          : (esNino ? "Pack Snowboard Junior (tabla + botas)" : "Pack Snowboard Adulto (tabla + botas)");
+        const packKey =
+          esq.tipo === "ski"
+            ? esNino
+              ? "ski_junior"
+              : "ski_adulto"
+            : esNino
+              ? "snow_junior"
+              : "snow_adulto";
+        const packLabel =
+          esq.tipo === "ski"
+            ? esNino
+              ? "Pack Ski Junior (ski + botas + bastones)"
+              : "Pack Ski Adulto (ski + botas + bastones)"
+            : esNino
+              ? "Pack Snowboard Junior (tabla + botas)"
+              : "Pack Snowboard Adulto (tabla + botas)";
 
         items.push([packLabel, getPrecio(packKey, d)]);
-        if (esq.casco) items.push([`Casco talle ${esq.talleCasco}`, getPrecio("casco", d)]);
-        if (esq.antiparras) items.push([`Antiparras talle ${esq.talleAntiparras}`, getPrecio("antiparras", d)]);
-        if (esq.guantes) items.push([`Guantes talle ${esq.talleGuantes}`, getPrecio("guantes", d)]);
-        if (esq.botas_preski) items.push(["Botas Preski", getPrecio("botas_preski", d)]);
-        if (esq.campera) items.push([`Campera ${esNino ? "niño" : "adulto"} talle ${esq.talleCampera}`, getPrecio(esNino ? "campera_nino" : "campera_adulto", d)]);
-        if (esq.pantalon_adulto) items.push([`Pantalón adulto talle ${esq.tallePantalon}`, getPrecio("pantalon_adulto", d)]);
-        if (esq.pantalon_nino) items.push([`Pantalón/Enterito niño talle ${esq.tallePantalon_nino}`, getPrecio("pantalon_nino", d)]);
-        if (esq.combo_adulto) items.push(["Campera + Pantalón adulto (combo)", getPrecio("combo_adulto", d)]);
-        if (esq.combo_nino) items.push(["Campera + Pantalón niño (combo)", getPrecio("combo_nino", d)]);
+        if (esq.casco && !esNino)
+          items.push([`Casco talle ${esq.talleCasco}`, getPrecio("casco", d)]);
+        if (esq.antiparras)
+          items.push([
+            `Antiparras talle ${esq.talleAntiparras}`,
+            getPrecio("antiparras", d),
+          ]);
+        if (esq.guantes)
+          items.push([
+            `Guantes talle ${esq.talleGuantes}`,
+            getPrecio("guantes", d),
+          ]);
+        if (esq.botas_preski)
+          items.push(["Botas Preski", getPrecio("botas_preski", d)]);
+        if (esq.campera)
+          items.push([
+            `Campera ${esNino ? "niño" : "adulto"} talle ${esq.talleCampera}`,
+            getPrecio(esNino ? "campera_nino" : "campera_adulto", d),
+          ]);
+        if (esq.pantalon_adulto)
+          items.push([
+            `Pantalón adulto talle ${esq.tallePantalon}`,
+            getPrecio("pantalon_adulto", d),
+          ]);
+        if (esq.pantalon_nino)
+          items.push([
+            `Pantalón/Enterito niño talle ${esq.tallePantalon_nino}`,
+            getPrecio("pantalon_nino", d),
+          ]);
+        if (esq.combo_adulto)
+          items.push([
+            "Campera + Pantalón adulto (combo)",
+            getPrecio("combo_adulto", d),
+          ]);
+        if (esq.combo_nino)
+          items.push([
+            "Campera + Pantalón niño (combo)",
+            getPrecio("combo_nino", d),
+          ]);
 
         items.forEach(([label, precio]) => {
           const item = document.createElement("div");
@@ -677,13 +879,21 @@ document.addEventListener("DOMContentLoaded", () => {
       if (totalDiaEl) {
         const totalPorDia = esquiadores.reduce((acc, esq) => {
           const esNino = esq.edad === "nino";
-          const packKey = esq.tipo === "ski" ? (esNino ? "ski_junior" : "ski_adulto") : (esNino ? "snow_junior" : "snow_adulto");
+          const packKey =
+            esq.tipo === "ski"
+              ? esNino
+                ? "ski_junior"
+                : "ski_adulto"
+              : esNino
+                ? "snow_junior"
+                : "snow_adulto";
           let t = getPrecio(packKey, 1);
           if (esq.casco) t += getPrecio("casco", 1);
           if (esq.antiparras) t += getPrecio("antiparras", 1);
           if (esq.guantes) t += getPrecio("guantes", 1);
           if (esq.botas_preski) t += getPrecio("botas_preski", 1);
-          if (esq.campera) t += getPrecio(esNino ? "campera_nino" : "campera_adulto", 1);
+          if (esq.campera)
+            t += getPrecio(esNino ? "campera_nino" : "campera_adulto", 1);
           if (esq.pantalon_adulto) t += getPrecio("pantalon_adulto", 1);
           if (esq.pantalon_nino) t += getPrecio("pantalon_nino", 1);
           if (esq.combo_adulto) t += getPrecio("combo_adulto", 1);
@@ -693,18 +903,21 @@ document.addEventListener("DOMContentLoaded", () => {
         totalDiaEl.textContent = `$${formatearPrecio(totalPorDia)}`;
       }
 
-      if (totalReservaEl) totalReservaEl.textContent = `$${formatearPrecio(totalGeneral)}`;
+      if (totalReservaEl)
+        totalReservaEl.textContent = `$${formatearPrecio(totalGeneral)}`;
     }
 
     // Submit reserva
     const formReservaCheckout = document.getElementById("formReserva");
     if (formReservaCheckout) {
-      formReservaCheckout.addEventListener("submit", async function(e) {
+      formReservaCheckout.addEventListener("submit", async function (e) {
         e.preventDefault();
 
         const checkPrivacidad = document.getElementById("checkPrivacidad");
         if (!checkPrivacidad?.checked) {
-          alert("Aceptá los términos y la política de privacidad para continuar.");
+          alert(
+            "Aceptá los términos y la política de privacidad para continuar.",
+          );
           return;
         }
 
@@ -713,7 +926,10 @@ document.addEventListener("DOMContentLoaded", () => {
         btnConfirmar.textContent = "Enviando...";
         btnConfirmar.disabled = true;
 
-        const totalGeneral = esquiadores.reduce((acc, esq) => acc + precioEsquiador(esq), 0);
+        const totalGeneral = esquiadores.reduce(
+          (acc, esq) => acc + precioEsquiador(esq),
+          0,
+        );
 
         try {
           const response = await fetch("http://localhost:3001/reserva", {
@@ -753,13 +969,11 @@ document.addEventListener("DOMContentLoaded", () => {
             localStorage.removeItem("cantPersonas");
             localStorage.removeItem("carrito");
             carrito = [];
-
           } else {
             alert("❌ Error al enviar la reserva. Intentá de nuevo.");
             btnConfirmar.textContent = "Confirmar reserva →";
             btnConfirmar.disabled = false;
           }
-
         } catch (error) {
           alert("❌ No se pudo conectar con el servidor. Intentá de nuevo.");
           console.error(error);

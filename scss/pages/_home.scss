@@ -549,38 +549,53 @@
 
 // ── MARCAS (nuevo) ────────────────────────────
 .marcas-section {
-  background: $negro;
-  padding: 40px 24px;
+  padding: $espaciado-lg $espaciado-md;
   text-align: center;
 
   h2 {
-    font-size: 16px;
-    font-weight: 600;
-    color: rgba(255,255,255,0.5);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 24px;
-  }
-
-  .marcas-logos {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 32px;
-    flex-wrap: wrap;
-  }
-
-  .marca-nombre {
-    font-size: 20px;
+    font-size: 32px;
     font-weight: 800;
-    letter-spacing: 0.1em;
-    color: rgba(255,255,255,0.4);
-    transition: color 0.2s;
-
-    &:hover {
-      color: rgba(255,255,255,0.85);
-    }
+    margin-bottom: 8px;
+    color: $negro;
   }
+}
+
+.marcas-track-wrapper {
+  overflow: hidden;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.marcas-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: scrollMarcas 30s linear infinite;
+
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+.marca-logo {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  padding: 0 32px;
+  filter: grayscale(100%);
+  opacity: 0.6;
+  transition: filter 0.3s, opacity 0.3s;
+
+  &:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes scrollMarcas {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 // ── UBICACIÓN + MAPA (nuevo) ──────────────────

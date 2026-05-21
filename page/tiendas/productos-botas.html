@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Botas de ski y snowboard para alquiler en Villa La Angostura. Talles EU 36–44. Rental Pro Shop." />
+    <meta
+      name="description"
+      content="Botas de ski y snowboard para alquiler en Villa La Angostura. Talles EU 36–44. Rental Pro Shop."
+    />
     <title>Botas — Rental Pro Shop</title>
     <link rel="icon" href="../../img/logo.png" />
     <link rel="apple-touch-icon" href="../../img/logo.png" />
@@ -11,7 +14,7 @@
   </head>
   <body>
     <div class="barra-descuento">
-      <div  class="barra-track">
+      <div class="barra-track">
         <span
           >🎿 <strong>20% OFF</strong> abonando en efectivo &nbsp;|&nbsp;
           <strong>3 cuotas sin interés</strong> con tarjetas bancarias
@@ -39,11 +42,21 @@
       <nav class="navbar">
         <div class="logo">
           <a href="../../index.html">
-            <img src="../../img/home/logo1.webp" alt="Rental Pro Shop Aventura" width="120" height="60" />
+            <img
+              src="../../img/home/logo1.webp"
+              alt="Rental Pro Shop Aventura"
+              width="120"
+              height="60"
+            />
           </a>
         </div>
         <!-- <span class="titulo">RENTAL PRO SHOP AVENTURA</span> -->
-        <button class="hamburguesa" id="hamburguesa" aria-label="Abrir menú" aria-expanded="false">
+        <button
+          class="hamburguesa"
+          id="hamburguesa"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+        >
           <span></span><span></span><span></span>
         </button>
         <ul class="menu" id="menu">
@@ -53,7 +66,12 @@
           <li><a href="../contacto.html">CONTACTO</a></li>
         </ul>
         <div class="carrito-nav">
-          <div class="carrito-icono" id="toggleCarrito" role="button" aria-label="Abrir carrito">
+          <div
+            class="carrito-icono"
+            id="toggleCarrito"
+            role="button"
+            aria-label="Abrir carrito"
+          >
             🛒 <span id="contadorCarrito">0</span>
           </div>
         </div>
@@ -61,16 +79,29 @@
     </header>
 
     <div class="overlay" id="overlay"></div>
-    <div class="carrito-panel" id="carritoPanel" aria-label="Carrito de compras">
+    <div
+      class="carrito-panel"
+      id="carritoPanel"
+      aria-label="Carrito de compras"
+    >
       <div class="carrito-header">
         <h2>TU CARRITO</h2>
         <button id="cerrarCarrito" aria-label="Cerrar carrito">✕</button>
       </div>
       <div id="listaCarrito"></div>
       <div class="carrito-footer">
-        <p class="total-carrito">Total: <span>$<span id="total">0</span></span></p>
-        <button class="btn-vaciar" onclick="vaciarCarrito()">🗑 Vaciar carrito</button>
-        <a href="../alquiler.html" id="btnFinalizar" class="btn-finalizar disabled">Finalizar reserva →</a>
+        <p class="total-carrito">
+          Total: <span>$<span id="total">0</span></span>
+        </p>
+        <button class="btn-vaciar" onclick="vaciarCarrito()">
+          🗑 Vaciar carrito
+        </button>
+        <a
+          href="../alquiler.html"
+          id="btnFinalizar"
+          class="btn-finalizar disabled"
+          >Finalizar reserva →</a
+        >
       </div>
     </div>
 
@@ -84,7 +115,6 @@
     </nav>
 
     <main>
-
       <section class="hero-tienda">
         <div class="tienda-portada-texto">
           <h1>Botas</h1>
@@ -93,26 +123,48 @@
       </section>
 
       <section class="detalle-producto">
-
         <!-- BOTAS SKI -->
         <div class="detalle-card">
           <div class="detalle-galeria">
-            <img src="../../img/snow/3.webp" alt="Botas de ski" width="600" height="400" loading="lazy" />
+            <img
+              src="../../img/snow/3.webp"
+              alt="Botas de ski"
+              width="600"
+              height="400"
+              loading="lazy"
+            />
           </div>
           <div class="detalle-info">
             <h2>Botas de Ski</h2>
             <p class="detalle-precio">$40.000 / día</p>
-            <p class="detalle-desc">Botas rígidas para ski. Cierre de clip para mayor ajuste y control. Disponibles en talles AR 36 a 44.</p>
+            <p class="detalle-desc">
+              Botas rígidas para ski. Cierre de clip para mayor ajuste y
+              control. Disponibles en talles AR 36 a 44.
+            </p>
             <div class="detalle-select">
               <label for="talle-botas-ski">Seleccioná tu talle</label>
-              <select id="talle-botas-ski" class="medida" aria-label="Talle de botas de ski">
+              <select
+                id="talle-botas-ski"
+                class="medida"
+                aria-label="Talle de botas de ski"
+              >
                 <option value="">Talle AR</option>
-                <option>36</option><option>37</option><option>38</option>
-                <option>39</option><option>40</option><option>41</option>
-                <option>42</option><option>43</option><option>44</option>
+                <option>36</option>
+                <option>37</option>
+                <option>38</option>
+                <option>39</option>
+                <option>40</option>
+                <option>41</option>
+                <option>42</option>
+                <option>43</option>
+                <option>44</option>
               </select>
             </div>
-            <button class="btn btn-agregar" data-nombre="Botas de Ski" data-precio="40000">
+            <button
+              class="btn btn-agregar"
+              data-nombre="Botas de Ski"
+              data-precio="40000"
+            >
               Agregar al carrito
             </button>
             <div class="guia-tallas">
@@ -126,15 +178,51 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr><td>36</td><td>36</td><td>22.5 cm</td></tr>
-                  <tr><td>37</td><td>37</td><td>23.5 cm</td></tr>
-                  <tr><td>38</td><td>38</td><td>24 cm</td></tr>
-                  <tr><td>39</td><td>39</td><td>24.5 cm</td></tr>
-                  <tr><td>40</td><td>40</td><td>25.5 cm</td></tr>
-                  <tr><td>41</td><td>41</td><td>26 cm</td></tr>
-                  <tr><td>42</td><td>42</td><td>27 cm</td></tr>
-                  <tr><td>43</td><td>43</td><td>27.5 cm</td></tr>
-                  <tr><td>44</td><td>44</td><td>28.5 cm</td></tr>
+                  <tr>
+                    <td>36</td>
+                    <td>36</td>
+                    <td>22.5 cm</td>
+                  </tr>
+                  <tr>
+                    <td>37</td>
+                    <td>37</td>
+                    <td>23.5 cm</td>
+                  </tr>
+                  <tr>
+                    <td>38</td>
+                    <td>38</td>
+                    <td>24 cm</td>
+                  </tr>
+                  <tr>
+                    <td>39</td>
+                    <td>39</td>
+                    <td>24.5 cm</td>
+                  </tr>
+                  <tr>
+                    <td>40</td>
+                    <td>40</td>
+                    <td>25.5 cm</td>
+                  </tr>
+                  <tr>
+                    <td>41</td>
+                    <td>41</td>
+                    <td>26 cm</td>
+                  </tr>
+                  <tr>
+                    <td>42</td>
+                    <td>42</td>
+                    <td>27 cm</td>
+                  </tr>
+                  <tr>
+                    <td>43</td>
+                    <td>43</td>
+                    <td>27.5 cm</td>
+                  </tr>
+                  <tr>
+                    <td>44</td>
+                    <td>44</td>
+                    <td>28.5 cm</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -144,22 +232,45 @@
         <!-- BOTAS SNOWBOARD -->
         <div class="detalle-card detalle-card--reverse">
           <div class="detalle-galeria">
-            <img src="../../img/snow/3.webp" alt="Botas de snowboard" width="600" height="400" loading="lazy" />
+            <img
+              src="../../img/snow/3.webp"
+              alt="Botas de snowboard"
+              width="600"
+              height="400"
+              loading="lazy"
+            />
           </div>
           <div class="detalle-info">
             <h2>Botas de Snowboard</h2>
             <p class="detalle-precio">$40.000 / día</p>
-            <p class="detalle-desc">Botas blandas para snowboard. Mayor comodidad y flexibilidad. Disponibles en talles AR 36 a 44.</p>
+            <p class="detalle-desc">
+              Botas blandas para snowboard. Mayor comodidad y flexibilidad.
+              Disponibles en talles AR 36 a 44.
+            </p>
             <div class="detalle-select">
               <label for="talle-botas-snow">Seleccioná tu talle</label>
-              <select id="talle-botas-snow" class="medida" aria-label="Talle de botas de snowboard">
+              <select
+                id="talle-botas-snow"
+                class="medida"
+                aria-label="Talle de botas de snowboard"
+              >
                 <option value="">Talle AR</option>
-                <option>36</option><option>37</option><option>38</option>
-                <option>39</option><option>40</option><option>41</option>
-                <option>42</option><option>43</option><option>44</option>
+                <option>36</option>
+                <option>37</option>
+                <option>38</option>
+                <option>39</option>
+                <option>40</option>
+                <option>41</option>
+                <option>42</option>
+                <option>43</option>
+                <option>44</option>
               </select>
             </div>
-            <button class="btn btn-agregar" data-nombre="Botas de Snowboard" data-precio="40000">
+            <button
+              class="btn btn-agregar"
+              data-nombre="Botas de Snowboard"
+              data-precio="40000"
+            >
               Agregar al carrito
             </button>
             <div class="guia-tallas">
@@ -173,21 +284,56 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr><td>36</td><td>36</td><td>22.5 cm</td></tr>
-                  <tr><td>37</td><td>37</td><td>23.5 cm</td></tr>
-                  <tr><td>38</td><td>38</td><td>24 cm</td></tr>
-                  <tr><td>39</td><td>39</td><td>24.5 cm</td></tr>
-                  <tr><td>40</td><td>40</td><td>25.5 cm</td></tr>
-                  <tr><td>41</td><td>41</td><td>26 cm</td></tr>
-                  <tr><td>42</td><td>42</td><td>27 cm</td></tr>
-                  <tr><td>43</td><td>43</td><td>27.5 cm</td></tr>
-                  <tr><td>44</td><td>44</td><td>28.5 cm</td></tr>
+                  <tr>
+                    <td>36</td>
+                    <td>36</td>
+                    <td>22.5 cm</td>
+                  </tr>
+                  <tr>
+                    <td>37</td>
+                    <td>37</td>
+                    <td>23.5 cm</td>
+                  </tr>
+                  <tr>
+                    <td>38</td>
+                    <td>38</td>
+                    <td>24 cm</td>
+                  </tr>
+                  <tr>
+                    <td>39</td>
+                    <td>39</td>
+                    <td>24.5 cm</td>
+                  </tr>
+                  <tr>
+                    <td>40</td>
+                    <td>40</td>
+                    <td>25.5 cm</td>
+                  </tr>
+                  <tr>
+                    <td>41</td>
+                    <td>41</td>
+                    <td>26 cm</td>
+                  </tr>
+                  <tr>
+                    <td>42</td>
+                    <td>42</td>
+                    <td>27 cm</td>
+                  </tr>
+                  <tr>
+                    <td>43</td>
+                    <td>43</td>
+                    <td>27.5 cm</td>
+                  </tr>
+                  <tr>
+                    <td>44</td>
+                    <td>44</td>
+                    <td>28.5 cm</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
           </div>
         </div>
-
       </section>
 
       <!-- PRODUCTOS RELACIONADOS -->
@@ -196,31 +342,54 @@
         <div class="productos-container">
           <div class="producto">
             <a href="./productos-ski.html" class="producto-link">
-              <img src="../../img/snow/1.webp" alt="Esquís" width="250" height="200" loading="lazy" />
+              <img
+                src="../../img/snow/1.webp"
+                alt="Esquís"
+                width="250"
+                height="200"
+                loading="lazy"
+              />
               <h3>Esquís Adulto</h3>
               <p>$55.000 / día</p>
             </a>
-            <button onclick="agregarAlCarrito('Esquís Adulto', 55000)">Agregar al carrito</button>
+            <button onclick="agregarAlCarrito('Esquís Adulto', 55000)">
+              Agregar al carrito
+            </button>
           </div>
           <div class="producto">
             <a href="./productos-snowboard.html" class="producto-link">
-              <img src="../../img/snow/2.webp" alt="Snowboard" width="250" height="200" loading="lazy" />
+              <img
+                src="../../img/snow/2.webp"
+                alt="Snowboard"
+                width="250"
+                height="200"
+                loading="lazy"
+              />
               <h3>Snowboard Adulto</h3>
               <p>$58.000 / día</p>
             </a>
-            <button onclick="agregarAlCarrito('Snowboard Adulto', 58000)">Agregar al carrito</button>
+            <button onclick="agregarAlCarrito('Snowboard Adulto', 58000)">
+              Agregar al carrito
+            </button>
           </div>
           <div class="producto">
             <a href="./productos-accesorios.html" class="producto-link">
-              <img src="../../img/snow/4.webp" alt="Casco" width="250" height="200" loading="lazy" />
+              <img
+                src="../../img/snow/4.webp"
+                alt="Casco"
+                width="250"
+                height="200"
+                loading="lazy"
+              />
               <h3>Casco</h3>
               <p>$19.000 / día</p>
             </a>
-            <button onclick="agregarAlCarrito('Casco', 19000)">Agregar al carrito</button>
+            <button onclick="agregarAlCarrito('Casco', 19000)">
+              Agregar al carrito
+            </button>
           </div>
         </div>
       </section>
-
     </main>
 
     <footer class="footer">
@@ -228,7 +397,10 @@
         <div class="footer-grid">
           <div class="footer-one">
             <h3>Rental Pro Shop Aventura</h3>
-            <p>Somos el local con mayor variedad de Villa La Angostura. Artículos de pesca, camping, náutica, ski, snowboard y mucho más.</p>
+            <p>
+              Somos el local con mayor variedad de Villa La Angostura. Artículos
+              de pesca, camping, náutica, ski, snowboard y mucho más.
+            </p>
           </div>
           <div class="footer-two">
             <h3>Accesos directos</h3>
@@ -242,26 +414,60 @@
           <div class="footer-three">
             <h3>Sitios de interés</h3>
             <ul>
-              <li><a href="https://www.cerrobayo.com.ar/montana/mapa/" target="_blank" rel="noopener">Mapa de pistas — Cerro Bayo</a></li>
-              <li><a href="https://www.accuweather.com/es/ar/villa-la-angostura/1227987/weather-forecast/1227987" target="_blank" rel="noopener">Clima en Cerro Bayo</a></li>
-              <li><a href="https://www.villalaangosturaturismo.gob.ar/" target="_blank" rel="noopener">Conocé Villa La Angostura</a></li>
+              <li>
+                <a
+                  href="https://www.cerrobayo.com.ar/montana/mapa/"
+                  target="_blank"
+                  rel="noopener"
+                  >Mapa de pistas — Cerro Bayo</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://es.snow-forecast.com/resorts/Cerro-Bayo/6day/mid"
+                  target="_blank"
+                  rel="noopener"
+                  >Clima en Cerro Bayo</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.villalaangosturaturismo.gob.ar/"
+                  target="_blank"
+                  rel="noopener"
+                  >Conocé Villa La Angostura</a
+                >
+              </li>
             </ul>
           </div>
           <div class="footer-four">
             <h3>Contactanos</h3>
             <ul class="contact-us">
               <li>
-                <p><strong>¿Dónde estamos?</strong><br />
-                Av. Arrayanes 173<br />
-                Villa La Angostura, Neuquén</p>
+                <p>
+                  <strong>¿Dónde estamos?</strong><br />
+                  Av. Arrayanes 173<br />
+                  Villa La Angostura, Neuquén
+                </p>
               </li>
               <li>
-                <p><strong>Whatsapp:</strong>
-                <a href="https://wa.me/5492944646730" rel="noopener" target="_blank">+54 9 2944 646730</a></p>
+                <p>
+                  <strong>Whatsapp:</strong>
+                  <a
+                    href="https://wa.me/5492944646730"
+                    rel="noopener"
+                    target="_blank"
+                    >+54 9 2944 646730</a
+                  >
+                </p>
               </li>
               <li>
-                <p><strong>Email:</strong>
-                <a href="mailto:consultas@proshopaventura.com">consultas@proshopaventura.com</a></p>
+                <p>
+                  <strong>Email:</strong>
+                  <a href="mailto:consultas@proshopaventura.com"
+                    >consultas@proshopaventura.com</a
+                  >
+                </p>
               </li>
             </ul>
           </div>
@@ -271,17 +477,51 @@
           <p class="footer-credit">Rental Ski and Snow</p>
           <ul class="redes">
             <li>
-              <a href="https://www.instagram.com/proshop.aventura/" rel="noopener" target="_blank" aria-label="Instagram">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              <a
+                href="https://www.instagram.com/proshop.aventura/"
+                rel="noopener"
+                target="_blank"
+                aria-label="Instagram"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
                 </svg>
                 Instagram
               </a>
             </li>
             <li>
-              <a href="https://www.facebook.com" rel="noopener" target="_blank" aria-label="Facebook">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+              <a
+                href="https://www.facebook.com"
+                rel="noopener"
+                target="_blank"
+                aria-label="Facebook"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                  />
                 </svg>
                 Facebook
               </a>
