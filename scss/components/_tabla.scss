@@ -131,3 +131,29 @@
     }
   }
 }
+// ── PRIMERA COLUMNA FIJA AL SCROLLEAR ─────────
+.tabla {
+  td:first-child,
+  th:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    background: $blanco;
+  }
+
+  thead th:first-child {
+    background: $negro;
+  }
+
+  tbody tr:nth-child(even) td:first-child {
+    background: #f9f9f9;
+  }
+
+  tbody tr:hover td:first-child {
+    background: #f0f4ff;
+  }
+
+  .fila-descuento td:first-child {
+    background: $azul;
+  }
+}

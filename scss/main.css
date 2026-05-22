@@ -1020,6 +1020,26 @@ textarea {
   }
 }
 
+.tabla td:first-child,
+.tabla th:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background: #ffffff;
+}
+.tabla thead th:first-child {
+  background: #111111;
+}
+.tabla tbody tr:nth-child(even) td:first-child {
+  background: #f9f9f9;
+}
+.tabla tbody tr:hover td:first-child {
+  background: #f0f4ff;
+}
+.tabla .fila-descuento td:first-child {
+  background: #1b35c4;
+}
+
 #toast-contenedor {
   position: fixed;
   bottom: 24px;
