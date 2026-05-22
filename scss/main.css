@@ -925,7 +925,7 @@ textarea {
   max-width: 860px;
   margin: 0 auto;
   min-width: 0;
-  overflow: hidden;
+  overflow: visible;
 }
 .tabla-precios-equipos h2,
 .tabla-precios-indumentaria h2 {
