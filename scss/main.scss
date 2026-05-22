@@ -16,6 +16,7 @@
 @use "components/producto";
 @use "components/form";
 @use "components/tabla";
+@use "components/toast";
 
 // Pages
 @use "pages/home";
@@ -23,3 +24,4 @@
 @use "pages/contacto";
 @use "pages/alquiler";
 @use "pages/checkout";
+@use "pages/confirmacion";

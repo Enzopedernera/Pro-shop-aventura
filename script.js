@@ -7,6 +7,45 @@
 //   - Todas las funciones originales preservadas
 // =============================================
 
+// ── SISTEMA DE TOASTS ─────────────────────────────────────────────────────
+function mostrarToast(mensaje, tipo = "info", duracion = 4000) {
+  let contenedor = document.getElementById("toast-contenedor");
+  if (!contenedor) {
+    contenedor = document.createElement("div");
+    contenedor.id = "toast-contenedor";
+    document.body.appendChild(contenedor);
+  }
+
+  const toast = document.createElement("div");
+  toast.className = `toast toast-${tipo}`;
+  toast.setAttribute("role", tipo === "error" ? "alert" : "status");
+  toast.setAttribute("aria-live", tipo === "error" ? "assertive" : "polite");
+
+  const iconos = { success: "✅", error: "❌", warning: "⚠️", info: "ℹ️" };
+  toast.innerHTML = `
+    <span class="toast-icono">${iconos[tipo] || "ℹ️"}</span>
+    <span class="toast-mensaje">${mensaje}</span>
+    <button class="toast-cerrar" aria-label="Cerrar">✕</button>
+  `;
+
+  toast.querySelector(".toast-cerrar").addEventListener("click", () => cerrarToast(toast));
+  contenedor.appendChild(toast);
+
+  // Entrada animada
+  requestAnimationFrame(() => toast.classList.add("toast-visible"));
+
+  // Auto-cierre
+  const timer = setTimeout(() => cerrarToast(toast), duracion);
+  toast._timer = timer;
+}
+
+function cerrarToast(toast) {
+  clearTimeout(toast._timer);
+  toast.classList.remove("toast-visible");
+  toast.addEventListener("transitionend", () => toast.remove(), { once: true });
+}
+// ─────────────────────────────────────────────────────────────────────────────
+
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 function guardarCarrito() {
@@ -266,7 +305,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const selectMedida = contenedor.querySelector(".medida");
         medida = selectMedida ? selectMedida.value : "";
         if (selectMedida && !medida) {
-          alert("Seleccioná una medida");
+          mostrarToast("Seleccioná una medida antes de agregar al carrito.", "warning");
           return;
         }
       } else {
@@ -275,7 +314,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const selectMedida = contenedor.querySelector(".medida");
         medida = selectMedida ? selectMedida.value : "";
         if (selectMedida && !medida) {
-          alert("Seleccioná una medida");
+          mostrarToast("Seleccioná una medida antes de agregar al carrito.", "warning");
           return;
         }
       }
@@ -335,15 +374,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const data = await response.json();
 
         if (data.ok) {
-          alert(
-            "✅ Mensaje enviado correctamente. Te responderemos a la brevedad.",
-          );
+          mostrarToast("Mensaje enviado correctamente. Te responderemos a la brevedad.", "success", 6000);
           this.reset();
         } else {
-          alert("❌ Error al enviar el mensaje. Intentá de nuevo.");
+          mostrarToast("Error al enviar el mensaje. Intentá de nuevo.", "error");
         }
       } catch (error) {
-        alert("❌ No se pudo conectar con el servidor. Intentá de nuevo.");
+        mostrarToast("No se pudo conectar con el servidor. Intentá de nuevo.", "error");
         console.error(error);
       } finally {
         btnSubmit.textContent = textoOriginal;
@@ -355,120 +392,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // ── CHECKOUT ──────────────────────────────────
   const listaEsquiadores = document.getElementById("listaEsquiadores");
   if (listaEsquiadores) {
-    const TABLA_PRECIOS = {
-      ski_adulto: {
-        1: 55000,
-        3: 141000,
-        4: 179000,
-        5: 212000,
-        6: 241000,
-        7: 267000,
-      },
-      ski_junior: {
-        1: 43000,
-        3: 110000,
-        4: 140000,
-        5: 166000,
-        6: 188000,
-        7: 208000,
-      },
-      snow_adulto: {
-        1: 58000,
-        3: 149000,
-        4: 189000,
-        5: 224000,
-        6: 254000,
-        7: 281000,
-      },
-      snow_junior: {
-        1: 44000,
-        3: 113000,
-        4: 143000,
-        5: 170000,
-        6: 193000,
-        7: 213000,
-      },
-      casco: { 1: 19000, 3: 49000, 4: 62000, 5: 73000, 6: 83000, 7: 92000 },
-      antiparras: {
-        1: 27000,
-        3: 69000,
-        4: 88000,
-        5: 104000,
-        6: 118000,
-        7: 131000,
-      },
-      guantes: { 1: 13000, 3: 33000, 4: 42000, 5: 50000, 6: 57000, 7: 63000 },
-      botas_preski: {
-        1: 15000,
-        3: 38000,
-        4: 48000,
-        5: 58000,
-        6: 65500,
-        7: 73000,
-      },
-      campera_adulto: {
-        1: 23000,
-        3: 61000,
-        4: 78000,
-        5: 92000,
-        6: 105000,
-        7: 116000,
-      },
-      campera_nino: {
-        1: 17000,
-        3: 45000,
-        4: 58000,
-        5: 69000,
-        6: 79000,
-        7: 87000,
-      },
-      pantalon_adulto: {
-        1: 20000,
-        3: 53000,
-        4: 78000,
-        5: 92000,
-        6: 105000,
-        7: 116000,
-      },
-      pantalon_nino: {
-        1: 14000,
-        3: 38000,
-        4: 48000,
-        5: 58000,
-        6: 66000,
-        7: 74000,
-      },
-      combo_adulto: {
-        1: 39000,
-        3: 103000,
-        4: 131000,
-        5: 156000,
-        6: 177000,
-        7: 196000,
-      },
-      combo_nino: {
-        1: 29000,
-        3: 76000,
-        4: 97000,
-        5: 115000,
-        6: 131000,
-        7: 145000,
-      },
-    };
+    // Precios importados desde precios.js (fuente de verdad)
+    const TABLA_PRECIOS = window.PRECIOS ?? {};
 
-    function getPrecio(equipo, d) {
-      const tabla = TABLA_PRECIOS[equipo];
-      if (!tabla) return 0;
-      if (d <= 0) return 0;
-      if (d === 1) return tabla[1];
-      if (d === 2) return tabla[1] * 2;
-      if (d === 3) return tabla[3];
-      if (d === 4) return tabla[4];
-      if (d === 5) return tabla[5];
-      if (d === 6) return tabla[6];
-      if (d >= 7) return tabla[7];
-      return tabla[1] * d;
-    }
+    // getPrecio provisto por precios.js
+    const getPrecioLocal = window.getPrecio ?? function(k, d) { return 0; };
 
     function calcularDiasEsq(inicio, fin) {
       if (!inicio || !fin) return 0;
@@ -762,21 +690,21 @@ document.addEventListener("DOMContentLoaded", () => {
       let total = 0;
 
       if (esq.tipo === "ski") {
-        total += getPrecio(esNino ? "ski_junior" : "ski_adulto", d);
+        total += getPrecioLocal(esNino ? "ski_junior" : "ski_adulto", d);
       } else {
-        total += getPrecio(esNino ? "snow_junior" : "snow_adulto", d);
+        total += getPrecioLocal(esNino ? "snow_junior" : "snow_adulto", d);
       }
 
-      if (esq.casco && !esNino) total += getPrecio("casco", d);
-      if (esq.antiparras) total += getPrecio("antiparras", d);
-      if (esq.guantes) total += getPrecio("guantes", d);
-      if (esq.botas_preski) total += getPrecio("botas_preski", d);
+      if (esq.casco && !esNino) total += getPrecioLocal("casco", d);
+      if (esq.antiparras) total += getPrecioLocal("antiparras", d);
+      if (esq.guantes) total += getPrecioLocal("guantes", d);
+      if (esq.botas_preski) total += getPrecioLocal("botas_preski", d);
       if (esq.campera)
-        total += getPrecio(esNino ? "campera_nino" : "campera_adulto", d);
-      if (esq.pantalon_adulto) total += getPrecio("pantalon_adulto", d);
-      if (esq.pantalon_nino) total += getPrecio("pantalon_nino", d);
-      if (esq.combo_adulto) total += getPrecio("combo_adulto", d);
-      if (esq.combo_nino) total += getPrecio("combo_nino", d);
+        total += getPrecioLocal(esNino ? "campera_nino" : "campera_adulto", d);
+      if (esq.pantalon_adulto) total += getPrecioLocal("pantalon_adulto", d);
+      if (esq.pantalon_nino) total += getPrecioLocal("pantalon_nino", d);
+      if (esq.combo_adulto) total += getPrecioLocal("combo_adulto", d);
+      if (esq.combo_nino) total += getPrecioLocal("combo_nino", d);
 
       return total;
     }
@@ -822,45 +750,45 @@ document.addEventListener("DOMContentLoaded", () => {
               ? "Pack Snowboard Junior (tabla + botas)"
               : "Pack Snowboard Adulto (tabla + botas)";
 
-        items.push([packLabel, getPrecio(packKey, d)]);
+        items.push([packLabel, getPrecioLocal(packKey, d)]);
         if (esq.casco && !esNino)
-          items.push([`Casco talle ${esq.talleCasco}`, getPrecio("casco", d)]);
+          items.push([`Casco talle ${esq.talleCasco}`, getPrecioLocal("casco", d)]);
         if (esq.antiparras)
           items.push([
             `Antiparras talle ${esq.talleAntiparras}`,
-            getPrecio("antiparras", d),
+            getPrecioLocal("antiparras", d),
           ]);
         if (esq.guantes)
           items.push([
             `Guantes talle ${esq.talleGuantes}`,
-            getPrecio("guantes", d),
+            getPrecioLocal("guantes", d),
           ]);
         if (esq.botas_preski)
-          items.push(["Botas Preski", getPrecio("botas_preski", d)]);
+          items.push(["Botas Preski", getPrecioLocal("botas_preski", d)]);
         if (esq.campera)
           items.push([
             `Campera ${esNino ? "niño" : "adulto"} talle ${esq.talleCampera}`,
-            getPrecio(esNino ? "campera_nino" : "campera_adulto", d),
+            getPrecioLocal(esNino ? "campera_nino" : "campera_adulto", d),
           ]);
         if (esq.pantalon_adulto)
           items.push([
             `Pantalón adulto talle ${esq.tallePantalon}`,
-            getPrecio("pantalon_adulto", d),
+            getPrecioLocal("pantalon_adulto", d),
           ]);
         if (esq.pantalon_nino)
           items.push([
             `Pantalón/Enterito niño talle ${esq.tallePantalon_nino}`,
-            getPrecio("pantalon_nino", d),
+            getPrecioLocal("pantalon_nino", d),
           ]);
         if (esq.combo_adulto)
           items.push([
             "Campera + Pantalón adulto (combo)",
-            getPrecio("combo_adulto", d),
+            getPrecioLocal("combo_adulto", d),
           ]);
         if (esq.combo_nino)
           items.push([
             "Campera + Pantalón niño (combo)",
-            getPrecio("combo_nino", d),
+            getPrecioLocal("combo_nino", d),
           ]);
 
         items.forEach(([label, precio]) => {
@@ -887,17 +815,17 @@ document.addEventListener("DOMContentLoaded", () => {
               : esNino
                 ? "snow_junior"
                 : "snow_adulto";
-          let t = getPrecio(packKey, 1);
-          if (esq.casco) t += getPrecio("casco", 1);
-          if (esq.antiparras) t += getPrecio("antiparras", 1);
-          if (esq.guantes) t += getPrecio("guantes", 1);
-          if (esq.botas_preski) t += getPrecio("botas_preski", 1);
+          let t = getPrecioLocal(packKey, 1);
+          if (esq.casco) t += getPrecioLocal("casco", 1);
+          if (esq.antiparras) t += getPrecioLocal("antiparras", 1);
+          if (esq.guantes) t += getPrecioLocal("guantes", 1);
+          if (esq.botas_preski) t += getPrecioLocal("botas_preski", 1);
           if (esq.campera)
-            t += getPrecio(esNino ? "campera_nino" : "campera_adulto", 1);
-          if (esq.pantalon_adulto) t += getPrecio("pantalon_adulto", 1);
-          if (esq.pantalon_nino) t += getPrecio("pantalon_nino", 1);
-          if (esq.combo_adulto) t += getPrecio("combo_adulto", 1);
-          if (esq.combo_nino) t += getPrecio("combo_nino", 1);
+            t += getPrecioLocal(esNino ? "campera_nino" : "campera_adulto", 1);
+          if (esq.pantalon_adulto) t += getPrecioLocal("pantalon_adulto", 1);
+          if (esq.pantalon_nino) t += getPrecioLocal("pantalon_nino", 1);
+          if (esq.combo_adulto) t += getPrecioLocal("combo_adulto", 1);
+          if (esq.combo_nino) t += getPrecioLocal("combo_nino", 1);
           return acc + t;
         }, 0);
         totalDiaEl.textContent = `$${formatearPrecio(totalPorDia)}`;
@@ -915,9 +843,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const checkPrivacidad = document.getElementById("checkPrivacidad");
         if (!checkPrivacidad?.checked) {
-          alert(
-            "Aceptá los términos y la política de privacidad para continuar.",
-          );
+          mostrarToast("Aceptá los términos y la política de privacidad para continuar.", "warning");
           return;
         }
 
@@ -949,33 +875,35 @@ document.addEventListener("DOMContentLoaded", () => {
           const data = await response.json();
 
           if (data.ok) {
-            const exito = document.getElementById("checkoutExito");
-            const exitoInfo = document.getElementById("checkoutExitoInfo");
+            // Genera número de reserva único
+            const numero = "RPS-" + Date.now().toString(36).toUpperCase().slice(-6);
 
-            if (exitoInfo) {
-              exitoInfo.innerHTML = `
-                <strong>Nombre:</strong> ${formData.get("nombre")}<br>
-                <strong>Email:</strong> ${formData.get("email")}<br>
-                <strong>Esquiadores:</strong> ${cantEsq}<br>
-                <strong>Total reserva:</strong> $${formatearPrecio(totalGeneral)}
-              `;
-            }
+            // Guarda datos para la página de confirmación
+            localStorage.setItem("reservaConfirmada", JSON.stringify({
+              numero,
+              nombre:      formData.get("nombre"),
+              email:       formData.get("email"),
+              telefono:    formData.get("telefono") || "",
+              esquiadores: cantEsq,
+              total:       totalGeneral,
+            }));
 
-            if (exito) exito.style.display = "flex";
-
-            // Limpiar fechas guardadas
+            // Limpia el carrito y fechas
             localStorage.removeItem("fechaLlegada");
             localStorage.removeItem("fechaSalida");
             localStorage.removeItem("cantPersonas");
             localStorage.removeItem("carrito");
             carrito = [];
+
+            // Redirige a la página de confirmación
+            window.location.href = "./reserva-confirmada.html";
           } else {
-            alert("❌ Error al enviar la reserva. Intentá de nuevo.");
+            mostrarToast("Error al enviar la reserva. Intentá de nuevo.", "error");
             btnConfirmar.textContent = "Confirmar reserva →";
             btnConfirmar.disabled = false;
           }
         } catch (error) {
-          alert("❌ No se pudo conectar con el servidor. Intentá de nuevo.");
+          mostrarToast("No se pudo conectar con el servidor. Intentá de nuevo.", "error");
           console.error(error);
           btnConfirmar.textContent = "Confirmar reserva →";
           btnConfirmar.disabled = false;

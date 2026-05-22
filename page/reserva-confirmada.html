@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Reserva confirmada — Rental Pro Shop</title>
+    <link rel="icon" href="../img/home/logo1.webp" />
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+
+    <div id="site-header"></div>
+
+    <main class="confirmacion-main">
+
+      <!-- HÉROE DE CONFIRMACIÓN -->
+      <section class="confirmacion-hero">
+        <div class="confirmacion-check">
+          <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <h1>¡Reserva recibida!</h1>
+        <p>Te enviamos la confirmación a <strong id="conf-email">tu email</strong>.<br>Nos contactaremos a la brevedad para confirmar disponibilidad.</p>
+        <div class="confirmacion-numero">
+          Nº de reserva: <strong id="conf-numero">—</strong>
+        </div>
+      </section>
+
+      <div class="confirmacion-grid">
+
+        <!-- RESUMEN -->
+        <div class="confirmacion-card">
+          <h2>Resumen de tu reserva</h2>
+          <div class="conf-fila">
+            <span>Titular</span>
+            <strong id="conf-nombre">—</strong>
+          </div>
+          <div class="conf-fila">
+            <span>Email</span>
+            <strong id="conf-email2">—</strong>
+          </div>
+          <div class="conf-fila">
+            <span>Teléfono</span>
+            <strong id="conf-telefono">—</strong>
+          </div>
+          <div class="conf-fila">
+            <span>Esquiadores</span>
+            <strong id="conf-esquiadores">—</strong>
+          </div>
+          <div class="conf-separador"></div>
+          <div class="conf-fila conf-fila--total">
+            <span>Total estimado</span>
+            <strong id="conf-total">—</strong>
+          </div>
+        </div>
+
+        <!-- PRÓXIMOS PASOS -->
+        <div class="confirmacion-card">
+          <h2>¿Qué pasa ahora?</h2>
+          <ol class="conf-pasos">
+            <li>
+              <div class="conf-paso-num">1</div>
+              <div>
+                <strong>Confirmamos disponibilidad</strong>
+                <p>Te contactamos por email o WhatsApp en las próximas horas.</p>
+              </div>
+            </li>
+            <li>
+              <div class="conf-paso-num">2</div>
+              <div>
+                <strong>Llegás al local sin filas</strong>
+                <p>Av. Arrayanes 173, Villa La Angostura. Tu equipo te espera listo.</p>
+              </div>
+            </li>
+            <li>
+              <div class="conf-paso-num">3</div>
+              <div>
+                <strong>Ajuste profesional incluido</strong>
+                <p>Nuestro equipo ajusta todo antes de que salgas al cerro.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+      </div>
+
+      <!-- ACCIONES -->
+      <div class="confirmacion-acciones">
+        <a
+          id="btn-whatsapp"
+          href="https://wa.me/5492944646730"
+          class="btn-conf-wa"
+          target="_blank"
+          rel="noopener"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Consultar por WhatsApp
+        </a>
+        <a href="../index.html" class="btn-conf-inicio">Volver al inicio</a>
+      </div>
+
+    </main>
+
+    <div id="site-footer"></div>
+
+    <script>
+      // Lee los datos de la reserva guardados por checkout
+      (function () {
+        const raw = localStorage.getItem("reservaConfirmada");
+        if (!raw) return;
+
+        try {
+          const d = JSON.parse(raw);
+
+          const set = (id, val) => {
+            const el = document.getElementById(id);
+            if (el && val) el.textContent = val;
+          };
+
+          const fmt = (n) => "$" + Number(n).toLocaleString("es-AR");
+
+          set("conf-numero",     d.numero);
+          set("conf-email",      d.email);
+          set("conf-nombre",     d.nombre);
+          set("conf-email2",     d.email);
+          set("conf-telefono",   d.telefono || "No indicado");
+          set("conf-esquiadores", d.esquiadores + (d.esquiadores === 1 ? " persona" : " personas"));
+          set("conf-total",      fmt(d.total));
+
+          // WhatsApp con contexto
+          const waMsg = encodeURIComponent(
+            `Hola! Hice una reserva (Nº ${d.numero}) a nombre de ${d.nombre}. ¿Pueden confirmar disponibilidad?`
+          );
+          const waBtn = document.getElementById("btn-whatsapp");
+          if (waBtn) waBtn.href = `https://wa.me/5492944646730?text=${waMsg}`;
+
+          // Limpia para que no quede al recargar
+          localStorage.removeItem("reservaConfirmada");
+        } catch (e) {
+          console.error("Error al leer datos de reserva", e);
+        }
+      })();
+    </script>
+
+    <script src="../script.js"></script>
+    <script src="../components/components.js"></script>
+  </body>
+</html>
