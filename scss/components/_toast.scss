@@ -1,6 +1,7 @@
 // =============================================
 // TOAST — notificaciones no bloqueantes
 // =============================================
+@use "../base/variables" as *;
 
 #toast-contenedor {
   position: fixed;
