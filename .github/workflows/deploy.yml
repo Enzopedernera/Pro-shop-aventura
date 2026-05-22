@@ -19,8 +19,11 @@ jobs:
           server: c1382531.ferozo.com
           username: c1382531
           password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
           local-dir: ./
           server-dir: /público_html/
+          dangerous-clean-slate: false
           exclude: |
             **/.git*
             **/.git*/**
