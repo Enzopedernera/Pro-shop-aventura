@@ -2929,6 +2929,9 @@ textarea {
   margin: 0 auto;
   padding: 0 24px 40px;
 }
+.tablas-grid > * {
+  min-width: 0;
+}
 @media (max-width: 1024px) {
   .tablas-grid {
     grid-template-columns: 1fr;
