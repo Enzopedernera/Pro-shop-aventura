@@ -1032,7 +1032,6 @@ textarea {
 }
 .tabla .fila-descuento td:first-child {
   background: #1b35c4;
-  color: #ffffff;
 }
 
 #toast-contenedor {
@@ -2705,7 +2704,7 @@ textarea {
 
 .equipo-detalle-disclaimer {
   font-size: 12px !important;
-  color: #e0e0e0 !important;
+  color: #111111 !important;
   font-style: italic;
 }
 

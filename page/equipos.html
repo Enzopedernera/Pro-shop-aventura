@@ -4,10 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="light" />
-    <meta
-      name="description"
-      content="Conocé los equipos de ski, snowboard e indumentaria disponibles para alquilar en Rental Pro Shop."
-    />
+    <meta name="description" content="Conocé los equipos de ski, snowboard e indumentaria disponibles para alquilar en Rental Pro Shop." />
     <title>Equipos — Rental Pro Shop</title>
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.proshopaventura.com/page/equipos.html" />
@@ -18,76 +15,20 @@
     <meta property="og:site_name" content="Rental Pro Shop" />
     <link rel="icon" href="../img/home/logo1.webp" />
     <link rel="stylesheet" href="../css/styles.css" />
+    <style>
+      .galeria-wrapper { display: flex; flex-direction: column; gap: 10px; }
+      .galeria-principal { position: relative; border-radius: 14px; overflow: hidden; aspect-ratio: 4/3; background: #f5f7fa; }
+      .galeria-principal img { width: 100%; height: 100%; object-fit: cover; transition: opacity 0.3s; }
+      .galeria-thumbs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+      .galeria-thumb { border-radius: 8px; overflow: hidden; aspect-ratio: 4/3; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s, opacity 0.2s; opacity: 0.65; }
+      .galeria-thumb.activo { border-color: #1b35c4; opacity: 1; }
+      .galeria-thumb:hover { opacity: 1; }
+      .galeria-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    </style>
   </head>
   <body>
 
     <div id="site-header"></div>
-    <header class="header">
-      <nav class="navbar">
-        <div class="logo">
-          <a href="../index.html">
-            <img
-              src="../img/home/logo1.webp"
-              alt="Rental Pro Shop"
-              width="120"
-              height="60"
-            />
-          </a>
-        </div>
-        <button
-          class="hamburguesa"
-          id="hamburguesa"
-          aria-label="Abrir menú"
-          aria-expanded="false"
-        >
-          <span></span><span></span><span></span>
-        </button>
-        <ul class="menu" id="menu">
-          <li><a href="../index.html">INICIO</a></li>
-          <li><a href="./tiendas.html">TIENDA</a></li>
-          <li><a href="./alquiler.html">ALQUILER</a></li>
-          <li><a href="./contacto.html">CONTACTO</a></li>
-        </ul>
-        <div class="carrito-nav">
-          <div
-            class="carrito-icono"
-            id="toggleCarrito"
-            role="button"
-            aria-label="Abrir carrito"
-          >
-            🛒 <span id="contadorCarrito">0</span>
-          </div>
-        </div>
-      </nav>
-    </header>
-
-    <div class="overlay" id="overlay"></div>
-
-    <div
-      class="carrito-panel"
-      id="carritoPanel"
-      aria-label="Carrito de compras"
-    >
-      <div class="carrito-header">
-        <h2>TU CARRITO</h2>
-        <button id="cerrarCarrito" aria-label="Cerrar carrito">✕</button>
-      </div>
-      <div id="listaCarrito"></div>
-      <div class="carrito-footer">
-        <p class="total-carrito">
-          Total: <span>$<span id="total">0</span></span>
-        </p>
-        <button class="btn-vaciar" onclick="vaciarCarrito()">
-          🗑 Vaciar carrito
-        </button>
-        <a
-          href="./checkout.html"
-          id="btnFinalizar"
-          class="btn-finalizar disabled"
-          >Finalizar reserva →</a
-        >
-      </div>
-    </div>
 
     <nav class="breadcrumb" aria-label="Ruta de navegación">
       <a href="../index.html">Inicio</a>
@@ -100,38 +41,41 @@
     <main class="equipos-page">
       <div class="equipos-page-header">
         <h1>Nuestros equipos</h1>
-        <p>
-          Equipos renovados, cómodos y fáciles de controlar en todo tipo de
-          pistas.
-        </p>
+        <p>Equipos renovados, cómodos y fáciles de controlar en todo tipo de pistas.</p>
       </div>
 
-      <!-- SKI -->
+      <!-- PACK SKI ADULTO -->
       <section class="equipo-detalle">
         <div class="equipo-detalle-img">
-          <img src="../img/snow/1.webp" alt="Equipo de Ski" />
-          <span class="equipo-detalle-badge">🎿 Ski</span>
+          <div class="galeria-wrapper">
+            <div class="galeria-principal">
+              <img src="../img/snow/1.webp" alt="Pack Ski Adulto" id="principal-ski-adulto" />
+              <span class="equipo-detalle-badge">🎿 Ski Adulto</span>
+            </div>
+            <div class="galeria-thumbs">
+              <div class="galeria-thumb activo" onclick="cambiarImagen('principal-ski-adulto', '../img/snow/1.webp', this)">
+                <img src="../img/snow/1.webp" alt="Ski Adulto 1" loading="lazy" />
+              </div>
+              <div class="galeria-thumb" onclick="cambiarImagen('principal-ski-adulto', '../img/snow/1.webp', this)">
+                <img src="../img/snow/1.webp" alt="Ski Adulto 2" loading="lazy" />
+              </div>
+              <div class="galeria-thumb" onclick="cambiarImagen('principal-ski-adulto', '../img/snow/1.webp', this)">
+                <img src="../img/snow/1.webp" alt="Ski Adulto 3" loading="lazy" />
+              </div>
+            </div>
+          </div>
         </div>
         <div class="equipo-detalle-info">
-          <h2>Pack Ski</h2>
-          <p class="equipo-detalle-ideal">
-            Ideal para nivel inicial e intermedio
-          </p>
-          <p>
-            Equipo ideal para quienes se inician en la nieve y niveles
-            intermedios inclusive. Esquís all mountain versátiles y botas con
-            flex entre 75 y 85.
-          </p>
-          <p>
-            Equipos renovados, cómodos y fáciles de controlar en todo tipo de
-            pistas.
-          </p>
+          <h2>Pack Ski Adulto</h2>
+          <p class="equipo-detalle-ideal">Ideal para nivel inicial e intermedio</p>
+          <p>Esquís all mountain versátiles y botas con flex entre 75 y 85. Equipos renovados, cómodos y fáciles de controlar en todo tipo de pistas.</p>
           <div class="equipo-detalle-incluye">
             <h3>Incluye:</h3>
             <ul>
               <li>✓ Esquís</li>
               <li>✓ Botas</li>
               <li>✓ Bastones</li>
+              <li>✓ Ajuste profesional</li>
             </ul>
           </div>
           <div class="equipo-detalle-marcas">
@@ -140,98 +84,253 @@
             <span class="tag">BLIZZARD</span>
             <span class="tag">ATOMIC</span>
           </div>
-          <p class="equipo-detalle-disclaimer">
-            * Las imágenes de los productos son de carácter ilustrativo.
-          </p>
-          <a href="./checkout.html" class="btn equipo-detalle-btn"
-            >Ir a reserva →</a
-          >
+          <p class="equipo-detalle-disclaimer">* Las imágenes son de carácter ilustrativo.</p>
+          <a href="./checkout.html" class="btn equipo-detalle-btn">Ir a reserva →</a>
         </div>
       </section>
 
-      <!-- SNOWBOARD -->
-      <section class="equipo-detalle equipo-detalle--reverse">
+      <!-- PACK SKI JUNIOR -->
+      <section class="equipo-detalle">
         <div class="equipo-detalle-img">
-          <img src="../img/snow/1.webp" alt="Equipo de Snowboard" />
-          <span class="equipo-detalle-badge">🏂 Snowboard</span>
+          <div class="galeria-wrapper">
+            <div class="galeria-principal">
+              <img src="../img/snow/3.webp" alt="Pack Ski Junior" id="principal-ski-junior" />
+              <span class="equipo-detalle-badge">🎿 Ski Junior</span>
+            </div>
+            <div class="galeria-thumbs">
+              <div class="galeria-thumb activo" onclick="cambiarImagen('principal-ski-junior', '../img/snow/3.webp', this)">
+                <img src="../img/snow/3.webp" alt="Ski Junior 1" loading="lazy" />
+              </div>
+              <div class="galeria-thumb" onclick="cambiarImagen('principal-ski-junior', '../img/snow/3.webp', this)">
+                <img src="../img/snow/3.webp" alt="Ski Junior 2" loading="lazy" />
+              </div>
+              <div class="galeria-thumb" onclick="cambiarImagen('principal-ski-junior', '../img/snow/3.webp', this)">
+                <img src="../img/snow/3.webp" alt="Ski Junior 3" loading="lazy" />
+              </div>
+            </div>
+          </div>
         </div>
         <div class="equipo-detalle-info">
-          <h2>Pack Snowboard</h2>
-          <p class="equipo-detalle-ideal">
-            Ideal para nivel inicial e intermedio
-          </p>
-          <p>
-            Equipo ideal para nivel inicial e intermedios inclusive. Botas de
-            dureza media con sistema BOA o cordones y tabla versátil para toda
-            la montaña.
-          </p>
-          <p>
-            Equipos renovados, cómodos y fáciles de controlar en todo tipo de
-            pistas.
-          </p>
+          <h2>Pack Ski Junior</h2>
+          <p class="equipo-detalle-ideal">Para niños de 4 a 12 años</p>
+          <p>Esquís junior de fácil control y botas cómodas adaptadas para los más chicos. Incluye casco para mayor seguridad en pista.</p>
+          <div class="equipo-detalle-incluye">
+            <h3>Incluye:</h3>
+            <ul>
+              <li>✓ Esquís junior</li>
+              <li>✓ Botas</li>
+              <li>✓ Bastones</li>
+              <li>✓ Casco</li>
+              <li>✓ Ajuste profesional</li>
+            </ul>
+          </div>
+          <div class="equipo-detalle-marcas">
+            <span class="tag">HEAD</span>
+            <span class="tag">ATOMIC</span>
+            <span class="tag">Talles 4–12</span>
+          </div>
+          <p class="equipo-detalle-disclaimer">* Las imágenes son de carácter ilustrativo.</p>
+          <a href="./checkout.html" class="btn equipo-detalle-btn">Ir a reserva →</a>
+        </div>
+      </section>
+
+      <!-- PACK SNOWBOARD ADULTO -->
+      <section class="equipo-detalle">
+        <div class="equipo-detalle-img">
+          <div class="galeria-wrapper">
+            <div class="galeria-principal">
+              <img src="../img/snow/fotosnow1.webp" alt="Pack Snowboard Adulto" id="principal-snow-adulto" />
+              <span class="equipo-detalle-badge">🏂 Snowboard Adulto</span>
+            </div>
+            <div class="galeria-thumbs">
+              <div class="galeria-thumb activo" onclick="cambiarImagen('principal-snow-adulto', '../img/snow/fotosnow1.webp', this)">
+                <img src="../img/snow/fotosnow1.webp" alt="Snowboard 1" loading="lazy" />
+              </div>
+              <div class="galeria-thumb" onclick="cambiarImagen('principal-snow-adulto', '../img/snow/snow.webp', this)">
+                <img src="../img/snow/snow.webp" alt="Snowboard 2" loading="lazy" />
+              </div>
+              <div class="galeria-thumb" onclick="cambiarImagen('principal-snow-adulto', '../img/snow/snow.webp', this)">
+                <img src="../img/snow/snow.webp" alt="Snowboard 3" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="equipo-detalle-info">
+          <h2>Pack Snowboard Adulto</h2>
+          <p class="equipo-detalle-ideal">Ideal para nivel inicial e intermedio</p>
+          <p>Tabla versátil para toda la montaña con botas de dureza media. Sistema BOA o cordones según disponibilidad.</p>
           <div class="equipo-detalle-incluye">
             <h3>Incluye:</h3>
             <ul>
               <li>✓ Tabla</li>
               <li>✓ Botas</li>
               <li>✓ Fijaciones</li>
+              <li>✓ Ajuste profesional</li>
             </ul>
           </div>
           <div class="equipo-detalle-marcas">
+            <span class="tag">BURTON</span>
             <span class="tag">NITRO</span>
             <span class="tag">HEAD</span>
-            <span class="tag">BURTON</span>
           </div>
-          <p class="equipo-detalle-disclaimer">
-            * Las imágenes de los productos son de carácter ilustrativo.
-          </p>
-          <a href="./checkout.html" class="btn equipo-detalle-btn"
-            >Ir a reserva →</a
-          >
+          <p class="equipo-detalle-disclaimer">* Las imágenes son de carácter ilustrativo.</p>
+          <a href="./checkout.html" class="btn equipo-detalle-btn">Ir a reserva →</a>
         </div>
       </section>
 
-      <!-- INDUMENTARIA -->
+      <!-- PACK SNOWBOARD JUNIOR -->
       <section class="equipo-detalle">
         <div class="equipo-detalle-img">
-          <img src="../img/snow/1.webp" alt="Indumentaria de nieve" />
-          <span class="equipo-detalle-badge">🧥 Indumentaria</span>
+          <div class="galeria-wrapper">
+            <div class="galeria-principal">
+              <img src="../img/snow/2.webp" alt="Pack Snowboard Junior" id="principal-snow-junior" />
+              <span class="equipo-detalle-badge">🏂 Snowboard Junior</span>
+            </div>
+            <div class="galeria-thumbs">
+              <div class="galeria-thumb activo" onclick="cambiarImagen('principal-snow-junior', '../img/snow/2.webp', this)">
+                <img src="../img/snow/2.webp" alt="Snowboard Junior 1" loading="lazy" />
+              </div>
+              <div class="galeria-thumb" onclick="cambiarImagen('principal-snow-junior', '../img/snow/2.webp', this)">
+                <img src="../img/snow/2.webp" alt="Snowboard Junior 2" loading="lazy" />
+              </div>
+              <div class="galeria-thumb" onclick="cambiarImagen('principal-snow-junior', '../img/snow/2.webp', this)">
+                <img src="../img/snow/2.webp" alt="Snowboard Junior 3" loading="lazy" />
+              </div>
+            </div>
+          </div>
         </div>
         <div class="equipo-detalle-info">
-          <h2>Indumentaria</h2>
-          <p class="equipo-detalle-ideal">Adultos y niños</p>
-          <p>
-            Camperas y pantalones impermeables diseñados para la nieve. Equipos
-            cómodos y abrigados para disfrutar la montaña en cualquier condición
-            climática.
-          </p>
-          <p>
-            Disponible en talles S al XL para adultos y talle 4 al 12 para
-            niños. También contamos con enteritos para los más chicos.
-          </p>
+          <h2>Pack Snowboard Junior</h2>
+          <p class="equipo-detalle-ideal">Para niños de 4 a 12 años</p>
+          <p>Tabla junior de fácil manejo con botas cómodas adaptadas para los más chicos.</p>
+          <div class="equipo-detalle-incluye">
+            <h3>Incluye:</h3>
+            <ul>
+              <li>✓ Tabla junior</li>
+              <li>✓ Botas</li>
+              <li>✓ Fijaciones</li>
+              <li>✓ Ajuste profesional</li>
+            </ul>
+          </div>
+          <div class="equipo-detalle-marcas">
+            <span class="tag">BURTON</span>
+            <span class="tag">NITRO</span>
+            <span class="tag">Talles 4–12</span>
+          </div>
+          <p class="equipo-detalle-disclaimer">* Las imágenes son de carácter ilustrativo.</p>
+          <a href="./checkout.html" class="btn equipo-detalle-btn">Ir a reserva →</a>
+        </div>
+      </section>
+
+      <!-- INDUMENTARIA ADULTO -->
+      <section class="equipo-detalle">
+        <div class="equipo-detalle-img">
+          <div class="galeria-wrapper">
+            <div class="galeria-principal">
+              <img src="../img/snow/campera_rider_h_azul.webp" alt="Indumentaria Adulto" id="principal-indum-adulto" />
+              <span class="equipo-detalle-badge">🧥 Indumentaria Adulto</span>
+            </div>
+            <div class="galeria-thumbs">
+              <div class="galeria-thumb activo" onclick="cambiarImagen('principal-indum-adulto', '../img/snow/campera_rider_h_azul.webp', this)">
+                <img src="../img/snow/campera_rider_h_azul.webp" alt="Indumentaria 1" loading="lazy" />
+              </div>
+              <div class="galeria-thumb" onclick="cambiarImagen('principal-indum-adulto', '../img/snow/campera_rider_h_azul.webp', this)">
+                <img src="../img/snow/campera_rider_h_azul.webp" alt="Indumentaria 2" loading="lazy" />
+              </div>
+              <div class="galeria-thumb" onclick="cambiarImagen('principal-indum-adulto', '../img/snow/pantalon_slalom_3_esqui_y_snowboard_gore_tex_dama_.webp', this)">
+                <img src="../img/snow/pantalon_slalom_3_esqui_y_snowboard_gore_tex_dama_.webp" alt="Indumentaria 3" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="equipo-detalle-info">
+          <h2>Indumentaria Adulto</h2>
+          <p class="equipo-detalle-ideal">Hombre y mujer — Talles S al XL</p>
+          <p>Camperas y pantalones impermeables diseñados para la nieve. Cómodos y abrigados para disfrutar la montaña en cualquier condición climática.</p>
+          <div class="equipo-detalle-incluye">
+            <h3>Disponible por separado o en combo:</h3>
+            <ul>
+              <li>✓ Campera impermeable</li>
+              <li>✓ Pantalón impermeable</li>
+              <li>✓ Combo campera + pantalón (precio especial)</li>
+            </ul>
+          </div>
+          <div class="equipo-detalle-marcas">
+            <span class="tag">Talle S</span>
+            <span class="tag">Talle M</span>
+            <span class="tag">Talle L</span>
+            <span class="tag">Talle XL</span>
+          </div>
+          <p class="equipo-detalle-disclaimer">* Las imágenes son de carácter ilustrativo.</p>
+          <a href="./checkout.html" class="btn equipo-detalle-btn">Ir a reserva →</a>
+        </div>
+      </section>
+
+      <!-- INDUMENTARIA NIÑO -->
+      <section class="equipo-detalle">
+        <div class="equipo-detalle-img">
+          <div class="galeria-wrapper">
+            <div class="galeria-principal">
+              <img src="../img/snow/campera_de_ninos_nea_4_ansilta_gore_tex_esqui_.webp" alt="Indumentaria Niño" id="principal-indum-nino" />
+              <span class="equipo-detalle-badge">🧥 Indumentaria Niño</span>
+            </div>
+            <div class="galeria-thumbs">
+              <div class="galeria-thumb activo" onclick="cambiarImagen('principal-indum-nino', '../img/snow/campera_de_ninos_nea_4_ansilta_gore_tex_esqui_.webp', this)">
+                <img src="../img/snow/campera_de_ninos_nea_4_ansilta_gore_tex_esqui_.webp" alt="Niño 1" loading="lazy" />
+              </div>
+              <div class="galeria-thumb" onclick="cambiarImagen('principal-indum-nino', '../img/snow/enterito.webp', this)">
+                <img src="../img/snow/enterito.webp" alt="Niño 2" loading="lazy" />
+              </div>
+              <div class="galeria-thumb" onclick="cambiarImagen('principal-indum-nino', '../img/snow/campera_de_ninos_nea_4_ansilta_gore_tex_esqui_t.webp', this)">
+                <img src="../img/snow/campera_de_ninos_nea_4_ansilta_gore_tex_esqui_t.webp" alt="Niño 3" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="equipo-detalle-info">
+          <h2>Indumentaria Niño</h2>
+          <p class="equipo-detalle-ideal">Para niños — Talles 4 al 12</p>
+          <p>Camperas y pantalones impermeables para niños. También contamos con enteritos para los más chicos, ideales para mantenerse abrigados en pista.</p>
           <div class="equipo-detalle-incluye">
             <h3>Disponible:</h3>
             <ul>
-              <li>✓ Campera</li>
-              <li>✓ Pantalón</li>
-              <li>✓ Enterito niño</li>
+              <li>✓ Campera niño</li>
+              <li>✓ Pantalón niño</li>
+              <li>✓ Enterito (combo en uno)</li>
+              <li>✓ Combo campera + pantalón (precio especial)</li>
             </ul>
           </div>
           <div class="equipo-detalle-marcas">
-            <span class="tag">Adulto S-XL</span>
-            <span class="tag">Niño 4-12</span>
+            <span class="tag">Talle 4</span>
+            <span class="tag">Talle 6</span>
+            <span class="tag">Talle 8</span>
+            <span class="tag">Talle 10</span>
+            <span class="tag">Talle 12</span>
           </div>
-          <p class="equipo-detalle-disclaimer">
-            * Las imágenes de los productos son de carácter ilustrativo.
-          </p>
-          <a href="./checkout.html" class="btn equipo-detalle-btn"
-            >Ir a reserva →</a
-          >
+          <p class="equipo-detalle-disclaimer">* Las imágenes son de carácter ilustrativo.</p>
+          <a href="./checkout.html" class="btn equipo-detalle-btn">Ir a reserva →</a>
         </div>
       </section>
+
     </main>
+
     <div id="site-footer"></div>
 
+    <script>
+      function cambiarImagen(idPrincipal, src, thumb) {
+        const principal = document.getElementById(idPrincipal);
+        if (!principal) return;
+        principal.style.opacity = '0';
+        setTimeout(() => {
+          principal.src = src;
+          principal.style.opacity = '1';
+        }, 150);
+        thumb.closest('.galeria-thumbs').querySelectorAll('.galeria-thumb').forEach(t => t.classList.remove('activo'));
+        thumb.classList.add('activo');
+      }
+    </script>
+
+    <script src="../precios.js"></script>
     <script src="../script.js"></script>
     <script src="../components/components.js"></script>
   </body>
