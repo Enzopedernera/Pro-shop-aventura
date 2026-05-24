@@ -13,24 +13,33 @@ jobs:
       - name: Checkout repositorio
         uses: actions/checkout@v4
 
-      - name: Subir archivos a Donweb via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: c1382531.ferozo.com
-          username: c1382531
-          password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftps
-          port: 21
-          local-dir: ./
-          server-dir: /public_html/
-          dangerous-clean-slate: false
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
-            **/scss/**
-            **/.env
-            **/server/**
-            **/package*.json
-            **/.gitignore
-            **/.hintrc
+      - name: Instalar lftp
+        run: sudo apt-get install -y lftp
+
+      - name: Deploy via FTPS con lftp
+        env:
+          FTP_HOST: c1382531.ferozo.com
+          FTP_USER: c1382531
+          FTP_PASS: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          lftp -c "
+            set ftps:initial-prot '';
+            set ftp:ssl-force true;
+            set ftp:ssl-protect-data true;
+            set ssl:verify-certificate false;
+            set net:reconnect-interval-base 5;
+            set net:max-retries 3;
+            open -u $FTP_USER,$FTP_PASS ftps://$FTP_HOST;
+            mirror --reverse --delete --verbose \
+              --exclude-glob .git* \
+              --exclude-glob node_modules/ \
+              --exclude-glob scss/ \
+              --exclude-glob .env \
+              --exclude-glob server/ \
+              --exclude-glob package*.json \
+              --exclude-glob .gitignore \
+              --exclude-glob .hintrc \
+              --exclude-glob .github/ \
+              ./ /public_html/;
+            bye
+          "
