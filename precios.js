@@ -16,6 +16,14 @@ const PRECIOS = {
   snow_adulto:   { 1: 58000, 3: 149000, 4: 189000, 5: 224000, 6: 254000, 7: 281000 },
   snow_junior:   { 1: 44000, 3: 113000, 4: 143000, 5: 170000, 6: 193000, 7: 213000 },
 
+  // ── EQUIPOS SUELTOS ───────────────────────
+  solo_ski_adulto:   { 1: 38000, 3: 97000,  4: 124000, 5: 147000, 6: 167000, 7: 185000 },
+  solo_ski_junior:   { 1: 30000, 3: 77000,  4: 98000,  5: 116000, 6: 132000, 7: 146000 },
+  solo_snow_adulto:  { 1: 40000, 3: 103000, 4: 131000, 5: 155000, 6: 176000, 7: 195000 },
+  solo_snow_junior:  { 1: 31000, 3: 79000,  4: 101000, 5: 120000, 6: 136000, 7: 150000 },
+  solo_bota_ski:     { 1: 22000, 3: 56000,  4: 72000,  5: 85000,  6: 97000,  7: 107000 },
+  solo_bota_snow:    { 1: 23000, 3: 59000,  4: 75000,  5: 89000,  6: 101000, 7: 112000 },
+
   // ── ACCESORIOS ────────────────────────────
   casco:         { 1: 19000, 3: 49000,  4: 62000,  5: 73000,  6: 83000,  7: 92000  },
   antiparras:    { 1: 27000, 3: 69000,  4: 88000,  5: 104000, 6: 118000, 7: 131000 },
@@ -40,6 +48,12 @@ const NOMBRES = {
   ski_junior:      "Pack Ski Junior",
   snow_adulto:     "Pack Snowboard Adulto",
   snow_junior:     "Pack Snowboard Junior",
+  solo_ski_adulto:   "Solo Esquí Adulto",
+  solo_ski_junior:   "Solo Esquí Junior",
+  solo_snow_adulto:  "Solo Snowboard Adulto",
+  solo_snow_junior:  "Solo Snowboard Junior",
+  solo_bota_ski:     "Solo Bota de Ski",
+  solo_bota_snow:    "Solo Bota de Snowboard",
   casco:           "Casco",
   antiparras:      "Antiparras",
   guantes:         "Guantes",

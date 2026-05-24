@@ -360,7 +360,7 @@ document.addEventListener("DOMContentLoaded", () => {
       btnSubmit.disabled = true;
 
       try {
-        const response = await fetch("http://localhost:3001/contacto", {
+        const response = await fetch("https://pro-shop-aventura-production.up.railway.app/contacto", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -501,6 +501,14 @@ document.addEventListener("DOMContentLoaded", () => {
               onclick="actualizarEsq(${i}, 'tipo', 'ski')">🎿 Ski (ski + botas + bastones)</button>
             <button type="button" class="tipo-btn ${esq.tipo === "snow" ? "activo" : ""}"
               onclick="actualizarEsq(${i}, 'tipo', 'snow')">🏂 Snowboard (tabla + botas)</button>
+            <button type="button" class="tipo-btn ${esq.tipo === "solo_ski" ? "activo" : ""}"
+              onclick="actualizarEsq(${i}, 'tipo', 'solo_ski')">🎿 Solo Esquí (sin botas)</button>
+            <button type="button" class="tipo-btn ${esq.tipo === "solo_snow" ? "activo" : ""}"
+              onclick="actualizarEsq(${i}, 'tipo', 'solo_snow')">🏂 Solo Snowboard (sin botas)</button>
+            <button type="button" class="tipo-btn ${esq.tipo === "solo_bota_ski" ? "activo" : ""}"
+              onclick="actualizarEsq(${i}, 'tipo', 'solo_bota_ski')">👢 Solo Bota de Ski</button>
+            <button type="button" class="tipo-btn ${esq.tipo === "solo_bota_snow" ? "activo" : ""}"
+              onclick="actualizarEsq(${i}, 'tipo', 'solo_bota_snow')">👢 Solo Bota de Snowboard</button>
           </div>
 
           <div class="checkout-grid" style="margin:14px 0">
@@ -691,8 +699,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (esq.tipo === "ski") {
         total += getPrecioLocal(esNino ? "ski_junior" : "ski_adulto", d);
-      } else {
+      } else if (esq.tipo === "snow") {
         total += getPrecioLocal(esNino ? "snow_junior" : "snow_adulto", d);
+      } else if (esq.tipo === "solo_ski") {
+        total += getPrecioLocal(esNino ? "solo_ski_junior" : "solo_ski_adulto", d);
+      } else if (esq.tipo === "solo_snow") {
+        total += getPrecioLocal(esNino ? "solo_snow_junior" : "solo_snow_adulto", d);
+      } else if (esq.tipo === "solo_bota_ski") {
+        total += getPrecioLocal("solo_bota_ski", d);
+      } else if (esq.tipo === "solo_bota_snow") {
+        total += getPrecioLocal("solo_bota_snow", d);
       }
 
       if (esq.casco && !esNino) total += getPrecioLocal("casco", d);
@@ -858,7 +874,7 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
         try {
-          const response = await fetch("http://localhost:3001/reserva", {
+          const response = await fetch("https://pro-shop-aventura-production.up.railway.app/reserva", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({

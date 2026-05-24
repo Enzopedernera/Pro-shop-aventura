@@ -3315,6 +3315,7 @@ textarea {
   justify-content: center;
   z-index: 2000;
   padding: 20px;
+  -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(4px);
 }
 

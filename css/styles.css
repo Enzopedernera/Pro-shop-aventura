@@ -1032,6 +1032,7 @@ textarea {
 }
 .tabla .fila-descuento td:first-child {
   background: #1b35c4;
+  color: #ffffff;
 }
 
 #toast-contenedor {
