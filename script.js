@@ -498,17 +498,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
           <div class="tipo-toggle">
             <button type="button" class="tipo-btn ${esq.tipo === "ski" ? "activo" : ""}"
-              onclick="actualizarEsq(${i}, 'tipo', 'ski')">🎿 Ski (ski + botas + bastones)</button>
+              onclick="actualizarEsq(${i}, 'tipo', 'ski')">🎿 Ski completo</button>
             <button type="button" class="tipo-btn ${esq.tipo === "snow" ? "activo" : ""}"
-              onclick="actualizarEsq(${i}, 'tipo', 'snow')">🏂 Snowboard (tabla + botas)</button>
+              onclick="actualizarEsq(${i}, 'tipo', 'snow')">🏂 Snowboard completo</button>
             <button type="button" class="tipo-btn ${esq.tipo === "solo_ski" ? "activo" : ""}"
-              onclick="actualizarEsq(${i}, 'tipo', 'solo_ski')">🎿 Solo Esquí (sin botas)</button>
+              onclick="actualizarEsq(${i}, 'tipo', 'solo_ski')">🎿 Solo Esquí</button>
             <button type="button" class="tipo-btn ${esq.tipo === "solo_snow" ? "activo" : ""}"
-              onclick="actualizarEsq(${i}, 'tipo', 'solo_snow')">🏂 Solo Snowboard (sin botas)</button>
+              onclick="actualizarEsq(${i}, 'tipo', 'solo_snow')">🏂 Solo Snowboard</button>
             <button type="button" class="tipo-btn ${esq.tipo === "solo_bota_ski" ? "activo" : ""}"
-              onclick="actualizarEsq(${i}, 'tipo', 'solo_bota_ski')">👢 Solo Bota de Ski</button>
+              onclick="actualizarEsq(${i}, 'tipo', 'solo_bota_ski')">👢 Bota Ski</button>
             <button type="button" class="tipo-btn ${esq.tipo === "solo_bota_snow" ? "activo" : ""}"
-              onclick="actualizarEsq(${i}, 'tipo', 'solo_bota_snow')">👢 Solo Bota de Snowboard</button>
+              onclick="actualizarEsq(${i}, 'tipo', 'solo_bota_snow')">👢 Bota Snowboard</button>
           </div>
 
           <div class="checkout-grid" style="margin:14px 0">
@@ -745,26 +745,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const titulo = document.createElement("div");
         titulo.classList.add("resumen-grupo-titulo");
-        titulo.textContent = `${esq.nombre || `Esquiador ${i + 1}`} — ${esq.edad === "adulto" ? "Adulto" : "Niño"} · ${esq.tipo === "ski" ? "Ski" : "Snowboard"} · ${d} día/s`;
+        titulo.textContent = `${esq.nombre || `Esquiador ${i + 1}`} — ${esq.edad === "adulto" ? "Adulto" : "Niño"} · ${
+          esq.tipo === "ski" ? "Ski" :
+          esq.tipo === "snow" ? "Snowboard" :
+          esq.tipo === "solo_ski" ? "Solo Esquí" :
+          esq.tipo === "solo_snow" ? "Solo Snowboard" :
+          esq.tipo === "solo_bota_ski" ? "Bota Ski" :
+          esq.tipo === "solo_bota_snow" ? "Bota Snowboard" : "Equipo"
+        } · ${d} día/s`;
         grupo.appendChild(titulo);
 
         const items = [];
-        const packKey =
-          esq.tipo === "ski"
-            ? esNino
-              ? "ski_junior"
-              : "ski_adulto"
-            : esNino
-              ? "snow_junior"
-              : "snow_adulto";
-        const packLabel =
-          esq.tipo === "ski"
-            ? esNino
-              ? "Pack Ski Junior (ski + botas + bastones)"
-              : "Pack Ski Adulto (ski + botas + bastones)"
-            : esNino
-              ? "Pack Snowboard Junior (tabla + botas)"
-              : "Pack Snowboard Adulto (tabla + botas)";
+        let packKey, packLabel;
+
+        if (esq.tipo === "ski") {
+          packKey   = esNino ? "ski_junior" : "ski_adulto";
+          packLabel = esNino ? "Pack Ski Junior (ski + botas + bastones)" : "Pack Ski Adulto (ski + botas + bastones)";
+        } else if (esq.tipo === "snow") {
+          packKey   = esNino ? "snow_junior" : "snow_adulto";
+          packLabel = esNino ? "Pack Snowboard Junior (tabla + botas)" : "Pack Snowboard Adulto (tabla + botas)";
+        } else if (esq.tipo === "solo_ski") {
+          packKey   = esNino ? "solo_ski_junior" : "solo_ski_adulto";
+          packLabel = esNino ? "Solo Esquí Junior (sin botas)" : "Solo Esquí Adulto (sin botas)";
+        } else if (esq.tipo === "solo_snow") {
+          packKey   = esNino ? "solo_snow_junior" : "solo_snow_adulto";
+          packLabel = esNino ? "Solo Snowboard Junior (sin botas)" : "Solo Snowboard Adulto (sin botas)";
+        } else if (esq.tipo === "solo_bota_ski") {
+          packKey   = "solo_bota_ski";
+          packLabel = "Solo Bota de Ski";
+        } else if (esq.tipo === "solo_bota_snow") {
+          packKey   = "solo_bota_snow";
+          packLabel = "Solo Bota de Snowboard";
+        } else {
+          packKey   = esNino ? "snow_junior" : "snow_adulto";
+          packLabel = "Equipo";
+        }
 
         items.push([packLabel, getPrecioLocal(packKey, d)]);
         if (esq.casco && !esNino)
@@ -823,14 +838,15 @@ document.addEventListener("DOMContentLoaded", () => {
       if (totalDiaEl) {
         const totalPorDia = esquiadores.reduce((acc, esq) => {
           const esNino = esq.edad === "nino";
-          const packKey =
-            esq.tipo === "ski"
-              ? esNino
-                ? "ski_junior"
-                : "ski_adulto"
-              : esNino
-                ? "snow_junior"
-                : "snow_adulto";
+          let packKey;
+          if (esq.tipo === "ski")            packKey = esNino ? "ski_junior" : "ski_adulto";
+          else if (esq.tipo === "snow")       packKey = esNino ? "snow_junior" : "snow_adulto";
+          else if (esq.tipo === "solo_ski")   packKey = esNino ? "solo_ski_junior" : "solo_ski_adulto";
+          else if (esq.tipo === "solo_snow")  packKey = esNino ? "solo_snow_junior" : "solo_snow_adulto";
+          else if (esq.tipo === "solo_bota_ski")  packKey = "solo_bota_ski";
+          else if (esq.tipo === "solo_bota_snow") packKey = "solo_bota_snow";
+          else packKey = esNino ? "snow_junior" : "snow_adulto";
+
           let t = getPrecioLocal(packKey, 1);
           if (esq.casco) t += getPrecioLocal("casco", 1);
           if (esq.antiparras) t += getPrecioLocal("antiparras", 1);
