@@ -20,7 +20,7 @@
     return depth === 0 ? "" : "../".repeat(depth);
   }
 
-  function loadComponent(elementId, file, base) {
+  function loadComponent(elementId, file, base, callback) {
     const el = document.getElementById(elementId);
     if (!el) return;
 
@@ -32,11 +32,34 @@
       .then((html) => {
         // Reemplaza todos los {{BASE}} por el path calculado
         el.innerHTML = html.replaceAll("{{BASE}}", base);
+        if (callback) callback();
       })
       .catch((err) => console.error("[components.js]", err));
   }
 
+  function initHamburger() {
+    const hamburguesa = document.getElementById("hamburguesa");
+    const menu = document.getElementById("menu");
+    if (!hamburguesa || !menu) return;
+
+    // Evita duplicar listeners
+    hamburguesa.replaceWith(hamburguesa.cloneNode(true));
+    const btn = document.getElementById("hamburguesa");
+
+    btn.addEventListener("click", () => {
+      const abierto = menu.classList.toggle("active");
+      btn.setAttribute("aria-expanded", abierto);
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!btn.contains(e.target) && !menu.contains(e.target)) {
+        menu.classList.remove("active");
+        btn.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
   const base = getBase();
-  loadComponent("site-header", "header.html", base);
+  loadComponent("site-header", "header.html", base, initHamburger);
   loadComponent("site-footer", "footer.html", base);
 })();
