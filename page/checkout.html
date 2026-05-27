@@ -15,37 +15,6 @@
   <body>
 
     <div id="site-header"></div>
-    <header class="header">
-      <nav class="navbar">
-        <div class="logo">
-          <a href="../index.html">
-            <img
-              src="../img/home/logo1.webp"
-              alt="Rental Pro Shop"
-              width="120"
-              height="60"
-            />
-          </a>
-        </div>
-        <button
-          class="hamburguesa"
-          id="hamburguesa"
-          aria-label="Abrir menú"
-          aria-expanded="false"
-        >
-          <span></span><span></span><span></span>
-        </button>
-        <ul class="menu" id="menu">
-          <li><a href="../index.html">INICIO</a></li>
-          <li><a href="./tiendas.html">TIENDA</a></li>
-          <li><a href="./equipos.html">EQUIPOS</a></li>
-          <li><a href="./tarifas.html">TARIFAS</a></li>
-          <li><a href="./nosotros.html">NOSOTROS</a></li>
-          <li><a href="./contacto.html">CONTACTO</a></li>
-        </ul>
-      </nav>
-    </header>
-
     <div class="overlay" id="overlay"></div>
 
     <nav class="breadcrumb" aria-label="Ruta de navegación">
@@ -226,42 +195,5 @@
     <script src="../precios.js"></script>
     <script src="../script.js"></script>
     <script src="../components/components.js"></script>
-    <script>
-      // ── FECHAS GLOBALES: respaldo si no vienen precargadas desde el home ──
-      (function() {
-        var iniEl = document.getElementById('fechaGlobalInicio');
-        var finEl = document.getElementById('fechaGlobalFin');
-        if (!iniEl || !finEl) return;
-
-        // Precargar con lo que haya en localStorage
-        if (window._fechaInicioPrecargada) iniEl.value = window._fechaInicioPrecargada;
-        if (window._fechaFinPrecargada)   finEl.value = window._fechaFinPrecargada;
-
-        // Bloquear fechas pasadas
-        var hoy = new Date().toISOString().split('T')[0];
-        iniEl.min = hoy;
-        finEl.min = hoy;
-
-        // Cuando cambia la fecha de inicio, actualizar min de fin
-        iniEl.addEventListener('change', function() {
-          finEl.min = this.value || hoy;
-          if (finEl.value && finEl.value < this.value) finEl.value = this.value;
-          propagarFechas();
-        });
-        finEl.addEventListener('change', propagarFechas);
-
-        function propagarFechas() {
-          var ini = iniEl.value;
-          var fin = finEl.value;
-          // Guardar en localStorage para que script.js los tome
-          if (ini) localStorage.setItem('fechaLlegada', ini);
-          if (fin) localStorage.setItem('fechaSalida', fin);
-          // Si script.js ya inicializó los esquiadores, actualizar sus fechas también
-          if (typeof window.actualizarFechasGlobales === 'function') {
-            window.actualizarFechasGlobales(ini, fin);
-          }
-        }
-      })();
-    </script>
   </body>
 </html>
