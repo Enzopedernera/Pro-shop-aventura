@@ -648,6 +648,15 @@
   }
 }
 
+.ubicacion-mapa {
+  .ubicacion-iframe {
+    border: 0;
+    border-radius: $radius-md;
+    width: 100%;
+    display: block;
+  }
+}
+
 .btn-wa {
   display: inline-block;
   background: #25d366;

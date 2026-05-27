@@ -24,13 +24,31 @@
     const el = document.getElementById(elementId);
     if (!el) return;
 
+    // Si estamos en file:// (Live Server sin servidor HTTP), fetch falla.
+    // Usamos XMLHttpRequest síncrono como fallback, que sí funciona en file://.
+    var isFile = window.location.protocol === "file:";
+
+    if (isFile) {
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", base + "components/" + file, false); // síncrono
+      try {
+        xhr.send();
+        if (xhr.status === 0 || xhr.status === 200) {
+          el.innerHTML = xhr.responseText.replaceAll("{{BASE}}", base);
+          if (callback) callback();
+        }
+      } catch (err) {
+        console.error("[components.js] XHR error:", err);
+      }
+      return;
+    }
+
     fetch(base + "components/" + file)
       .then((res) => {
         if (!res.ok) throw new Error("No se pudo cargar " + file);
         return res.text();
       })
       .then((html) => {
-        // Reemplaza todos los {{BASE}} por el path calculado
         el.innerHTML = html.replaceAll("{{BASE}}", base);
         if (callback) callback();
       })

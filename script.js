@@ -245,6 +245,9 @@ function initSelectorFechas() {
     if (salida) localStorage.setItem("fechaSalida", salida);
     if (personas) localStorage.setItem("cantPersonas", personas);
 
+    // Marcar que viene del selector del home (no un link directo)
+    sessionStorage.setItem("desdeHome", "1");
+
     window.location.href = "./page/checkout.html";
   });
 }
@@ -253,6 +256,21 @@ function initSelectorFechas() {
 function initFechasCheckout() {
   const listaEsquiadores = document.getElementById("listaEsquiadores");
   if (!listaEsquiadores) return;
+
+  // Limpiar siempre cualquier reserva confirmada anterior
+  // para que no aparezca el modal de confirmación en una sesión nueva.
+  localStorage.removeItem("reservaConfirmada");
+
+  // Si NO viene del selector del home, limpiar datos viejos para evitar
+  // que se pre-carguen fechas/personas de una sesión anterior.
+  const desdeHome = sessionStorage.getItem("desdeHome");
+  if (!desdeHome) {
+    localStorage.removeItem("fechaLlegada");
+    localStorage.removeItem("fechaSalida");
+    localStorage.removeItem("cantPersonas");
+  }
+  // Consumir la marca para que no persista entre recargas
+  sessionStorage.removeItem("desdeHome");
 
   // Se pre-cargan al renderizar cada esquiador
   window._fechaInicioPrecargada = localStorage.getItem("fechaLlegada") || "";

@@ -224,3 +224,18 @@
     transform: translateY(-1px);
   }
 }
+
+// ── CLASES QUE REEMPLAZAN INLINE STYLES ───────
+.icon-no-shrink {
+  flex-shrink: 0;
+}
+
+.ubicacion-iframe--mt {
+  margin-top: $espaciado-md;
+}
+
+.contacto-form-hint {
+  font-size: 14px;
+  color: $gris-texto;
+  margin-bottom: 20px;
+}

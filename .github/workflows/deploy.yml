@@ -13,6 +13,12 @@ jobs:
       - name: Checkout repositorio
         uses: actions/checkout@v4
 
+      - name: Instalar Sass
+        run: npm install -g sass
+
+      - name: Compilar SCSS → css/styles.css
+        run: sass scss/main.scss css/styles.css --style=compressed --no-source-map
+
       - name: Instalar lftp
         run: sudo apt-get install -y lftp
 
