@@ -19,6 +19,15 @@ jobs:
       - name: Compilar SCSS → css/styles.css
         run: sass scss/main.scss css/styles.css --style=compressed --no-source-map
 
+      - name: Cache busting automático en todos los HTML
+        run: |
+          VERSION=$(date +%Y%m%d%H%M)
+          find . -name "*.html" \
+            ! -path "./.git/*" \
+            ! -path "./node_modules/*" \
+            -exec sed -i "s|styles\.css?v=[0-9]*|styles.css?v=${VERSION}|g; s|styles\.css\"|styles.css?v=${VERSION}\"|g" {} +
+          echo "Cache busting aplicado: v${VERSION}"
+
       - name: Instalar lftp
         run: sudo apt-get install -y lftp
 
