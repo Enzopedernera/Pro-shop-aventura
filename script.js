@@ -520,7 +520,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return `
         <div class="esq-recomendacion">
           <div class="esq-recomendacion-titulo">
-            📐 ${titulo}
+            ${titulo}
             <span class="esq-recomendacion-tag">${NIVEL_LABELS[nivel]}</span>
           </div>
           <div class="esq-recomendacion-items">${filas}</div>
@@ -579,15 +579,15 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="nivel-toggle">
             <button type="button" class="nivel-btn ${esq.nivel === 'principiante' ? 'activo' : ''}"
               onclick="actualizarEsq(${i}, 'nivel', 'principiante')">
-              🌱 Principiante
+              Principiante
             </button>
             <button type="button" class="nivel-btn ${esq.nivel === 'intermedio' ? 'activo' : ''}"
               onclick="actualizarEsq(${i}, 'nivel', 'intermedio')">
-              📈 Intermedio
+              Intermedio
             </button>
             <button type="button" class="nivel-btn ${esq.nivel === 'avanzado' ? 'activo' : ''}"
               onclick="actualizarEsq(${i}, 'nivel', 'avanzado')">
-              ⚡ Avanzado
+              Avanzado
             </button>
           </div>
 
@@ -596,12 +596,12 @@ document.addEventListener("DOMContentLoaded", () => {
               <label>Altura (cm)</label>
               <select onchange="actualizarEsq(${i}, 'altura', this.value)">
                 <option value="">Seleccioná</option>
-                ${[
-                  100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155,
-                  160, 165, 170, 175, 180, 185, 190,
-                ]
-                  .map(
-                    (h) =>
+                ${(esNino
+                  ? [60,65,70,75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135, 140]
+                  : [ 140, 145, 150, 155, 160, 165, 170, 175, 180, 185, 190,]
+                )
+                    .map(
+                      (h) =>
                       `<option value="${h}" ${esq.altura == h ? "selected" : ""}>${h} cm</option>`,
                   )
                   .join("")}
