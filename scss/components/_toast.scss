@@ -43,8 +43,8 @@
 
   &.toast-error {
     background: #fcebeb;
-    border-left: 4px solid darken($rojo-error, 10%);
-    color: darken($rojo-error, 25%);
+    border-left: 4px solid #d53727; // darken(#e74c3c, 10%)
+    color: #921e12;                 // darken(#e74c3c, 25%)
   }
 
   &.toast-warning {
@@ -56,7 +56,7 @@
   &.toast-info {
     background: #e6f1fb;
     border-left: 4px solid $azul;
-    color: darken($azul, 10%);
+    color: #1529a3; // darken(#1b35c4, 10%)
   }
 }
 

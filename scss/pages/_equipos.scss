@@ -594,8 +594,8 @@
     color: $blanco;
   }
 }
-// ── TABLAS EN GRID DOS COLUMNAS ──
-.tablas-grid {
+// ── TABLAS EN GRID DOS COLUMNAS (usado en alquiler, no en tarifas) ──
+.tablas-grid--dos-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 32px;
