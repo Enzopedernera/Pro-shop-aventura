@@ -85,6 +85,8 @@
 }
 
 // ── TABLAS ────────────────────────────────────
+// .tabla-precios-* se define en components/_tabla.scss.
+// Acá solo se sobreescribe lo específico de la página de tarifas.
 .tablas-grid {
   display: block;
   max-width: 1400px;
@@ -94,29 +96,18 @@
   @media (max-width: 1024px) {
     padding: 0 16px 40px;
   }
-}
 
-.tabla-precios-equipos,
-.tabla-precios-indumentaria {
-  overflow: visible;
-  max-width: 100%;
-  width: 100%;
-  margin-bottom: 40px;
-
-  h2 {
-    font-size: 20px;
-    font-weight: 700;
-    color: $negro;
-    margin-bottom: 14px;
+  .tabla-precios-equipos,
+  .tabla-precios-indumentaria {
+    max-width: 100%;
+    width: 100%;
+    margin-bottom: 40px;
+    padding: $espaciado-md;
   }
-}
 
-.tabla-wrapper {
-  overflow-x: auto;
-  display: block;
-  width: 100%;
-  border-radius: $radius-md;
-  border: 1px solid $gris-medio;
+  .tabla-wrapper {
+    border: 1px solid $gris-medio;
+  }
 }
 
 // ── NOTA INFORMATIVA ──────────────────────────

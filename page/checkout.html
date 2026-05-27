@@ -51,7 +51,7 @@
     <nav class="breadcrumb" aria-label="Ruta de navegación">
       <a href="../index.html">Inicio</a>
       <span class="breadcrumb-sep">›</span>
-      <a href="./alquiler.html">Alquiler</a>
+      <a href="./tarifas.html">Tarifas</a>
       <span class="breadcrumb-sep">›</span>
       <span class="breadcrumb-actual">Confirmar reserva</span>
     </nav>
@@ -60,6 +60,26 @@
       <div class="checkout-container">
         <!-- COLUMNA IZQUIERDA -->
         <div class="checkout-form-col">
+
+          <!-- FECHAS GLOBALES (respaldo si no vienen del home) -->
+          <div class="checkout-card" id="cardFechasGlobales">
+            <div class="checkout-card-header">
+              <span class="checkout-step">📅</span>
+              <h2>Fechas de alquiler</h2>
+            </div>
+            <div class="checkout-grid">
+              <div class="campo">
+                <label for="fechaGlobalInicio">Fecha de retiro *</label>
+                <input type="date" id="fechaGlobalInicio" name="fechaGlobalInicio" />
+              </div>
+              <div class="campo">
+                <label for="fechaGlobalFin">Fecha de devolución *</label>
+                <input type="date" id="fechaGlobalFin" name="fechaGlobalFin" />
+              </div>
+            </div>
+            <p class="campo-hint">Las fechas se aplicarán a todos los esquiadores. Podés ajustarlas individualmente en el paso 3.</p>
+          </div>
+
           <!-- PASO 1 — DATOS CLIENTE -->
           <div class="checkout-card">
             <div class="checkout-card-header">
@@ -203,7 +223,7 @@
       </div>
 
       <!-- MENSAJE ÉXITO -->
-      <div class="checkout-exito" id="checkoutExito" style="display: none">
+      <div class="checkout-exito checkout-exito--hidden" id="checkoutExito">
         <div class="checkout-exito-inner">
           <div class="checkout-exito-icon">✓</div>
           <h2>¡Reserva confirmada!</h2>
@@ -221,5 +241,42 @@
     <script src="../precios.js"></script>
     <script src="../script.js"></script>
     <script src="../components/components.js"></script>
+    <script>
+      // ── FECHAS GLOBALES: respaldo si no vienen precargadas desde el home ──
+      (function() {
+        var iniEl = document.getElementById('fechaGlobalInicio');
+        var finEl = document.getElementById('fechaGlobalFin');
+        if (!iniEl || !finEl) return;
+
+        // Precargar con lo que haya en localStorage
+        if (window._fechaInicioPrecargada) iniEl.value = window._fechaInicioPrecargada;
+        if (window._fechaFinPrecargada)   finEl.value = window._fechaFinPrecargada;
+
+        // Bloquear fechas pasadas
+        var hoy = new Date().toISOString().split('T')[0];
+        iniEl.min = hoy;
+        finEl.min = hoy;
+
+        // Cuando cambia la fecha de inicio, actualizar min de fin
+        iniEl.addEventListener('change', function() {
+          finEl.min = this.value || hoy;
+          if (finEl.value && finEl.value < this.value) finEl.value = this.value;
+          propagarFechas();
+        });
+        finEl.addEventListener('change', propagarFechas);
+
+        function propagarFechas() {
+          var ini = iniEl.value;
+          var fin = finEl.value;
+          // Guardar en localStorage para que script.js los tome
+          if (ini) localStorage.setItem('fechaLlegada', ini);
+          if (fin) localStorage.setItem('fechaSalida', fin);
+          // Si script.js ya inicializó los esquiadores, actualizar sus fechas también
+          if (typeof window.actualizarFechasGlobales === 'function') {
+            window.actualizarFechasGlobales(ini, fin);
+          }
+        }
+      })();
+    </script>
   </body>
 </html>

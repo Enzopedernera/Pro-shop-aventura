@@ -305,17 +305,19 @@
 
 .tipo-toggle {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 14px;
 
   .tipo-btn {
-    flex: 1;
+    flex: 1 1 calc(33% - 8px);
+    min-width: 120px;
     padding: 10px;
     border: 1.5px solid $gris-medio;
     border-radius: $radius-sm;
     background: $blanco;
     color: $gris-texto;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
     cursor: pointer;
     text-align: center;
@@ -325,6 +327,10 @@
       background: $azul;
       color: $blanco;
       border-color: $azul;
+    }
+
+    @media (max-width: $bp-mobile) {
+      flex: 1 1 calc(50% - 8px);
     }
   }
 }
@@ -557,30 +563,36 @@
 }
 
 // ── PRIVACIDAD ────────────────────────────────
-.hts-privacy-agree {
-  margin-bottom: 16px;
+// .hts-privacy-agree está definido en components/_form.scss.
+// No se redefine aquí para evitar duplicados en la cascada.
+
+// ── UTILIDADES DE GRID (reemplazan inline styles del JS) ─────────────────
+.checkout-grid--mb   { margin-bottom: 14px; }
+.checkout-grid--my   { margin: 14px 0; }
+.checkout-grid--mb-sm { margin-bottom: 8px; }
+
+// ── DÍAS DE ALQUILER ──────────────────────────────────────────────────────
+.checkout-dias--visible {
+  display: flex;
+  margin-bottom: 10px;
+  gap: 8px;
+}
+
+// ── ACCESORIO INCLUIDO ────────────────────────────────────────────────────
+.acc-incluido {
+  color: #2e7d32;
   font-size: 13px;
+  font-weight: 600;
+}
+
+// ── CAMPO HINT ────────────────────────────────────────────────────────────
+.campo-hint {
+  font-size: 12px;
   color: $gris-texto;
-  line-height: 1.6;
+  margin-top: 8px;
+}
 
-  label {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    cursor: pointer;
-  }
-
-  input[type="checkbox"] {
-    margin-top: 3px;
-    flex-shrink: 0;
-  }
-
-  a {
-    color: $azul-sec;
-    text-decoration: underline;
-
-    &:hover {
-      color: $azul;
-    }
-  }
+// ── CHECKOUT ÉXITO OCULTO (reemplaza display:none inline) ─────────────────
+.checkout-exito--hidden {
+  display: none;
 }

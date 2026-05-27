@@ -545,7 +545,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span class="esq-badge">${esq.edad === "adulto" ? "Adulto" : "Niño"} · ${esq.tipo === "ski" ? "Ski" : "Snowboard"}</span>
           </div>
 
-          <div class="checkout-grid" style="margin-bottom:14px">
+          <div class="checkout-grid checkout-grid--mb">
             <div class="campo">
               <label>Nombre (opcional)</label>
               <input type="text" value="${esq.nombre}" placeholder="Ej: Juan"
@@ -591,7 +591,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </button>
           </div>
 
-          <div class="checkout-grid" style="margin:14px 0">
+          <div class="checkout-grid checkout-grid--my">
             <div class="campo">
               <label>Altura (cm)</label>
               <select onchange="actualizarEsq(${i}, 'altura', this.value)">
@@ -625,7 +625,7 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
 
           <div class="esq-section">Fechas de alquiler</div>
-          <div class="checkout-grid" style="margin-bottom:8px">
+          <div class="checkout-grid checkout-grid--mb-sm">
             <div class="campo">
               <label>Fecha inicio</label>
               <input type="date" value="${esq.fecha_inicio}"
@@ -639,7 +639,7 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
           ${
             diasEsq > 0
-              ? `<div class="checkout-dias" style="display:flex;margin-bottom:10px;gap:8px">
+              ? `<div class="checkout-dias checkout-dias--visible">
             <span>📅</span><strong>${diasEsq}</strong>&nbsp;día/s de alquiler
           </div>`
               : ""
@@ -653,7 +653,7 @@ document.addEventListener("DOMContentLoaded", () => {
   <span class="acc-label">Casco</span>
   ${
     esNino && (esq.tipo === "ski" || esq.tipo === "snow")
-      ? `<span style="color:#2e7d32;font-size:13px;font-weight:600">✅ Incluido en el pack</span>
+      ? `<span class="acc-incluido">✅ Incluido en el pack</span>
        <select onchange="actualizarEsq(${i}, 'talleCasco', this.value)">
          ${["S", "M", "L", "XL"].map((t) => `<option ${esq.talleCasco === t ? "selected" : ""}>${t}</option>`).join("")}
        </select>`
@@ -771,6 +771,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.actualizarEsq = function (i, campo, valor) {
       esquiadores[i][campo] = valor;
+      renderEsquiadores();
+    };
+
+    // Permite que el selector de fechas globales del checkout actualice todos los esquiadores
+    window.actualizarFechasGlobales = function(ini, fin) {
+      esquiadores.forEach(function(esq) {
+        if (ini) esq.fecha_inicio = ini;
+        if (fin)  esq.fecha_fin   = fin;
+      });
       renderEsquiadores();
     };
 
@@ -1036,3 +1045,17 @@ document.addEventListener("DOMContentLoaded", () => {
   renderCarrito();
   actualizarContador();
 });
+// ── GALERÍA DE EQUIPOS ─────────────────────────────────────────────────────
+function cambiarImagen(idPrincipal, src, thumb) {
+  const principal = document.getElementById(idPrincipal);
+  if (!principal) return;
+  principal.classList.add("galeria-principal--fading");
+  setTimeout(() => {
+    principal.src = src;
+    principal.classList.remove("galeria-principal--fading");
+  }, 150);
+  thumb.closest(".galeria-thumbs")
+    .querySelectorAll(".galeria-thumb")
+    .forEach(t => t.classList.remove("activo"));
+  thumb.classList.add("activo");
+}

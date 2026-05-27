@@ -15,16 +15,6 @@
     <meta property="og:site_name" content="Rental Pro Shop" />
     <link rel="icon" href="../img/home/logo1.webp" />
     <link rel="stylesheet" href="../css/styles.css" />
-    <style>
-      .galeria-wrapper { display: flex; flex-direction: column; gap: 10px; }
-      .galeria-principal { position: relative; border-radius: 14px; overflow: hidden; aspect-ratio: 4/3; background: #f5f7fa; }
-      .galeria-principal img { width: 100%; height: 100%; object-fit: cover; transition: opacity 0.3s; }
-      .galeria-thumbs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-      .galeria-thumb { border-radius: 8px; overflow: hidden; aspect-ratio: 4/3; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s, opacity 0.2s; opacity: 0.65; }
-      .galeria-thumb.activo { border-color: #1b35c4; opacity: 1; }
-      .galeria-thumb:hover { opacity: 1; }
-      .galeria-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    </style>
   </head>
   <body>
 
@@ -33,7 +23,7 @@
     <nav class="breadcrumb" aria-label="Ruta de navegación">
       <a href="../index.html">Inicio</a>
       <span class="breadcrumb-sep">›</span>
-      <a href="./alquiler.html">Alquiler</a>
+      <a href="./tarifas.html">Tarifas</a>
       <span class="breadcrumb-sep">›</span>
       <span class="breadcrumb-actual">Equipos</span>
     </nav>
@@ -56,11 +46,11 @@
               <div class="galeria-thumb activo" onclick="cambiarImagen('principal-ski-adulto', '../img/snow/1.webp', this)">
                 <img src="../img/snow/1.webp" alt="Ski Adulto 1" loading="lazy" />
               </div>
-              <div class="galeria-thumb" onclick="cambiarImagen('principal-ski-adulto', '../img/snow/1.webp', this)">
-                <img src="../img/snow/1.webp" alt="Ski Adulto 2" loading="lazy" />
+              <div class="galeria-thumb" onclick="cambiarImagen('principal-ski-adulto', '../img/snow/lateral1.webp', this)">
+                <img src="../img/snow/lateral1.webp" alt="Ski Adulto 2" loading="lazy" />
               </div>
-              <div class="galeria-thumb" onclick="cambiarImagen('principal-ski-adulto', '../img/snow/1.webp', this)">
-                <img src="../img/snow/1.webp" alt="Ski Adulto 3" loading="lazy" />
+              <div class="galeria-thumb" onclick="cambiarImagen('principal-ski-adulto', '../img/snow/lateral2.webp', this)">
+                <img src="../img/snow/lateral2.webp" alt="Ski Adulto 3" loading="lazy" />
               </div>
             </div>
           </div>
@@ -101,11 +91,11 @@
               <div class="galeria-thumb activo" onclick="cambiarImagen('principal-ski-junior', '../img/snow/3.webp', this)">
                 <img src="../img/snow/3.webp" alt="Ski Junior 1" loading="lazy" />
               </div>
-              <div class="galeria-thumb" onclick="cambiarImagen('principal-ski-junior', '../img/snow/3.webp', this)">
-                <img src="../img/snow/3.webp" alt="Ski Junior 2" loading="lazy" />
+              <div class="galeria-thumb" onclick="cambiarImagen('principal-ski-junior', '../img/snow/4.webp', this)">
+                <img src="../img/snow/4.webp" alt="Ski Junior 2" loading="lazy" />
               </div>
-              <div class="galeria-thumb" onclick="cambiarImagen('principal-ski-junior', '../img/snow/3.webp', this)">
-                <img src="../img/snow/3.webp" alt="Ski Junior 3" loading="lazy" />
+              <div class="galeria-thumb" onclick="cambiarImagen('principal-ski-junior', '../img/snow/lateral.webp', this)">
+                <img src="../img/snow/lateral.webp" alt="Ski Junior 3" loading="lazy" />
               </div>
             </div>
           </div>
@@ -149,8 +139,8 @@
               <div class="galeria-thumb" onclick="cambiarImagen('principal-snow-adulto', '../img/snow/snow.webp', this)">
                 <img src="../img/snow/snow.webp" alt="Snowboard 2" loading="lazy" />
               </div>
-              <div class="galeria-thumb" onclick="cambiarImagen('principal-snow-adulto', '../img/snow/snow.webp', this)">
-                <img src="../img/snow/snow.webp" alt="Snowboard 3" loading="lazy" />
+              <div class="galeria-thumb" onclick="cambiarImagen('principal-snow-adulto', '../img/snow/lateral.webp', this)">
+                <img src="../img/snow/lateral.webp" alt="Snowboard 3" loading="lazy" />
               </div>
             </div>
           </div>
@@ -190,11 +180,11 @@
               <div class="galeria-thumb activo" onclick="cambiarImagen('principal-snow-junior', '../img/snow/2.webp', this)">
                 <img src="../img/snow/2.webp" alt="Snowboard Junior 1" loading="lazy" />
               </div>
-              <div class="galeria-thumb" onclick="cambiarImagen('principal-snow-junior', '../img/snow/2.webp', this)">
-                <img src="../img/snow/2.webp" alt="Snowboard Junior 2" loading="lazy" />
+              <div class="galeria-thumb" onclick="cambiarImagen('principal-snow-junior', '../img/snow/4.webp', this)">
+                <img src="../img/snow/4.webp" alt="Snowboard Junior 2" loading="lazy" />
               </div>
-              <div class="galeria-thumb" onclick="cambiarImagen('principal-snow-junior', '../img/snow/2.webp', this)">
-                <img src="../img/snow/2.webp" alt="Snowboard Junior 3" loading="lazy" />
+              <div class="galeria-thumb" onclick="cambiarImagen('principal-snow-junior', '../img/snow/fotosnow1.webp', this)">
+                <img src="../img/snow/fotosnow1.webp" alt="Snowboard Junior 3" loading="lazy" />
               </div>
             </div>
           </div>
@@ -315,20 +305,6 @@
     </main>
 
     <div id="site-footer"></div>
-
-    <script>
-      function cambiarImagen(idPrincipal, src, thumb) {
-        const principal = document.getElementById(idPrincipal);
-        if (!principal) return;
-        principal.style.opacity = '0';
-        setTimeout(() => {
-          principal.src = src;
-          principal.style.opacity = '1';
-        }, 150);
-        thumb.closest('.galeria-thumbs').querySelectorAll('.galeria-thumb').forEach(t => t.classList.remove('activo'));
-        thumb.classList.add('activo');
-      }
-    </script>
 
     <script src="../precios.js"></script>
     <script src="../script.js"></script>
