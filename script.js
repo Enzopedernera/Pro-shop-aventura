@@ -440,6 +440,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return {
         nombre: "",
         edad: "adulto",
+        nivel: "principiante",
         tipo: "ski",
         altura: "",
         talleBota: "",
@@ -461,6 +462,69 @@ document.addEventListener("DOMContentLoaded", () => {
         tallePantalon_nino: "4",
         combo_nino: false,
       };
+    }
+
+    function generarRecomendacion(esq) {
+      const h = parseInt(esq.altura) || 0;
+      const b = parseInt(esq.talleBota) || 0;
+      const esNino = esq.edad === "nino";
+      const nivel = esq.nivel || "principiante";
+
+      const F_SKI  = { principiante:{min:.84,max:.90,nota:"más corto, fácil de manejar"}, intermedio:{min:.90,max:.95,nota:"longitud estándar"}, avanzado:{min:.95,max:1.00,nota:"más largo, mayor velocidad"} };
+      const F_SNOW = { principiante:{min:.82,max:.86,nota:"tabla corta, más maniobrable"}, intermedio:{min:.86,max:.90,nota:"longitud estándar"}, avanzado:{min:.90,max:.94,nota:"más largo, mayor estabilidad"} };
+      const F_BAST = { principiante:{min:.64,max:.66}, intermedio:{min:.66,max:.68}, avanzado:{min:.66,max:.68} };
+      const FLEX   = { principiante:"Flex suave (60–80)", intermedio:"Flex medio (80–100)", avanzado:"Flex duro (100+)" };
+      const NIVEL_LABELS = { principiante:"Principiante", intermedio:"Intermedio", avanzado:"Avanzado" };
+
+      let titulo = "";
+      let items  = [];
+
+      if (esq.tipo === "ski" || esq.tipo === "solo_ski") {
+        const f = esNino ? {min:.84,max:.90,nota:"para niños"} : F_SKI[nivel];
+        const ski  = h ? `${Math.round(h*f.min)}–${Math.round(h*f.max)} cm` : "—";
+        const bast = h ? `${Math.round(h*F_BAST[nivel].min)}–${Math.round(h*F_BAST[nivel].max)} cm` : "—";
+        titulo = "Recomendación para esquí";
+        items = [
+          { label:"Longitud esquí",  valor: ski,  nota: f.nota },
+          ...(esq.tipo === "ski" ? [{ label:"Bastones", valor: bast, nota:"" }] : []),
+          { label:"Bota",            valor: b ? `EU ${b}` : "—", nota:"" },
+          ...(esNino && esq.tipo === "ski" ? [{ label:"Casco", valor:"incluido en el pack", nota:"" }] : []),
+        ];
+      } else if (esq.tipo === "snow" || esq.tipo === "solo_snow") {
+        const f = esNino ? {min:.80,max:.85,nota:"para niños"} : F_SNOW[nivel];
+        const tabla = h ? `${Math.round(h*f.min)}–${Math.round(h*f.max)} cm` : "—";
+        titulo = "Recomendación para snowboard";
+        items = [
+          { label:"Longitud tabla",  valor: tabla, nota: f.nota },
+          { label:"Bota snowboard",  valor: b ? `EU ${b}` : "—", nota:"" },
+          ...(esNino && esq.tipo === "snow" ? [{ label:"Casco", valor:"incluido en el pack", nota:"" }] : []),
+        ];
+      } else if (esq.tipo === "solo_bota_ski" || esq.tipo === "solo_bota_snow") {
+        titulo = "Recomendación para bota";
+        items = [
+          { label:"Talle bota",       valor: b ? `EU ${b}` : "—", nota:"" },
+          { label:"Flex recomendado", valor: FLEX[nivel], nota:"" },
+          { label:"Disponible",       valor: "EU 36 al 44", nota:"" },
+        ];
+      }
+
+      if (!titulo) return "";
+
+      const filas = items.map(d => `
+        <div class="esq-recomendacion-item">
+          <span class="esq-recomendacion-label">${d.label}</span>
+          <span class="esq-recomendacion-valor">${d.valor}</span>
+          ${d.nota ? `<span class="esq-recomendacion-nota">· ${d.nota}</span>` : ""}
+        </div>`).join("");
+
+      return `
+        <div class="esq-recomendacion">
+          <div class="esq-recomendacion-titulo">
+            📐 ${titulo}
+            <span class="esq-recomendacion-tag">${NIVEL_LABELS[nivel]}</span>
+          </div>
+          <div class="esq-recomendacion-items">${filas}</div>
+        </div>`;
     }
 
     function renderEsquiadores() {
@@ -509,6 +573,22 @@ document.addEventListener("DOMContentLoaded", () => {
               onclick="actualizarEsq(${i}, 'tipo', 'solo_bota_ski')"> Bota Ski</button>
             <button type="button" class="tipo-btn ${esq.tipo === "solo_bota_snow" ? "activo" : ""}"
               onclick="actualizarEsq(${i}, 'tipo', 'solo_bota_snow')"> Bota Snowboard</button>
+          </div>
+
+          <div class="nivel-section">Nivel de experiencia</div>
+          <div class="nivel-toggle">
+            <button type="button" class="nivel-btn ${esq.nivel === 'principiante' ? 'activo' : ''}"
+              onclick="actualizarEsq(${i}, 'nivel', 'principiante')">
+              🌱 Principiante
+            </button>
+            <button type="button" class="nivel-btn ${esq.nivel === 'intermedio' ? 'activo' : ''}"
+              onclick="actualizarEsq(${i}, 'nivel', 'intermedio')">
+              📈 Intermedio
+            </button>
+            <button type="button" class="nivel-btn ${esq.nivel === 'avanzado' ? 'activo' : ''}"
+              onclick="actualizarEsq(${i}, 'nivel', 'avanzado')">
+              ⚡ Avanzado
+            </button>
           </div>
 
           <div class="checkout-grid" style="margin:14px 0">
@@ -565,12 +645,14 @@ document.addEventListener("DOMContentLoaded", () => {
               : ""
           }
 
+          ${generarRecomendacion(esq)}
+
           <div class="esq-section">Accesorios</div>
 
           <div class="accesorio-row">
   <span class="acc-label">Casco</span>
   ${
-    esNino
+    esNino && (esq.tipo === "ski" || esq.tipo === "snow")
       ? `<span style="color:#2e7d32;font-size:13px;font-weight:600">✅ Incluido en el pack</span>
        <select onchange="actualizarEsq(${i}, 'talleCasco', this.value)">
          ${["S", "M", "L", "XL"].map((t) => `<option ${esq.talleCasco === t ? "selected" : ""}>${t}</option>`).join("")}
@@ -711,7 +793,8 @@ document.addEventListener("DOMContentLoaded", () => {
         total += getPrecioLocal("solo_bota_snow", d);
       }
 
-      if (esq.casco && !esNino) total += getPrecioLocal("casco", d);
+      const cascoIncluido = esNino && (esq.tipo === "ski" || esq.tipo === "snow");
+      if (esq.casco && !cascoIncluido) total += getPrecioLocal("casco", d);
       if (esq.antiparras) total += getPrecioLocal("antiparras", d);
       if (esq.guantes) total += getPrecioLocal("guantes", d);
       if (esq.botas_preski) total += getPrecioLocal("botas_preski", d);
@@ -752,7 +835,7 @@ document.addEventListener("DOMContentLoaded", () => {
           esq.tipo === "solo_snow" ? "Solo Snowboard" :
           esq.tipo === "solo_bota_ski" ? "Bota Ski" :
           esq.tipo === "solo_bota_snow" ? "Bota Snowboard" : "Equipo"
-        } · ${d} día/s`;
+        } · ${esq.nivel ? esq.nivel.charAt(0).toUpperCase() + esq.nivel.slice(1) : ""} · ${d} día/s`;
         grupo.appendChild(titulo);
 
         const items = [];
@@ -782,7 +865,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         items.push([packLabel, getPrecioLocal(packKey, d)]);
-        if (esq.casco && !esNino)
+        const cascoIncluido = esNino && (esq.tipo === "ski" || esq.tipo === "snow");
+        if (cascoIncluido)
+          items.push([`Casco talle ${esq.talleCasco} (incluido)`, 0]);
+        else if (esq.casco)
           items.push([`Casco talle ${esq.talleCasco}`, getPrecioLocal("casco", d)]);
         if (esq.antiparras)
           items.push([

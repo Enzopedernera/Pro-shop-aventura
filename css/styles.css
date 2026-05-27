@@ -2939,6 +2939,153 @@ textarea {
   }
 }
 
+.tarifas-hero {
+  background: linear-gradient(135deg, #1b35c4 0%, #0d1f7a 100%);
+  padding: 60px 20px 40px;
+  text-align: center;
+  color: #ffffff;
+}
+.tarifas-hero h1 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+.tarifas-hero p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.descuentos-section {
+  max-width: 900px;
+  margin: 0 auto 24px;
+  padding: 0 20px;
+}
+
+.descuentos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+@media (max-width: 768px) {
+  .descuentos-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.descuento-card {
+  border-left: 4px solid;
+  border-radius: 0 10px 10px 0;
+  padding: 20px 24px;
+}
+.descuento-card h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.descuento-card p {
+  font-size: 0.93rem;
+  line-height: 1.6;
+  margin: 0;
+}
+.descuento-card--efectivo {
+  background: #f8faff;
+  border-color: #1b35c4;
+}
+.descuento-card--efectivo h2 {
+  color: #1b35c4;
+}
+.descuento-card--efectivo p {
+  color: #444;
+}
+.descuento-card--temporada {
+  background: #f0fff4;
+  border-color: #16a34a;
+}
+.descuento-card--temporada h2 {
+  color: #16a34a;
+}
+.descuento-card--temporada p {
+  color: #444;
+}
+.descuento-card--piezasuelta {
+  background: #fffbeb;
+  border-color: #d97706;
+}
+.descuento-card--piezasuelta h2 {
+  color: #92400e;
+}
+.descuento-card--piezasuelta p {
+  color: #444;
+}
+
+.tablas-grid {
+  display: block;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px 40px;
+}
+@media (max-width: 1024px) {
+  .tablas-grid {
+    padding: 0 16px 40px;
+  }
+}
+
+.tabla-precios-equipos,
+.tabla-precios-indumentaria {
+  overflow: visible;
+  max-width: 100%;
+  width: 100%;
+  margin-bottom: 40px;
+}
+.tabla-precios-equipos h2,
+.tabla-precios-indumentaria h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 14px;
+}
+
+.tabla-wrapper {
+  overflow-x: auto;
+  display: block;
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+}
+
+.tarifas-nota {
+  max-width: 900px;
+  margin: 0 auto 32px;
+  padding: 0 20px;
+}
+.tarifas-nota-inner {
+  background: #f5f7fa;
+  border-radius: 10px;
+  padding: 24px;
+  border: 1px solid #e0e0e0;
+}
+.tarifas-nota h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1b35c4;
+  margin-bottom: 10px;
+}
+.tarifas-nota ul {
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+}
+.tarifas-nota li {
+  color: #444;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
 .checkout-main {
   padding: 32px 16px;
   background: #f5f7fa;
@@ -3124,6 +3271,97 @@ textarea {
   margin: 14px 0 8px;
   padding-bottom: 4px;
   border-bottom: 1px solid #e0e0e0;
+}
+
+.nivel-section {
+  font-size: 11px;
+  color: #555555;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 14px 0 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.nivel-toggle {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.nivel-toggle .nivel-btn {
+  flex: 1;
+  padding: 10px 8px;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #555555;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.nivel-toggle .nivel-btn:hover {
+  border-color: #1b35c4;
+  color: #1b35c4;
+}
+.nivel-toggle .nivel-btn.activo {
+  background: #111111;
+  border-color: #111111;
+  color: #ffffff;
+}
+
+.esq-recomendacion {
+  background: #f5f7fa;
+  border-left: 3px solid #1b35c4;
+  border-radius: 0 6px 6px 0;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+}
+.esq-recomendacion-titulo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #1b35c4;
+  margin-bottom: 8px;
+}
+.esq-recomendacion-tag {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 20px;
+  background: #e8f0fe;
+  color: #1b35c4;
+}
+.esq-recomendacion-items {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.esq-recomendacion-item {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 12px;
+}
+.esq-recomendacion-label {
+  color: #555555;
+  min-width: 120px;
+  flex-shrink: 0;
+}
+.esq-recomendacion-valor {
+  font-weight: 600;
+  color: #111111;
+}
+.esq-recomendacion-nota {
+  font-size: 11px;
+  color: #555555;
 }
 
 .tipo-toggle {

@@ -1,0 +1,155 @@
+// =============================================
+// TARIFAS
+// =============================================
+@use "../base/variables" as *;
+
+// ── HERO ──────────────────────────────────────
+.tarifas-hero {
+  background: linear-gradient(135deg, #1b35c4 0%, #0d1f7a 100%);
+  padding: 60px 20px 40px;
+  text-align: center;
+  color: $blanco;
+
+  h1 {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 800;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+}
+
+// ── DESCUENTOS GRID ───────────────────────────
+.descuentos-section {
+  max-width: 900px;
+  margin: 0 auto 24px;
+  padding: 0 20px;
+}
+
+.descuentos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+
+  @media (max-width: $bp-tablet) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.descuento-card {
+  border-left: 4px solid;
+  border-radius: 0 $radius-md $radius-md 0;
+  padding: 20px 24px;
+
+  h2 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  p {
+    font-size: 0.93rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  &--efectivo {
+    background: #f8faff;
+    border-color: $azul;
+
+    h2 { color: $azul; }
+    p  { color: #444; }
+  }
+
+  &--temporada {
+    background: #f0fff4;
+    border-color: #16a34a;
+
+    h2 { color: #16a34a; }
+    p  { color: #444; }
+  }
+
+  &--piezasuelta {
+    background: #fffbeb;
+    border-color: #d97706;
+
+    h2 { color: #92400e; }
+    p  { color: #444; }
+  }
+}
+
+// ── TABLAS ────────────────────────────────────
+.tablas-grid {
+  display: block;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px 40px;
+
+  @media (max-width: 1024px) {
+    padding: 0 16px 40px;
+  }
+}
+
+.tabla-precios-equipos,
+.tabla-precios-indumentaria {
+  overflow: visible;
+  max-width: 100%;
+  width: 100%;
+  margin-bottom: 40px;
+
+  h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: $negro;
+    margin-bottom: 14px;
+  }
+}
+
+.tabla-wrapper {
+  overflow-x: auto;
+  display: block;
+  width: 100%;
+  border-radius: $radius-md;
+  border: 1px solid $gris-medio;
+}
+
+// ── NOTA INFORMATIVA ──────────────────────────
+.tarifas-nota {
+  max-width: 900px;
+  margin: 0 auto 32px;
+  padding: 0 20px;
+
+  &-inner {
+    background: $gris-claro;
+    border-radius: $radius-md;
+    padding: 24px;
+    border: 1px solid $gris-medio;
+  }
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: $azul;
+    margin-bottom: 10px;
+  }
+
+  ul {
+    padding-left: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 0;
+  }
+
+  li {
+    color: #444;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+}
