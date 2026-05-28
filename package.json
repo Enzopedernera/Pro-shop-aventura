@@ -1,7 +1,7 @@
 {
   "name": "web-rental-pro-shop",
   "version": "1.0.0",
-  "description": "Servidor backend para Rental Pro Shop - envío de reservas por email",
+  "description": "Servidor backend para Aventura Pro Shop - envío de reservas por email",
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",

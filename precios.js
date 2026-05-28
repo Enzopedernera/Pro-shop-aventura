@@ -1,6 +1,6 @@
 // =============================================
 // precios.js — FUENTE DE VERDAD DE TARIFAS
-// Rental Pro Shop — temporada 2026
+// Aventura Pro Shop — temporada 2026
 //
 // Para actualizar precios: editá solo este archivo.
 // Los cambios se reflejan automáticamente en:

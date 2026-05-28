@@ -1703,7 +1703,7 @@ textarea {
 }
 
 .marca-logo {
-  height: 40px;
+  height: 55px;
   width: auto;
   object-fit: contain;
   padding: 0 32px;
@@ -3034,7 +3034,7 @@ textarea {
 .descuentos-section {
   max-width: 900px;
   margin: 0 auto 24px;
-  padding: 0 20px;
+  padding: 20px 20px;
 }
 
 .descuentos-grid {
@@ -3119,7 +3119,7 @@ textarea {
 .tarifas-nota {
   max-width: 900px;
   margin: 0 auto 32px;
-  padding: 0 20px;
+  padding: 20px 20px;
 }
 .tarifas-nota-inner {
   background: #f5f7fa;

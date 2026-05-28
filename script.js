@@ -1,5 +1,5 @@
 // =============================================
-// SCRIPT — Rental Pro Shop
+// SCRIPT — Aventura Pro Shop
 // Versión mejorada con:
 //   - Selector de fechas en home → pasa fechas al checkout
 //   - WhatsApp flotante con tooltip
