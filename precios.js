@@ -4,8 +4,8 @@
 //
 // Para actualizar precios: editá solo este archivo.
 // Los cambios se reflejan automáticamente en:
-//   - Tarjetas de equipos (alquiler.html)
-//   - Tabla de tarifas (alquiler.html)
+//   - Tarjetas de equipos (equipos.html)
+//   - Tabla de tarifas (tarifas.html)
 //   - Cálculo del checkout (script.js lo importa)
 // =============================================
 
@@ -29,7 +29,7 @@ const PRECIOS = {
   antiparras:    { 1: 27000, 3: 69000,  4: 88000,  5: 104000, 6: 118000, 7: 131000 },
   guantes:       { 1: 13000, 3: 33000,  4: 42000,  5: 50000,  6: 57000,  7: 63000  },
   botas_preski:  { 1: 15000, 3: 38000,  4: 48000,  5: 58000,  6: 65500,  7: 73000  },
-  bastones:      { 1: 20000, 3: 51000,  4: 65000,  5: 77000,  6: 87000,  7: 97000  },
+  bastones:      { 1: 10000, 3: 25000,  4: 35000,  5: 50000,  6: 65000,  7: 80000  },
   raquetas:      { 1: 25000 },
   trineo:        { 1: 15000 },
 
