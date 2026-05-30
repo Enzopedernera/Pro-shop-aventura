@@ -30,280 +30,169 @@
     </nav>
 
     <main class="equipos-page">
+
       <div class="equipos-page-header">
         <h1>Nuestros equipos</h1>
         <p>Equipos renovados, cómodos y fáciles de controlar en todo tipo de pistas.</p>
       </div>
 
-      <!-- PACK SKI ADULTO -->
-      <section class="equipo-detalle">
-        <div class="equipo-detalle-img">
-          <div class="galeria-wrapper">
-            <div class="galeria-principal">
-              <img src="../img/packs-equipos/pack-ski.webp" alt="Pack Ski Adulto" id="principal-ski-adulto" />
-              <span class="equipo-detalle-badge"> Ski Adulto</span>
-            </div>
-            <div class="galeria-thumbs">
-              <div class="galeria-thumb activo" onclick="cambiarImagen('principal-ski-adulto', '../img/packs-equipos/pack-ski.webp', this)">
-                <img src="../img/packs-equipos/pack-ski.webp" alt="Ski Adulto 1" loading="lazy" />
-              </div>
-              <div class="galeria-thumb" onclick="cambiarImagen('principal-ski-adulto', '../img/packs-equipos/pack-ski.webp', this)">
-                <img src="../img/packs-equipos/pack-ski.webp" alt="Ski Adulto 2" loading="lazy" />
-              </div>
-              <div class="galeria-thumb" onclick="cambiarImagen('principal-ski-adulto', '../img/packs-equipos/pack-ski.webp', this)">
-                <img src="../img/packs-equipos/pack-ski.webp" alt="Ski Adulto 3" loading="lazy" />
-              </div>
-            </div>
+      <!-- GRILLA DE PACKS -->
+      <div class="packs-grid">
+
+        <!-- PACK SKI ADULTO -->
+        <div class="pack-card">
+          <div class="pack-card-img">
+            <img src="../img/packs-equipos/pack-ski.webp" alt="Pack Ski Adulto" loading="lazy" />
+            <span class="pack-card-badge">Ski Adulto</span>
           </div>
-        </div>
-        <div class="equipo-detalle-info">
-          <h2>Pack Ski Adulto</h2>
-          <p class="equipo-detalle-ideal">Ideal para nivel inicial e intermedio</p>
-          <p>Esquís all mountain ideales para iniciarse y mejorar en pista. Equipos en excelente estado, fáciles de controlar y adaptados a todo terreno.</p>
-          <div class="equipo-detalle-incluye">
-            <h3>Incluye:</h3>
-            <ul>
+          <div class="pack-card-body">
+            <h2 class="pack-card-title">Pack Ski Adulto</h2>
+            <p class="pack-card-sub">Nivel inicial e intermedio</p>
+            <ul class="pack-card-includes">
               <li>✓ Esquís</li>
               <li>✓ Botas</li>
               <li>✓ Bastones</li>
               <li>✓ Ajuste profesional</li>
             </ul>
+            <div class="pack-card-footer">
+              <div class="pack-card-price">
+                <span class="pack-card-price-monto" data-precio="ski-adulto"></span>
+                <span class="pack-precio-num"> $55.000/ día</span>
+              </div>
+              <a href="./checkout.html" class="pack-card-btn">Reservar →</a>
+            </div>
           </div>
-          <!-- <div class="equipo-detalle-marcas">
-            <span class="tag">HEAD</span>
-            <span class="tag">DYNASTAR</span>
-            <span class="tag">BLIZZARD</span>
-            <span class="tag">ATOMIC</span>
-          </div> -->
-          <p class="equipo-detalle-disclaimer">* Las imágenes son de carácter ilustrativo.</p>
-          <a href="./checkout.html" class="btn equipo-detalle-btn">Ir a reserva →</a>
         </div>
-      </section>
 
-      <!-- PACK SKI JUNIOR -->
-      <section class="equipo-detalle">
-        <div class="equipo-detalle-img">
-          <div class="galeria-wrapper">
-            <div class="galeria-principal">
-              <img src="../img/packs-equipos/pack-ski.webp" alt="Pack Ski Junior" id="principal-ski-junior" />
-              <span class="equipo-detalle-badge"> Ski Junior</span>
-            </div>
-            <div class="galeria-thumbs">
-              <div class="galeria-thumb activo" onclick="cambiarImagen('principal-ski-junior', '../img/packs-equipos/pack-ski.webp', this)">
-                <img src="../img/packs-equipos/pack-ski.webp" alt="Ski Junior 1" loading="lazy" />
-              </div>
-              <div class="galeria-thumb" onclick="cambiarImagen('principal-ski-junior', '../img/packs-equipos/pack-ski.webp', this)">
-                <img src="../img/packs-equipos/pack-ski.webp" alt="Ski Junior 2" loading="lazy" />
-              </div>
-              <div class="galeria-thumb" onclick="cambiarImagen('principal-ski-junior', '../img/packs-equipos/pack-ski.webp', this)">
-                <img src="../img/packs-equipos/pack-ski.webp" alt="Ski Junior 3" loading="lazy" />
-              </div>
-            </div>
+        <!-- PACK SKI JUNIOR -->
+        <div class="pack-card">
+          <div class="pack-card-img">
+            <img src="../img/packs-equipos/pack-ski.webp" alt="Pack Ski Junior" loading="lazy" />
+            <span class="pack-card-badge">Ski Junior</span>
           </div>
-        </div>
-        <div class="equipo-detalle-info">
-          <h2>Pack Ski Junior</h2>
-          <p class="equipo-detalle-ideal">Para niños de 4 a 12 años</p>
-          <p>Esquís junior de fácil control y botas cómodas adaptadas para los más chicos. Incluye casco para mayor seguridad en pista.</p>
-          <div class="equipo-detalle-incluye">
-            <h3>Incluye:</h3>
-            <ul>
+          <div class="pack-card-body">
+            <h2 class="pack-card-title">Pack Ski Junior</h2>
+            <p class="pack-card-sub">Para niños de 4 a 12 años</p>
+            <ul class="pack-card-includes">
               <li>✓ Esquís junior</li>
               <li>✓ Botas</li>
               <li>✓ Bastones</li>
-              <li>✓ Casco</li>
+              <li>✓ Casco incluido</li>
               <li>✓ Ajuste profesional</li>
             </ul>
+            <div class="pack-card-footer">
+              <div class="pack-card-price">
+                <span class="pack-card-price-monto" data-precio="ski-nino"></span>
+                <span class="pack-precio-num"> $43.000/ día</span>
+              </div>
+              <a href="./checkout.html" class="pack-card-btn">Reservar →</a>
+            </div>
           </div>
-          <!-- <div class="equipo-detalle-marcas">
-            <span class="tag">HEAD</span>
-            <span class="tag">ATOMIC</span>
-            <span class="tag">Talles 4–12</span>
-          </div> -->
-          <p class="equipo-detalle-disclaimer">* Las imágenes son de carácter ilustrativo.</p>
-          <a href="./checkout.html" class="btn equipo-detalle-btn">Ir a reserva →</a>
         </div>
-      </section>
 
-      <!-- PACK SNOWBOARD ADULTO -->
-      <section class="equipo-detalle">
-        <div class="equipo-detalle-img">
-          <div class="galeria-wrapper">
-            <div class="galeria-principal">
-              <img src="../img/snow/fotosnow1.webp" alt="Pack Snowboard Adulto" id="principal-snow-adulto" />
-              <span class="equipo-detalle-badge"> Snowboard Adulto</span>
-            </div>
-            <div class="galeria-thumbs">
-              <div class="galeria-thumb activo" onclick="cambiarImagen('principal-snow-adulto', '../img/snow/fotosnow1.webp', this)">
-                <img src="../img/snow/fotosnow1.webp" alt="Snowboard 1" loading="lazy" />
-              </div>
-              <div class="galeria-thumb" onclick="cambiarImagen('principal-snow-adulto', '../img/snow/snow.webp', this)">
-                <img src="../img/snow/fotosnow1.webp" alt="Snowboard 2" loading="lazy" />
-              </div>
-              <div class="galeria-thumb" onclick="cambiarImagen('principal-snow-adulto', '../img/snow/lateral.webp', this)">
-                <img src="../img/snow/fotosnow1.webp" alt="Snowboard 3" loading="lazy" />
-              </div>
-            </div>
+        <!-- PACK SNOWBOARD ADULTO -->
+        <div class="pack-card">
+          <div class="pack-card-img">
+            <img src="../img/snow/fotosnow1.webp" alt="Pack Snowboard Adulto" loading="lazy" />
+            <span class="pack-card-badge pack-card-badge--verde">Snowboard Adulto</span>
           </div>
-        </div>
-        <div class="equipo-detalle-info">
-          <h2>Pack Snowboard Adulto</h2>
-          <p class="equipo-detalle-ideal">Ideal para nivel inicial e intermedio</p>
-          <p> Snowboards versátiles seleccionados para disfrutar la nieve desde el primer día. Botas con buen ajuste y fijaciones reguladas por nuestro equipo técnico</p>
-          <div class="equipo-detalle-incluye">
-            <h3>Incluye:</h3>
-            <ul>
+          <div class="pack-card-body">
+            <h2 class="pack-card-title">Pack Snowboard Adulto</h2>
+            <p class="pack-card-sub">Nivel inicial e intermedio</p>
+            <ul class="pack-card-includes">
               <li>✓ Tabla</li>
               <li>✓ Botas</li>
               <li>✓ Fijaciones</li>
               <li>✓ Ajuste profesional</li>
             </ul>
+            <div class="pack-card-footer">
+              <div class="pack-card-price">
+                <span class="pack-card-price-monto" data-precio="snow-adulto"></span>
+                <span class="pack-precio-num"> $58.000/ día</span>
+              </div>
+              <a href="./checkout.html" class="pack-card-btn">Reservar →</a>
+            </div>
           </div>
-          <!-- <div class="equipo-detalle-marcas">
-            <span class="tag">BURTON</span>
-            <span class="tag">NITRO</span>
-            <span class="tag">HEAD</span>
-          </div> -->
-          <p class="equipo-detalle-disclaimer">* Las imágenes son de carácter ilustrativo.</p>
-          <a href="./checkout.html" class="btn equipo-detalle-btn">Ir a reserva →</a>
         </div>
-      </section>
 
-      <!-- PACK SNOWBOARD JUNIOR -->
-      <section class="equipo-detalle">
-        <div class="equipo-detalle-img">
-          <div class="galeria-wrapper">
-            <div class="galeria-principal">
-              <img src="../img/snow/fotosnow1.webp" alt="Pack Snowboard Junior" id="principal-snow-junior" />
-              <span class="equipo-detalle-badge"> Snowboard Junior</span>
-            </div>
-            <div class="galeria-thumbs">
-              <div class="galeria-thumb activo" onclick="cambiarImagen('principal-snow-junior', '../img/snow/2.webp', this)">
-                <img src="../img/snow/fotosnow1.webp" alt="Snowboard Junior 1" loading="lazy" />
-              </div>
-              <div class="galeria-thumb" onclick="cambiarImagen('principal-snow-junior', '../img/snow/4.webp', this)">
-                <img src="../img/snow/fotosnow1.webp" alt="Snowboard Junior 2" loading="lazy" />
-              </div>
-              <div class="galeria-thumb" onclick="cambiarImagen('principal-snow-junior', '../img/snow/fotosnow1.webp', this)">
-                <img src="../img/snow/fotosnow1.webp" alt="Snowboard Junior 3" loading="lazy" />
-              </div>
-            </div>
+        <!-- PACK SNOWBOARD JUNIOR -->
+        <div class="pack-card">
+          <div class="pack-card-img">
+            <img src="../img/snow/fotosnow1.webp" alt="Pack Snowboard Junior" loading="lazy" />
+            <span class="pack-card-badge pack-card-badge--verde">Snowboard Junior</span>
           </div>
-        </div>
-        <div class="equipo-detalle-info">
-          <h2>Pack Snowboard Junior</h2>
-          <p class="equipo-detalle-ideal">Para niños de 4 a 12 años</p>
-          <p> Equipos de snowboard pensados para niños. Tablas livianas y botas cómodas para que aprendan y disfruten desde el primer día.</p>
-          <div class="equipo-detalle-incluye">
-            <h3>Incluye:</h3>
-            <ul>
+          <div class="pack-card-body">
+            <h2 class="pack-card-title">Pack Snowboard Junior</h2>
+            <p class="pack-card-sub">Para niños de 4 a 12 años</p>
+            <ul class="pack-card-includes">
               <li>✓ Tabla junior</li>
               <li>✓ Botas</li>
               <li>✓ Fijaciones</li>
+              <li>✓ Casco incluido</li>
               <li>✓ Ajuste profesional</li>
             </ul>
+            <div class="pack-card-footer">
+              <div class="pack-card-price">
+                <span class="pack-card-price-monto" data-precio="snow-nino"></span>
+                <span class="pack-precio-num">$44.000/ día</span>
+              </div>
+              <a href="./checkout.html" class="pack-card-btn">Reservar →</a>
+            </div>
           </div>
-          <!-- <div class="equipo-detalle-marcas">
-            <span class="tag">BURTON</span>
-            <span class="tag">NITRO</span>
-            <span class="tag">Talles 4–12</span>
-          </div> -->
-          <p class="equipo-detalle-disclaimer">* Las imágenes son de carácter ilustrativo.</p>
-          <a href="./checkout.html" class="btn equipo-detalle-btn">Ir a reserva →</a>
         </div>
-      </section>
 
-      <!-- INDUMENTARIA ADULTO -->
-      <section class="equipo-detalle">
-        <div class="equipo-detalle-img">
-          <div class="galeria-wrapper">
-            <div class="galeria-principal">
-              <img src="../img/indumentaria/zudadulto1-2.webp" alt="Indumentaria Adulto" id="principal-indum-adulto" />
-              <span class="equipo-detalle-badge"> Indumentaria Adulto</span>
-            </div>
-            <div class="galeria-thumbs">
-              <div class="galeria-thumb activo" onclick="cambiarImagen('principal-indum-adulto', '../img/indumentaria/zudadulto2-2.webp', this)">
-                <img src="../img/indumentaria/zudadulto2-2.webp" alt="Indumentaria 1" loading="lazy" />
-              </div>
-              <div class="galeria-thumb" onclick="cambiarImagen('principal-indum-adulto', '../img/indumentaria/zudadulto3-2.webp', this)">
-                <img src="../img/indumentaria/zudadulto3-2.webp" alt="Indumentaria 2" loading="lazy" /> 
-              </div>
-              <div class="galeria-thumb" onclick="cambiarImagen('principal-indum-adulto', '../img/indumentaria/zudadulto1-2.webp', this)">
-                <img src="../img/indumentaria/zudadulto1-2.webp" alt="Indumentaria 3" loading="lazy" />
-              </div>
-            </div>
+        <!-- INDUMENTARIA ADULTO -->
+        <div class="pack-card">
+          <div class="pack-card-img">
+            <img src="../img/indumentaria/zudadulto1-2.webp" alt="Indumentaria Adulto" loading="lazy" />
+            <span class="pack-card-badge pack-card-badge--naranja">Indumentaria Adulto</span>
           </div>
-        </div>
-        <div class="equipo-detalle-info">
-          <h2>Indumentaria Adulto</h2>
-          <p class="equipo-detalle-ideal">Hombre y mujer — Talles S al XL</p>
-          <p> Indumentaria impermeable de alta calidad para ski y snowboard. Cómoda, abrigada y disponible para hombre y mujer.</p>
-          <div class="equipo-detalle-incluye">
-            <h3>Disponible por separado o en combo:</h3>
-            <ul>
+          <div class="pack-card-body">
+            <h2 class="pack-card-title">Indumentaria Adulto</h2>
+            <p class="pack-card-sub">Hombre y mujer — Talles S al XL</p>
+            <ul class="pack-card-includes">
               <li>✓ Campera impermeable</li>
               <li>✓ Pantalón impermeable</li>
-              <li>✓ Combo campera + pantalón (precio especial)</li>
+              <li>✓ Combo precio especial</li>
             </ul>
-          </div>
-          <div class="equipo-detalle-marcas">
-            <span class="tag">Talle S</span>
-            <span class="tag">Talle M</span>
-            <span class="tag">Talle L</span>
-            <span class="tag">Talle XL</span>
-          </div>
-          <p class="equipo-detalle-disclaimer">* Las imágenes son de carácter ilustrativo.</p>
-          <a href="./checkout.html" class="btn equipo-detalle-btn">Ir a reserva →</a>
-        </div>
-      </section>
-
-      <!-- INDUMENTARIA NIÑO -->
-      <section class="equipo-detalle">
-        <div class="equipo-detalle-img">
-          <div class="galeria-wrapper">
-            <div class="galeria-principal">
-              <img src="../img/indumentaria/zudjr1-2.webp" alt="Indumentaria Niño" id="principal-indum-nino" />
-              <span class="equipo-detalle-badge"> Indumentaria Niño</span>
+            <div class="pack-card-footer">
+              <div class="pack-card-price">
+                <span class="pack-card-price-monto" data-precio="campera-adulto"></span>
+                <span class="pack-precio-num">/ día</span>
+              </div>
+              <a href="./checkout.html" class="pack-card-btn">Reservar →</a>
             </div>
-            <div class="galeria-thumbs">
-              <div class="galeria-thumb activo" onclick="cambiarImagen('principal-indum-nino', '../img/indumentaria/zudjr1-2.webp', this)">
-                <img src="../img/indumentaria/zudjr1-2.webp" alt="Niño 1" loading="lazy" />
-              </div>
-              <div class="galeria-thumb" onclick="cambiarImagen('principal-indum-nino', '../img/indumentaria/zudjr2-2.webp', this)">
-                <img src="../img/indumentaria/zudjr2-2.webp" alt="Niño 2" loading="lazy" />
-              </div>
-              <div class="galeria-thumb" onclick="cambiarImagen('principal-indum-nino', '../img/indumentaria/zudjr3.webp', this)">
-                <img src="../img/indumentaria/zudjr3.webp" alt="Niño 3" loading="lazy" />
-              </div>
-            </div>
+          </div>
         </div>
-      </div>
 
-
-        <div class="equipo-detalle-info">
-          <h2>Indumentaria Niño</h2>
-          <p class="equipo-detalle-ideal">Para niños — Talles 4 al 12</p>
-          <p>Equipamos a los más chicos de pies a cabeza. Camperas, pantalones y enteritos impermeables pensados para mantenerlos abrigados y secos en pista.</p>
-          <div class="equipo-detalle-incluye">
-            <h3>Disponible:</h3>
-            <ul>
+        <!-- INDUMENTARIA NIÑO -->
+        <div class="pack-card">
+          <div class="pack-card-img">
+            <img src="../img/indumentaria/zudjr1-2.webp" alt="Indumentaria Niño" loading="lazy" />
+            <span class="pack-card-badge pack-card-badge--naranja">Indumentaria Niño</span>
+          </div>
+          <div class="pack-card-body">
+            <h2 class="pack-card-title">Indumentaria Niño</h2>
+            <p class="pack-card-sub">Para niños — Talles 4 al 12</p>
+            <ul class="pack-card-includes">
               <li>✓ Campera niño</li>
               <li>✓ Pantalón niño</li>
               <li>✓ Enterito (combo en uno)</li>
-              <li>✓ Combo campera + pantalón (precio especial)</li>
+              <li>✓ Combo precio especial</li>
             </ul>
+            <div class="pack-card-footer">
+              <div class="pack-card-price">
+                <span class="pack-card-price-monto" data-precio="campera-nino"></span>
+                <span class="pack-precio-num">/ día</span>
+              </div>
+              <a href="./checkout.html" class="pack-card-btn">Reservar →</a>
+            </div>
           </div>
-          <div class="equipo-detalle-marcas">
-            <span class="tag">Talle 4</span>
-            <span class="tag">Talle 6</span>
-            <span class="tag">Talle 8</span>
-            <span class="tag">Talle 10</span>
-            <span class="tag">Talle 12</span>
-          </div>
-          <p class="equipo-detalle-disclaimer">* Las imágenes son de carácter ilustrativo.</p>
-          <a href="./checkout.html" class="btn equipo-detalle-btn">Ir a reserva →</a>
         </div>
-      </section>
+
+      </div>
+
+      <p class="equipos-disclaimer">* Las imágenes son de carácter ilustrativo.</p>
 
     </main>
 
@@ -312,5 +201,15 @@
     <script src="../precios.js"></script>
     <script src="../script.js"></script>
     <script src="../components/components.js"></script>
+    <script>
+      document.querySelectorAll('.pack-card-price-monto').forEach(el => {
+        const key = el.dataset.precio;
+        if (window.getPrecio) {
+          const precio = window.getPrecio(key, 1);
+          if (precio) el.textContent = '$' + precio.toLocaleString('es-AR');
+        }
+      });
+    </script>
+
   </body>
 </html>

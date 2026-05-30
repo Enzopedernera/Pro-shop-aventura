@@ -420,7 +420,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!inicio || !fin) return 0;
       const ini = new Date(inicio);
       const f = new Date(fin);
-      const d = Math.ceil((f - ini) / (1000 * 60 * 60 * 24));
+      const d = Math.ceil((f - ini) / (1000 * 60 * 60 * 24)) +1;
       return d > 0 ? d : 0;
     }
 
