@@ -201,15 +201,5 @@
     <script src="../precios.js"></script>
     <script src="../script.js"></script>
     <script src="../components/components.js"></script>
-    <script>
-      document.querySelectorAll('.pack-card-price-monto').forEach(el => {
-        const key = el.dataset.precio;
-        if (window.getPrecio) {
-          const precio = window.getPrecio(key, 1);
-          if (precio) el.textContent = '$' + precio.toLocaleString('es-AR');
-        }
-      });
-    </script>
-
   </body>
 </html>

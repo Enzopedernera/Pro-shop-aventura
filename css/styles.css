@@ -2820,9 +2820,10 @@ textarea {
   font-weight: 700;
   color: #111111;
 }
-.pack-card-price-dia {
-  font-size: 12px;
-  color: #555555;
+.pack-card .pack-precio-num {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111111;
 }
 .pack-card-btn {
   padding: 9px 18px;

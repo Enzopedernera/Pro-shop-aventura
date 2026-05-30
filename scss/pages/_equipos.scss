@@ -314,6 +314,7 @@
     transform: translateY(-2px);
   }
 
+  // ── Imagen
   &-img {
     position: relative;
     width: 100%;
@@ -334,6 +335,7 @@
     }
   }
 
+  // ── Badge sobre la imagen
   &-badge {
     position: absolute;
     top: 12px;
@@ -356,6 +358,7 @@
     }
   }
 
+  // ── Cuerpo
   &-body {
     padding: 16px;
     display: flex;
@@ -378,6 +381,7 @@
     font-style: italic;
   }
 
+  // ── Lista incluye
   &-includes {
     list-style: none;
     display: flex;
@@ -392,6 +396,7 @@
     }
   }
 
+  // ── Footer precio + botón
   &-footer {
     display: flex;
     align-items: center;
@@ -402,23 +407,28 @@
     gap: 8px;
   }
 
+  // ── Precio
   &-price {
     display: flex;
     align-items: baseline;
     gap: 4px;
 
+    // Span dinámico inyectado por precios.js (oculto si no carga)
     &-monto {
       font-size: 20px;
       font-weight: 700;
       color: $negro;
     }
-
-    &-dia {
-      font-size: 12px;
-      color: $gris-texto;
-    }
   }
 
+  // ── Precio estático hardcodeado en el HTML
+  .pack-precio-num {
+    font-size: 16px;
+    font-weight: 700;
+    color: $negro;
+  }
+
+  // ── Botón reservar
   &-btn {
     padding: 9px 18px;
     background: $azul;
