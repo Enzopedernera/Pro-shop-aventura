@@ -6,24 +6,30 @@
 // ── HERO ──────────────────────────────────────
 .hero {
   position: relative;
-  text-align: center;
+  overflow: hidden;
+  height: 600px;
 
-  img {
+  .hero-video-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    max-height: 620px;
-    object-fit: cover;
-    display: block;
-    filter: brightness(0.75);
+    height: 100%;
+
+    .hero-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.75);
+    }
   }
 
   &-content {
     position: absolute;
+    z-index: 1;
     bottom: 60px;
     left: 60px;
-    background: transparent;
-    padding: 0;
-    width: auto;
-    text-align: left;
     max-width: 560px;
 
     h1 {
@@ -72,33 +78,29 @@
   }
 
   @media (max-width: $bp-tablet) {
-    img {
-      max-height: 480px;
-    }
+    height: 320px;
 
     &-content {
       left: 20px;
       right: 20px;
       bottom: 30px;
 
-      h1, .hero-sub {
-        font-size: 30px;
-      }
-
-      .hero-bajada {
-        font-size: 15px;
-      }
+      h1, .hero-sub { font-size: 30px; }
+      .hero-bajada { font-size: 15px; }
     }
   }
 
   @media (max-width: $bp-mobile) {
+    height: 260px;
+
     &-content {
-      h1, .hero-sub { font-size: 24px; }
+      h1, .hero-sub { font-size: 22px; }
+      .hero-bajada { font-size: 13px; }
     }
   }
 }
 
-// ── SELECTOR DE FECHAS (nuevo) ──────────────────
+// ── SELECTOR DE FECHAS ──────────────────────────
 .selector-fechas {
   background: $gris-claro;
   padding: 40px 24px;
@@ -191,7 +193,7 @@
   font-weight: 500;
 }
 
-// ── TRUST SIGNALS (nuevo) ──────────────────────
+// ── TRUST SIGNALS ──────────────────────────────
 .trust-section {
   padding: $espaciado-xl 24px;
   background: $blanco;
@@ -244,7 +246,7 @@
   }
 }
 
-// ── CÓMO FUNCIONA (nuevo) ──────────────────────
+// ── CÓMO FUNCIONA ──────────────────────────────
 .como-funciona {
   background: $negro;
   padding: $espaciado-xl 24px;
@@ -484,7 +486,7 @@
   }
 }
 
-// ── TESTIMONIOS (nuevo) ───────────────────────
+// ── TESTIMONIOS ───────────────────────────────
 .testimonios {
   background: $blanco;
   padding: $espaciado-xl 24px;
@@ -547,11 +549,10 @@
   }
 }
 
-// ── MARCAS (nuevo) ────────────────────────────
+// ── MARCAS ────────────────────────────────────
 .marcas-section {
   padding: $espaciado-lg $espaciado-md;
   text-align: center;
-  
 
   h2 {
     font-size: 32px;
@@ -599,7 +600,7 @@
   100% { transform: translateX(-50%); }
 }
 
-// ── UBICACIÓN + MAPA (nuevo) ──────────────────
+// ── UBICACIÓN + MAPA ──────────────────────────
 .ubicacion-section {
   background: $gris-claro;
   padding: $espaciado-xl 24px;
@@ -673,7 +674,7 @@
   }
 }
 
-// ── FAQ (nuevo) ───────────────────────────────
+// ── FAQ ───────────────────────────────────────
 .faq-section {
   background: $blanco;
   padding: $espaciado-xl 24px;
@@ -793,7 +794,7 @@
   }
 }
 
-// ── WHATSAPP FLOTANTE (nuevo) ─────────────────
+// ── WHATSAPP FLOTANTE ─────────────────────────
 .whatsapp-flotante {
   position: fixed;
   bottom: 24px;
