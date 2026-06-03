@@ -1057,6 +1057,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     renderEsquiadores();
+  } 
+  // Video adaptativo según dispositivo
+  const heroVideo = document.getElementById('heroVideo');
+  if (heroVideo && window.innerWidth <= 768) {
+    heroVideo.querySelector('source').src = './img/video-tienda-mobile.mp4';
+    heroVideo.load();
   }
 
   // Render inicial carrito
