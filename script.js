@@ -298,6 +298,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Pre-carga de fechas en checkout
   initFechasCheckout();
+  // Mostrar resumen de fechas en el checkout
+const resumenFechas = document.getElementById("checkoutFechasResumen");
+const textoFechas   = document.getElementById("checkoutFechasTexto");
+if (resumenFechas && textoFechas) {
+  const llegada  = window._fechaInicioPrecargada;
+  const salida   = window._fechaFinPrecargada;
+  const personas = window._cantPersonasPrecargada;
+  if (llegada && salida) {
+    const ini  = new Date(llegada + "T00:00:00");
+    const fin  = new Date(salida  + "T00:00:00");
+    const dias = Math.ceil((fin - ini) / (1000 * 60 * 60 * 24)) + 1;
+    const fmt  = d => d.toLocaleDateString("es-AR", { day:"numeric", month:"long" });
+    textoFechas.textContent = `${fmt(ini)} al ${fmt(fin)} · ${dias} día${dias > 1 ? "s" : ""} · ${personas} persona${personas > 1 ? "s" : ""}`;
+    resumenFechas.style.display = "flex";
+  }
+}
 
   // Formulario CONTACTO
   const formContacto = document.getElementById("formContacto");

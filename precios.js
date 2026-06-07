@@ -40,6 +40,7 @@ const PRECIOS = {
   pantalon_nino:   { 1: 14000, 3: 38000,  4: 48000,  5: 58000,  6: 66000,  7: 74000  },
   combo_adulto:    { 1: 39000, 3: 103000, 4: 131000, 5: 156000, 6: 177000, 7: 196000 },
   combo_nino:      { 1: 29000, 3: 76000,  4: 97000,  5: 115000, 6: 131000, 7: 145000 },
+  enterito_nino:   { 1: 14000, 3: 38000,  4: 48000,  5: 58000,  6: 66000,  7: 74000  },
 };
 
 // Nombres para mostrar en tarjetas y tabla
@@ -67,6 +68,7 @@ const NOMBRES = {
   pantalon_nino:   "Pantalón Niño",
   combo_adulto:    "Campera + Pantalón Adulto",
   combo_nino:      "Campera + Pantalón Niño",
+  enterito_nino:   "Enterito Niño",
 };
 
 // ── HELPERS ───────────────────────────────────────────────────────────────────

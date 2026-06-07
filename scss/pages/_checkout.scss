@@ -596,3 +596,30 @@
 .checkout-exito--hidden {
   display: none;
 }
+// ── RESUMEN FECHAS PRE-CARGADAS ───────────────────────────────────────────
+.checkout-fechas-resumen {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #e8f0fe;
+  border: 1.5px solid $azul;
+  border-radius: $radius-md;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: $azul;
+  font-weight: 500;
+
+  .checkout-fechas-icon { font-size: 18px; }
+
+  span { flex: 1; }
+
+  .checkout-fechas-cambiar {
+    font-size: 13px;
+    color: $azul-sec;
+    text-decoration: underline;
+    white-space: nowrap;
+
+    &:hover { color: $azul; }
+  }
+}

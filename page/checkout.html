@@ -4,16 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="light" />
+
     <meta
       name="description"
       content="Confirmá tu reserva de equipos de ski y snowboard en Aventura Pro Shop."
     />
+    <meta name="robots" content="noindex, nofollow" />
     <title>Confirmar Reserva — Aventura Pro Shop</title>
     <link rel="icon" href="../img/home/logo1.webp" />
     <link rel="stylesheet" href="../css/styles.css" />
   </head>
   <body>
-
     <div id="site-header"></div>
     <div class="overlay" id="overlay"></div>
 
@@ -21,7 +22,19 @@
       <div class="checkout-container">
         <!-- COLUMNA IZQUIERDA -->
         <div class="checkout-form-col">
-  
+          <!-- RESUMEN DE FECHAS PRE-CARGADAS -->
+          <div
+            class="checkout-fechas-resumen"
+            id="checkoutFechasResumen"
+            style="display: none"
+          >
+            <span class="checkout-fechas-icon">📅</span>
+            <span id="checkoutFechasTexto"></span>
+            <a href="../index.html" class="checkout-fechas-cambiar"
+              >Cambiar fechas</a
+            >
+          </div>
+
           <!-- PASO 1 — DATOS CLIENTE -->
           <div class="checkout-card">
             <div class="checkout-card-header">
@@ -157,11 +170,12 @@
               Confirmar reserva →
             </button>
 
-            <a href="./tarifas.html" class="checkout-volver">← Volver a tarifas</a>
+            <a href="./tarifas.html" class="checkout-volver"
+              >← Volver a tarifas</a
+            >
           </div>
         </div>
       </div>
-
     </main>
     <div id="site-footer"></div>
 

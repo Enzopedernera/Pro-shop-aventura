@@ -3871,6 +3871,35 @@ textarea {
   display: none;
 }
 
+.checkout-fechas-resumen {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #e8f0fe;
+  border: 1.5px solid #0C2D4E;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #0C2D4E;
+  font-weight: 500;
+}
+.checkout-fechas-resumen .checkout-fechas-icon {
+  font-size: 18px;
+}
+.checkout-fechas-resumen span {
+  flex: 1;
+}
+.checkout-fechas-resumen .checkout-fechas-cambiar {
+  font-size: 13px;
+  color: #1A4A7A;
+  text-decoration: underline;
+  white-space: nowrap;
+}
+.checkout-fechas-resumen .checkout-fechas-cambiar:hover {
+  color: #0C2D4E;
+}
+
 .confirmacion-main {
   max-width: 860px;
   margin: 0 auto;
