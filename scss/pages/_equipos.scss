@@ -294,7 +294,6 @@
   flex-wrap: wrap;
   margin-bottom: $espaciado-lg;
 }
-
 .equipos-filtro-btn {
   padding: 8px 18px;
   font-size: 13px;
@@ -305,7 +304,7 @@
   border-radius: 24px;
   cursor: pointer;
   transition: background 0.2s, border-color 0.2s, color 0.2s;
-
+  
   &:hover {
     border-color: $azul;
     color: $azul;
