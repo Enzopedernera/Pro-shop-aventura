@@ -3,19 +3,20 @@
 // =============================================
 
 // Colores principales
-$azul: #1b35c4;
-$azul-sec: #0077ff;
-$negro: #111111;
-$blanco: #ffffff;
-$gris-claro: #f5f7fa;
-$gris-medio: #e0e0e0;
-$gris-texto: #555555;
+$azul:      #0C2D4E;   // azul noche profundo — montaña premium
+$azul-sec:  #1A4A7A;   // azul medio — hovers y variantes
+$naranja:   #F97316;   // acento cálido — botones CTA principales
+$negro:     #111111;
+$blanco:    #ffffff;
+$gris-claro: #F8FAFC;  // blanco nieve — más frío que antes
+$gris-medio: #E2E8F0;  // gris azulado — más armonioso con la paleta
+$gris-texto: #64748B;  // gris frío — mejor legibilidad
 $rojo-error: #e74c3c;
 $verde-ok: #22c55e;
 $verde-wa: #25d366;    // WhatsApp verde
 $amarillo-star: #f5a623; // Estrellas rating
 
-// Tipografía — mejoramos de Arial a sistema nativo más legible
+// Tipografía
 $font-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 $font-size-base: 16px;
 

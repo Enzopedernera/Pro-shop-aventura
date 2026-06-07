@@ -21,14 +21,6 @@
     <div id="site-header"></div>
     <div class="overlay" id="overlay"></div>
 
-    <nav class="breadcrumb" aria-label="Ruta de navegación">
-      <a href="../index.html">Inicio</a>
-      <span class="breadcrumb-sep">›</span>
-      <a href="./tarifas.html">Tarifas</a>
-      <span class="breadcrumb-sep">›</span>
-      <span class="breadcrumb-actual">Equipos</span>
-    </nav>
-
     <main class="equipos-page">
 
       <div class="equipos-page-header">
@@ -36,11 +28,21 @@
         <p>Equipos renovados, cómodos y fáciles de controlar en todo tipo de pistas.</p>
       </div>
 
-      <!-- GRILLA DE PACKS -->
-      <div class="packs-grid">
+      <!-- ── FILTROS ── -->
+      <div class="equipos-filtros" id="equiposFiltros">
+        <button class="equipos-filtro-btn activo" data-filtro="todos">Todos</button>
+        <button class="equipos-filtro-btn" data-filtro="packs">Packs completos</button>
+        <button class="equipos-filtro-btn" data-filtro="individuales">Equipos individuales</button>
+        <button class="equipos-filtro-btn" data-filtro="accesorios">Accesorios</button>
+        <button class="equipos-filtro-btn" data-filtro="indumentaria-adulto">Indumentaria Adulto</button>
+        <button class="equipos-filtro-btn" data-filtro="indumentaria-nino">Indumentaria Niño</button>
+      </div>
+
+      <!-- ── GRID ── -->
+      <div class="packs-grid" id="equiposGrid">
 
         <!-- PACK SKI ADULTO -->
-        <div class="pack-card">
+        <div class="pack-card" data-categoria="packs">
           <div class="pack-card-img">
             <img src="../img/packs-equipos/pack-ski.webp" alt="Pack Ski Adulto" loading="lazy" />
             <span class="pack-card-badge">Ski Adulto</span>
@@ -57,16 +59,17 @@
             <p class="equipos-disclaimer">* Las imágenes son de carácter ilustrativo.</p>
             <div class="pack-card-footer">
               <div class="pack-card-price">
-                <span class="pack-card-price-monto" data-precio="ski-adulto"></span>
-                <span class="pack-precio-num"> $55.000/ día</span>
+                <span>desde</span>
+                <span class="pack-precio-num" data-precio-key="ski_adulto">$55.000</span>
+                <span>/ día</span>
               </div>
-              <a href="./checkout.html" class="pack-card-btn">Reservar →</a>
+              <a href="./checkout.html" class="pack-card-btn" data-tipo="ski">Reservar →</a>
             </div>
           </div>
         </div>
 
         <!-- PACK SKI JUNIOR -->
-        <div class="pack-card">
+        <div class="pack-card" data-categoria="packs">
           <div class="pack-card-img">
             <img src="../img/packs-equipos/pack-ski-juniors.webp" alt="Pack Ski Junior" loading="lazy" />
             <span class="pack-card-badge">Ski Junior</span>
@@ -81,19 +84,20 @@
               <li>✓ Casco incluido</li>
               <li>✓ Ajuste profesional</li>
             </ul>
-             <p class="equipos-disclaimer">* Las imágenes son de carácter ilustrativo.</p>
+            <p class="equipos-disclaimer">* Las imágenes son de carácter ilustrativo.</p>
             <div class="pack-card-footer">
               <div class="pack-card-price">
-                <span class="pack-card-price-monto" data-precio="ski-nino"></span>
-                <span class="pack-precio-num"> $43.000/ día</span>
+                <span>desde</span>
+                <span class="pack-precio-num" data-precio-key="ski_junior">$43.000</span>
+                <span>/ día</span>
               </div>
-              <a href="./checkout.html" class="pack-card-btn">Reservar →</a>
+              <a href="./checkout.html" class="pack-card-btn" data-tipo="ski">Reservar →</a>
             </div>
           </div>
         </div>
 
         <!-- PACK SNOWBOARD ADULTO -->
-        <div class="pack-card">
+        <div class="pack-card" data-categoria="packs">
           <div class="pack-card-img">
             <img src="../img/packs-equipos/pack-snow-adulto.webp" alt="Pack Snowboard Adulto" loading="lazy" />
             <span class="pack-card-badge pack-card-badge--verde">Snowboard Adulto</span>
@@ -107,19 +111,20 @@
               <li>✓ Fijaciones</li>
               <li>✓ Ajuste profesional</li>
             </ul>
-             <p class="equipos-disclaimer">* Las imágenes son de carácter ilustrativo.</p>
+            <p class="equipos-disclaimer">* Las imágenes son de carácter ilustrativo.</p>
             <div class="pack-card-footer">
               <div class="pack-card-price">
-                <span class="pack-card-price-monto" data-precio="snow-adulto"></span>
-                <span class="pack-precio-num"> $58.000/ día</span>
+                <span>desde</span>
+                <span class="pack-precio-num" data-precio-key="snow_adulto">$58.000</span>
+                <span>/ día</span>
               </div>
-              <a href="./checkout.html" class="pack-card-btn">Reservar →</a>
+              <a href="./checkout.html" class="pack-card-btn" data-tipo="snow">Reservar →</a>
             </div>
           </div>
         </div>
 
         <!-- PACK SNOWBOARD JUNIOR -->
-        <div class="pack-card">
+        <div class="pack-card" data-categoria="packs">
           <div class="pack-card-img">
             <img src="../img/packs-equipos/pack-snow-niño.webp" alt="Pack Snowboard Junior" loading="lazy" />
             <span class="pack-card-badge pack-card-badge--verde">Snowboard Junior</span>
@@ -134,62 +139,486 @@
               <li>✓ Casco incluido</li>
               <li>✓ Ajuste profesional</li>
             </ul>
-             <p class="equipos-disclaimer">* Las imágenes son de carácter ilustrativo.</p>
+            <p class="equipos-disclaimer">* Las imágenes son de carácter ilustrativo.</p>
             <div class="pack-card-footer">
               <div class="pack-card-price">
-                <span class="pack-card-price-monto" data-precio="snow-nino"></span>
-                <span class="pack-precio-num">$44.000/ día</span>
+                <span>desde</span>
+                <span class="pack-precio-num" data-precio-key="snow_junior">$44.000</span>
+                <span>/ día</span>
+              </div>
+              <a href="./checkout.html" class="pack-card-btn" data-tipo="snow">Reservar →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SOLO ESQUÍ ADULTO -->
+        <div class="pack-card" data-categoria="individuales">
+          <div class="pack-card-img">
+            <img src="../img/packs-equipos/pack-ski.webp" alt="Solo Esquí Adulto" loading="lazy" />
+            <span class="pack-card-badge">Ski Adulto</span>
+          </div>
+          <div class="pack-card-body">
+            <h2 class="pack-card-title">Solo Esquí Adulto</h2>
+            <p class="pack-card-sub">Sin botas</p>
+            <ul class="pack-card-includes">
+              <li>✓ Esquís adulto</li>
+              <li>✓ Ajuste profesional</li>
+            </ul>
+            <p class="equipos-disclaimer">* Las imágenes son de carácter ilustrativo.</p>
+            <div class="pack-card-footer">
+              <div class="pack-card-price">
+                <span>desde</span>
+                <span class="pack-precio-num" data-precio-key="solo_ski_adulto">$38.000</span>
+                <span>/ día</span>
+              </div>
+              <a href="./checkout.html" class="pack-card-btn" data-tipo="solo_ski">Reservar →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SOLO ESQUÍ JUNIOR -->
+        <div class="pack-card" data-categoria="individuales">
+          <div class="pack-card-img">
+            <img src="../img/packs-equipos/pack-ski-juniors.webp" alt="Solo Esquí Junior" loading="lazy" />
+            <span class="pack-card-badge">Ski Junior</span>
+          </div>
+          <div class="pack-card-body">
+            <h2 class="pack-card-title">Solo Esquí Junior</h2>
+            <p class="pack-card-sub">Sin botas</p>
+            <ul class="pack-card-includes">
+              <li>✓ Esquís junior</li>
+              <li>✓ Ajuste profesional</li>
+            </ul>
+            <p class="equipos-disclaimer">* Las imágenes son de carácter ilustrativo.</p>
+            <div class="pack-card-footer">
+              <div class="pack-card-price">
+                <span>desde</span>
+                <span class="pack-precio-num" data-precio-key="solo_ski_junior">$30.000</span>
+                <span>/ día</span>
+              </div>
+              <a href="./checkout.html" class="pack-card-btn" data-tipo="solo_ski">Reservar →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SOLO SNOWBOARD ADULTO -->
+        <div class="pack-card" data-categoria="individuales">
+          <div class="pack-card-img">
+            <img src="../img/packs-equipos/pack-snow-adulto.webp" alt="Solo Snowboard Adulto" loading="lazy" />
+            <span class="pack-card-badge pack-card-badge--verde">Snowboard Adulto</span>
+          </div>
+          <div class="pack-card-body">
+            <h2 class="pack-card-title">Solo Snowboard Adulto</h2>
+            <p class="pack-card-sub">Sin botas</p>
+            <ul class="pack-card-includes">
+              <li>✓ Tabla adulto</li>
+              <li>✓ Fijaciones</li>
+              <li>✓ Ajuste profesional</li>
+            </ul>
+            <p class="equipos-disclaimer">* Las imágenes son de carácter ilustrativo.</p>
+            <div class="pack-card-footer">
+              <div class="pack-card-price">
+                <span>desde</span>
+                <span class="pack-precio-num" data-precio-key="solo_snow_adulto">$40.000</span>
+                <span>/ día</span>
+              </div>
+              <a href="./checkout.html" class="pack-card-btn" data-tipo="solo_snow">Reservar →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SOLO SNOWBOARD JUNIOR -->
+        <div class="pack-card" data-categoria="individuales">
+          <div class="pack-card-img">
+            <img src="../img/packs-equipos/pack-snow-niño.webp" alt="Solo Snowboard Junior" loading="lazy" />
+            <span class="pack-card-badge pack-card-badge--verde">Snowboard Junior</span>
+          </div>
+          <div class="pack-card-body">
+            <h2 class="pack-card-title">Solo Snowboard Junior</h2>
+            <p class="pack-card-sub">Sin botas</p>
+            <ul class="pack-card-includes">
+              <li>✓ Tabla junior</li>
+              <li>✓ Fijaciones</li>
+              <li>✓ Ajuste profesional</li>
+            </ul>
+            <p class="equipos-disclaimer">* Las imágenes son de carácter ilustrativo.</p>
+            <div class="pack-card-footer">
+              <div class="pack-card-price">
+                <span>desde</span>
+                <span class="pack-precio-num" data-precio-key="solo_snow_junior">$31.000</span>
+                <span>/ día</span>
+              </div>
+              <a href="./checkout.html" class="pack-card-btn" data-tipo="solo_snow">Reservar →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- BOTA SKI -->
+        <div class="pack-card" data-categoria="individuales">
+          <div class="pack-card-img">
+            <img src="../img/packs-equipos/pack-ski.webp" alt="Bota de Ski" loading="lazy" />
+            <span class="pack-card-badge">Accesorios</span>
+          </div>
+          <div class="pack-card-body">
+            <h2 class="pack-card-title">Bota de Ski</h2>
+            <p class="pack-card-sub">Talles 36 al 48</p>
+            <ul class="pack-card-includes">
+              <li>✓ Bota de ski adulto</li>
+              <li>✓ Ajuste profesional</li>
+            </ul>
+            <p class="equipos-disclaimer">* Las imágenes son de carácter ilustrativo.</p>
+            <div class="pack-card-footer">
+              <div class="pack-card-price">
+                <span>desde</span>
+                <span class="pack-precio-num" data-precio-key="solo_bota_ski">$22.000</span>
+                <span>/ día</span>
+              </div>
+              <a href="./checkout.html" class="pack-card-btn" data-tipo="solo_bota_ski">Reservar →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- BOTA SNOWBOARD -->
+        <div class="pack-card" data-categoria="individuales">
+          <div class="pack-card-img">
+            <img src="../img/packs-equipos/pack-snow-adulto.webp" alt="Bota de Snowboard" loading="lazy" />
+            <span class="pack-card-badge pack-card-badge--verde">Accesorios</span>
+          </div>
+          <div class="pack-card-body">
+            <h2 class="pack-card-title">Bota de Snowboard</h2>
+            <p class="pack-card-sub">Talles 36 al 48</p>
+            <ul class="pack-card-includes">
+              <li>✓ Bota de snowboard adulto</li>
+              <li>✓ Ajuste profesional</li>
+            </ul>
+            <p class="equipos-disclaimer">* Las imágenes son de carácter ilustrativo.</p>
+            <div class="pack-card-footer">
+              <div class="pack-card-price">
+                <span>desde</span>
+                <span class="pack-precio-num" data-precio-key="solo_bota_snow">$23.000</span>
+                <span>/ día</span>
+              </div>
+              <a href="./checkout.html" class="pack-card-btn" data-tipo="solo_bota_snow">Reservar →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CASCO -->
+        <div class="pack-card" data-categoria="accesorios">
+          <div class="pack-card-img">
+            <img src="../img/packs-equipos/pack-ski.webp" alt="Casco" loading="lazy" />
+            <span class="pack-card-badge">Accesorio</span>
+          </div>
+          <div class="pack-card-body">
+            <h2 class="pack-card-title">Casco</h2>
+            <p class="pack-card-sub">Talles S, M, L, XL</p>
+            <ul class="pack-card-includes">
+              <li>✓ Casco de ski/snowboard</li>
+              <li>✓ Incluido en packs junior</li>
+            </ul>
+            <p class="equipos-disclaimer">* Las imágenes son de carácter ilustrativo.</p>
+            <div class="pack-card-footer">
+              <div class="pack-card-price">
+                <span>desde</span>
+                <span class="pack-precio-num" data-precio-key="casco">$19.000</span>
+                <span>/ día</span>
               </div>
               <a href="./checkout.html" class="pack-card-btn">Reservar →</a>
             </div>
           </div>
         </div>
 
-        <!-- INDUMENTARIA ADULTO -->
-        <div class="pack-card">
+        <!-- ANTIPARRAS -->
+        <div class="pack-card" data-categoria="accesorios">
           <div class="pack-card-img">
-            <img src="../img/indumentaria/zudadulto1-2.webp" alt="Indumentaria Adulto" loading="lazy" />
+            <img src="../img/packs-equipos/pack-ski.webp" alt="Antiparras" loading="lazy" />
+            <span class="pack-card-badge">Accesorio</span>
+          </div>
+          <div class="pack-card-body">
+            <h2 class="pack-card-title">Antiparras</h2>
+            <p class="pack-card-sub">Talle único</p>
+            <ul class="pack-card-includes">
+              <li>✓ Antiparras de ski/snowboard</li>
+            </ul>
+            <p class="equipos-disclaimer">* Las imágenes son de carácter ilustrativo.</p>
+            <div class="pack-card-footer">
+              <div class="pack-card-price">
+                <span>desde</span>
+                <span class="pack-precio-num" data-precio-key="antiparras">$27.000</span>
+                <span>/ día</span>
+              </div>
+              <a href="./checkout.html" class="pack-card-btn">Reservar →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- GUANTES -->
+        <div class="pack-card" data-categoria="accesorios">
+          <div class="pack-card-img">
+            <img src="../img/packs-equipos/pack-ski.webp" alt="Guantes" loading="lazy" />
+            <span class="pack-card-badge">Accesorio</span>
+          </div>
+          <div class="pack-card-body">
+            <h2 class="pack-card-title">Guantes</h2>
+            <p class="pack-card-sub">Talles S, M, L, XL</p>
+            <ul class="pack-card-includes">
+              <li>✓ Guantes impermeables</li>
+            </ul>
+            <p class="equipos-disclaimer">* Las imágenes son de carácter ilustrativo.</p>
+            <div class="pack-card-footer">
+              <div class="pack-card-price">
+                <span>desde</span>
+                <span class="pack-precio-num" data-precio-key="guantes">$13.000</span>
+                <span>/ día</span>
+              </div>
+              <a href="./checkout.html" class="pack-card-btn">Reservar →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- BASTONES -->
+        <div class="pack-card" data-categoria="accesorios">
+          <div class="pack-card-img">
+            <img src="../img/packs-equipos/pack-ski.webp" alt="Bastones" loading="lazy" />
+            <span class="pack-card-badge">Accesorio</span>
+          </div>
+          <div class="pack-card-body">
+            <h2 class="pack-card-title">Bastones</h2>
+            <p class="pack-card-sub">Talle según altura</p>
+            <ul class="pack-card-includes">
+              <li>✓ Par de bastones de ski</li>
+            </ul>
+            <p class="equipos-disclaimer">* Las imágenes son de carácter ilustrativo.</p>
+            <div class="pack-card-footer">
+              <div class="pack-card-price">
+                <span>desde</span>
+                <span class="pack-precio-num" data-precio-key="bastones">$10.000</span>
+                <span>/ día</span>
+              </div>
+              <a href="./checkout.html" class="pack-card-btn">Reservar →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- BOTAS PRESKI -->
+        <div class="pack-card" data-categoria="accesorios">
+          <div class="pack-card-img">
+            <img src="../img/packs-equipos/pack-ski.webp" alt="Botas Preski" loading="lazy" />
+            <span class="pack-card-badge">Accesorio</span>
+          </div>
+          <div class="pack-card-body">
+            <h2 class="pack-card-title">Botas Preski</h2>
+            <p class="pack-card-sub">Para niños pequeños</p>
+            <ul class="pack-card-includes">
+              <li>✓ Botas blandas para preski</li>
+            </ul>
+            <p class="equipos-disclaimer">* Las imágenes son de carácter ilustrativo.</p>
+            <div class="pack-card-footer">
+              <div class="pack-card-price">
+                <span>desde</span>
+                <span class="pack-precio-num" data-precio-key="botas_preski">$15.000</span>
+                <span>/ día</span>
+              </div>
+              <a href="./checkout.html" class="pack-card-btn">Reservar →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- RAQUETAS -->
+        <div class="pack-card" data-categoria="accesorios">
+          <div class="pack-card-img">
+            <img src="../img/packs-equipos/pack-ski.webp" alt="Raquetas de nieve" loading="lazy" />
+            <span class="pack-card-badge">Accesorio</span>
+          </div>
+          <div class="pack-card-body">
+            <h2 class="pack-card-title">Raquetas de nieve</h2>
+            <p class="pack-card-sub">Trekking en nieve</p>
+            <ul class="pack-card-includes">
+              <li>✓ Par de raquetas de nieve</li>
+            </ul>
+            <p class="equipos-disclaimer">* Las imágenes son de carácter ilustrativo.</p>
+            <div class="pack-card-footer">
+              <div class="pack-card-price">
+                <span>desde</span>
+                <span class="pack-precio-num" data-precio-key="raquetas">$25.000</span>
+                <span>/ día</span>
+              </div>
+              <a href="./checkout.html" class="pack-card-btn">Reservar →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CAMPERA ADULTO -->
+        <div class="pack-card" data-categoria="indumentaria-adulto">
+          <div class="pack-card-img">
+            <img src="../img/indumentaria/zudadulto1-2.webp" alt="Campera Adulto" loading="lazy" />
             <span class="pack-card-badge pack-card-badge--naranja">Indumentaria Adulto</span>
           </div>
           <div class="pack-card-body">
-            <h2 class="pack-card-title">Indumentaria Adulto</h2>
+            <h2 class="pack-card-title">Campera Adulto</h2>
             <p class="pack-card-sub">Hombre y mujer — Talles S al XL</p>
             <ul class="pack-card-includes">
               <li>✓ Campera impermeable</li>
-              <li>✓ Pantalón impermeable</li>
-              <li>✓ Combo precio especial</li>
+              <li>✓ Abrigo térmico</li>
             </ul>
-             <p class="equipos-disclaimer">* Las imágenes son de carácter ilustrativo.</p>
+            <p class="equipos-disclaimer">* Las imágenes son de carácter ilustrativo.</p>
             <div class="pack-card-footer">
               <div class="pack-card-price">
-                <span class="pack-card-price-monto" data-precio="campera-adulto"></span>
-                <span class="pack-precio-num">/ día</span>
+                <span>desde</span>
+                <span class="pack-precio-num" data-precio-key="campera_adulto">$23.000</span>
+                <span>/ día</span>
               </div>
               <a href="./checkout.html" class="pack-card-btn">Reservar →</a>
             </div>
           </div>
         </div>
 
-        <!-- INDUMENTARIA NIÑO -->
-        <div class="pack-card">
+        <!-- PANTALÓN ADULTO -->
+        <div class="pack-card" data-categoria="indumentaria-adulto">
           <div class="pack-card-img">
-            <img src="../img/indumentaria/zudjr1-2.webp" alt="Indumentaria Niño" loading="lazy" />
+            <img src="../img/indumentaria/zudadulto2-2.webp" alt="Pantalón Adulto" loading="lazy" />
+            <span class="pack-card-badge pack-card-badge--naranja">Indumentaria Adulto</span>
+          </div>
+          <div class="pack-card-body">
+            <h2 class="pack-card-title">Pantalón Adulto</h2>
+            <p class="pack-card-sub">Hombre y mujer — Talles S al XL</p>
+            <ul class="pack-card-includes">
+              <li>✓ Pantalón impermeable</li>
+              <li>✓ Abrigo térmico</li>
+            </ul>
+            <p class="equipos-disclaimer">* Las imágenes son de carácter ilustrativo.</p>
+            <div class="pack-card-footer">
+              <div class="pack-card-price">
+                <span>desde</span>
+                <span class="pack-precio-num" data-precio-key="pantalon_adulto">$20.000</span>
+                <span>/ día</span>
+              </div>
+              <a href="./checkout.html" class="pack-card-btn">Reservar →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- COMBO ADULTO -->
+        <div class="pack-card" data-categoria="indumentaria-adulto">
+          <div class="pack-card-img">
+            <img src="../img/indumentaria/zudadulto3-2.webp" alt="Combo Indumentaria Adulto" loading="lazy" />
+            <span class="pack-card-badge pack-card-badge--naranja">Indumentaria Adulto</span>
+          </div>
+          <div class="pack-card-body">
+            <h2 class="pack-card-title">Combo Adulto</h2>
+            <p class="pack-card-sub">Precio especial — Talles S al XL</p>
+            <ul class="pack-card-includes">
+              <li>✓ Campera impermeable</li>
+              <li>✓ Pantalón impermeable</li>
+              <li>✓ Precio especial combo</li>
+            </ul>
+            <p class="equipos-disclaimer">* Las imágenes son de carácter ilustrativo.</p>
+            <div class="pack-card-footer">
+              <div class="pack-card-price">
+                <span>desde</span>
+                <span class="pack-precio-num" data-precio-key="combo_adulto">$39.000</span>
+                <span>/ día</span>
+              </div>
+              <a href="./checkout.html" class="pack-card-btn">Reservar →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CAMPERA NIÑO -->
+        <div class="pack-card" data-categoria="indumentaria-nino">
+          <div class="pack-card-img">
+            <img src="../img/indumentaria/zudjr1-2.webp" alt="Campera Niño" loading="lazy" />
             <span class="pack-card-badge pack-card-badge--naranja">Indumentaria Niño</span>
           </div>
           <div class="pack-card-body">
-            <h2 class="pack-card-title">Indumentaria Niño</h2>
-            <p class="pack-card-sub">Para niños — Talles 4 al 12</p>
+            <h2 class="pack-card-title">Campera Niño</h2>
+            <p class="pack-card-sub">Talles 4 al 12</p>
             <ul class="pack-card-includes">
-              <li>✓ Campera niño</li>
-              <li>✓ Pantalón niño</li>
-              <li>✓ Enterito (combo en uno)</li>
-              <li>✓ Combo precio especial</li>
+              <li>✓ Campera impermeable niño</li>
+              <li>✓ Abrigo térmico</li>
             </ul>
-             <p class="equipos-disclaimer">* Las imágenes son de carácter ilustrativo.</p>
+            <p class="equipos-disclaimer">* Las imágenes son de carácter ilustrativo.</p>
             <div class="pack-card-footer">
               <div class="pack-card-price">
-                <span class="pack-card-price-monto" data-precio="campera-nino"></span>
-                <span class="pack-precio-num">/ día</span>
+                <span>desde</span>
+                <span class="pack-precio-num" data-precio-key="campera_nino">$17.000</span>
+                <span>/ día</span>
+              </div>
+              <a href="./checkout.html" class="pack-card-btn">Reservar →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PANTALÓN NIÑO -->
+        <div class="pack-card" data-categoria="indumentaria-nino">
+          <div class="pack-card-img">
+            <img src="../img/indumentaria/zudjr2-2.webp" alt="Pantalón Niño" loading="lazy" />
+            <span class="pack-card-badge pack-card-badge--naranja">Indumentaria Niño</span>
+          </div>
+          <div class="pack-card-body">
+            <h2 class="pack-card-title">Pantalón Niño</h2>
+            <p class="pack-card-sub">Talles 4 al 12</p>
+            <ul class="pack-card-includes">
+              <li>✓ Pantalón impermeable niño</li>
+              <li>✓ Abrigo térmico</li>
+            </ul>
+            <p class="equipos-disclaimer">* Las imágenes son de carácter ilustrativo.</p>
+            <div class="pack-card-footer">
+              <div class="pack-card-price">
+                <span>desde</span>
+                <span class="pack-precio-num" data-precio-key="pantalon_nino">$14.000</span>
+                <span>/ día</span>
+              </div>
+              <a href="./checkout.html" class="pack-card-btn">Reservar →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ENTERITO NIÑO -->
+        <div class="pack-card" data-categoria="indumentaria-nino">
+          <div class="pack-card-img">
+            <img src="../img/indumentaria/zudjr3.webp" alt="Enterito Niño" loading="lazy" />
+            <span class="pack-card-badge pack-card-badge--naranja">Indumentaria Niño</span>
+          </div>
+          <div class="pack-card-body">
+            <h2 class="pack-card-title">Enterito Niño</h2>
+            <p class="pack-card-sub">Talles 4 al 12</p>
+            <ul class="pack-card-includes">
+              <li>✓ Enterito impermeable (campera + pantalón en uno)</li>
+              <li>✓ Abriga y protege sin separarse</li>
+            </ul>
+            <p class="equipos-disclaimer">* Las imágenes son de carácter ilustrativo.</p>
+            <div class="pack-card-footer">
+              <div class="pack-card-price">
+                <span>desde</span>
+                <span class="pack-precio-num" data-precio-key="combo_nino">$14.000</span>
+                <span>/ día</span>
+              </div>
+              <a href="./checkout.html" class="pack-card-btn">Reservar →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- COMBO NIÑO -->
+        <div class="pack-card" data-categoria="indumentaria-nino">
+          <div class="pack-card-img">
+            <img src="../img/indumentaria/zudjr1-2.webp" alt="Combo Indumentaria Niño" loading="lazy" />
+            <span class="pack-card-badge pack-card-badge--naranja">Indumentaria Niño</span>
+          </div>
+          <div class="pack-card-body">
+            <h2 class="pack-card-title">Combo Niño</h2>
+            <p class="pack-card-sub">Precio especial — Talles 4 al 12</p>
+            <ul class="pack-card-includes">
+              <li>✓ Campera impermeable niño</li>
+              <li>✓ Pantalón impermeable niño</li>
+              <li>✓ Precio especial combo</li>
+            </ul>
+            <p class="equipos-disclaimer">* Las imágenes son de carácter ilustrativo.</p>
+            <div class="pack-card-footer">
+              <div class="pack-card-price">
+                <span>desde</span>
+                <span class="pack-precio-num" data-precio-key="combo_nino">$29.000</span>
+                <span>/ día</span>
               </div>
               <a href="./checkout.html" class="pack-card-btn">Reservar →</a>
             </div>
@@ -197,6 +626,9 @@
         </div>
 
       </div>
+
+      <p class="equipos-disclaimer equipos-disclaimer--centro">* Todos los precios son desde el valor por día. Consultá descuentos por más días en la sección <a href="./tarifas.html">Tarifas</a>.</p>
+
     </main>
 
     <div id="site-footer"></div>
@@ -204,5 +636,28 @@
     <script src="../precios.js"></script>
     <script src="../script.js"></script>
     <script src="../components/components.js"></script>
+    <script>
+      // ── FILTROS EQUIPOS ──────────────────────────
+      document.addEventListener("DOMContentLoaded", () => {
+        const botones = document.querySelectorAll(".equipos-filtro-btn");
+        const cards   = document.querySelectorAll(".pack-card[data-categoria]");
+
+        botones.forEach(btn => {
+          btn.addEventListener("click", () => {
+            const filtro = btn.dataset.filtro;
+
+            // Actualizar botón activo
+            botones.forEach(b => b.classList.remove("activo"));
+            btn.classList.add("activo");
+
+            // Mostrar/ocultar cards
+            cards.forEach(card => {
+              const cat = card.dataset.categoria;
+              card.style.display = (filtro === "todos" || cat === filtro) ? "" : "none";
+            });
+          });
+        });
+      });
+    </script>
   </body>
 </html>

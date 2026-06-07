@@ -1,0 +1,224 @@
+// ── RESERVAS ──────────────────────────────
+@use "../base/variables" as *;
+
+.reservas-hub {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: $espaciado-xl $espaciado-md;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.reservas-hub-header {
+  text-align: center;
+  margin-bottom: $espaciado-xl;
+
+  h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: $negro;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 16px;
+    color: $gris-texto;
+  }
+}
+
+.reservas-hub-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 280px 320px;
+  gap: 16px;
+
+  @media (max-width: $bp-tablet) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 240px 240px 300px;
+  }
+}
+
+.reservas-hub-card {
+  position: relative;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 28px 32px;
+  text-decoration: none;
+  color: $blanco;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.01);
+
+    .reservas-hub-card-bg {
+      transform: scale(1.05);
+    }
+  }
+
+  &--full {
+    grid-column: span 2;
+
+    h2 {
+      font-size: 36px;
+    }
+
+    @media (max-width: $bp-tablet) {
+      grid-column: span 1;
+    }
+  }
+}
+
+.reservas-hub-card-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: left;
+  transition: transform 0.5s ease;
+}
+
+.reservas-hub-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.80) 0%,
+    rgba(0, 0, 0, 0.30) 50%,
+    rgba(0, 0, 0, 0.10) 100%
+  );
+
+  &--strong {
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.85) 0%,
+      rgba(0, 0, 0, 0.40) 50%,
+      rgba(0, 0, 0, 0.15) 100%
+    );
+  }
+}
+
+.reservas-hub-card-content {
+  position: relative;
+  z-index: 1;
+
+  h2 {
+    font-size: 26px;
+    font-weight: 700;
+    color: $blanco;
+    margin: 0 0 8px;
+  }
+
+  p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.80);
+    margin: 0 0 16px;
+    line-height: 1.6;
+    max-width: 480px;
+  }
+}
+
+.reservas-hub-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.20);
+  color: rgba(255, 255, 255, 0.95);
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  
+}
+
+.reservas-hub-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: $blanco;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.40);
+  border-radius: 24px;
+  padding: 8px 20px;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  
+  transition: background 0.2s ease, border-color 0.2s ease;
+
+  &--destacado {
+    background: $azul ;
+    border-color: $azul;
+
+    &:hover {
+      background: $azul-sec;
+      border-color: $azul-sec;
+    }
+  }
+}
+
+.reservas-hub-card:hover .reservas-hub-btn {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.60);
+}
+
+.reservas-hub-card:hover .reservas-hub-btn--destacado {
+  background: $azul-sec;
+  border-color: $azul-sec;
+}
+// ── DROPDOWN NAV ──────────────────────────────
+.menu-item--dropdown {
+  position: relative;
+
+  .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: $blanco;
+    border: 1px solid $gris-medio;
+    border-radius: $radius-md;
+    box-shadow: $sombra-md;
+    min-width: 180px;
+    z-index: 200;
+    padding: 8px 0;
+
+    li {
+      list-style: none;
+
+      a {
+        display: block;
+        padding: 10px 16px;
+        font-size: 13px;
+        color: $negro;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: background 0.2s, color 0.2s;
+
+        &:hover {
+          background: $gris-claro;
+          color: $azul;
+        }
+      }
+
+      &:last-child a {
+        color: $azul;
+        font-weight: 600;
+        border-top: 1px solid $gris-medio;
+        margin-top: 4px;
+        padding-top: 12px;
+      }
+    }
+  }
+
+  &:hover .dropdown {
+    display: block;
+  }
+}

@@ -1,9 +1,9 @@
 // =============================================
-// ALQUILER & EQUIPOS
+//  EQUIPOS
 // =============================================
 @use "../base/variables" as *;
 
-// ── HERO ALQUILER ─────────────────────────────
+// ── HERO EQUIPOS ─────────────────────────────
 .hero-alquiler {
   position: relative;
   min-height: 220px;
@@ -163,7 +163,7 @@
   }
 }
 
-// ── CARDS EQUIPOS REFERENCIA (en alquiler.html) ──
+// ── CARDS EQUIPOS REFERENCIA ──────────────────
 .equipos-ref {
   padding: $espaciado-lg $espaciado-md;
   background: $gris-claro;
@@ -268,7 +268,7 @@
 
 .equipos-page-header {
   text-align: center;
-  margin-bottom: $espaciado-xl;
+  margin-bottom: $espaciado-lg;
 
   h1 {
     font-size: 32px;
@@ -280,6 +280,41 @@
   p {
     font-size: 16px;
     color: $gris-texto;
+  }
+}
+
+// ── FILTROS DE CATEGORÍA ──────────────────────
+.equipos-filtros {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 32px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: $espaciado-lg;
+}
+
+.equipos-filtro-btn {
+  padding: 8px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  color: $negro;
+  background: $blanco;
+  border: 1.5px solid $gris-medio;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+
+  &:hover {
+    border-color: $azul;
+    color: $azul;
+  }
+
+  &.activo {
+    background: $azul;
+    border-color: $azul;
+    color: $blanco;
   }
 }
 
@@ -436,13 +471,47 @@
   }
 }
 
+// ── PACK PRECIO ───────────────────────────────
+.pack-card-price {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  font-size: 13px;
+  color: $gris-texto;
+
+  .pack-precio-num {
+    font-size: 20px;
+    font-weight: 700;
+    color: $negro;
+  }
+}
+
 // ── DISCLAIMER ────────────────────────────────
 .equipos-disclaimer {
-  text-align: center;
   font-size: 12px;
   color: $gris-texto;
   font-style: italic;
-  margin-top: $espaciado-md;
+  margin-top: $espaciado-sm;
+
+  &--centro {
+    text-align: center;
+    margin-top: 32px;
+
+    a {
+      color: $azul;
+      text-decoration: underline;
+    }
+  }
+}
+
+// ── TÍTULO DE SECCIÓN EQUIPOS ─────────────────
+.equipos-seccion-titulo {
+  font-size: 22px;
+  font-weight: 700;
+  color: $negro;
+  margin: 48px 0 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid $gris-medio;
 }
 
 // ── TABLAS EN GRID DOS COLUMNAS ───────────────
