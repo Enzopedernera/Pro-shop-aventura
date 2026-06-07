@@ -824,3 +824,12 @@ function cambiarImagen(idPrincipal, src, thumb) {
     .forEach(t => t.classList.remove("activo"));
   thumb.classList.add("activo");
 }
+
+// Force video autoplay en mobile/iOS
+const heroVideo = document.getElementById('heroVideo');
+if (heroVideo) {
+  heroVideo.muted = true;
+  heroVideo.play().catch(() => {
+    // Si falla el autoplay, al menos mostrar el poster
+  });
+}
