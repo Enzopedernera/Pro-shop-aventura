@@ -623,3 +623,49 @@
     &:hover { color: $azul; }
   }
 }
+// ── SELECTORES DE FECHA ───────────────────────────────────────────────────────
+.fecha-selects-wrapper {
+  position: relative;
+}
+
+.fecha-selects {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+
+  .fecha-select {
+    flex: 1;
+    min-width: 0;
+    padding: 8px 6px;
+    border: 1.5px solid $gris-medio;
+    border-radius: $radius-sm;
+    font-size: 13px;
+    background: $blanco;
+    color: $negro;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+      border-color: $azul;
+    }
+  }
+}
+
+.fecha-cal-btn {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid $gris-medio;
+  border-radius: $radius-sm;
+  background: $blanco;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s ease;
+
+  &:hover {
+    border-color: $azul;
+  }
+}

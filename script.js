@@ -208,16 +208,13 @@ function initFechasCheckout() {
   window._fechaInicioPrecargada  = localStorage.getItem("fechaLlegada") || "";
   window._fechaFinPrecargada     = localStorage.getItem("fechaSalida")  || "";
   window._cantPersonasPrecargada = localStorage.getItem("cantPersonas") || "1";
-
-  // Tipo preseleccionado desde equipos.html
-  window._tipoPreseleccionado = localStorage.getItem("tipoPreseleccionado") || "";
+  window._tipoPreseleccionado    = localStorage.getItem("tipoPreseleccionado") || "";
   localStorage.removeItem("tipoPreseleccionado");
 }
 
 // ── INIT PRINCIPAL ────────────────────────────────────────────────────────────
 document.addEventListener("DOMContentLoaded", () => {
 
-  // Panel carrito
   const toggle  = document.getElementById("toggleCarrito");
   const panel   = document.getElementById("carritoPanel");
   const overlay = document.getElementById("overlay");
@@ -238,7 +235,6 @@ document.addEventListener("DOMContentLoaded", () => {
   overlay?.addEventListener("click", cerrarCarritoPanel);
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") cerrarCarritoPanel(); });
 
-  // Botones .btn-agregar
   document.querySelectorAll(".btn-agregar").forEach((boton) => {
     boton.addEventListener("click", () => {
       const contenedor = boton.closest(".producto") || boton.closest(".detalle-info");
@@ -261,7 +257,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Intercepta clicks en botones con data-tipo (desde equipos.html)
   document.querySelectorAll(".pack-card-btn[data-tipo]").forEach(btn => {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
@@ -270,7 +265,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Hamburguesa
   const hamburguesa = document.getElementById("hamburguesa");
   const menu = document.getElementById("menu");
   if (hamburguesa && menu) {
@@ -286,36 +280,31 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Video adaptativo
   const heroVideo = document.getElementById("heroVideo");
   if (heroVideo && window.innerWidth <= 768) {
     heroVideo.querySelector("source").src = "./img/video-tienda-mobile.mp4";
     heroVideo.load();
   }
 
-  // Selector de fechas en home
   initSelectorFechas();
-
-  // Pre-carga de fechas en checkout
   initFechasCheckout();
-  // Mostrar resumen de fechas en el checkout
-const resumenFechas = document.getElementById("checkoutFechasResumen");
-const textoFechas   = document.getElementById("checkoutFechasTexto");
-if (resumenFechas && textoFechas) {
-  const llegada  = window._fechaInicioPrecargada;
-  const salida   = window._fechaFinPrecargada;
-  const personas = window._cantPersonasPrecargada;
-  if (llegada && salida) {
-    const ini  = new Date(llegada + "T00:00:00");
-    const fin  = new Date(salida  + "T00:00:00");
-    const dias = Math.ceil((fin - ini) / (1000 * 60 * 60 * 24)) + 1;
-    const fmt  = d => d.toLocaleDateString("es-AR", { day:"numeric", month:"long" });
-    textoFechas.textContent = `${fmt(ini)} al ${fmt(fin)} · ${dias} día${dias > 1 ? "s" : ""} · ${personas} persona${personas > 1 ? "s" : ""}`;
-    resumenFechas.style.display = "flex";
-  }
-}
 
-  // Formulario CONTACTO
+  const resumenFechas = document.getElementById("checkoutFechasResumen");
+  const textoFechas   = document.getElementById("checkoutFechasTexto");
+  if (resumenFechas && textoFechas) {
+    const llegada  = window._fechaInicioPrecargada;
+    const salida   = window._fechaFinPrecargada;
+    const personas = window._cantPersonasPrecargada;
+    if (llegada && salida) {
+      const ini  = new Date(llegada + "T00:00:00");
+      const fin  = new Date(salida  + "T00:00:00");
+      const dias = Math.ceil((fin - ini) / (1000 * 60 * 60 * 24)) + 1;
+      const fmt  = d => d.toLocaleDateString("es-AR", { day:"numeric", month:"long" });
+      textoFechas.textContent = `${fmt(ini)} al ${fmt(fin)} · ${dias} día${dias > 1 ? "s" : ""} · ${personas} persona${personas > 1 ? "s" : ""}`;
+      resumenFechas.style.display = "flex";
+    }
+  }
+
   const formContacto = document.getElementById("formContacto");
   if (formContacto) {
     formContacto.addEventListener("submit", async function (e) {
@@ -386,8 +375,6 @@ if (resumenFechas && textoFechas) {
     function esquiadorDefault() {
       return {
         nombre: "", edad: "adulto", nivel: "principiante",
-        // Tipo vacío por defecto — el cliente elige manualmente
-        // Si viene preseleccionado desde equipos.html se usa ese valor
         tipo: window._tipoPreseleccionado || "",
         altura: "", talleBota: "",
         fecha_inicio: fechaInicioDefault,
@@ -403,6 +390,96 @@ if (resumenFechas && textoFechas) {
         combo_nino: false,
       };
     }
+
+    // ── SELECTORES DE FECHA ───────────────────────────────────────────────────
+    function generarSelectsFecha(idx, campo, valorActual) {
+  const hoy = new Date();
+  const partes = valorActual ? valorActual.split("-") : ["", "", ""];
+  const anioSel = partes[0] || "";
+  const mesSel  = partes[1] || "";
+  const diaSel  = partes[2] || "";
+
+  const anios = [hoy.getFullYear(), hoy.getFullYear() + 1];
+  const meses = [
+    ["01","Enero"],["02","Febrero"],["03","Marzo"],["04","Abril"],
+    ["05","Mayo"],["06","Junio"],["07","Julio"],["08","Agosto"],
+    ["09","Septiembre"],["10","Octubre"],["11","Noviembre"],["12","Diciembre"]
+  ];
+
+  const optsAnio = `<option value="">Año</option>` + anios.map(a =>
+    `<option value="${a}" ${anioSel == a ? "selected" : ""}>${a}</option>`
+  ).join("");
+
+  const optsMes = `<option value="">Mes</option>` + meses.map(([v, l]) =>
+    `<option value="${v}" ${mesSel === v ? "selected" : ""}>${l}</option>`
+  ).join("");
+
+  const dias = Array.from({length: 31}, (_, i) => String(i + 1).padStart(2, "0"));
+  const optsDia = `<option value="">Día</option>` + dias.map(d =>
+    `<option value="${d}" ${diaSel === d ? "selected" : ""}>${parseInt(d)}</option>`
+  ).join("");
+
+  const inputId = `date-picker-${idx}-${campo}`;
+
+  return `
+    <div class="fecha-selects-wrapper">
+      <div class="fecha-selects">
+        <select class="fecha-select" onchange="actualizarFechaSelect(${idx}, '${campo}', 'dia', this.value)">
+          ${optsDia}
+        </select>
+        
+        <select class="fecha-select" onchange="actualizarFechaSelect(${idx}, '${campo}', 'mes', this.value)">
+          ${optsMes}
+        </select>
+        <select class="fecha-select" onchange="actualizarFechaSelect(${idx}, '${campo}', 'anio', this.value)">
+          ${optsAnio}
+        </select>
+        
+        <button type="button" class="fecha-cal-btn" onclick="document.getElementById('${inputId}').showPicker()" aria-label="Abrir calendario">
+          📅
+        </button>
+      </div>
+      <input
+        type="date"
+        id="${inputId}"
+        value="${valorActual || ''}"
+        style="position:absolute;opacity:0;pointer-events:none;width:0;height:0;"
+        onchange="sincronizarDesdePicker(${idx}, '${campo}', this.value)"
+      />
+    </div>
+  `;
+}
+
+   window.actualizarFechaSelect = function(idx, campo, parte, valor) {
+  const actual = esquiadores[idx][campo] || "--";
+  const partes = actual.split("-");
+  let anio = partes[0] || "";
+  let mes  = partes[1] || "";
+  let dia  = partes[2] || "";
+  if (parte === "anio") anio = valor;
+  if (parte === "mes")  mes  = valor;
+  if (parte === "dia")  dia  = valor;
+  if (anio && mes && dia) {
+    esquiadores[idx][campo] = `${anio}-${mes}-${dia}`;
+  } else {
+    esquiadores[idx][campo] = "";
+  }
+  renderEsquiadores();
+};
+
+window.sincronizarDesdePicker = function(idx, campo, valor) {
+  if (!valor) return;
+  esquiadores[idx][campo] = valor;
+  renderEsquiadores();
+};
+
+    window.actualizarFechasGlobales = function(ini, fin) {
+      esquiadores.forEach(esq => {
+        if (ini) esq.fecha_inicio = ini;
+        if (fin) esq.fecha_fin    = fin;
+      });
+      renderEsquiadores();
+    };
 
     function generarRecomendacion(esq) {
       const h = parseInt(esq.altura) || 0;
@@ -537,13 +614,15 @@ if (resumenFechas && textoFechas) {
           <div class="checkout-grid checkout-grid--mb-sm">
             <div class="campo">
               <label>Fecha inicio</label>
-              <input type="date" value="${esq.fecha_inicio}"
-                onchange="actualizarEsq(${i}, 'fecha_inicio', this.value)" />
+              <div class="fecha-selects">
+                ${generarSelectsFecha(i, 'fecha_inicio', esq.fecha_inicio)}
+              </div>
             </div>
             <div class="campo">
               <label>Fecha fin</label>
-              <input type="date" value="${esq.fecha_fin}"
-                onchange="actualizarEsq(${i}, 'fecha_fin', this.value)" />
+              <div class="fecha-selects">
+                ${generarSelectsFecha(i, 'fecha_fin', esq.fecha_fin)}
+              </div>
             </div>
           </div>
           ${diasEsq > 0 ? `<div class="checkout-dias checkout-dias--visible"><span>📅</span><strong>${diasEsq}</strong>&nbsp;día/s de alquiler</div>` : ""}
@@ -635,14 +714,6 @@ if (resumenFechas && textoFechas) {
       renderEsquiadores();
     };
 
-    window.actualizarFechasGlobales = function(ini, fin) {
-      esquiadores.forEach(esq => {
-        if (ini) esq.fecha_inicio = ini;
-        if (fin) esq.fecha_fin    = fin;
-      });
-      renderEsquiadores();
-    };
-
     function precioEsquiador(esq) {
       const d = calcularDiasEsq(esq.fecha_inicio, esq.fecha_fin) || 1;
       const esNino = esq.edad === "nino";
@@ -695,10 +766,7 @@ if (resumenFechas && textoFechas) {
         else if (esq.tipo === "solo_snow")      { packKey = esNino ? "solo_snow_junior" : "solo_snow_adulto"; packLabel = esNino ? "Solo Snowboard Junior" : "Solo Snowboard Adulto"; }
         else if (esq.tipo === "solo_bota_ski")  { packKey = "solo_bota_ski";  packLabel = "Solo Bota de Ski"; }
         else if (esq.tipo === "solo_bota_snow") { packKey = "solo_bota_snow"; packLabel = "Solo Bota de Snowboard"; }
-
-        // Solo agrega el equipo si el cliente seleccionó uno
         if (packKey) items.push([packLabel, getPrecioLocal(packKey, d)]);
-
         const cascoIncluido = esNino && (esq.tipo === "ski" || esq.tipo === "snow");
         if (cascoIncluido) items.push([`Casco talle ${esq.talleCasco} (incluido)`, 0]);
         else if (esq.casco) items.push([`Casco talle ${esq.talleCasco}`, getPrecioLocal("casco", d)]);
@@ -710,7 +778,6 @@ if (resumenFechas && textoFechas) {
         if (esq.pantalon_nino)   items.push([`Pantalón/Enterito niño talle ${esq.tallePantalon_nino}`, getPrecioLocal("pantalon_nino", d)]);
         if (esq.combo_adulto)    items.push(["Campera + Pantalón adulto (combo)", getPrecioLocal("combo_adulto", d)]);
         if (esq.combo_nino)      items.push(["Campera + Pantalón niño (combo)", getPrecioLocal("combo_nino", d)]);
-
         items.forEach(([label, precio]) => {
           const item = document.createElement("div");
           item.classList.add("checkout-item");
@@ -747,7 +814,6 @@ if (resumenFechas && textoFechas) {
       if (totalReservaEl) totalReservaEl.textContent = `$${formatearPrecio(totalGeneral)}`;
     }
 
-    // Submit reserva
     const formReservaCheckout = document.getElementById("formReserva");
     if (formReservaCheckout) {
       formReservaCheckout.addEventListener("submit", async function(e) {
@@ -829,7 +895,5 @@ function cambiarImagen(idPrincipal, src, thumb) {
 const heroVideo = document.getElementById('heroVideo');
 if (heroVideo) {
   heroVideo.muted = true;
-  heroVideo.play().catch(() => {
-    // Si falla el autoplay, al menos mostrar el poster
-  });
+  heroVideo.play().catch(() => {});
 }

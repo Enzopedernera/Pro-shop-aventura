@@ -5,84 +5,18 @@
 
 // ── HERO ──────────────────────────────────────
 .tarifas-hero {
-  background: linear-gradient(135deg, #1b35c4 0%, #0d1f7a 100%);
-  padding: 80px 24px 60px;
-  text-align: center;
-  color: $blanco;
-
-  h1 {
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
-    font-weight: 800;
-    margin-bottom: 12px;
-    letter-spacing: -0.02em;
-  }
-
-  p {
-    font-size: 1.1rem;
-    opacity: 0.9;
-    max-width: 560px;
-    margin: 0 auto;
-  }
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: $espaciado-lg $espaciado-md 0;
 }
 
-// ── DESCUENTOS GRID ───────────────────────────
-.descuentos-section {
-  max-width: 900px;
-  margin: 0 auto 24px;
-  padding: 20px 20px;
+.tarifas-hero-img {
+  width: 100%;
+  height: auto;
+  border-radius: $radius-lg;
+  display: block;
 }
 
-.descuentos-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-
-  @media (max-width: $bp-tablet) {
-    grid-template-columns: 1fr;
-  }
-}
-
-.descuento-card {
-  border-left: 4px solid;
-  border-radius: 0 $radius-md $radius-md 0;
-  padding: 20px 24px;
-
-  h2 {
-    font-size: 1rem;
-    font-weight: 700;
-    margin-bottom: 8px;
-  }
-
-  p {
-    font-size: 0.93rem;
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  &--efectivo {
-    background: #f8faff;
-    border-color: $azul;
-
-    h2 { color: $azul; }
-    p  { color: #444; }
-  }
-
-  &--temporada {
-    background: #f0fff4;
-    border-color: #16a34a;
-
-    h2 { color: #16a34a; }
-    p  { color: #444; }
-  }
-
-  &--piezasuelta {
-    background: #fffbeb;
-    border-color: #d97706;
-
-    h2 { color: #92400e; }
-    p  { color: #444; }
-  }
-}
 
 // ── TABLAS ────────────────────────────────────
 // .tabla-precios-* se define en components/_tabla.scss.
