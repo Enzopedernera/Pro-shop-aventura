@@ -391,6 +391,56 @@ textarea {
   }
 }
 
+.whatsapp-flotante {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 998;
+  background: #25d366;
+  color: #ffffff;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.whatsapp-flotante:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.4);
+}
+.whatsapp-flotante:hover .wa-tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.wa-tooltip {
+  position: absolute;
+  right: 70px;
+  background: #111111;
+  color: #ffffff;
+  font-size: 13px;
+  white-space: nowrap;
+  padding: 6px 12px;
+  border-radius: 6px;
+  opacity: 0;
+  transform: translateX(8px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+.wa-tooltip::after {
+  content: "";
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 6px solid transparent;
+  border-right: none;
+  border-left-color: #111111;
+}
+
 .carrito-nav {
   position: relative;
   flex-shrink: 0;
@@ -3244,6 +3294,13 @@ textarea {
 }
 .nosotros-cta-btns .btn-reserva:hover {
   opacity: 0.88;
+}
+
+.checkout-titulo {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0C2D4E;
+  margin-bottom: 16px;
 }
 
 .checkout-main {

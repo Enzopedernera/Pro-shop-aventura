@@ -140,3 +140,56 @@
     }
   }
 }
+// ── WHATSAPP FLOTANTE ──
+.whatsapp-flotante {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 998;
+  background: $verde-wa;
+  color: $blanco;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: $sombra-lg;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 30px rgba(37, 211, 102, 0.4);
+
+    .wa-tooltip {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+.wa-tooltip {
+  position: absolute;
+  right: 70px;
+  background: $negro;
+  color: $blanco;
+  font-size: 13px;
+  white-space: nowrap;
+  padding: 6px 12px;
+  border-radius: $radius-sm;
+  opacity: 0;
+  transform: translateX(8px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 6px solid transparent;
+    border-right: none;
+    border-left-color: $negro;
+  }
+}

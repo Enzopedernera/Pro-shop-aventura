@@ -185,8 +185,20 @@ function initSelectorFechas() {
     const llegada  = fechaLlegada.value;
     const salida   = fechaSalida.value;
     const personas = cantPersonas ? cantPersonas.value : "1";
-    if (llegada)  localStorage.setItem("fechaLlegada", llegada);
-    if (salida)   localStorage.setItem("fechaSalida", salida);
+
+    if (!llegada) {
+      mostrarToast("Seleccioná una fecha de llegada.", "warning");
+      fechaLlegada.focus();
+      return;
+    }
+    if (!salida) {
+      mostrarToast("Seleccioná una fecha de salida.", "warning");
+      fechaSalida.focus();
+      return;
+    }
+
+    localStorage.setItem("fechaLlegada", llegada);
+    localStorage.setItem("fechaSalida", salida);
     if (personas) localStorage.setItem("cantPersonas", personas);
     sessionStorage.setItem("desdeHome", "1");
     window.location.href = "./page/checkout.html";

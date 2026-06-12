@@ -2,6 +2,13 @@
 // CHECKOUT
 // =============================================
 @use "../base/variables" as *;
+.checkout-titulo {
+  font-size: 28px;
+  font-weight: 700;
+  color: $azul;
+  margin-bottom: $espaciado-md;
+}
+
 
 // ── MAIN ──────────────────────────────────────
 .checkout-main {

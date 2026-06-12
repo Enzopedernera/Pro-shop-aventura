@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /page/checkout.html
+Disallow: /page/privacidad.html
 
 Sitemap: https://www.proshopaventura.com/sitemap.xml

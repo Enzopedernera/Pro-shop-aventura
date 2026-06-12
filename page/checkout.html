@@ -35,6 +35,10 @@
             >
           </div>
 
+          <h1 class="checkout-titulo">
+            Reserva de equipos - Aventura Pro Shop
+          </h1>
+
           <!-- PASO 1 — DATOS CLIENTE -->
           <div class="checkout-card">
             <div class="checkout-card-header">
@@ -69,7 +73,9 @@
                     type="text"
                     id="dni"
                     name="dni"
-                    placeholder="12.345.678"
+                    placeholder="12345678"
+                    pattern="\d{7,8}"
+                    title="Ingresá tu DNI sin puntos (7 u 8 dígitos)"
                   />
                 </div>
                 <div class="campo">
@@ -179,8 +185,8 @@
     </main>
     <div id="site-footer"></div>
 
-    <script src="../precios.js"></script>
-    <script src="../script.js"></script>
-    <script src="../components/components.js"></script>
+    <script src="../precios.js" defer></script>
+    <script src="../script.js" defer></script>
+    <script src="../components/components.js" defer></script>
   </body>
 </html>
