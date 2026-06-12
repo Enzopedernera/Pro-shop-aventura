@@ -459,12 +459,10 @@ document.addEventListener("DOMContentLoaded", () => {
   if (parte === "anio") anio = valor;
   if (parte === "mes")  mes  = valor;
   if (parte === "dia")  dia  = valor;
-  if (anio && mes && dia) {
-    esquiadores[idx][campo] = `${anio}-${mes}-${dia}`;
-  } else {
-    esquiadores[idx][campo] = "";
-  }
-  renderEsquiadores();
+  // Guardamos estado parcial para no perder lo ya seleccionado
+  esquiadores[idx][campo] = (anio || mes || dia) ? `${anio}-${mes}-${dia}` : "";
+  // Solo actualizamos el resumen, sin reconstruir las cards
+  actualizarResumen();
 };
 
 window.sincronizarDesdePicker = function(idx, campo, valor) {

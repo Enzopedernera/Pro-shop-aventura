@@ -1,0 +1,242 @@
+// =============================================
+// TALLER DE SERVICIOS
+// =============================================
+@use "../base/variables" as *;
+
+.taller-main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: $espaciado-xl $espaciado-md;
+  display: flex;
+  flex-direction: column;
+  gap: $espaciado-xl;
+}
+
+// ── HERO ──────────────────────────────────────
+.taller-hero {
+  position: relative;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  min-height: 460px;
+  display: flex;
+  align-items: flex-end;
+
+  @media (max-width: $bp-tablet) {
+    min-height: 340px;
+  }
+}
+
+.taller-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.taller-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.40) 50%,
+    rgba(0, 0, 0, 0.10) 100%
+  );
+}
+
+.taller-hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 2.5rem 2.50rem;
+
+  h1 {
+    font-size: 36px;
+    font-weight: 500;
+    color: $blanco;
+    margin: 0 0 0.5rem;
+    line-height: 1.3;
+
+    @media (max-width: $bp-tablet) {
+      font-size: 26px;
+    }
+  }
+
+  p {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0 0 1.5rem;
+    max-width: 480px;
+    line-height: 1.6;
+  }
+}
+
+.taller-hero-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 99px;
+  background: rgba($naranja, 0.2);
+  color: $naranja;
+  margin-bottom: 1rem;
+}
+
+.taller-hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: $naranja;
+  color: $blanco;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: $radius-md;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.88;
+  }
+}
+
+// ── LABEL ─────────────────────────────────────
+.taller-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: $gris-texto;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 1rem;
+}
+
+// ── GRID DE SERVICIOS ─────────────────────────
+.taller-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+
+  @media (max-width: $bp-tablet) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.taller-card {
+  background: $blanco;
+  border: 0.5px solid $gris-medio;
+  border-radius: $radius-lg;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+
+  h2 {
+    font-size: 15px;
+    font-weight: 500;
+    color: $negro;
+    margin: 0 0 6px;
+  }
+
+  p {
+    font-size: 13px;
+    color: $gris-texto;
+    margin: 0 0 16px;
+    line-height: 1.6;
+    flex: 1;
+  }
+}
+
+.taller-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba($naranja, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  color: $naranja;
+}
+
+// ── PRECIO TAG ────────────────────────────────
+.taller-precio-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  background: $gris-claro;
+  color: $gris-texto;
+  padding: 3px 10px;
+  border-radius: 99px;
+  border: 0.5px solid $gris-medio;
+  align-self: flex-start;
+}
+
+// ── COMBO ─────────────────────────────────────
+.taller-combo {
+  background: $gris-claro;
+  border-radius: $radius-lg;
+  padding: 1.75rem 2rem;
+}
+
+.taller-combo-inner {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+
+  h2 {
+    font-size: 14px;
+    font-weight: 500;
+    color: $negro;
+    margin: 0 0 4px;
+  }
+
+  p {
+    font-size: 13px;
+    color: $gris-texto;
+    margin: 0;
+    line-height: 1.5;
+  }
+}
+
+.taller-combo-texto {
+  flex: 1;
+  min-width: 200px;
+}
+
+// ── CTA FINAL ─────────────────────────────────
+.taller-cta {
+  background: $azul;
+  border-radius: $radius-lg;
+  padding: 1.75rem;
+  text-align: center;
+}
+
+.taller-cta-title {
+  font-size: 22px;
+  font-weight: 500;
+  color: $blanco;
+  margin: 0 0 0.5rem;
+}
+
+.taller-cta-desc {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0 0 1.5rem;
+}
+
+.taller-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: $verde-wa;
+  color: $blanco;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 24px;
+  border-radius: $radius-md;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.88;
+  }
+}
