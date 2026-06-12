@@ -1,15 +1,17 @@
 // =============================================
 // SERVIDOR — Rental Pro Shop
 // =============================================
-require("dotenv").config({ path: require("path").resolve(__dirname, "../.env") });
+require("dotenv").config({
+  path: require("path").resolve(__dirname, "../.env"),
+});
 
-const express    = require("express");
-const cors       = require("cors");
-const helmet     = require("helmet");
-const rateLimit  = require("express-rate-limit");
+const express = require("express");
+const cors = require("cors");
+const helmet = require("helmet");
+const rateLimit = require("express-rate-limit");
 const { Resend } = require("resend");
 
-const app    = express();
+const app = express();
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 // ── CORS ──────────────────────────────────────
@@ -35,7 +37,7 @@ const corsOptions = {
       callback(new Error(`Origen no permitido por CORS: ${origin}`));
     }
   },
-  methods: ["POST"],       // Solo necesitamos POST
+  methods: ["POST"], // Solo necesitamos POST
   allowedHeaders: ["Content-Type"],
 };
 
@@ -63,7 +65,9 @@ const limiterReserva = rateLimit({
   max: 5,
   standardHeaders: true,
   legacyHeaders: false,
-  message: { error: "Límite de reservas alcanzado. Intentá de nuevo en 1 hora." },
+  message: {
+    error: "Límite de reservas alcanzado. Intentá de nuevo en 1 hora.",
+  },
 });
 
 // Límite estricto para /contacto: máx 5 mensajes por IP por hora
@@ -72,7 +76,9 @@ const limiterContacto = rateLimit({
   max: 5,
   standardHeaders: true,
   legacyHeaders: false,
-  message: { error: "Límite de mensajes alcanzado. Intentá de nuevo en 1 hora." },
+  message: {
+    error: "Límite de mensajes alcanzado. Intentá de nuevo en 1 hora.",
+  },
 });
 
 app.use(limiterGeneral);
@@ -105,7 +111,12 @@ function formatPrecio(num) {
 app.post("/reserva", limiterReserva, async (req, res) => {
   const raw = req.body;
 
-  if (!raw.nombre || !raw.email || !raw.esquiadores || raw.esquiadores.length === 0) {
+  if (
+    !raw.nombre ||
+    !raw.email ||
+    !raw.esquiadores ||
+    raw.esquiadores.length === 0
+  ) {
     return res.status(400).json({ error: "Faltan datos obligatorios" });
   }
 
@@ -118,32 +129,42 @@ app.post("/reserva", limiterReserva, async (req, res) => {
   const { esquiadores, total_reserva } = raw;
 
   try {
-    const detalleEsquiadores = esquiadores.map((esq, i) => {
-      const s = sanitizar(esq);
-      const items = [];
-      const esNino = s.edad === "nino";
-      const pack =
-        s.tipo === "ski"
-          ? esNino ? "Pack Ski Junior" : "Pack Ski Adulto"
-          : esNino ? "Pack Snowboard Junior" : "Pack Snowboard Adulto";
+    const detalleEsquiadores = esquiadores
+      .map((esq, i) => {
+        const s = sanitizar(esq);
+        const items = [];
+        const esNino = s.edad === "nino";
+        const TIPO_LABELS = {
+          ski: esNino ? "Pack Ski Junior" : "Pack Ski Adulto",
+          snow: esNino ? "Pack Snowboard Junior" : "Pack Snowboard Adulto",
+          solo_ski: esNino ? "Solo Esquí Junior" : "Solo Esquí Adulto",
+          solo_snow: esNino ? "Solo Snowboard Junior" : "Solo Snowboard Adulto",
+          solo_bota_ski: "Solo Bota de Ski",
+          solo_bota_snow: "Solo Bota de Snowboard",
+        };
+        const pack = TIPO_LABELS[s.tipo] || "";
+        if (pack) items.push(pack);
+        if (s.casco) items.push(`Casco talle ${s.talleCasco}`);
+        if (s.antiparras) items.push(`Antiparras talle ${s.talleAntiparras}`);
+        if (s.guantes) items.push(`Guantes talle ${s.talleGuantes}`);
+        if (s.botas_preski) items.push("Botas Preski");
+        if (s.campera)
+          items.push(
+            `Campera ${esNino ? "niño" : "adulto"} talle ${s.talleCampera}`,
+          );
+        if (s.pantalon_adulto)
+          items.push(`Pantalón adulto talle ${s.tallePantalon}`);
+        if (s.pantalon_nino)
+          items.push(`Pantalón/Enterito niño talle ${s.tallePantalon_nino}`);
+        if (s.combo_adulto) items.push("Campera + Pantalón adulto (combo)");
+        if (s.combo_nino) items.push("Campera + Pantalón niño (combo)");
 
-      items.push(pack);
-      if (s.casco)          items.push(`Casco talle ${s.talleCasco}`);
-      if (s.antiparras)     items.push(`Antiparras talle ${s.talleAntiparras}`);
-      if (s.guantes)        items.push(`Guantes talle ${s.talleGuantes}`);
-      if (s.botas_preski)   items.push("Botas Preski");
-      if (s.campera)        items.push(`Campera ${esNino ? "niño" : "adulto"} talle ${s.talleCampera}`);
-      if (s.pantalon_adulto) items.push(`Pantalón adulto talle ${s.tallePantalon}`);
-      if (s.pantalon_nino)  items.push(`Pantalón/Enterito niño talle ${s.tallePantalon_nino}`);
-      if (s.combo_adulto)   items.push("Campera + Pantalón adulto (combo)");
-      if (s.combo_nino)     items.push("Campera + Pantalón niño (combo)");
+        const fechas =
+          s.fecha_inicio && s.fecha_fin
+            ? `${s.fecha_inicio} al ${s.fecha_fin}`
+            : "Sin fechas indicadas";
 
-      const fechas =
-        s.fecha_inicio && s.fecha_fin
-          ? `${s.fecha_inicio} al ${s.fecha_fin}`
-          : "Sin fechas indicadas";
-
-      return `
+        return `
         <div style="background:#fff;border-radius:8px;padding:16px;margin-bottom:12px;border-left:4px solid #1b35c4">
           <p style="margin:0 0 8px;font-weight:700;color:#111">
             Esquiador ${i + 1}${s.nombre ? ` — ${s.nombre}` : ""}
@@ -156,7 +177,8 @@ app.post("/reserva", limiterReserva, async (req, res) => {
           </ul>
         </div>
       `;
-    }).join("");
+      })
+      .join("");
 
     // Email al negocio
     await resend.emails.send({
@@ -236,7 +258,6 @@ app.post("/reserva", limiterReserva, async (req, res) => {
     });
 
     res.json({ ok: true, mensaje: "Reserva enviada correctamente" });
-
   } catch (error) {
     console.error("❌ Error al enviar mail:", error.message);
     res.status(500).json({ error: "Error al enviar mail. Intentá de nuevo." });
@@ -283,7 +304,6 @@ app.post("/contacto", limiterContacto, async (req, res) => {
     });
 
     res.json({ ok: true, mensaje: "Mensaje enviado correctamente" });
-
   } catch (error) {
     console.error("❌ Error al enviar mail:", error.message);
     res.status(500).json({ error: "Error al enviar mail. Intentá de nuevo." });
