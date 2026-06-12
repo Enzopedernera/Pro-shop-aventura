@@ -4385,7 +4385,7 @@ textarea {
 }
 
 .taller-card {
-  background: #ffffff;
+  background: #F8FAFC;
   border: 0.5px solid #E2E8F0;
   border-radius: 14px;
   padding: 1.75rem;
@@ -4434,6 +4434,8 @@ textarea {
   background: #F8FAFC;
   border-radius: 14px;
   padding: 1.75rem 2rem;
+  border-left: 3px solid #F97316;
+  margin-top: -16px;
 }
 
 .taller-combo-inner {
@@ -4495,6 +4497,55 @@ textarea {
 }
 .taller-cta-btn:hover {
   opacity: 0.88;
+}
+
+.taller-grid--4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+@media (max-width: 900px) {
+  .taller-grid--4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 768px) {
+  .taller-grid--4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.taller-precios {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: auto;
+}
+
+.taller-precio-item {
+  font-size: 12px;
+  color: #64748B;
+  background: #F8FAFC;
+  border: 0.5px solid #E2E8F0;
+  border-radius: 6px;
+  padding: 4px 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.taller-precio-item strong {
+  color: #111111;
+  font-weight: 600;
+}
+.taller-precio-item--full {
+  width: 100%;
+}
+
+.taller-combo-precios {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.taller-combo-precios .taller-precio-item {
+  min-width: 160px;
 }
 
 /*# sourceMappingURL=styles.css.map */

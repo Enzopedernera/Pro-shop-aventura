@@ -121,7 +121,7 @@
 }
 
 .taller-card {
-  background: $blanco;
+  background: $gris-claro;
   border: 0.5px solid $gris-medio;
   border-radius: $radius-lg;
   padding: 1.75rem;
@@ -174,6 +174,8 @@
   background: $gris-claro;
   border-radius: $radius-lg;
   padding: 1.75rem 2rem;
+   border-left: 3px solid $naranja;
+  margin-top: -$espaciado-md; 
 }
 
 .taller-combo-inner {
@@ -238,5 +240,56 @@
 
   &:hover {
     opacity: 0.88;
+  }
+}
+// ── PRECIOS EN CARDS ──────────────────────────
+.taller-grid--4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  @media (max-width: $bp-desktop) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (max-width: $bp-tablet) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.taller-precios {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: auto;
+}
+
+.taller-precio-item {
+  font-size: 12px;
+  color: $gris-texto;
+  background: $gris-claro;
+  border: 0.5px solid $gris-medio;
+  border-radius: 6px;
+  padding: 4px 10px;
+  display: flex;
+  justify-content: space-between;
+
+  strong {
+    color: $negro;
+    font-weight: 600;
+  }
+
+  &--full {
+    width: 100%;
+  }
+}
+
+// ── COMBO PRECIOS ─────────────────────────────
+.taller-combo-precios {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex-shrink: 0;
+
+  .taller-precio-item {
+    min-width: 160px;
   }
 }
