@@ -3086,6 +3086,17 @@ textarea {
 .tarifas-aviso p strong {
   color: #0C2D4E;
 }
+@media (max-width: 1024px) {
+  .tarifas-aviso {
+    padding: 0 16px;
+  }
+  .tarifas-aviso-inner {
+    padding: 14px 18px;
+  }
+  .tarifas-aviso p {
+    font-size: 0.9rem;
+  }
+}
 
 .nosotros-hero {
   position: relative;

@@ -102,4 +102,15 @@
       color: $azul;
     }
   }
+@media (max-width: 1024px) {
+    padding: 0 16px;
+
+    &-inner {
+      padding: 14px 18px;
+    }
+
+    p {
+      font-size: 0.9rem;
+    }
+  }
 }
