@@ -3723,6 +3723,7 @@ textarea {
   justify-content: center;
   z-index: 2000;
   padding: 20px;
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
 }
 
@@ -4211,6 +4212,7 @@ textarea {
   padding: 4px 12px;
   border-radius: 20px;
   margin-bottom: 12px;
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
 }
 
@@ -4225,6 +4227,7 @@ textarea {
   border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 24px;
   padding: 8px 20px;
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   transition: background 0.2s ease, border-color 0.2s ease;
 }

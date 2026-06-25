@@ -240,7 +240,7 @@ app.post("/reserva", limiterReserva, async (req, res) => {
     await resend.emails.send({
       from:    "Aventura Pro Shop <reservas@proshoprental.com>",
       replyTo: email,
-      to:      "consultas@proshopaventura.com",
+      to:      "rental@proshopaventura.com",
       subject: `Nueva reserva — ${nombre} · Nº ${numero}`,
       html: `
         <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto">
@@ -294,7 +294,7 @@ app.post("/reserva", limiterReserva, async (req, res) => {
               <h2 style="margin:0 0 12px;font-size:16px;color:#111">📍 Contacto</h2>
               <p style="margin:4px 0">Av. Arrayanes 173, Villa La Angostura</p>
               <p style="margin:4px 0">WhatsApp: <a href="https://wa.me/5492944646730">+54 9 2944 646730</a></p>
-              <p style="margin:4px 0">Email: consultas@proshopaventura.com</p>
+              <p style="margin:4px 0">Email: rental@proshopaventura.com</p>
             </div>
           </div>
           <div style="padding:16px;text-align:center;background:#111;color:rgba(255,255,255,0.5);font-size:12px">
@@ -328,7 +328,7 @@ app.post("/contacto", limiterContacto, async (req, res) => {
     await resend.emails.send({
       from:    "Aventura Pro Shop <reservas@proshoprental.com>",
       replyTo: email,
-      to:      "consultas@proshopaventura.com",
+      to:      "rental@proshopaventura.com",
       subject: `Nuevo mensaje — ${nombre}`,
       html: `
         <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto">
