@@ -254,7 +254,7 @@ app.post("/reserva", limiterReserva, async (req, res) => {
               <p style="margin:4px 0"><strong>Nombre:</strong> ${nombre}</p>
               <p style="margin:4px 0"><strong>Email:</strong> ${email}</p>
               <p style="margin:4px 0"><strong>Teléfono:</strong> ${telefono || "No indicado"}</p>
-              <p style="margin:4px 0"><strong>DNI:</strong> ${dni || "No indicado"}</p>
+              <p style="margin:4px 0"><strong>DNI / Pasaporte:</strong> ${dni || "No indicado"}</p>
               ${notas ? `<p style="margin:8px 0 0"><strong>Notas:</strong> ${notas}</p>` : ""}
             </div>
             <div style="background:#f5f7fa;border-radius:8px;padding:16px;margin-bottom:16px">
