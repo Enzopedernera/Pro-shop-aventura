@@ -565,12 +565,6 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      // #2 Al menos un esquiador con equipo
-      const sinEquipo = esquiadores.every(esq => !esq.tipo);
-      if (sinEquipo) {
-        mostrarToast("Seleccioná al menos un equipo para continuar.", "warning");
-        return;
-      }
 
       // #4 Validar fechas completas y coherentes
       const FECHA_RE = /^\d{4}-\d{2}-\d{2}$/;
